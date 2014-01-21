@@ -1,33 +1,23 @@
-Model {
-  Name			  "quadricopter"
+Library {
+  Name			  "quad_lib"
   Version		  7.4
   MdlSubVersion		  0
-  GraphicalInterface {
-    NumRootInports	    0
-    NumRootOutports	    0
-    ParameterArgumentNames  ""
-    ComputedModelVersion    "1.78"
-    NumModelReferences	    0
-    NumTestPointedSignals   0
-  }
   SavedCharacterEncoding  "UTF-8"
+  LibraryType		  "BlockLibrary"
   SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
-  DataTypeOverride	  "UseLocalSettings"
-  MinMaxOverflowLogging	  "UseLocalSettings"
-  MinMaxOverflowArchiveMode "Overwrite"
   MaxMDLFileLineLength	  120
-  Created		  "Mon Jan 20 11:51:13 2014"
+  Created		  "Tue Jan 21 10:13:11 2014"
   Creator		  "diogo"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "diogo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jan 21 10:04:54 2014"
-  RTWModifiedTimeStamp	  312199488
-  ModelVersionFormat	  "1.%<AutoIncrement:78>"
+  LastModifiedDate	  "Tue Jan 21 10:13:56 2014"
+  RTWModifiedTimeStamp	  312200011
+  ModelVersionFormat	  "1.%<AutoIncrement:1>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -55,12 +45,6 @@ Model {
   LinearizationMsg	  "none"
   Profile		  off
   ParamWorkspaceSource	  "MATLABWorkspace"
-  AccelSystemTargetFile	  "accel.tlc"
-  AccelTemplateMakefile	  "accel_default_tmf"
-  AccelMakeCommand	  "make_rtw"
-  TryForcingSFcnDF	  off
-  RecordCoverage	  off
-  CovPath		  "/"
   CovSaveName		  "covdata"
   CovMetricSettings	  "dw"
   CovNameIncrementing	  off
@@ -68,7 +52,6 @@ Model {
   CovForceBlockReductionOff on
   covSaveCumulativeToWorkspaceVar on
   CovSaveSingleToWorkspaceVar on
-  CovCumulativeVarName	  "covCumulativeData"
   CovCumulativeReport	  off
   CovReportOnPause	  on
   CovModelRefEnable	  "Off"
@@ -94,7 +77,6 @@ Model {
   ExtModeSkipDownloadWhenConnect off
   ExtModeLogAll		  on
   ExtModeAutoUpdateStatusClock on
-  BufferReuse		  on
   ShowModelReferenceBlockVersion off
   ShowModelReferenceBlockIO off
   Array {
@@ -110,9 +92,9 @@ Model {
 	  $ObjectID		  2
 	  Version		  "1.6.0"
 	  StartTime		  "0.0"
-	  StopTime		  "10"
+	  StopTime		  "10.0"
 	  AbsTol		  "auto"
-	  FixedStep		  "0.0005"
+	  FixedStep		  "auto"
 	  InitialStep		  "auto"
 	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
@@ -124,10 +106,10 @@ Model {
 	  MaxStep		  "auto"
 	  MinStep		  "auto"
 	  MaxConsecutiveMinStep	  "1"
-	  RelTol		  "1e-5"
+	  RelTol		  "1e-3"
 	  SolverMode		  "Auto"
-	  Solver		  "ode3"
-	  SolverName		  "ode3"
+	  Solver		  "ode45"
+	  SolverName		  "ode45"
 	  ShapePreserveControl	  "DisableAll"
 	  ZeroCrossControl	  "UseLocalSettings"
 	  ZeroCrossAlgorithm	  "Nonadaptive"
@@ -145,7 +127,7 @@ Model {
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
 	  InitialState		  "xInitial"
-	  LimitDataPoints	  off
+	  LimitDataPoints	  on
 	  MaxDataPoints		  "1000"
 	  LoadExternalInput	  off
 	  LoadInitialState	  off
@@ -546,13 +528,9 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 318, 150, 1289, 896 ] "
+      ConfigPrmDlgPosition    " [ 360, 135, 1240, 765 ] "
     }
     PropName		    "ConfigurationSets"
-  }
-  Simulink.ConfigSet {
-    $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    1
   }
   BlockDefaults {
     ForegroundColor	    "black"
@@ -720,15 +698,6 @@ Model {
       SampleTime	      "-1"
     }
     Block {
-      BlockType		      Step
-      Time		      "1"
-      Before		      "0"
-      After		      "1"
-      SampleTime	      "-1"
-      VectorParams1D	      on
-      ZeroCross		      on
-    }
-    Block {
       BlockType		      SubSystem
       ShowPortLabels	      "FromPortIcon"
       Permissions	      "ReadWrite"
@@ -768,8 +737,8 @@ Model {
     }
   }
   System {
-    Name		    "quadricopter"
-    Location		    [65, 53, 1600, 900]
+    Name		    "quad_lib"
+    Location		    [66, 81, 833, 900]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -781,15 +750,15 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "146"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    221
+    SIDHighWatermark	    100
     Block {
       BlockType		      SubSystem
       Name		      "Quad"
-      SID		      11
+      SID		      1
       Ports		      [4, 6]
-      Position		      [295, 175, 350, 305]
+      Position		      [130, 80, 185, 210]
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -799,8 +768,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Quad"
-	Location		[66, 81, 1601, 928]
-	Open			on
+	Location		[65, 53, 1600, 900]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -815,7 +784,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "u1"
-	  SID			  13
+	  SID			  2
 	  Position		  [25, 28, 55, 42]
 	  IconDisplay		  "Port number"
 	  OutDataType		  "fixdt(1, 16)"
@@ -824,7 +793,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "u2"
-	  SID			  15
+	  SID			  3
 	  Position		  [25, 73, 55, 87]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -834,7 +803,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "u3"
-	  SID			  17
+	  SID			  4
 	  Position		  [25, 118, 55, 132]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -844,7 +813,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "u4"
-	  SID			  19
+	  SID			  5
 	  Position		  [25, 163, 55, 177]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
@@ -854,7 +823,7 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  "Demux"
-	  SID			  212
+	  SID			  6
 	  Ports			  [1, 3]
 	  Position		  [685, 232, 690, 328]
 	  ShowName		  off
@@ -864,7 +833,7 @@ Model {
 	Block {
 	  BlockType		  Mux
 	  Name			  "Mux"
-	  SID			  106
+	  SID			  7
 	  Ports			  [3, 1]
 	  Position		  [325, 204, 330, 406]
 	  ShowName		  off
@@ -874,7 +843,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Quaternions to Rotation Angles"
-	  SID			  211
+	  SID			  8
 	  Ports			  [1, 1]
 	  Position		  [600, 259, 655, 301]
 	  ShowName		  off
@@ -895,7 +864,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Rotational part"
-	  SID			  42
+	  SID			  9
 	  Ports			  [2, 1]
 	  Position		  [430, 253, 505, 362]
 	  MinAlgLoopOccurrences	  off
@@ -907,8 +876,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Rotational part"
-	    Location		    [66, 81, 1601, 928]
-	    Open		    on
+	    Location		    [65, 53, 1600, 900]
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -923,7 +892,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "q"
-	      SID		      46
+	      SID		      10
 	      Position		      [30, 108, 60, 122]
 	      IconDisplay	      "Port number"
 	      OutDataType	      "fixdt(1, 16)"
@@ -932,7 +901,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "Torque"
-	      SID		      156
+	      SID		      11
 	      Position		      [30, 243, 60, 257]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -942,7 +911,7 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      "Demux"
-	      SID		      157
+	      SID		      12
 	      Ports		      [1, 3]
 	      Position		      [125, 231, 130, 269]
 	      ShowName		      off
@@ -952,7 +921,7 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      "Demux1"
-	      SID		      137
+	      SID		      13
 	      Ports		      [1, 4]
 	      Position		      [125, 81, 130, 144]
 	      ShowName		      off
@@ -961,7 +930,7 @@ Model {
 	    Block {
 	      BlockType		      Integrator
 	      Name		      "Integrator"
-	      SID		      174
+	      SID		      14
 	      Ports		      [1, 1]
 	      Position		      [430, 88, 450, 112]
 	      ShowName		      off
@@ -970,7 +939,7 @@ Model {
 	    Block {
 	      BlockType		      Integrator
 	      Name		      "Integrator1"
-	      SID		      182
+	      SID		      15
 	      Ports		      [1, 1]
 	      Position		      [430, 113, 450, 137]
 	      ShowName		      off
@@ -978,7 +947,7 @@ Model {
 	    Block {
 	      BlockType		      Integrator
 	      Name		      "Integrator2"
-	      SID		      183
+	      SID		      16
 	      Ports		      [1, 1]
 	      Position		      [430, 138, 450, 162]
 	      ShowName		      off
@@ -986,7 +955,7 @@ Model {
 	    Block {
 	      BlockType		      Integrator
 	      Name		      "Integrator3"
-	      SID		      184
+	      SID		      17
 	      Ports		      [1, 1]
 	      Position		      [430, 163, 450, 187]
 	      ShowName		      off
@@ -994,7 +963,7 @@ Model {
 	    Block {
 	      BlockType		      Mux
 	      Name		      "Mux"
-	      SID		      185
+	      SID		      18
 	      Ports		      [4, 1]
 	      Position		      [515, 87, 520, 188]
 	      ShowName		      off
@@ -1003,7 +972,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Quat to new_dot"
-	      SID		      145
+	      SID		      19
 	      Ports		      [7, 4]
 	      Position		      [320, 87, 400, 183]
 	      MinAlgLoopOccurrences   off
@@ -1031,7 +1000,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "q0"
-		  SID			  146
+		  SID			  20
 		  Position		  [25, 28, 55, 42]
 		  IconDisplay		  "Port number"
 		  OutDataType		  "fixdt(1, 16)"
@@ -1040,7 +1009,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "qv1"
-		  SID			  148
+		  SID			  21
 		  Position		  [25, 63, 55, 77]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -1050,7 +1019,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "qv2"
-		  SID			  150
+		  SID			  22
 		  Position		  [25, 93, 55, 107]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -1060,7 +1029,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "qv3"
-		  SID			  152
+		  SID			  23
 		  Position		  [25, 128, 55, 142]
 		  Port			  "4"
 		  IconDisplay		  "Port number"
@@ -1070,7 +1039,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "wx"
-		  SID			  153
+		  SID			  24
 		  Position		  [25, 173, 55, 187]
 		  Port			  "5"
 		  IconDisplay		  "Port number"
@@ -1080,7 +1049,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "wy"
-		  SID			  154
+		  SID			  25
 		  Position		  [25, 213, 55, 227]
 		  Port			  "6"
 		  IconDisplay		  "Port number"
@@ -1090,7 +1059,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "wz"
-		  SID			  155
+		  SID			  26
 		  Position		  [25, 248, 55, 262]
 		  Port			  "7"
 		  IconDisplay		  "Port number"
@@ -1100,35 +1069,35 @@ Model {
 		Block {
 		  BlockType		  Fcn
 		  Name			  "Fcn"
-		  SID			  186
+		  SID			  27
 		  Position		  [230, 91, 275, 109]
 		  Expr			  "-0.5*(u(2)*u(5)+u(3)*u(6)+u(4)*u(7))"
 		}
 		Block {
 		  BlockType		  Fcn
 		  Name			  "Fcn1"
-		  SID			  188
+		  SID			  28
 		  Position		  [230, 126, 275, 144]
 		  Expr			  "0.5*(u(1)*u(5)-u(4)*u(6)-u(3)*u(7))"
 		}
 		Block {
 		  BlockType		  Fcn
 		  Name			  "Fcn2"
-		  SID			  189
+		  SID			  29
 		  Position		  [230, 166, 275, 184]
 		  Expr			  "0.5*(u(4)*u(5)+u(1)*u(6)-u(2)*u(7))"
 		}
 		Block {
 		  BlockType		  Fcn
 		  Name			  "Fcn3"
-		  SID			  190
+		  SID			  30
 		  Position		  [230, 211, 275, 229]
 		  Expr			  "0.5*(u(3)*u(5)+u(2)*u(6)+u(1)*u(7))"
 		}
 		Block {
 		  BlockType		  Mux
 		  Name			  "Mux"
-		  SID			  187
+		  SID			  31
 		  Ports			  [7, 1]
 		  Position		  [120, 58, 125, 212]
 		  ShowName		  off
@@ -1138,7 +1107,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "q0_dot"
-		  SID			  147
+		  SID			  32
 		  Position		  [305, 93, 335, 107]
 		  IconDisplay		  "Port number"
 		  OutDataType		  "fixdt(1, 16)"
@@ -1147,7 +1116,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "qv1_dot"
-		  SID			  176
+		  SID			  33
 		  Position		  [305, 128, 335, 142]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -1157,7 +1126,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "qv2_dot"
-		  SID			  177
+		  SID			  34
 		  Position		  [310, 168, 340, 182]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -1167,7 +1136,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "qv3_dot"
-		  SID			  178
+		  SID			  35
 		  Position		  [310, 213, 340, 227]
 		  Port			  "4"
 		  IconDisplay		  "Port number"
@@ -1277,12 +1246,12 @@ Model {
 	    Block {
 	      BlockType		      Scope
 	      Name		      "Scope"
-	      SID		      206
+	      SID		      36
 	      Ports		      [1]
 	      Position		      [490, 199, 520, 231]
 	      Floating		      off
 	      Location		      [188, 390, 512, 629]
-	      Open		      on
+	      Open		      off
 	      NumInputPorts	      "1"
 	      List {
 		ListType		AxesTitles
@@ -1296,12 +1265,12 @@ Model {
 	    Block {
 	      BlockType		      Scope
 	      Name		      "Scope1"
-	      SID		      207
+	      SID		      37
 	      Ports		      [1]
 	      Position		      [515, 24, 545, 56]
 	      Floating		      off
 	      Location		      [188, 390, 512, 629]
-	      Open		      on
+	      Open		      off
 	      NumInputPorts	      "1"
 	      List {
 		ListType		AxesTitles
@@ -1315,12 +1284,12 @@ Model {
 	    Block {
 	      BlockType		      Scope
 	      Name		      "Scope2"
-	      SID		      208
+	      SID		      38
 	      Ports		      [1]
 	      Position		      [485, 254, 515, 286]
 	      Floating		      off
 	      Location		      [188, 390, 512, 629]
-	      Open		      on
+	      Open		      off
 	      NumInputPorts	      "1"
 	      List {
 		ListType		AxesTitles
@@ -1334,14 +1303,14 @@ Model {
 	    Block {
 	      BlockType		      Scope
 	      Name		      "Scope3"
-	      SID		      209
+	      SID		      39
 	      Ports		      [1]
 	      Position		      [405, 14, 435, 46]
 	      BlockMirror	      on
 	      NamePlacement	      "alternate"
 	      Floating		      off
 	      Location		      [188, 390, 512, 629]
-	      Open		      on
+	      Open		      off
 	      NumInputPorts	      "1"
 	      List {
 		ListType		AxesTitles
@@ -1355,12 +1324,12 @@ Model {
 	    Block {
 	      BlockType		      Scope
 	      Name		      "Scope4"
-	      SID		      210
+	      SID		      40
 	      Ports		      [1]
 	      Position		      [360, 264, 390, 296]
 	      Floating		      off
 	      Location		      [188, 390, 512, 629]
-	      Open		      on
+	      Open		      off
 	      NumInputPorts	      "1"
 	      List {
 		ListType		AxesTitles
@@ -1374,7 +1343,7 @@ Model {
 	    Block {
 	      BlockType		      Scope
 	      Name		      "Scope5"
-	      SID		      220
+	      SID		      41
 	      Ports		      [1]
 	      Position		      [360, 219, 390, 251]
 	      Floating		      off
@@ -1393,7 +1362,7 @@ Model {
 	    Block {
 	      BlockType		      Scope
 	      Name		      "Scope6"
-	      SID		      221
+	      SID		      42
 	      Ports		      [1]
 	      Position		      [360, 324, 390, 356]
 	      Floating		      off
@@ -1412,7 +1381,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Torque to angular accel"
-	      SID		      158
+	      SID		      43
 	      Ports		      [3, 3]
 	      Position		      [185, 206, 260, 294]
 	      MinAlgLoopOccurrences   off
@@ -1440,7 +1409,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "Torque1"
-		  SID			  159
+		  SID			  44
 		  Position		  [25, 33, 55, 47]
 		  IconDisplay		  "Port number"
 		  OutDataType		  "fixdt(1, 16)"
@@ -1449,7 +1418,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "Torque2"
-		  SID			  160
+		  SID			  45
 		  Position		  [25, 178, 55, 192]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -1459,7 +1428,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "Torque3"
-		  SID			  161
+		  SID			  46
 		  Position		  [25, 238, 55, 252]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -1469,28 +1438,28 @@ Model {
 		Block {
 		  BlockType		  Fcn
 		  Name			  "Fcn"
-		  SID			  162
+		  SID			  47
 		  Position		  [235, 35, 295, 65]
 		  Expr			  "-1/J_x*(J_y*u(3)*u(2)+J_z*u(3)*u(2)-u(1))"
 		}
 		Block {
 		  BlockType		  Fcn
 		  Name			  "Fcn1"
-		  SID			  163
+		  SID			  48
 		  Position		  [235, 180, 295, 210]
 		  Expr			  "1/J_y*(J_x*u(2)*u(3)-J_z*u(2)*u(3)+u(1))"
 		}
 		Block {
 		  BlockType		  Fcn
 		  Name			  "Fcn2"
-		  SID			  164
+		  SID			  49
 		  Position		  [235, 240, 295, 270]
 		  Expr			  "1/J_z*(J_x*u(2)*u(3)+J_y*u(2)*u(3)+u(1))"
 		}
 		Block {
 		  BlockType		  Mux
 		  Name			  "Mux"
-		  SID			  165
+		  SID			  50
 		  Ports			  [3, 1]
 		  Position		  [185, 31, 190, 69]
 		  ShowName		  off
@@ -1500,7 +1469,7 @@ Model {
 		Block {
 		  BlockType		  Mux
 		  Name			  "Mux1"
-		  SID			  166
+		  SID			  51
 		  Ports			  [3, 1]
 		  Position		  [170, 176, 175, 214]
 		  ShowName		  off
@@ -1510,7 +1479,7 @@ Model {
 		Block {
 		  BlockType		  Mux
 		  Name			  "Mux2"
-		  SID			  167
+		  SID			  52
 		  Ports			  [3, 1]
 		  Position		  [170, 236, 175, 274]
 		  ShowName		  off
@@ -1520,7 +1489,7 @@ Model {
 		Block {
 		  BlockType		  Scope
 		  Name			  "Scope"
-		  SID			  203
+		  SID			  53
 		  Ports			  [1]
 		  Position		  [515, 79, 545, 111]
 		  Floating		  off
@@ -1538,7 +1507,7 @@ Model {
 		Block {
 		  BlockType		  Scope
 		  Name			  "Scope1"
-		  SID			  204
+		  SID			  54
 		  Ports			  [1]
 		  Position		  [515, 169, 545, 201]
 		  Floating		  off
@@ -1556,7 +1525,7 @@ Model {
 		Block {
 		  BlockType		  Scope
 		  Name			  "Scope2"
-		  SID			  205
+		  SID			  55
 		  Ports			  [1]
 		  Position		  [515, 239, 545, 271]
 		  Floating		  off
@@ -1574,28 +1543,28 @@ Model {
 		Block {
 		  BlockType		  Integrator
 		  Name			  "w_x_dot"
-		  SID			  168
+		  SID			  56
 		  Ports			  [1, 1]
 		  Position		  [345, 35, 375, 65]
 		}
 		Block {
 		  BlockType		  Integrator
 		  Name			  "w_y_dot"
-		  SID			  169
+		  SID			  57
 		  Ports			  [1, 1]
 		  Position		  [345, 180, 375, 210]
 		}
 		Block {
 		  BlockType		  Integrator
 		  Name			  "w_z_dot"
-		  SID			  170
+		  SID			  58
 		  Ports			  [1, 1]
 		  Position		  [345, 240, 375, 270]
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "w_x"
-		  SID			  171
+		  SID			  59
 		  Position		  [420, 43, 450, 57]
 		  IconDisplay		  "Port number"
 		  OutDataType		  "fixdt(1, 16)"
@@ -1604,7 +1573,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "w_y"
-		  SID			  172
+		  SID			  60
 		  Position		  [420, 188, 450, 202]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -1614,7 +1583,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "w_z"
-		  SID			  173
+		  SID			  61
 		  Position		  [420, 248, 450, 262]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -1768,7 +1737,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "q_new"
-	      SID		      43
+	      SID		      62
 	      Position		      [565, 133, 595, 147]
 	      IconDisplay	      "Port number"
 	      OutDataType	      "fixdt(1, 16)"
@@ -1964,7 +1933,7 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum"
-	  SID			  23
+	  SID			  63
 	  Ports			  [4, 1]
 	  Position		  [155, 14, 195, 191]
 	  ShowName		  off
@@ -1979,7 +1948,7 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum1"
-	  SID			  107
+	  SID			  64
 	  Ports			  [2, 1]
 	  Position		  [115, 222, 150, 253]
 	  ShowName		  off
@@ -1994,7 +1963,7 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum2"
-	  SID			  110
+	  SID			  65
 	  Ports			  [2, 1]
 	  Position		  [115, 277, 150, 308]
 	  ShowName		  off
@@ -2009,7 +1978,7 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum3"
-	  SID			  111
+	  SID			  66
 	  Ports			  [4, 1]
 	  Position		  [190, 341, 225, 394]
 	  ShowName		  off
@@ -2024,7 +1993,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Transactional part"
-	  SID			  31
+	  SID			  67
 	  Ports			  [2, 3]
 	  Position		  [430, 85, 505, 165]
 	  MinAlgLoopOccurrences	  off
@@ -2052,7 +2021,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "T"
-	      SID		      34
+	      SID		      68
 	      Position		      [25, 48, 55, 62]
 	      IconDisplay	      "Port number"
 	      OutDataType	      "fixdt(1, 16)"
@@ -2061,7 +2030,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "q"
-	      SID		      37
+	      SID		      69
 	      Position		      [25, 103, 55, 117]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2071,7 +2040,7 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      62
+	      SID		      70
 	      Ports		      [2, 1]
 	      Position		      [315, 146, 335, 179]
 	      ShowName		      off
@@ -2085,7 +2054,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Thrust to accel"
-	      SID		      69
+	      SID		      71
 	      Ports		      [2, 3]
 	      Position		      [105, 24, 150, 136]
 	      MinAlgLoopOccurrences   off
@@ -2113,7 +2082,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "T"
-		  SID			  71
+		  SID			  72
 		  Position		  [40, 68, 70, 82]
 		  NamePlacement		  "alternate"
 		  IconDisplay		  "Port number"
@@ -2133,28 +2102,28 @@ Model {
 		Block {
 		  BlockType		  Fcn
 		  Name			  "Fcn"
-		  SID			  216
+		  SID			  74
 		  Position		  [285, 75, 345, 105]
 		  Expr			  "2*(u(2)*u(4)-u(5)*u(3))*u(1)/m"
 		}
 		Block {
 		  BlockType		  Fcn
 		  Name			  "Fcn1"
-		  SID			  218
+		  SID			  75
 		  Position		  [285, 150, 345, 180]
 		  Expr			  "2*(u(2)*u(3)+u(5)*u(4))*u(1)/m"
 		}
 		Block {
 		  BlockType		  Fcn
 		  Name			  "Fcn2"
-		  SID			  219
+		  SID			  76
 		  Position		  [285, 230, 345, 260]
 		  Expr			  "2*(u(4)^2+u(3)^2-0.5)*u(1)/m"
 		}
 		Block {
 		  BlockType		  Mux
 		  Name			  "Mux"
-		  SID			  217
+		  SID			  77
 		  Ports			  [2, 1]
 		  Position		  [185, 60, 190, 115]
 		  ShowName		  off
@@ -2164,7 +2133,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "vx_dot"
-		  SID			  70
+		  SID			  78
 		  Position		  [400, 83, 430, 97]
 		  IconDisplay		  "Port number"
 		  OutDataType		  "fixdt(1, 16)"
@@ -2173,7 +2142,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "vy_dot"
-		  SID			  72
+		  SID			  79
 		  Position		  [400, 158, 430, 172]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2183,7 +2152,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "vz_dot"
-		  SID			  74
+		  SID			  80
 		  Position		  [400, 238, 430, 252]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2251,7 +2220,7 @@ Model {
 	    Block {
 	      BlockType		      Constant
 	      Name		      "g"
-	      SID		      61
+	      SID		      81
 	      Position		      [25, 155, 55, 185]
 	      Value		      "g"
 	      OutDataType	      "fixdt(1, 16)"
@@ -2260,49 +2229,49 @@ Model {
 	    Block {
 	      BlockType		      Integrator
 	      Name		      "vx_dot"
-	      SID		      214
+	      SID		      82
 	      Ports		      [1, 1]
 	      Position		      [310, 30, 340, 60]
 	    }
 	    Block {
 	      BlockType		      Integrator
 	      Name		      "vy_dot"
-	      SID		      213
+	      SID		      83
 	      Ports		      [1, 1]
 	      Position		      [365, 65, 395, 95]
 	    }
 	    Block {
 	      BlockType		      Integrator
 	      Name		      "vz_dot"
-	      SID		      215
+	      SID		      84
 	      Ports		      [1, 1]
 	      Position		      [390, 150, 420, 180]
 	    }
 	    Block {
 	      BlockType		      Integrator
 	      Name		      "x_dot"
-	      SID		      22
+	      SID		      85
 	      Ports		      [1, 1]
 	      Position		      [470, 30, 500, 60]
 	    }
 	    Block {
 	      BlockType		      Integrator
 	      Name		      "y_dot"
-	      SID		      24
+	      SID		      86
 	      Ports		      [1, 1]
 	      Position		      [430, 65, 460, 95]
 	    }
 	    Block {
 	      BlockType		      Integrator
 	      Name		      "z_dot"
-	      SID		      25
+	      SID		      87
 	      Ports		      [1, 1]
 	      Position		      [470, 150, 500, 180]
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "x"
-	      SID		      33
+	      SID		      88
 	      Position		      [580, 38, 610, 52]
 	      IconDisplay	      "Port number"
 	      OutDataType	      "fixdt(1, 16)"
@@ -2311,7 +2280,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "y"
-	      SID		      36
+	      SID		      89
 	      Position		      [580, 73, 610, 87]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2321,7 +2290,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "z"
-	      SID		      39
+	      SID		      90
 	      Position		      [580, 158, 610, 172]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2413,7 +2382,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "bm"
-	  SID			  48
+	  SID			  91
 	  Position		  [240, 87, 280, 123]
 	  ShowName		  off
 	  Gain			  "bm"
@@ -2430,7 +2399,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "bm1"
-	  SID			  108
+	  SID			  92
 	  Position		  [185, 221, 235, 259]
 	  ShowName		  off
 	  Gain			  "d*bm"
@@ -2447,7 +2416,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "bm2"
-	  SID			  109
+	  SID			  93
 	  Position		  [185, 276, 235, 314]
 	  ShowName		  off
 	  Gain			  "d*bm"
@@ -2464,7 +2433,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "bm3"
-	  SID			  112
+	  SID			  94
 	  Position		  [250, 351, 300, 389]
 	  ShowName		  off
 	  Gain			  "km"
@@ -2481,7 +2450,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "x"
-	  SID			  50
+	  SID			  95
 	  Position		  [615, 93, 645, 107]
 	  NamePlacement		  "alternate"
 	  IconDisplay		  "Port number"
@@ -2491,7 +2460,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "y"
-	  SID			  51
+	  SID			  96
 	  Position		  [615, 118, 645, 132]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -2501,7 +2470,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "z"
-	  SID			  52
+	  SID			  97
 	  Position		  [570, 143, 600, 157]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -2511,7 +2480,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "roll"
-	  SID			  53
+	  SID			  98
 	  Position		  [740, 243, 770, 257]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
@@ -2521,7 +2490,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "pitch"
-	  SID			  54
+	  SID			  99
 	  Position		  [740, 273, 770, 287]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
@@ -2531,7 +2500,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "yaw"
-	  SID			  55
+	  SID			  100
 	  Position		  [740, 308, 770, 322]
 	  Port			  "6"
 	  IconDisplay		  "Port number"
@@ -2750,230 +2719,6 @@ Model {
 	  Position		  [377, 363]
 	}
       }
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Scope"
-      SID		      192
-      Ports		      [1]
-      Position		      [485, 89, 515, 121]
-      Floating		      off
-      Location		      [190, 418, 514, 657]
-      Open		      on
-      NumInputPorts	      "1"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-      }
-      DataFormat	      "StructureWithTime"
-      LimitDataPoints	      off
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Scope1"
-      SID		      193
-      Ports		      [1]
-      Position		      [485, 149, 515, 181]
-      Floating		      off
-      Location		      [536, 406, 860, 645]
-      Open		      off
-      NumInputPorts	      "1"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-      }
-      SaveName		      "ScopeData1"
-      DataFormat	      "StructureWithTime"
-      LimitDataPoints	      off
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Scope2"
-      SID		      194
-      Ports		      [1]
-      Position		      [485, 214, 515, 246]
-      Floating		      off
-      Location		      [391, 96, 715, 335]
-      Open		      off
-      NumInputPorts	      "1"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-      }
-      TimeRange		      "0.03999999999999981"
-      YMin		      "0"
-      YMax		      "2e+223"
-      SaveName		      "ScopeData2"
-      DataFormat	      "StructureWithTime"
-      LimitDataPoints	      off
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Scope3"
-      SID		      195
-      Ports		      [1]
-      Position		      [485, 274, 515, 306]
-      Floating		      off
-      Location		      [188, 390, 512, 629]
-      Open		      off
-      NumInputPorts	      "1"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-      }
-      TimeRange		      "0.3252032520325205"
-      YMin		      "-3.010863683662853"
-      YMax		      "0.1431841831425587"
-      SaveName		      "ScopeData3"
-      DataFormat	      "StructureWithTime"
-      LimitDataPoints	      off
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Scope4"
-      SID		      196
-      Ports		      [1]
-      Position		      [485, 334, 515, 366]
-      Floating		      off
-      Location		      [465, 473, 789, 712]
-      Open		      off
-      NumInputPorts	      "1"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-      }
-      SaveName		      "ScopeData4"
-      DataFormat	      "StructureWithTime"
-      LimitDataPoints	      off
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Scope5"
-      SID		      197
-      Ports		      [1]
-      Position		      [485, 394, 515, 426]
-      Floating		      off
-      Location		      [467, 170, 791, 409]
-      Open		      off
-      NumInputPorts	      "1"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-      }
-      SaveName		      "ScopeData5"
-      DataFormat	      "StructureWithTime"
-      LimitDataPoints	      off
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Step
-      Name		      "Step"
-      SID		      199
-      Position		      [130, 120, 160, 150]
-      Time		      "0"
-      After		      "u1"
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Step
-      Name		      "Step1"
-      SID		      200
-      Position		      [130, 195, 160, 225]
-      Time		      "0"
-      After		      "u2"
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Step
-      Name		      "Step2"
-      SID		      201
-      Position		      [130, 250, 160, 280]
-      Time		      "0"
-      After		      "u3"
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Step
-      Name		      "Step3"
-      SID		      202
-      Position		      [130, 325, 160, 355]
-      Time		      "0"
-      After		      "u4"
-      SampleTime	      "0"
-    }
-    Line {
-      SrcBlock		      "Quad"
-      SrcPort		      1
-      Points		      [55, 0; 0, -85]
-      DstBlock		      "Scope"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Quad"
-      SrcPort		      2
-      Points		      [115, 0]
-      DstBlock		      "Scope1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Quad"
-      SrcPort		      3
-      DstBlock		      "Scope2"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Quad"
-      SrcPort		      4
-      Points		      [55, 0; 0, 40]
-      DstBlock		      "Scope3"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Quad"
-      SrcPort		      5
-      Points		      [45, 0; 0, 80]
-      DstBlock		      "Scope4"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Quad"
-      SrcPort		      6
-      Points		      [35, 0; 0, 120]
-      DstBlock		      "Scope5"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Step"
-      SrcPort		      1
-      Points		      [55, 0; 0, 60]
-      DstBlock		      "Quad"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Step1"
-      SrcPort		      1
-      Points		      [55, 0; 0, 15]
-      DstBlock		      "Quad"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Step2"
-      SrcPort		      1
-      Points		      [55, 0; 0, -10]
-      DstBlock		      "Quad"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Step3"
-      SrcPort		      1
-      Points		      [55, 0; 0, -55]
-      DstBlock		      "Quad"
-      DstPort		      4
     }
   }
 }
