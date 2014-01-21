@@ -1,0 +1,22 @@
+%% PID value initializer
+
+%% initial orientation
+
+q = angle2quat(deg2rad(-21),deg2rad(26.4),deg2rad(-37),); % Yaw, Pitch, roll
+
+qo_i=q(1);
+qv1_i=q(2);
+qv2_i=q(3);
+qv3_i=q(4);
+
+%% Controller parameters
+
+K_roll=0.1;
+Ti_roll=0.000;
+Td_roll=0.05;
+K_pitch=0.1;
+Ti_pitch=0.000;
+Td_pitch=0.05;
+K_yaw=0.1;
+Ti_yaw=0.000;
+Td_yaw=0.05;
