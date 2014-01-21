@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.72"
+    ComputedModelVersion    "1.75"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -25,9 +25,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "diogo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jan 20 17:05:15 2014"
-  RTWModifiedTimeStamp	  312138284
-  ModelVersionFormat	  "1.%<AutoIncrement:72>"
+  LastModifiedDate	  "Tue Jan 21 09:35:26 2014"
+  RTWModifiedTimeStamp	  312197723
+  ModelVersionFormat	  "1.%<AutoIncrement:75>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -110,9 +110,9 @@ Model {
 	  $ObjectID		  2
 	  Version		  "1.6.0"
 	  StartTime		  "0.0"
-	  StopTime		  "2"
+	  StopTime		  "10"
 	  AbsTol		  "auto"
-	  FixedStep		  "auto"
+	  FixedStep		  "0.0001"
 	  InitialStep		  "auto"
 	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
@@ -126,8 +126,8 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-5"
 	  SolverMode		  "Auto"
-	  Solver		  "ode45"
-	  SolverName		  "ode45"
+	  Solver		  "ode3"
+	  SolverName		  "ode3"
 	  ShapePreserveControl	  "DisableAll"
 	  ZeroCrossControl	  "UseLocalSettings"
 	  ZeroCrossAlgorithm	  "Nonadaptive"
@@ -145,7 +145,7 @@ Model {
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
 	  InitialState		  "xInitial"
-	  LimitDataPoints	  on
+	  LimitDataPoints	  off
 	  MaxDataPoints		  "1000"
 	  LoadExternalInput	  off
 	  LoadInitialState	  off
@@ -546,7 +546,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 307, 122, 1298, 878 ] "
+      ConfigPrmDlgPosition    " [ 327, 122, 1276, 829 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -769,7 +769,7 @@ Model {
   }
   System {
     Name		    "quadricopter"
-    Location		    [66, 81, 1601, 928]
+    Location		    [65, 53, 1600, 900]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -799,7 +799,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Quad"
-	Location		[66, 81, 1601, 928]
+	Location		[65, 53, 1600, 900]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -907,7 +907,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Rotational part"
-	    Location		    [65, 53, 1600, 900]
+	    Location		    [66, 81, 1601, 928]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2758,6 +2758,7 @@ Model {
 	axes1			"%<SignalLabel>"
       }
       DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
       SampleTime	      "0"
     }
     Block {
@@ -2776,6 +2777,7 @@ Model {
       }
       SaveName		      "ScopeData1"
       DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
       SampleTime	      "0"
     }
     Block {
@@ -2797,6 +2799,7 @@ Model {
       YMax		      "2e+223"
       SaveName		      "ScopeData2"
       DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
       SampleTime	      "0"
     }
     Block {
@@ -2815,6 +2818,7 @@ Model {
       }
       SaveName		      "ScopeData3"
       DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
       SampleTime	      "0"
     }
     Block {
@@ -2833,6 +2837,7 @@ Model {
       }
       SaveName		      "ScopeData4"
       DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
       SampleTime	      "0"
     }
     Block {
@@ -2842,7 +2847,7 @@ Model {
       Ports		      [1]
       Position		      [485, 394, 515, 426]
       Floating		      off
-      Location		      [189, 392, 513, 631]
+      Location		      [89, 400, 413, 639]
       Open		      off
       NumInputPorts	      "1"
       List {
@@ -2851,6 +2856,7 @@ Model {
       }
       SaveName		      "ScopeData5"
       DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
       SampleTime	      "0"
     }
     Block {
@@ -2859,7 +2865,7 @@ Model {
       SID		      199
       Position		      [130, 120, 160, 150]
       Time		      "0"
-      After		      "0.005"
+      After		      "u1"
       SampleTime	      "0"
     }
     Block {
@@ -2868,7 +2874,7 @@ Model {
       SID		      200
       Position		      [130, 195, 160, 225]
       Time		      "0"
-      After		      "0.005"
+      After		      "u2"
       SampleTime	      "0"
     }
     Block {
@@ -2877,7 +2883,7 @@ Model {
       SID		      201
       Position		      [130, 250, 160, 280]
       Time		      "0"
-      After		      "0.005"
+      After		      "u3"
       SampleTime	      "0"
     }
     Block {
@@ -2886,7 +2892,7 @@ Model {
       SID		      202
       Position		      [130, 325, 160, 355]
       Time		      "0"
-      After		      "0.005"
+      After		      "u4"
       SampleTime	      "0"
     }
     Line {
