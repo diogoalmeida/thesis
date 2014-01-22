@@ -19,7 +19,7 @@ Library {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [64.0, -4.0, 1537.0, 905.0]
+      Location		      [65.0, 24.0, 1557.0, 915.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -28,7 +28,7 @@ Library {
 	DockPosition		"Left"
 	Width			[50]
 	Height			[50]
-	Filter			[8]
+	Filter			[9]
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -41,11 +41,11 @@ Library {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkTopLevel"
-	LoadSaveID		"0"
+	ViewObjType		"SimulinkSubsys"
+	LoadSaveID		"1"
 	Extents			[1499.0, 735.0]
-	ZoomFactor		[3.57]
-	Offset			[0.0, 0.0]
+	ZoomFactor		[1.4438876257155675]
+	Offset			[15.303954580217539, -29.521192269289582]
       }
     }
   }
@@ -55,9 +55,9 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "diogo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jan 22 16:24:17 2014"
-  RTWModifiedTimeStamp	  312308430
-  ModelVersionFormat	  "1.%<AutoIncrement:13>"
+  LastModifiedDate	  "Wed Jan 22 17:16:19 2014"
+  RTWModifiedTimeStamp	  312311778
+  ModelVersionFormat	  "1.%<AutoIncrement:15>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -883,8 +883,8 @@ Library {
   }
   System {
     Name		    "quad_lib"
-    Location		    [64, -4, 1601, 901]
-    Open		    on
+    Location		    [65, 24, 1622, 939]
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -897,13 +897,13 @@ Library {
     ShowPageBoundaries	    off
     ZoomFactor		    "357"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "226"
+    SIDHighWatermark	    "231"
     Block {
       BlockType		      SubSystem
       Name		      "PID_quad"
       SID		      "149"
       Ports		      [4, 4]
-      Position		      [195, 18, 255, 142]
+      Position		      [195, 503, 255, 627]
       ZOrder		      -1
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -2249,7 +2249,7 @@ Library {
       Name		      "Quad"
       SID		      "1"
       Ports		      [4, 4]
-      Position		      [25, 15, 130, 145]
+      Position		      [25, 17, 130, 1128]
       ZOrder		      -2
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -2260,8 +2260,8 @@ Library {
       MaskHideContents	      off
       System {
 	Name			"Quad"
-	Location		[64, -4, 1601, 901]
-	Open			off
+	Location		[65, 24, 1622, 939]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2272,7 +2272,7 @@ Library {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"175"
+	ZoomFactor		"144"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u1"
@@ -2342,37 +2342,15 @@ Library {
 	  DisplayOption		  "bar"
 	}
 	Block {
-	  BlockType		  Mux
-	  Name			  "Mux3"
-	  SID			  "216"
-	  Ports			  [2, 1]
-	  Position		  [680, 141, 685, 174]
-	  ZOrder		  6
-	  ShowName		  off
-	  Inputs		  "2"
-	  DisplayOption		  "bar"
-	}
-	Block {
 	  BlockType		  Reference
-	  Name			  "Quaternion\nInverse"
-	  SID			  "219"
-	  Ports			  [1, 1]
-	  Position		  [740, 173, 780, 187]
-	  ZOrder		  9
-	  LibraryVersion	  "1.100"
-	  SourceBlock		  "aerolibutil/Quaternion\nInverse"
-	  SourceType		  "Quaternion Inverse"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Quaternion\nMultiplication"
-	  SID			  "218"
+	  Name			  "Quaternion\nRotation"
+	  SID			  "230"
 	  Ports			  [2, 1]
-	  Position		  [815, 148, 870, 192]
-	  ZOrder		  8
+	  Position		  [755, 133, 810, 177]
+	  ZOrder		  15
 	  LibraryVersion	  "1.100"
-	  SourceBlock		  "aerolibutil/Quaternion\nMultiplication"
-	  SourceType		  "Quaternion Multiplication"
+	  SourceBlock		  "aerolibutil/Quaternion\nRotation"
+	  SourceType		  "Quaternion Rotation"
 	}
 	Block {
 	  BlockType		  Reference
@@ -2404,7 +2382,7 @@ Library {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Rotational part"
-	    Location		    [64, -4, 1601, 901]
+	    Location		    [65, 24, 1622, 939]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2559,7 +2537,7 @@ Library {
 	      MaskHideContents	      off
 	      System {
 		Name			"Quat to new_dot"
-		Location		[31, 45, 1614, 1127]
+		Location		[65, 24, 1622, 939]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -4115,15 +4093,6 @@ Library {
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  Constant
-	  Name			  "t"
-	  SID			  "217"
-	  Position		  [620, 142, 635, 158]
-	  ZOrder		  7
-	  ShowName		  off
-	  Value			  "0"
-	}
-	Block {
 	  BlockType		  Outport
 	  Name			  "position"
 	  SID			  "212"
@@ -4134,9 +4103,9 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "Linear Acceleration"
-	  SID			  "220"
-	  Position		  [920, 163, 950, 177]
-	  ZOrder		  10
+	  SID			  "231"
+	  Position		  [920, 148, 950, 162]
+	  ZOrder		  16
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
@@ -4257,7 +4226,7 @@ Library {
 	Line {
 	  SrcBlock		  "Rotational part"
 	  SrcPort		  1
-	  Points		  [0, 0; 40, 0]
+	  Points		  [40, 0]
 	  Branch {
 	    Points		    [0, 108; -149, 0]
 	    Branch {
@@ -4272,10 +4241,10 @@ Library {
 	    }
 	  }
 	  Branch {
-	    Points		    [150, 0]
+	    Points		    [114, 0]
 	    Branch {
-	      Points		      [0, -100]
-	      DstBlock		      "Quaternion\nInverse"
+	      Points		      [0, -135]
+	      DstBlock		      "Quaternion\nRotation"
 	      DstPort		      1
 	    }
 	    Branch {
@@ -4377,32 +4346,8 @@ Library {
 	Line {
 	  SrcBlock		  "Mux2"
 	  SrcPort		  1
-	  DstBlock		  "Mux3"
+	  DstBlock		  "Quaternion\nRotation"
 	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "t"
-	  SrcPort		  1
-	  DstBlock		  "Mux3"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Mux3"
-	  SrcPort		  1
-	  DstBlock		  "Quaternion\nMultiplication"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Quaternion\nInverse"
-	  SrcPort		  1
-	  DstBlock		  "Quaternion\nMultiplication"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Quaternion\nMultiplication"
-	  SrcPort		  1
-	  DstBlock		  "Linear Acceleration"
-	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Rotational part"
@@ -4410,10 +4355,17 @@ Library {
 	  DstBlock		  "Ang Rate"
 	  DstPort		  1
 	}
+	Line {
+	  SrcBlock		  "Quaternion\nRotation"
+	  SrcPort		  1
+	  DstBlock		  "Linear Acceleration"
+	  DstPort		  1
+	}
 	Annotation {
 	  SID			  "215"
 	  Name			  "Linear Acceleration (world frame)"
 	  Position		  [576, 216]
+	  ZOrder		  -1
 	}
 	Annotation {
 	  SID			  "205"

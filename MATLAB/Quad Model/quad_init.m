@@ -15,14 +15,14 @@ d=0.16;
 
 %% Step values for rotor inputs
 
-u1=0;%m*g/4;
-u2=0;%m*g/4;
-u3=0;%m*g/4;
-u4=0;%m*g/4;
+u1=m*g/400;
+u2=m*g/400;
+u3=m*g/401;
+u4=m*g/401;
 
 %% Initial conditions
 
-q = angle2quat(0,pi/3,0,'XYZ');
+q = angle2quat(0,0,0,'XYZ');
 
 qo_i=q(1);
 qv1_i=q(2);
