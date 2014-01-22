@@ -1,0 +1,5248 @@
+Model {
+  Name			  "quadrotor_sim"
+  Version		  7.7
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    0
+    NumRootOutports	    0
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.40"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "UTF-8"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  MaxMDLFileLineLength	  120
+  Created		  "Sat Sep 24 16:12:52 2011"
+  Creator		  "Emanuel"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "Emanuel"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Sun Sep 25 12:00:48 2011"
+  RTWModifiedTimeStamp	  238848134
+  ModelVersionFormat	  "1.%<AutoIncrement:40>"
+  ConfigurationManager	  "none"
+  SampleTimeColors	  off
+  SampleTimeAnnotations	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  Object {
+    $PropName		    "DataLoggingOverride"
+    $ObjectID		    1
+    $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
+    model_		    "quadrotor_sim"
+    overrideMode_	    [0.0]
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      "quadrotor_sim"
+      PropName		      "logAsSpecifiedByModels_"
+    }
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      []
+      PropName		      "logAsSpecifiedByModelsSSIDs_"
+    }
+  }
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      2
+      Version		      "1.11.0"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  3
+	  Version		  "1.11.0"
+	  StartTime		  "0.0"
+	  StopTime		  "120"
+	  AbsTol		  "auto"
+	  FixedStep		  "1/50"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  ConcurrentTasks	  off
+	  Solver		  "FixedStepDiscrete"
+	  SolverName		  "FixedStepDiscrete"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  4
+	  Version		  "1.11.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SignalLoggingSaveFormat "ModelDataLogs"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  5
+	  Version		  "1.11.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    8
+	    Cell		    "BooleansAsBitfields"
+	    Cell		    "PassReuseOutputArgsAs"
+	    Cell		    "PassReuseOutputArgsThreshold"
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    Cell		    "UseSpecifiedMinMax"
+	    PropName		    "DisabledProps"
+	  }
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  UseIntDivNetSlope	  off
+	  UseSpecifiedMinMax	  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  ExpressionFolding	  on
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	  AccelParallelForEachSubsystem	on
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  6
+	  Version		  "1.11.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  SimStateOlderReleaseMsg "error"
+	  InitInArrayFormatMsg	  "warning"
+	  StrictBusMsg		  "ErrorLevel1"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  7
+	  Version		  "1.11.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  8
+	  Version		  "1.11.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  9
+	  Version		  "1.11.0"
+	  SimCustomHeaderCode	  "#include \"cd_signals.h\""
+	  SimUserSources	  "cd_signals.c"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  10
+	  Version		  "1.11.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    8
+	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    Cell		    "GenerateTraceReport"
+	    Cell		    "GenerateTraceReportSl"
+	    Cell		    "GenerateTraceReportSf"
+	    Cell		    "GenerateTraceReportEml"
+	    Cell		    "GenerateSLWebview"
+	    Cell		    "GenerateCodeMetricsReport"
+	    PropName		    "DisabledProps"
+	  }
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  GenerateSLWebview	  off
+	  GenerateCodeMetricsReport off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      11
+	      Version		      "1.11.0"
+	      Array {
+		Type			"Cell"
+		Dimension		21
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"IgnoreTestpoints"
+		Cell			"InsertBlockDesc"
+		Cell			"InsertPolySpaceComments"
+		Cell			"SFDataObjDesc"
+		Cell			"MATLABFcnDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrFcnArg"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		Cell			"ReqsInCode"
+		PropName		"DisabledProps"
+	      }
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcnArg   "rt$I$N$M"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
+	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      12
+	      Version		      "1.11.0"
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"GeneratePreprocessorConditionals"
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"CPPClassGenCompliant"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		Cell			"PortableWordSizes"
+		PropName		"DisabledProps"
+	      }
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      TargetFunctionLibrary   "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      FunctionExecutionProfile off
+	      CodeExecutionProfiling  off
+	      ERTCodeCoverageTool     "None"
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant on
+	      CompOptLevelCompliant   on
+	      IncludeMdlTerminateFcn  on
+	      GeneratePreprocessorConditionals "Disable all"
+	      CombineOutputUpdateFcns off
+	      CombineSignalStateStructs	off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      CPPClassGenCompliant    off
+	      AutosarCompliant	      off
+	      UseMalloc		      off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      RTWCAPIRootIO	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Solver"
+      ConfigPrmDlgPosition     [ 266, 96, 1125, 657 ] 
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    2
+  }
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      BusAssignment
+      AssignedSignals	      "signal1"
+    }
+    Block {
+      BlockType		      BusCreator
+      Inputs		      "4"
+      DisplayOption	      "none"
+      OutDataTypeStr	      "Inherit: auto"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      BusSelector
+      OutputAsBus	      off
+    }
+    Block {
+      BlockType		      Clock
+      DisplayTime	      off
+    }
+    Block {
+      BlockType		      Concatenate
+      NumInputs		      "2"
+      ConcatenateDimension    "1"
+    }
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
+      BlockType		      DataTypeConversion
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+      LockScale		      off
+      ConvertRealWorld	      "Real World Value (RWV)"
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParamDataTypeStr	      "Inherit: Same as input"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      S-Function
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+      SFunctionDeploymentMode off
+    }
+    Block {
+      BlockType		      Scope
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Selector
+      NumberOfDimensions      "1"
+      IndexMode		      "One-based"
+      InputPortWidth	      "-1"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
+      MinMaxOverflowLogging   "UseLocalSettings"
+      Variant		      off
+      GeneratePreprocessorConditionals off
+    }
+    Block {
+      BlockType		      Terminator
+    }
+    Block {
+      BlockType		      ToWorkspace
+      VariableName	      "simulink_output"
+      MaxDataPoints	      "1000"
+      Decimation	      "1"
+      SampleTime	      "0"
+      FixptAsFi		      off
+      NumInputs		      "1"
+    }
+    Block {
+      BlockType		      TriggerPort
+      TriggerType	      "rising"
+      StatesWhenEnabling      "inherit"
+      PropagateVarSize	      "During execution"
+      ShowOutputPort	      off
+      OutputDataType	      "auto"
+      SampleTimeType	      "triggered"
+      SampleTime	      "1"
+      ZeroCross		      on
+      PortDimensions	      "-1"
+      TriggerSignalSampleTime "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      UnitDelay
+      X0		      "0"
+      InputProcessing	      "Inherited"
+      SampleTime	      "1"
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+    }
+  }
+  System {
+    Name		    "quadrotor_sim"
+    Location		    [179, 216, 1138, 736]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "93"
+    Block {
+      BlockType		      Reference
+      Name		      "CD Integrator"
+      SID		      "20"
+      Ports		      [2, 2]
+      Position		      [440, 306, 500, 359]
+      BackgroundColor	      "[0.640672, 0.618852, 1.000000]"
+      LibraryVersion	      "1.558"
+      SourceBlock	      "UAVdesign_net/Utilities/Continuous/CD Integrator"
+      SourceType	      "CD_Integrator"
+      algorithm		      "Runge-Kutta"
+      param_source	      "Discrete steps of the model"
+      initial_time	      "0"
+      final_time	      "10"
+      reset_type	      "None"
+      x0_source		      "External"
+      x0		      "0"
+      output_time	      off
+      limit_output	      off
+      upper_sat		      "inf"
+      lower_sat		      "-inf"
+      q_index		      "[10 13]"
+      omega_dot_index	      "[4 6]"
+      sample_time	      "-1"
+    }
+    Block {
+      BlockType		      Clock
+      Name		      "Clock"
+      SID		      "33"
+      Position		      [775, 365, 795, 385]
+      Decimation	      "1"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Configuration1"
+      SID		      "31"
+      Ports		      []
+      Position		      [855, 186, 924, 264]
+      BackgroundColor	      "[1.000000, 0.615686, 0.435294]"
+      ShowName		      off
+      OpenFcn		      "graphs_quadrotor_sim;"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskDisplay	      "disp('Double-click\\nto display\\nthe\\ngraphs')"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Configuration1"
+	Location		[433, 403, 931, 703]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Environment"
+      SID		      "23"
+      Ports		      [0, 1]
+      Position		      [25, 96, 90, 124]
+      InitFcn		      "bus_Environment;"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Environment"
+	Location		[448, 387, 701, 535]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator"
+	  SID			  "24"
+	  Ports			  [4, 1]
+	  Position		  [140, 28, 145, 127]
+	  ShowName		  off
+	  DisplayOption		  "bar"
+	  NonVirtualBus		  on
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "25"
+	  Position		  [45, 29, 75, 51]
+	  ShowName		  off
+	  Value			  "9.81"
+	  Port {
+	    PortNumber		    1
+	    Name		    "g"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "26"
+	  Position		  [45, 54, 75, 76]
+	  ShowName		  off
+	  Value			  "1.2"
+	  Port {
+	    PortNumber		    1
+	    Name		    "rho"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  SID			  "27"
+	  Position		  [45, 79, 75, 101]
+	  ShowName		  off
+	  Value			  "20+273.15"
+	  Port {
+	    PortNumber		    1
+	    Name		    "temp"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant3"
+	  SID			  "28"
+	  Position		  [45, 104, 75, 126]
+	  ShowName		  off
+	  Value			  "101325"
+	  Port {
+	    PortNumber		    1
+	    Name		    "pressure"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Environment"
+	  SID			  "29"
+	  Position		  [190, 73, 220, 87]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  Name			  "pressure"
+	  Labels		  [-1, 1]
+	  SrcBlock		  "Constant3"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "temp"
+	  Labels		  [-1, 1]
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "rho"
+	  Labels		  [-1, 1]
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "g"
+	  Labels		  [-1, 1]
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator"
+	  SrcPort		  1
+	  DstBlock		  "Environment"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Euler angles"
+      SID		      "90"
+      Position		      [25, 325, 85, 345]
+      Value		      "[0 -2 0]*pi/180"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Omega_rot"
+      SID		      "89"
+      Position		      [25, 365, 85, 385]
+      Value		      "620*[1 1 1 1]"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "P_e"
+      SID		      "88"
+      Position		      [25, 285, 85, 305]
+      Value		      "[0 0 -10]"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "QuadRotor Model"
+      SID		      "1"
+      Ports		      [6, 2, 0, 1]
+      Position		      [400, 40, 530, 205]
+      BackgroundColor	      "[0.584314, 0.968627, 0.576471]"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"QuadRotor Model"
+	Location		[538, 411, 988, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Parameters"
+	  SID			  "2"
+	  Position		  [35, 38, 65, 52]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Geometry"
+	  SID			  "3"
+	  Position		  [35, 73, 65, 87]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Environment"
+	  SID			  "4"
+	  Position		  [35, 108, 65, 122]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Vmot"
+	  SID			  "5"
+	  Position		  [35, 138, 65, 152]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "xc"
+	  SID			  "6"
+	  Position		  [35, 203, 65, 217]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "xd_k1"
+	  SID			  "7"
+	  Position		  [35, 243, 65, 257]
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  TriggerPort
+	  Name			  "Trigger"
+	  SID			  "8"
+	  Ports			  []
+	  Position		  [350, 20, 370, 40]
+	  TriggerType		  "function-call"
+	  StatesWhenEnabling	  "held"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "13"
+	  Position		  [35, 174, 75, 196]
+	  ShowName		  off
+	  Value			  "[0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Quad-Rotor Model (Momentum)"
+	  SID			  "15"
+	  Ports			  [7, 3]
+	  Position		  [190, 74, 320, 246]
+	  BackgroundColor	  "[0.584314, 0.968627, 0.576471]"
+	  LibraryVersion	  "1.558"
+	  SourceBlock		  "UAVdesign_net/Vehicle Models/Quad-Rotor Model (Momentum)"
+	  SourceType		  "HelicopterModel"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  GeneratePreprocessorConditionals off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  SID			  "16"
+	  Position		  [350, 95, 370, 115]
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "xc_dot"
+	  SID			  "17"
+	  Position		  [355, 153, 385, 167]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "xd_k"
+	  SID			  "18"
+	  Position		  [355, 208, 385, 222]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Geometry"
+	  SrcPort		  1
+	  Points		  [90, 0; 0, 30]
+	  DstBlock		  "Quad-Rotor Model (Momentum)"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "xd_k1"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, -15]
+	  DstBlock		  "Quad-Rotor Model (Momentum)"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "xc"
+	  SrcPort		  1
+	  DstBlock		  "Quad-Rotor Model (Momentum)"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "Environment"
+	  SrcPort		  1
+	  Points		  [75, 0; 0, 20]
+	  DstBlock		  "Quad-Rotor Model (Momentum)"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Parameters"
+	  SrcPort		  1
+	  Points		  [105, 0]
+	  DstBlock		  "Quad-Rotor Model (Momentum)"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Quad-Rotor Model (Momentum)"
+	  SrcPort		  1
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Quad-Rotor Model (Momentum)"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Vmot"
+	  SrcPort		  1
+	  Points		  [60, 0; 0, 15]
+	  DstBlock		  "Quad-Rotor Model (Momentum)"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Quad-Rotor Model (Momentum)"
+	  SrcPort		  3
+	  DstBlock		  "xd_k"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Quad-Rotor Model (Momentum)"
+	  SrcPort		  2
+	  DstBlock		  "xc_dot"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "QuadRotor Parameters"
+      SID		      "22"
+      Ports		      [0, 2]
+      Position		      [25, 29, 90, 71]
+      LibraryVersion	      "1.318"
+      InitFcn		      "bus_PropellerParameters;    \nbus_ElectricMotorParameters;\nbus_GeometryParameters;     \nbus_Fu"
+      "selageParameters;     "
+      OpenFcn		      "gui_QuadRotorParameters( 'Block', [get_param(gcb, 'Parent') '/' get_param(gcb, 'Name')]);"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "HelicopterParameters"
+      MaskDescription	      "Parameters for a helicopter.\nGeometry, rotors, fuselage, fins."
+      MaskInitialization      "set_param(gcb, 'LinkStatus', 'none');"
+      MaskSelfModifiable      on
+      MaskDisplay	      "port_label('output', 1, 'Parameters')\nport_label('output', 2, 'Geometry')"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"QuadRotor Parameters"
+	Location		[507, 110, 1281, 735]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"1740"
+	Block {
+	  BlockType		  BusAssignment
+	  Name			  "Bus\nAssignment"
+	  SID			  "22:400"
+	  Ports			  [3, 1]
+	  Position		  [460, 227, 590, 273]
+	  ShowName		  off
+	  AssignedSignals	  "R_IERA_RA_RA,alpha_IERA_IELA_IELA"
+	  Port {
+	    PortNumber		    1
+	    Name		    "ROT1"
+	    PropagatedSignals	    "R_IERA_RA_RA, alpha_IERA_IELA_IELA, m, I_IERA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusAssignment
+	  Name			  "Bus\nAssignment1"
+	  SID			  "22:401"
+	  Ports			  [3, 1]
+	  Position		  [460, 272, 590, 318]
+	  ShowName		  off
+	  AssignedSignals	  "R_IERA_RA_RA,alpha_IERA_IELA_IELA"
+	  Port {
+	    PortNumber		    1
+	    Name		    "ROT2"
+	    PropagatedSignals	    "R_IERA_RA_RA, alpha_IERA_IELA_IELA, m, I_IERA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusAssignment
+	  Name			  "Bus\nAssignment2"
+	  SID			  "22:402"
+	  Ports			  [3, 1]
+	  Position		  [460, 407, 590, 453]
+	  ShowName		  off
+	  AssignedSignals	  "R_IERA_RA_RA,alpha_IERA_IELA_IELA"
+	  Port {
+	    PortNumber		    1
+	    Name		    "FUSE"
+	    PropagatedSignals	    "R_IERA_RA_RA, alpha_IERA_IELA_IELA, m, I_IERA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusAssignment
+	  Name			  "Bus\nAssignment3"
+	  SID			  "22:403"
+	  Ports			  [3, 1]
+	  Position		  [460, 317, 590, 363]
+	  ShowName		  off
+	  AssignedSignals	  "R_IERA_RA_RA,alpha_IERA_IELA_IELA"
+	  Port {
+	    PortNumber		    1
+	    Name		    "ROT3"
+	    PropagatedSignals	    "R_IERA_RA_RA, alpha_IERA_IELA_IELA, m, I_IERA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusAssignment
+	  Name			  "Bus\nAssignment4"
+	  SID			  "22:404"
+	  Ports			  [3, 1]
+	  Position		  [460, 362, 590, 408]
+	  ShowName		  off
+	  AssignedSignals	  "R_IERA_RA_RA,alpha_IERA_IELA_IELA"
+	  Port {
+	    PortNumber		    1
+	    Name		    "ROT4"
+	    PropagatedSignals	    "R_IERA_RA_RA, alpha_IERA_IELA_IELA, m, I_IERA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator1"
+	  SID			  "22:405"
+	  Ports			  [7, 1]
+	  Position		  [660, 184, 665, 496]
+	  ShowName		  off
+	  Inputs		  "7"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator2"
+	  SID			  "22:406"
+	  Ports			  [4, 1]
+	  Position		  [350, 15, 355, 95]
+	  ShowName		  off
+	  DisplayOption		  "bar"
+	  Port {
+	    PortNumber		    1
+	    Name		    "CG"
+	    PropagatedSignals	    "R_IERA_RA_RA, alpha_IERA_IELA_IELA, m, I_IERA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator3"
+	  SID			  "22:407"
+	  Ports			  [4, 1]
+	  Position		  [245, 135, 250, 215]
+	  ShowName		  off
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator4"
+	  SID			  "22:408"
+	  Ports			  [3, 1]
+	  Position		  [660, 20, 665, 170]
+	  ShowName		  off
+	  Inputs		  "3"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator5"
+	  SID			  "22:409"
+	  Ports			  [4, 1]
+	  Position		  [555, 480, 560, 560]
+	  ShowName		  off
+	  DisplayOption		  "bar"
+	  Port {
+	    PortNumber		    1
+	    Name		    "COMMON"
+	    PropagatedSignals	    "R_IERA_RA_RA, alpha_IERA_IELA_IELA, m, I_IERA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux1"
+	  SID			  "22:410"
+	  Ports			  [1, 2]
+	  Position		  [110, 242, 115, 273]
+	  ShowName		  off
+	  Outputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux2"
+	  SID			  "22:411"
+	  Ports			  [1, 2]
+	  Position		  [110, 287, 115, 318]
+	  ShowName		  off
+	  Outputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux3"
+	  SID			  "22:412"
+	  Ports			  [1, 2]
+	  Position		  [110, 422, 115, 453]
+	  ShowName		  off
+	  Outputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux4"
+	  SID			  "22:413"
+	  Ports			  [1, 2]
+	  Position		  [110, 332, 115, 363]
+	  ShowName		  off
+	  Outputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux5"
+	  SID			  "22:414"
+	  Ports			  [1, 2]
+	  Position		  [110, 377, 115, 408]
+	  ShowName		  off
+	  Outputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux6"
+	  SID			  "22:415"
+	  Ports			  [1, 2]
+	  Position		  [110, 15, 115, 55]
+	  ShowName		  off
+	  Outputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Fuse Parameters"
+	  SID			  "22:416"
+	  Ports			  [1, 1]
+	  Position		  [530, 81, 605, 109]
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  Port {
+	    PortNumber		    1
+	    Name		    "FUSE"
+	    PropagatedSignals	    "carea"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  System {
+	    Name		    "Fuse Parameters"
+	    Location		    [765, 349, 1125, 751]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In"
+	      SID		      "22:417"
+	      Position		      [25, 198, 55, 212]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusCreator
+	      Name		      "Bus\nCreator"
+	      SID		      "22:418"
+	      Ports		      [7, 1]
+	      Position		      [255, 15, 260, 375]
+	      ShowName		      off
+	      Inputs		      "7"
+	      DisplayOption	      "bar"
+	      OutDataTypeStr	      "Bus: FuselageParameters"
+	      NonVirtualBus	      on
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      "Demux"
+	      SID		      "22:419"
+	      Ports		      [1, 17]
+	      Position		      [95, 33, 100, 377]
+	      ShowName		      off
+	      Outputs		      "17"
+	      DisplayOption	      "bar"
+	      Port {
+		PortNumber		1
+		Name			"carea"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"clen"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Concatenate
+	      Name		      "Vector\nConcatenate"
+	      SID		      "22:420"
+	      Ports		      [3, 1]
+	      Position		      [155, 76, 160, 134]
+	      ShowName		      off
+	      NumInputs		      "3"
+	      Mode		      "Vector"
+	      Port {
+		PortNumber		1
+		Name			"cx"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Concatenate
+	      Name		      "Vector\nConcatenate1"
+	      SID		      "22:421"
+	      Ports		      [3, 1]
+	      Position		      [155, 136, 160, 194]
+	      ShowName		      off
+	      NumInputs		      "3"
+	      Mode		      "Vector"
+	      Port {
+		PortNumber		1
+		Name			"cy"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Concatenate
+	      Name		      "Vector\nConcatenate2"
+	      SID		      "22:422"
+	      Ports		      [3, 1]
+	      Position		      [155, 196, 160, 254]
+	      ShowName		      off
+	      NumInputs		      "3"
+	      Mode		      "Vector"
+	      Port {
+		PortNumber		1
+		Name			"cz"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Concatenate
+	      Name		      "Vector\nConcatenate3"
+	      SID		      "22:423"
+	      Ports		      [3, 1]
+	      Position		      [155, 256, 160, 314]
+	      ShowName		      off
+	      NumInputs		      "3"
+	      Mode		      "Vector"
+	      Port {
+		PortNumber		1
+		Name			"cm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Concatenate
+	      Name		      "Vector\nConcatenate4"
+	      SID		      "22:424"
+	      Ports		      [3, 1]
+	      Position		      [155, 316, 160, 374]
+	      ShowName		      off
+	      NumInputs		      "3"
+	      Mode		      "Vector"
+	      Port {
+		PortNumber		1
+		Name			"cn"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Parameters"
+	      SID		      "22:425"
+	      Position		      [295, 188, 325, 202]
+	      IconDisplay	      "Port number"
+	      OutDataTypeStr	      "Bus: FuselageParameters"
+	    }
+	    Line {
+	      Name		      "carea"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 1]
+	      SrcBlock		      "Demux"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bus\nCreator"
+	      SrcPort		      1
+	      DstBlock		      "Parameters"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In"
+	      SrcPort		      1
+	      DstBlock		      "Demux"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "clen"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 1]
+	      SrcBlock		      "Demux"
+	      SrcPort		      2
+	      Points		      [95, 0; 0, 30]
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      3
+	      DstBlock		      "Vector\nConcatenate"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      4
+	      DstBlock		      "Vector\nConcatenate"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      5
+	      DstBlock		      "Vector\nConcatenate"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "cx"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 1]
+	      SrcBlock		      "Vector\nConcatenate"
+	      SrcPort		      1
+	      Points		      [25, 0; 0, 40]
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      6
+	      DstBlock		      "Vector\nConcatenate1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      7
+	      DstBlock		      "Vector\nConcatenate1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      8
+	      DstBlock		      "Vector\nConcatenate1"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "cy"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 1]
+	      SrcBlock		      "Vector\nConcatenate1"
+	      SrcPort		      1
+	      Points		      [15, 0; 0, 30]
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      9
+	      DstBlock		      "Vector\nConcatenate2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      10
+	      DstBlock		      "Vector\nConcatenate2"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      11
+	      DstBlock		      "Vector\nConcatenate2"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "cz"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 1]
+	      SrcBlock		      "Vector\nConcatenate2"
+	      SrcPort		      1
+	      Points		      [35, 0; 0, 20]
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      12
+	      DstBlock		      "Vector\nConcatenate3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      13
+	      DstBlock		      "Vector\nConcatenate3"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      14
+	      DstBlock		      "Vector\nConcatenate3"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      15
+	      DstBlock		      "Vector\nConcatenate4"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      16
+	      DstBlock		      "Vector\nConcatenate4"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      17
+	      DstBlock		      "Vector\nConcatenate4"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "cm"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 1]
+	      SrcBlock		      "Vector\nConcatenate3"
+	      SrcPort		      1
+	      Points		      [35, 0; 0, 10]
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      6
+	    }
+	    Line {
+	      Name		      "cn"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 1, 0]
+	      SrcBlock		      "Vector\nConcatenate4"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      7
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain1"
+	  SID			  "22:426"
+	  Position		  [150, 255, 180, 275]
+	  ShowName		  off
+	  Gain			  "pi/180"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain10"
+	  SID			  "22:427"
+	  Position		  [205, 330, 235, 350]
+	  ShowName		  off
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain11"
+	  SID			  "22:428"
+	  Position		  [205, 420, 235, 440]
+	  ShowName		  off
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain12"
+	  SID			  "22:429"
+	  Position		  [205, 375, 235, 395]
+	  ShowName		  off
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain13"
+	  SID			  "22:430"
+	  Position		  [150, 390, 180, 410]
+	  ShowName		  off
+	  Gain			  "pi/180"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain2"
+	  SID			  "22:431"
+	  Position		  [150, 300, 180, 320]
+	  ShowName		  off
+	  Gain			  "pi/180"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain3"
+	  SID			  "22:432"
+	  Position		  [150, 435, 180, 455]
+	  ShowName		  off
+	  Gain			  "pi/180"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain4"
+	  SID			  "22:433"
+	  Position		  [205, 285, 235, 305]
+	  ShowName		  off
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain5"
+	  SID			  "22:434"
+	  Position		  [150, 345, 180, 365]
+	  ShowName		  off
+	  Gain			  "pi/180"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain6"
+	  SID			  "22:435"
+	  Position		  [165, 35, 195, 55]
+	  ShowName		  off
+	  Gain			  "pi/180"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	  Port {
+	    PortNumber		    1
+	    Name		    "alpha_IERA_IELA_IELA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain7"
+	  SID			  "22:436"
+	  Position		  [125, 65, 155, 85]
+	  ShowName		  off
+	  Gain			  "0.0310809502 *0 + 1"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	  Port {
+	    PortNumber		    1
+	    Name		    "m"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain8"
+	  SID			  "22:437"
+	  Position		  [205, 15, 235, 35]
+	  ShowName		  off
+	  Gain			  "1/12"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	  Port {
+	    PortNumber		    1
+	    Name		    "R_IERA_RA_RA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain9"
+	  SID			  "22:438"
+	  Position		  [205, 240, 235, 260]
+	  ShowName		  off
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Concatenate
+	  Name			  "Matrix\nConcatenate"
+	  SID			  "22:439"
+	  Ports			  [2, 1]
+	  Position		  [450, 543, 490, 572]
+	  Mode			  "Multidimensional array"
+	  ConcatenateDimension	  "2"
+	  Port {
+	    PortNumber		    1
+	    Name		    "I_IERA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Motor Parameters"
+	  SID			  "22:440"
+	  Ports			  [1, 1]
+	  Position		  [530, 131, 605, 159]
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  Port {
+	    PortNumber		    1
+	    Name		    "MOT"
+	    PropagatedSignals	    "R, L, Kv, Kt, poles, In, Ngear"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  System {
+	    Name		    "Motor Parameters"
+	    Location		    [380, 484, 851, 783]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In"
+	      SID		      "22:441"
+	      Position		      [20, 128, 50, 142]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusCreator
+	      Name		      "Bus\nCreator1"
+	      SID		      "22:442"
+	      Ports		      [7, 1]
+	      Position		      [335, 51, 340, 219]
+	      ShowName		      off
+	      Inputs		      "7"
+	      DisplayOption	      "bar"
+	      NonVirtualBus	      on
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Data Type Conversion2"
+	      SID		      "22:443"
+	      Position		      [175, 151, 235, 169]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint32"
+	      RndMeth		      "Nearest"
+	      SaturateOnIntegerOverflow	off
+	      Port {
+		PortNumber		1
+		Name			"poles"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      "Demux1"
+	      SID		      "22:444"
+	      Ports		      [1, 7]
+	      Position		      [80, 50, 85, 220]
+	      ShowName		      off
+	      Outputs		      "7"
+	      DisplayOption	      "bar"
+	      Port {
+		PortNumber		1
+		Name			"R"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"L"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"Kv"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		4
+		Name			"Kt"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		6
+		Name			"In"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		7
+		Name			"Ngear"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Parameters"
+	      SID		      "22:445"
+	      Position		      [375, 128, 405, 142]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "In"
+	      SrcPort		      1
+	      DstBlock		      "Demux1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bus\nCreator1"
+	      SrcPort		      1
+	      DstBlock		      "Parameters"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "R"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "L"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      2
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      2
+	    }
+	    Line {
+	      Name		      "Kv"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      3
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "Kt"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      4
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "Demux1"
+	      SrcPort		      5
+	      DstBlock		      "Data Type Conversion2"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "poles"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	      SrcBlock		      "Data Type Conversion2"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      5
+	    }
+	    Line {
+	      Name		      "In"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      6
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      6
+	    }
+	    Line {
+	      Name		      "Ngear"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      7
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      7
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Rotor Parameters"
+	  SID			  "22:446"
+	  Ports			  [1, 1]
+	  Position		  [530, 31, 605, 59]
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  Port {
+	    PortNumber		    1
+	    Name		    "ROT"
+	    PropagatedSignals	    "a0, del0_2, nb, radius, chord, btmin, btmax, btq, theta, twist, iflap, mbar, azsign, flags"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  System {
+	    Name		    "Rotor Parameters"
+	    Location		    [765, 212, 1275, 646]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "In"
+	      SID		      "22:447"
+	      Position		      [20, 163, 50, 177]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusCreator
+	      Name		      "Bus\nCreator1"
+	      SID		      "22:448"
+	      Ports		      [14, 1]
+	      Position		      [335, 54, 340, 326]
+	      ShowName		      off
+	      Inputs		      "14"
+	      DisplayOption	      "bar"
+	      NonVirtualBus	      on
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Data Type Conversion1"
+	      SID		      "22:449"
+	      Position		      [150, 91, 210, 109]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint32"
+	      RndMeth		      "Nearest"
+	      SaturateOnIntegerOverflow	off
+	      Port {
+		PortNumber		1
+		Name			"nb"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Data Type Conversion2"
+	      SID		      "22:450"
+	      Position		      [160, 311, 220, 329]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint32"
+	      RndMeth		      "Nearest"
+	      SaturateOnIntegerOverflow	off
+	      Port {
+		PortNumber		1
+		Name			"flags"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      "Demux1"
+	      SID		      "22:451"
+	      Ports		      [1, 16]
+	      Position		      [80, 15, 85, 325]
+	      ShowName		      off
+	      Outputs		      "16"
+	      DisplayOption	      "bar"
+	      Port {
+		PortNumber		1
+		Name			"a0"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		6
+		Name			"radius"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		7
+		Name			"chord"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		8
+		Name			"btmin"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		9
+		Name			"btmax"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		10
+		Name			"btq"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		11
+		Name			"theta"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		13
+		Name			"iflap"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		14
+		Name			"mbar"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		15
+		Name			"azsign"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain1"
+	      SID		      "22:452"
+	      Position		      [135, 210, 165, 230]
+	      ShowName		      off
+	      Gain		      "pi/180"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	      Port {
+		PortNumber		1
+		Name			"theta"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain3"
+	      SID		      "22:453"
+	      Position		      [175, 230, 205, 250]
+	      ShowName		      off
+	      Gain		      "pi/180"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	      Port {
+		PortNumber		1
+		Name			"twist"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Concatenate
+	      Name		      "Vector\nConcatenate"
+	      SID		      "22:454"
+	      Ports		      [3, 1]
+	      Position		      [235, 29, 240, 91]
+	      ShowName		      off
+	      NumInputs		      "3"
+	      Mode		      "Vector"
+	      Port {
+		PortNumber		1
+		Name			"del0_2"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Parameters"
+	      SID		      "22:455"
+	      Position		      [375, 183, 405, 197]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      Name		      "azsign"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      15
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      13
+	    }
+	    Line {
+	      Name		      "mbar"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      14
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      12
+	    }
+	    Line {
+	      Name		      "iflap"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      13
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      11
+	    }
+	    Line {
+	      Name		      "btmax"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      9
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      7
+	    }
+	    Line {
+	      Name		      "a0"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      1
+	      Points		      [210, 0; 0, 40]
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bus\nCreator1"
+	      SrcPort		      1
+	      DstBlock		      "Parameters"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux1"
+	      SrcPort		      4
+	      DstBlock		      "Vector\nConcatenate"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Demux1"
+	      SrcPort		      3
+	      DstBlock		      "Vector\nConcatenate"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Demux1"
+	      SrcPort		      2
+	      DstBlock		      "Vector\nConcatenate"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "In"
+	      SrcPort		      1
+	      DstBlock		      "Demux1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "nb"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	      SrcBlock		      "Data Type Conversion1"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Demux1"
+	      SrcPort		      5
+	      DstBlock		      "Data Type Conversion1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "radius"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      6
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      4
+	    }
+	    Line {
+	      Name		      "chord"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      7
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      5
+	    }
+	    Line {
+	      Name		      "btmin"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      8
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "Demux1"
+	      SrcPort		      12
+	      DstBlock		      "Gain3"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "btq"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      10
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      8
+	    }
+	    Line {
+	      Name		      "theta"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	      SrcBlock		      "Demux1"
+	      SrcPort		      11
+	      DstBlock		      "Gain1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "theta"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	      SrcBlock		      "Gain1"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      9
+	    }
+	    Line {
+	      Name		      "del0_2"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	      SrcBlock		      "Vector\nConcatenate"
+	      SrcPort		      1
+	      Points		      [35, 0; 0, 20]
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      2
+	    }
+	    Line {
+	      Name		      "twist"
+	      Labels		      [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	      SrcBlock		      "Gain3"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      10
+	    }
+	    Line {
+	      SrcBlock		      "Demux1"
+	      SrcPort		      16
+	      DstBlock		      "Data Type Conversion2"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "flags"
+	      Labels		      [0, 0; -1, 0]
+	      SrcBlock		      "Data Type Conversion2"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      14
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  SID			  "22:456"
+	  Position		  [135, 475, 155, 495]
+	}
+	Block {
+	  BlockType		  Concatenate
+	  Name			  "Vector\nConcatenate"
+	  SID			  "22:457"
+	  Ports			  [6, 1]
+	  Position		  [259, 465, 321, 470]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  NumInputs		  "6"
+	  Mode			  "Vector"
+	  Port {
+	    PortNumber		    1
+	    Name		    "R_IERA_RA_RA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Concatenate
+	  Name			  "Vector\nConcatenate1"
+	  SID			  "22:458"
+	  Ports			  [6, 1]
+	  Position		  [329, 465, 391, 470]
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  NumInputs		  "6"
+	  Mode			  "Vector"
+	  Port {
+	    PortNumber		    1
+	    Name		    "alpha_IERA_IELA_IELA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Concatenate
+	  Name			  "Vector\nConcatenate2"
+	  SID			  "22:459"
+	  Ports			  [2, 1]
+	  Position		  [395, 512, 400, 543]
+	  ShowName		  off
+	  Mode			  "Vector"
+	  Port {
+	    PortNumber		    1
+	    Name		    "m"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "geom_CG"
+	  SID			  "22:460"
+	  Position		  [50, 26, 80, 44]
+	  Value			  "[0;0;0;0;0;0]"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "geom_FUSE"
+	  SID			  "22:461"
+	  Position		  [50, 431, 80, 449]
+	  Value			  "[0;0;0;0;0;0]"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "geom_ROT1"
+	  SID			  "22:462"
+	  Position		  [50, 251, 80, 269]
+	  Value			  "[-0.215;0;0;0;0;0]"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "geom_ROT2"
+	  SID			  "22:463"
+	  Position		  [50, 296, 80, 314]
+	  Value			  "[-0;-0.215;0;0;0;0]"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "geom_ROT3"
+	  SID			  "22:464"
+	  Position		  [50, 341, 80, 359]
+	  Value			  "[0.215;0;0;0;0;0]"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "geom_ROT4"
+	  SID			  "22:465"
+	  Position		  [50, 386, 80, 404]
+	  Value			  "[0;0.215;0;0;0;0]"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "param_FUSE"
+	  SID			  "22:466"
+	  Position		  [475, 86, 505, 104]
+	  Value			  "[0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0]"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "param_MOT"
+	  SID			  "22:467"
+	  Position		  [475, 136, 505, 154]
+	  Value			  "[0.7;0;88;0.0114;7;0.01;1]"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "param_ROT"
+	  SID			  "22:468"
+	  Position		  [475, 36, 505, 54]
+	  Value			  "[5.73;0.03;0;0;2;0.127;0.016;0.95;1;1;30;-24;0;0.014;1;0]"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "param_gw"
+	  SID			  "22:469"
+	  Position		  [50, 66, 80, 84]
+	  Value			  "1.25"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "param_inertia"
+	  SID			  "22:470"
+	  Position		  [50, 106, 80, 124]
+	  Value			  "[0.0304 0 0;0 0.0304 0;0 0 0.0344]"
+	  Port {
+	    PortNumber		    1
+	    Name		    "I_IERA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "param_units"
+	  SID			  "22:471"
+	  Position		  [50, 476, 80, 494]
+	  Value			  "0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "zero Inb"
+	  SID			  "22:472"
+	  Position		  [105, 195, 135, 215]
+	  Value			  "[0 0 0; 0 0 0; 0 0 0]"
+	  Port {
+	    PortNumber		    1
+	    Name		    "I_IERA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "zero Inb1"
+	  SID			  "22:473"
+	  Position		  [385, 555, 415, 575]
+	  Value			  "zeros(3,3*5)"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "zero m"
+	  SID			  "22:474"
+	  Position		  [50, 196, 80, 214]
+	  Value			  "0"
+	  Port {
+	    PortNumber		    1
+	    Name		    "m"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "zero m1"
+	  SID			  "22:475"
+	  Position		  [50, 156, 80, 174]
+	  ShowName		  off
+	  Value			  "[0 0 0]"
+	  Port {
+	    PortNumber		    1
+	    Name		    "alpha_IERA_IELA_IELA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "zero m2"
+	  SID			  "22:476"
+	  Position		  [105, 136, 135, 154]
+	  ShowName		  off
+	  Value			  "[0 0 0]"
+	  Port {
+	    PortNumber		    1
+	    Name		    "R_IERA_RA_RA"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "zero m3"
+	  SID			  "22:477"
+	  Position		  [290, 526, 320, 544]
+	  Value			  "zeros(5,1)"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Parameters"
+	  SID			  "22:478"
+	  Position		  [710, 88, 740, 102]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Geometry"
+	  SID			  "22:479"
+	  Position		  [695, 333, 725, 347]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "zero m3"
+	  SrcPort		  1
+	  DstBlock		  "Vector\nConcatenate2"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "m"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	  SrcBlock		  "Vector\nConcatenate2"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator1"
+	  SrcPort		  1
+	  DstBlock		  "Geometry"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux6"
+	  SrcPort		  1
+	  DstBlock		  "Gain8"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux6"
+	  SrcPort		  2
+	  DstBlock		  "Gain6"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "param_gw"
+	  SrcPort		  1
+	  DstBlock		  "Gain7"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux1"
+	  SrcPort		  1
+	  DstBlock		  "Gain9"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux1"
+	  SrcPort		  2
+	  DstBlock		  "Gain1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "geom_ROT1"
+	  SrcPort		  1
+	  DstBlock		  "Demux1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux3"
+	  SrcPort		  1
+	  DstBlock		  "Gain11"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux3"
+	  SrcPort		  2
+	  DstBlock		  "Gain3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "geom_FUSE"
+	  SrcPort		  1
+	  DstBlock		  "Demux3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "geom_CG"
+	  SrcPort		  1
+	  DstBlock		  "Demux6"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator3"
+	  SrcPort		  1
+	  Points		  [180, 0; 0, 60]
+	  Branch {
+	    DstBlock		    "Bus\nAssignment"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 45]
+	    Branch {
+	      Points		      [0, 0]
+	      DstBlock		      "Bus\nAssignment1"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [0, 45]
+	      Branch {
+		DstBlock		"Bus\nAssignment3"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 45]
+		Branch {
+		  Points		  [0, 45]
+		  DstBlock		  "Bus\nAssignment2"
+		  DstPort		  1
+		}
+		Branch {
+		  DstBlock		  "Bus\nAssignment4"
+		  DstPort		  1
+		}
+	      }
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator4"
+	  SrcPort		  1
+	  DstBlock		  "Parameters"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "param_ROT"
+	  SrcPort		  1
+	  DstBlock		  "Rotor Parameters"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "param_FUSE"
+	  SrcPort		  1
+	  DstBlock		  "Fuse Parameters"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain1"
+	  SrcPort		  1
+	  Points		  [160, 0]
+	  Branch {
+	    DstBlock		    "Bus\nAssignment"
+	    DstPort		    3
+	  }
+	  Branch {
+	    DstBlock		    "Vector\nConcatenate1"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "Gain3"
+	  SrcPort		  1
+	  Points		  [200, 0]
+	  Branch {
+	    DstBlock		    "Bus\nAssignment2"
+	    DstPort		    3
+	  }
+	  Branch {
+	    DstBlock		    "Vector\nConcatenate1"
+	    DstPort		    6
+	  }
+	}
+	Line {
+	  SrcBlock		  "Gain11"
+	  SrcPort		  1
+	  Points		  [75, 0]
+	  Branch {
+	    DstBlock		    "Bus\nAssignment2"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "Vector\nConcatenate"
+	    DstPort		    6
+	  }
+	}
+	Line {
+	  Name			  "FUSE"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "Bus\nAssignment2"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "ROT1"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "Bus\nAssignment"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "CG"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	  SrcBlock		  "Bus\nCreator2"
+	  SrcPort		  1
+	  Points		  [85, 0; 0, 150]
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "R_IERA_RA_RA"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "zero m2"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "alpha_IERA_IELA_IELA"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "zero m1"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "param_units"
+	  SrcPort		  1
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "ROT"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "Rotor Parameters"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator4"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "FUSE"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "Fuse Parameters"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator4"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "R_IERA_RA_RA"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "Gain8"
+	  SrcPort		  1
+	  Points		  [25, 0]
+	  Branch {
+	    DstBlock		    "Bus\nCreator2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Vector\nConcatenate"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  Name			  "alpha_IERA_IELA_IELA"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "Gain6"
+	  SrcPort		  1
+	  Points		  [110, 0]
+	  Branch {
+	    DstBlock		    "Bus\nCreator2"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 85; 25, 0]
+	    DstBlock		    "Vector\nConcatenate1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  Name			  "I_IERA"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "zero Inb"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "m"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "zero m"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, -20]
+	  DstBlock		  "Bus\nCreator3"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "m"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "Gain7"
+	  SrcPort		  1
+	  Points		  [85, 0; 0, -10; 50, 0]
+	  Branch {
+	    Points		    [0, 85; 115, 0; 0, 350; -60, 0; 0, 20]
+	    DstBlock		    "Vector\nConcatenate2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Bus\nCreator2"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  Name			  "I_IERA"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "param_inertia"
+	  SrcPort		  1
+	  Points		  [125, 0; 0, -30; 115, 0]
+	  Branch {
+	    DstBlock		    "Bus\nCreator2"
+	    DstPort		    4
+	  }
+	  Branch {
+	    Points		    [0, 25; 95, 0; 0, 440]
+	    DstBlock		    "Matrix\nConcatenate"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Demux2"
+	  SrcPort		  1
+	  DstBlock		  "Gain4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux2"
+	  SrcPort		  2
+	  DstBlock		  "Gain2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain2"
+	  SrcPort		  1
+	  Points		  [170, 0]
+	  Branch {
+	    DstBlock		    "Bus\nAssignment1"
+	    DstPort		    3
+	  }
+	  Branch {
+	    DstBlock		    "Vector\nConcatenate1"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  SrcBlock		  "Gain4"
+	  SrcPort		  1
+	  Points		  [45, 0]
+	  Branch {
+	    DstBlock		    "Bus\nAssignment1"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "Vector\nConcatenate"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  SrcBlock		  "geom_ROT2"
+	  SrcPort		  1
+	  DstBlock		  "Demux2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain9"
+	  SrcPort		  1
+	  Points		  [35, 0]
+	  Branch {
+	    DstBlock		    "Bus\nAssignment"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "Vector\nConcatenate"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "Demux4"
+	  SrcPort		  1
+	  DstBlock		  "Gain10"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux4"
+	  SrcPort		  2
+	  DstBlock		  "Gain5"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain5"
+	  SrcPort		  1
+	  Points		  [180, 0]
+	  Branch {
+	    DstBlock		    "Bus\nAssignment3"
+	    DstPort		    3
+	  }
+	  Branch {
+	    DstBlock		    "Vector\nConcatenate1"
+	    DstPort		    4
+	  }
+	}
+	Line {
+	  SrcBlock		  "Gain10"
+	  SrcPort		  1
+	  Points		  [55, 0]
+	  Branch {
+	    DstBlock		    "Bus\nAssignment3"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "Vector\nConcatenate"
+	    DstPort		    4
+	  }
+	}
+	Line {
+	  SrcBlock		  "geom_ROT3"
+	  SrcPort		  1
+	  DstBlock		  "Demux4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux5"
+	  SrcPort		  1
+	  DstBlock		  "Gain12"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux5"
+	  SrcPort		  2
+	  DstBlock		  "Gain13"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain13"
+	  SrcPort		  1
+	  Points		  [190, 0]
+	  Branch {
+	    DstBlock		    "Bus\nAssignment4"
+	    DstPort		    3
+	  }
+	  Branch {
+	    DstBlock		    "Vector\nConcatenate1"
+	    DstPort		    5
+	  }
+	}
+	Line {
+	  SrcBlock		  "Gain12"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  Branch {
+	    DstBlock		    "Bus\nAssignment4"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "Vector\nConcatenate"
+	    DstPort		    5
+	  }
+	}
+	Line {
+	  SrcBlock		  "geom_ROT4"
+	  SrcPort		  1
+	  DstBlock		  "Demux5"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "ROT2"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "Bus\nAssignment1"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "ROT3"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "Bus\nAssignment3"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "ROT4"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "Bus\nAssignment4"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "COMMON"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	  SrcBlock		  "Bus\nCreator5"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, -45]
+	  DstBlock		  "Bus\nCreator1"
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "alpha_IERA_IELA_IELA"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	  SrcBlock		  "Vector\nConcatenate1"
+	  SrcPort		  1
+	  Points		  [0, 35]
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "I_IERA"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	  SrcBlock		  "Matrix\nConcatenate"
+	  SrcPort		  1
+	  Points		  [0, -10]
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "R_IERA_RA_RA"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; -1, 0]
+	  SrcBlock		  "Vector\nConcatenate"
+	  SrcPort		  1
+	  Points		  [0, 15]
+	  DstBlock		  "Bus\nCreator5"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "zero Inb1"
+	  SrcPort		  1
+	  DstBlock		  "Matrix\nConcatenate"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "param_MOT"
+	  SrcPort		  1
+	  DstBlock		  "Motor Parameters"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "MOT"
+	  Labels		  [0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0; 0, 0]
+	  SrcBlock		  "Motor Parameters"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator4"
+	  DstPort		  3
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Quaternions to\nRotation Angles"
+      SID		      "35"
+      Ports		      [1, 1]
+      Position		      [715, 289, 770, 311]
+      LibraryVersion	      "1.558"
+      SourceBlock	      "UAVdesign_net/Utilities/Axes/Quaternions to\nRotation Angles"
+      SourceType	      "Quat2Ang"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      GeneratePreprocessorConditionals off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Rotation Angles\nto Quaternions"
+      SID		      "91"
+      Ports		      [1, 1]
+      Position		      [115, 325, 175, 345]
+      LibraryVersion	      "1.558"
+      SourceBlock	      "UAVdesign_net/Utilities/Axes/Rotation Angles\nto Quaternions"
+      SourceType	      "Ang2Quat"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      GeneratePreprocessorConditionals off
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope"
+      SID		      "93"
+      Ports		      [1]
+      Position		      [390, 269, 420, 301]
+      Floating		      off
+      Location		      [188, 390, 512, 629]
+      Open		      off
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      YMin		      "7.37"
+      YMax		      "7.415"
+      DataFormat	      "StructureWithTime"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace1"
+      SID		      "37"
+      Ports		      [1]
+      Position		      [820, 289, 925, 311]
+      ShowName		      off
+      VariableName	      "out_attitude"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Array"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace16"
+      SID		      "34"
+      Ports		      [1]
+      Position		      [820, 364, 925, 386]
+      ShowName		      off
+      VariableName	      "out_time"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Array"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace6"
+      SID		      "32"
+      Ports		      [1]
+      Position		      [820, 334, 925, 356]
+      ShowName		      off
+      VariableName	      "out_xc"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Array"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Trim"
+      SID		      "38"
+      Ports		      [4, 1]
+      Position		      [210, 126, 345, 219]
+      BackgroundColor	      "[0.945488, 1.000000, 0.556818]"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Trim"
+	Location		[3, 363, 807, 740]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Parameters"
+	  SID			  "41"
+	  Position		  [40, 38, 70, 52]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Geometry"
+	  SID			  "42"
+	  Position		  [40, 68, 70, 82]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Environment"
+	  SID			  "43"
+	  Position		  [40, 98, 70, 112]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "xc"
+	  SID			  "58"
+	  Position		  [40, 238, 70, 252]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector"
+	  SID			  "72"
+	  Ports			  [1, 1]
+	  Position		  [180, 253, 185, 277]
+	  ShowName		  off
+	  OutputSignals		  "ROT"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<ROT>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector1"
+	  SID			  "73"
+	  Ports			  [1, 1]
+	  Position		  [180, 293, 185, 317]
+	  ShowName		  off
+	  OutputSignals		  "CG.m"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<m>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector2"
+	  SID			  "76"
+	  Ports			  [1, 2]
+	  Position		  [470, 131, 475, 169]
+	  ShowName		  off
+	  OutputSignals		  "ROT,MOT"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<ROT>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<MOT>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "74"
+	  Position		  [180, 194, 220, 216]
+	  ShowName		  off
+	  Value			  "[0 0 0]"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  SID			  "75"
+	  Position		  [180, 214, 220, 236]
+	  ShowName		  off
+	  Value			  "0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant3"
+	  SID			  "81"
+	  Position		  [485, 49, 525, 71]
+	  ShowName		  off
+	  Value			  "[0 0 0 0]"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Quad-Rotor\nInvert motor dynamics"
+	  SID			  "77"
+	  Ports			  [6, 1]
+	  Position		  [575, 48, 690, 172]
+	  BackgroundColor	  "[0.909804, 0.854902, 0.733333]"
+	  ErrorFcn		  "Stateflow.Translate.translate"
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Embedded MATLAB block"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('private/"
+	  "eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'qrinv_mot']);"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  System {
+	    Name		    "Quad-Rotor\nInvert motor dynamics"
+	    Location		    [257, 457, 812, 717]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "1030"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Omegadot"
+	      SID		      "77::1"
+	      Position		      [20, 101, 40, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Omega"
+	      SID		      "77::2"
+	      Position		      [20, 136, 40, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "omegabdot"
+	      SID		      "77::3"
+	      Position		      [20, 171, 40, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "tau_rot"
+	      SID		      "77::4"
+	      Position		      [20, 206, 40, 224]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "ParamsProp"
+	      SID		      "77::5"
+	      Position		      [20, 246, 40, 264]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "ParamsMot"
+	      SID		      "77::6"
+	      Position		      [20, 281, 40, 299]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      SID		      "77::1028"
+	      Ports		      [1, 1]
+	      Position		      [270, 245, 320, 285]
+	      Outputs		      "1"
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      " SFunction "
+	      SID		      "77::1027"
+	      Tag		      "Stateflow S-Function quadrotor_sim 8"
+	      Ports		      [6, 2]
+	      Position		      [180, 102, 230, 243]
+	      FunctionName	      "sf_sfun"
+	      PortCounts	      "[6 2]"
+	      EnableBusSupport	      on
+	      Port {
+		PortNumber		2
+		Name			"Vmot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      " Terminator "
+	      SID		      "77::1030"
+	      Position		      [460, 256, 480, 274]
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Vmot"
+	      SID		      "77::10"
+	      Position		      [460, 101, 480, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      " Terminator "
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "Vmot"
+	      Labels		      [0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      2
+	      DstBlock		      "Vmot"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "ParamsMot"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "ParamsProp"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "tau_rot"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "omegabdot"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Omega"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Omegadot"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "QuadRotor\nInvert attitude dynamics\nThe code runs the model"
+	  SID			  "71"
+	  Ports			  [7, 2]
+	  Position		  [250, 173, 390, 317]
+	  BackgroundColor	  "[0.909804, 0.854902, 0.733333]"
+	  ErrorFcn		  "Stateflow.Translate.translate"
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Embedded MATLAB block"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('private/"
+	  "eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'qinv_att']);"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "normalized"
+	  System {
+	    Name		    "QuadRotor\nInvert attitude dynamics\nThe code runs the model"
+	    Location		    [257, 457, 812, 717]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "1031"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "SignalID"
+	      SID		      "71::1"
+	      Position		      [20, 101, 40, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "omegabdot"
+	      SID		      "71::2"
+	      Position		      [20, 136, 40, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "vzdot"
+	      SID		      "71::3"
+	      Position		      [20, 171, 40, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "x"
+	      SID		      "71::4"
+	      Position		      [20, 206, 40, 224]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "PropParams"
+	      SID		      "71::5"
+	      Position		      [20, 246, 40, 264]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Environment"
+	      SID		      "71::6"
+	      Position		      [20, 281, 40, 299]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "mass"
+	      SID		      "71::7"
+	      Position		      [20, 316, 40, 334]
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      SID		      "71::1029"
+	      Ports		      [1, 1]
+	      Position		      [270, 260, 320, 300]
+	      Outputs		      "1"
+	      Port {
+		PortNumber		1
+		Name			"qr_model"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      " SFunction "
+	      SID		      "71::1028"
+	      Tag		      "Stateflow S-Function quadrotor_sim 4"
+	      Ports		      [7, 2]
+	      Position		      [180, 100, 230, 260]
+	      FunctionName	      "sf_sfun"
+	      PortCounts	      "[7 2]"
+	      EnableBusSupport	      on
+	      Port {
+		PortNumber		2
+		Name			"Omega"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Omega"
+	      SID		      "71::10"
+	      Position		      [460, 101, 480, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "qr_model"
+	      SID		      "71::11"
+	      Position		      [460, 136, 480, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "qr_model"
+	      Labels		      [0, 0]
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      "qr_model"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "Omega"
+	      Labels		      [0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      2
+	      DstBlock		      "Omega"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "mass"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      7
+	    }
+	    Line {
+	      SrcBlock		      "Environment"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "PropParams"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "x"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "vzdot"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "omegabdot"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "SignalID"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "QuadRotor Model"
+	  SID			  "60"
+	  Ports			  [3, 2, 0, 1]
+	  Position		  [250, 30, 390, 120]
+	  BackgroundColor	  "[0.584314, 0.968627, 0.576471]"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "QuadRotor Model"
+	    Location		    [470, 360, 910, 593]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Parameters"
+	      SID		      "61"
+	      Position		      [35, 13, 65, 27]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Geometry"
+	      SID		      "62"
+	      Position		      [35, 43, 65, 57]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Environment"
+	      SID		      "63"
+	      Position		      [35, 73, 65, 87]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      TriggerPort
+	      Name		      "Trigger"
+	      SID		      "64"
+	      Ports		      []
+	      Position		      [380, 15, 400, 35]
+	      TriggerType	      "function-call"
+	      StatesWhenEnabling      "held"
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector"
+	      SID		      "83"
+	      Ports		      [1, 1]
+	      Position		      [310, 48, 315, 72]
+	      ShowName		      off
+	      OutputSignals	      "TQ"
+	      Port {
+		PortNumber		1
+		Name			"<TQ>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant"
+	      SID		      "65"
+	      Position		      [35, 104, 75, 126]
+	      ShowName		      off
+	      Value		      "[0 0 0 0]"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant1"
+	      SID		      "66"
+	      Position		      [35, 129, 75, 151]
+	      ShowName		      off
+	      Value		      "[0 0 0]"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Quad-Rotor Model (Momentum)"
+	      SID		      "67"
+	      Ports		      [7, 3]
+	      Position		      [150, 29, 280, 201]
+	      BackgroundColor	      "[0.584314, 0.968627, 0.576471]"
+	      LibraryVersion	      "1.558"
+	      SourceBlock	      "UAVdesign_net/Vehicle Models/Quad-Rotor Model (Momentum)"
+	      SourceType	      "HelicopterModel"
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData off
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      GeneratePreprocessorConditionals off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Read \nRemote Signals"
+	      SID		      "68"
+	      Ports		      [2]
+	      Position		      [315, 146, 405, 179]
+	      LibraryVersion	      "1.558"
+	      SourceBlock	      "UAVdesign_net/Utilities/Continuous/Remote Signals"
+	      SourceType	      "CD_RemoteSignals"
+	      block_name	      "'InvFM_Omega'"
+	      op_mode		      "Read the output"
+	      port_vector	      "[17 5*4+3]"
+	      sample_time	      "-1"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Write \nRemote Signals"
+	      SID		      "70"
+	      Ports		      [0, 2]
+	      Position		      [25, 156, 115, 189]
+	      LibraryVersion	      "1.558"
+	      SourceBlock	      "UAVdesign_net/Utilities/Continuous/Remote Signals"
+	      SourceType	      "CD_RemoteSignals"
+	      block_name	      "'InvFM_Omega'"
+	      op_mode		      "Write the input"
+	      port_vector	      "[17 5*4+3]"
+	      sample_time	      "-1"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "TQ"
+	      SID		      "82"
+	      Position		      [375, 53, 405, 67]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "xc"
+	      SID		      "84"
+	      Position		      [375, 108, 405, 122]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Quad-Rotor Model (Momentum)"
+	      SrcPort		      2
+	      Points		      [15, 0]
+	      Branch {
+		DstBlock		"Read \nRemote Signals"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"xc"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Quad-Rotor Model (Momentum)"
+	      SrcPort		      3
+	      DstBlock		      "Read \nRemote Signals"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Constant"
+	      SrcPort		      1
+	      DstBlock		      "Quad-Rotor Model (Momentum)"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "Constant1"
+	      SrcPort		      1
+	      DstBlock		      "Quad-Rotor Model (Momentum)"
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "Write \nRemote Signals"
+	      SrcPort		      1
+	      DstBlock		      "Quad-Rotor Model (Momentum)"
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "Write \nRemote Signals"
+	      SrcPort		      2
+	      Points		      [10, 0; 0, 10]
+	      DstBlock		      "Quad-Rotor Model (Momentum)"
+	      DstPort		      7
+	    }
+	    Line {
+	      SrcBlock		      "Quad-Rotor Model (Momentum)"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nSelector"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Parameters"
+	      SrcPort		      1
+	      Points		      [40, 0; 0, 20]
+	      DstBlock		      "Quad-Rotor Model (Momentum)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Geometry"
+	      SrcPort		      1
+	      Points		      [30, 0; 0, 15]
+	      DstBlock		      "Quad-Rotor Model (Momentum)"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Environment"
+	      SrcPort		      1
+	      Points		      [20, 0; 0, 10]
+	      DstBlock		      "Quad-Rotor Model (Momentum)"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "<TQ>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      1
+	      DstBlock		      "TQ"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Remote Signals"
+	  SID			  "55"
+	  Ports			  [0, 1]
+	  Position		  [25, 176, 110, 194]
+	  LibraryVersion	  "1.558"
+	  SourceBlock		  "UAVdesign_net/Utilities/Continuous/Remote Signals"
+	  SourceType		  "CD_RemoteSignals"
+	  block_name		  "'InvFM_Omega'"
+	  op_mode		  "Generate the signals ID"
+	  port_vector		  "[17 5*4+3]"
+	  sample_time		  "-1"
+	}
+	Block {
+	  BlockType		  Selector
+	  Name			  "Selector3"
+	  SID			  "79"
+	  Ports			  [1, 1]
+	  Position		  [485, 91, 525, 109]
+	  ShowName		  off
+	  InputPortWidth	  "17"
+	  IndexOptions		  "Index vector (dialog)"
+	  Indices		  "[4:6]"
+	  OutputSizes		  "1"
+	}
+	Block {
+	  BlockType		  Selector
+	  Name			  "Selector4"
+	  SID			  "80"
+	  Ports			  [1, 1]
+	  Position		  [485, 111, 525, 129]
+	  ShowName		  off
+	  InputPortWidth	  "8"
+	  IndexOptions		  "Index vector (dialog)"
+	  Indices		  "[2 4 6 8]"
+	  OutputSizes		  "1"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "v_mot_trim"
+	  SID			  "59"
+	  Position		  [740, 103, 770, 117]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Parameters"
+	  SrcPort		  1
+	  Points		  [90, 0]
+	  Branch {
+	    DstBlock		    "QuadRotor Model"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 105]
+	    Branch {
+	      DstBlock		      "Bus\nSelector"
+	      DstPort		      1
+	    }
+	    Branch {
+	      DstBlock		      "Bus\nSelector2"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "Geometry"
+	  SrcPort		  1
+	  Points		  [50, 0]
+	  Branch {
+	    DstBlock		    "QuadRotor Model"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 230]
+	    DstBlock		    "Bus\nSelector1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Environment"
+	  SrcPort		  1
+	  Points		  [70, 0]
+	  Branch {
+	    DstBlock		    "QuadRotor Model"
+	    DstPort		    3
+	  }
+	  Branch {
+	    Points		    [0, 180]
+	    DstBlock		    "QuadRotor\nInvert attitude dynamics\nThe code runs the model"
+	    DstPort		    6
+	  }
+	}
+	Line {
+	  SrcBlock		  "Remote Signals"
+	  SrcPort		  1
+	  DstBlock		  "QuadRotor\nInvert attitude dynamics\nThe code runs the model"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "QuadRotor\nInvert attitude dynamics\nThe code runs the model"
+	  SrcPort		  2
+	  Points		  [15, 0; 0, -265]
+	  DstBlock		  "QuadRotor Model"
+	  DstPort		  trigger
+	}
+	Line {
+	  SrcBlock		  "xc"
+	  SrcPort		  1
+	  DstBlock		  "QuadRotor\nInvert attitude dynamics\nThe code runs the model"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<ROT>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector"
+	  SrcPort		  1
+	  DstBlock		  "QuadRotor\nInvert attitude dynamics\nThe code runs the model"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<m>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  1
+	  DstBlock		  "QuadRotor\nInvert attitude dynamics\nThe code runs the model"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "QuadRotor\nInvert attitude dynamics\nThe code runs the model"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  DstBlock		  "QuadRotor\nInvert attitude dynamics\nThe code runs the model"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Selector3"
+	  SrcPort		  1
+	  DstBlock		  "Quad-Rotor\nInvert motor dynamics"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Selector4"
+	  SrcPort		  1
+	  DstBlock		  "Quad-Rotor\nInvert motor dynamics"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<ROT>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector2"
+	  SrcPort		  1
+	  DstBlock		  "Quad-Rotor\nInvert motor dynamics"
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "<MOT>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector2"
+	  SrcPort		  2
+	  DstBlock		  "Quad-Rotor\nInvert motor dynamics"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "Constant3"
+	  SrcPort		  1
+	  DstBlock		  "Quad-Rotor\nInvert motor dynamics"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "QuadRotor\nInvert attitude dynamics\nThe code runs the model"
+	  SrcPort		  1
+	  Points		  [35, 0; 0, -130]
+	  DstBlock		  "Quad-Rotor\nInvert motor dynamics"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "QuadRotor Model"
+	  SrcPort		  1
+	  Points		  [50, 0; 0, 65]
+	  DstBlock		  "Selector4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "QuadRotor Model"
+	  SrcPort		  2
+	  DstBlock		  "Selector3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Quad-Rotor\nInvert motor dynamics"
+	  SrcPort		  1
+	  DstBlock		  "v_mot_trim"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      UnitDelay
+      Name		      "Unit Delay"
+      SID		      "19"
+      Position		      [450, 233, 485, 267]
+      BlockMirror	      on
+      X0		      "[zeros(12,1); 1;1;1;1; zeros(7,1)]"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "V_b"
+      SID		      "86"
+      Position		      [25, 205, 85, 225]
+      Value		      "[10*cos(2*pi/180) 10*sin(2*pi/180) 0]"
+    }
+    Block {
+      BlockType		      Concatenate
+      Name		      "Vector\nConcatenate"
+      SID		      "92"
+      Ports		      [5, 1]
+      Position		      [225, 254, 230, 336]
+      ShowName		      off
+      NumInputs		      "5"
+      Mode		      "Vector"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "omega_b"
+      SID		      "87"
+      Position		      [25, 245, 85, 265]
+      Value		      "[0 0 0]"
+    }
+    Block {
+      BlockType		      Selector
+      Name		      "q"
+      SID		      "36"
+      Ports		      [1, 1]
+      Position		      [640, 292, 685, 308]
+      InputPortWidth	      "17"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[10:13]"
+      OutputSizes	      "1"
+    }
+    Line {
+      SrcBlock		      "QuadRotor Model"
+      SrcPort		      2
+      Points		      [10, 0; 0, 85]
+      DstBlock		      "Unit Delay"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Unit Delay"
+      SrcPort		      1
+      Points		      [-60, 0]
+      DstBlock		      "QuadRotor Model"
+      DstPort		      6
+    }
+    Line {
+      SrcBlock		      "QuadRotor Model"
+      SrcPort		      1
+      Points		      [25, 0; 0, 210; -135, 0]
+      DstBlock		      "CD Integrator"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "CD Integrator"
+      SrcPort		      1
+      Points		      [70, 0; 0, -300; -110, 0]
+      DstBlock		      "QuadRotor Model"
+      DstPort		      trigger
+    }
+    Line {
+      SrcBlock		      "CD Integrator"
+      SrcPort		      2
+      Points		      [10, 0]
+      Branch {
+	Points			[0, 50; -145, 0; 0, -235]
+	DstBlock		"QuadRotor Model"
+	DstPort			5
+      }
+      Branch {
+	Points			[85, 0]
+	Branch {
+	  DstBlock		  "To Workspace6"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, -45]
+	  DstBlock		  "q"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "QuadRotor Parameters"
+      SrcPort		      1
+      Points		      [75, 0]
+      Branch {
+	Points			[180, 0; 0, 20]
+	DstBlock		"QuadRotor Model"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 95]
+	DstBlock		"Trim"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "QuadRotor Parameters"
+      SrcPort		      2
+      Points		      [60, 0]
+      Branch {
+	Points			[180, 0; 0, 25]
+	DstBlock		"QuadRotor Model"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, 100]
+	DstBlock		"Trim"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Environment"
+      SrcPort		      1
+      Points		      [45, 0]
+      Branch {
+	DstBlock		"QuadRotor Model"
+	DstPort			3
+      }
+      Branch {
+	Points			[0, 75]
+	DstBlock		"Trim"
+	DstPort			3
+      }
+    }
+    Line {
+      SrcBlock		      "Trim"
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
+	Points			[0, -40]
+	DstBlock		"QuadRotor Model"
+	DstPort			4
+      }
+      Branch {
+	Points			[0, 110]
+	DstBlock		"Scope"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Clock"
+      SrcPort		      1
+      DstBlock		      "To Workspace16"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "q"
+      SrcPort		      1
+      DstBlock		      "Quaternions to\nRotation Angles"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Quaternions to\nRotation Angles"
+      SrcPort		      1
+      DstBlock		      "To Workspace1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Euler angles"
+      SrcPort		      1
+      DstBlock		      "Rotation Angles\nto Quaternions"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "V_b"
+      SrcPort		      1
+      Points		      [40, 0; 0, 50]
+      DstBlock		      "Vector\nConcatenate"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "omega_b"
+      SrcPort		      1
+      Points		      [30, 0; 0, 25]
+      DstBlock		      "Vector\nConcatenate"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "P_e"
+      SrcPort		      1
+      DstBlock		      "Vector\nConcatenate"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Rotation Angles\nto Quaternions"
+      SrcPort		      1
+      Points		      [10, 0; 0, -25]
+      DstBlock		      "Vector\nConcatenate"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Omega_rot"
+      SrcPort		      1
+      Points		      [115, 0; 0, -50]
+      DstBlock		      "Vector\nConcatenate"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "Vector\nConcatenate"
+      SrcPort		      1
+      Points		      [40, 0]
+      Branch {
+	Points			[0, 50]
+	DstBlock		"CD Integrator"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, -50; -95, 0; 0, -35]
+	DstBlock		"Trim"
+	DstPort			4
+      }
+    }
+    Annotation {
+      Name		      "This example simulates a quadrotor using the new integrator block that supports quaternions. It als"
+      "o shows how to run a model from Embedded Matlab code.\nThe initial conditions are set for forward flight. The mo"
+      "tor voltages are set to a trim level and kept constant. The system does not have a closed-loop controller.\nThe "
+      "state vextor is x = [V_x V_y V_z   \\omega_x \\omega_y \\omega_z    R_N R_E R_D    q_1 q_2 q_3 q_4    \\Omega_1 "
+      "\\Omega_2 \\Omega_3 \\Omega_4]\nThe quaternion is at positions 10, 11, 12, 13 (starting=10, ending=13)\n\\Omega^"
+      "{\\bullet} is at positions 4, 5, 6"
+      Position		      [28, 445]
+      HorizontalAlignment     "left"
+      BackgroundColor	      "yellow"
+      DropShadow	      on
+      Interpreter	      "tex"
+    }
+    Annotation {
+      Name		      "Initial State"
+      Position		      [57, 188]
+    }
+  }
+}
+# Finite State Machines
+#
+#    Stateflow Version 7.5 (R2010a) dated Mar  4 2011, 18:49:46
+#
+#
+
+
+Stateflow {
+  machine {
+    id			    1
+    name		    "quadrotor_sim"
+    created		    "24-Sep-2011 16:17:24"
+    isLibrary		    0
+    firstTarget		    28
+    sfVersion		    75014001
+  }
+  chart {
+    id			    2
+    name		    "Trim/QuadRotor\nInvert attitude dynamics\nThe code runs the model"
+    windowPosition	    [207.604 358.11 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1280 800 1.25]
+    treeNode		    [0 3 0 0]
+    firstTransition	    5
+    firstJunction	    4
+    viewObj		    2
+    machine		    1
+    subviewS {
+    }
+    ssIdHighWaterMark	    13
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstEvent		    6
+    firstData		    7
+    chartFileNumber	    4
+    disableImplicitCasting  1
+    eml {
+      name		      "qinv_att"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    3
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 0 0]
+    superState		    SUBCHART
+    subviewer		    2
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function Omega = qinv_att(SignalID, omegabdot, vzdot, x, PropParams, Environment, mass)\n\npersis"
+      "tent prev_data\n\nif isempty(prev_data)\n\n\n% Find the approximative value of omega_rot that generates the requ"
+      "ested vzdot\n% It will be later used in the trim algorithm as a start value\n% vzdot includes the effect of g (e"
+      ".g. vzdot = 0 means hover)\nrho    = Environment.rho;\nradius = PropParams.radius;\nnb     = double(PropParams.n"
+      "b);\nchord  = PropParams.chord;\na0     = PropParams.a0;\ntheta0 = PropParams.theta;\ntwist  = PropParams.twist;"
+      "\n\nq_ag   = [0; 0; 0; Environment.g];\nq_ag   = qprod(x(10:13).*[1; -1; -1; -1], q_ag);\nq_ag   = qprod(q_ag, x"
+      "(10:13));\n\nFz_rot = abs(vzdot-q_ag(4))*mass/4;\nfact1  = rho*radius*nb*chord*a0;\ndelta  = fact1^2 / (32*rho*p"
+      "i);\ndelta  = delta + 2*fact1*radius^2*(1/3*theta0+1/4*twist);\nomega_rot = fact1 / (4*sqrt(2*rho*pi)) + sqrt(de"
+      "lta);\nomega_rot = omega_rot * sqrt(Fz_rot);\nomega_rot = omega_rot / (fact1*radius^2*(1/3*theta0+1/4*twist));\n"
+      "\nNin  = 4;\nNout = 4;\npos_in  = [14:17];\npos_out = [4:6 3];\ndu      = [1; 1; 1; 1]*pi;\njac  = zeros(Nout, N"
+      "in);\nu_temp = zeros(17,1);\ny_temp = zeros(17,1);\nu0   = x;\nu0(pos_in) = omega_rot*ones(Nin, 1);\nxd = zeros("
+      "5*4+3, 1);\nxd(13:16) = [1; 1; 1; 1];\ny0 = [omegabdot; vzdot];\n\n% find xd\ncd_set_signal(SignalID, 0, u0);\nc"
+      "d_set_signal(SignalID, 1, xd);\nqr_model;\nxd = cd_get_signal(SignalID, 1, length(xd));\n\n% Newton-Raphson iter"
+      "ation\nfor i=1:3\n    cd_set_signal(SignalID, 1, xd);\n    \n    % find Jacobian\n    index_in  = 1;\n    while "
+      "index_in <= Nin\n        u_temp = u0;\n        u_temp(pos_in(index_in)) = u_temp(pos_in(index_in)) + du(index_in"
+      ");\n\n        cd_set_signal(SignalID, 0, u_temp);\n        qr_model;\n        y_temp = cd_get_signal(SignalID, 0"
+      ", length(y_temp));\n        jac(:, index_in) = y_temp(pos_out);\n        index_in = index_in + 1;\n    end\n    "
+      "cd_set_signal(SignalID, 0, u0);\n    qr_model;\n    y_temp = cd_get_signal(SignalID, 0, length(y_temp));\n    xd"
+      " = cd_get_signal(SignalID, 1, length(xd));\n\n    index_out = 1;\n    while index_out <= Nout\n        jac(index"
+      "_out, :) = jac(index_out, :) - y_temp(pos_out(index_out));\n        index_out = index_out + 1;\n    end\n    ind"
+      "ex_in = 1;\n    while index_in <= Nin\n        jac(:,index_in) = jac(:,index_in) / du(index_in);\n        index_"
+      "in = index_in + 1;\n    end\n    \n    % find next u0\n    du0 = -inv(jac)*(y_temp(pos_out)-y0);\n    u0(pos_in)"
+      " = u0(pos_in) + du0;\n    \n    % find new xd\n    cd_set_signal(SignalID, 0, u0);\n    cd_set_signal(SignalID, "
+      "1, xd);\n    qr_model;\n    y_temp = cd_get_signal(SignalID, 0, length(y_temp));\n    xd = cd_get_signal(SignalI"
+      "D, 1, length(xd));\nend\nprev_data = u0(pos_in);\n\nelse\n    % do nothing\nend\nOmega = prev_data;\n\nfunction "
+      "qr = qprod(q, r)\nqr = zeros(4,1);\nqr(1) = q(1)*r(1) - q(2)*r(2) - q(3)*r(3) - q(4)*r(4);\nqr(2) = q(2)*r(1) + "
+      "q(1)*r(2) - q(4)*r(3) + q(3)*r(4);\nqr(3) = q(3)*r(1) + q(4)*r(2) + q(1)*r(3) - q(2)*r(4);\nqr(4) = q(4)*r(1) - "
+      "q(3)*r(2) + q(2)*r(3) + q(1)*r(4);\n\n"
+      editorLayout	      "100 M4x1[145 77 866 677]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    4
+    position		    [23.5747 49.5747 7]
+    chart		    2
+    linkNode		    [2 0 0]
+    subviewer		    2
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    5
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      4
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    2
+    linkNode		    [2 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    2
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  event {
+    id			    6
+    ssIdNumber		    7
+    name		    "qr_model"
+    linkNode		    [2 0 0]
+    scope		    OUTPUT_EVENT
+    trigger		    FUNCTION_CALL_EVENT
+    machine		    1
+  }
+  data {
+    id			    7
+    ssIdNumber		    9
+    name		    "SignalID"
+    linkNode		    [2 0 8]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    8
+    ssIdNumber		    4
+    name		    "omegabdot"
+    linkNode		    [2 7 9]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    9
+    ssIdNumber		    6
+    name		    "vzdot"
+    linkNode		    [2 8 10]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    10
+    ssIdNumber		    8
+    name		    "Omega"
+    linkNode		    [2 9 11]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    11
+    ssIdNumber		    10
+    name		    "x"
+    linkNode		    [2 10 12]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    12
+    ssIdNumber		    11
+    name		    "PropParams"
+    linkNode		    [2 11 13]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"1"
+      }
+      type {
+	method			SF_SIMULINK_OBJECT_TYPE
+	primitive		SF_DOUBLE_TYPE
+	busObject		"PropellerParameters"
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Bus: PropellerParameters"
+  }
+  data {
+    id			    13
+    ssIdNumber		    12
+    name		    "Environment"
+    linkNode		    [2 12 14]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"1"
+      }
+      type {
+	method			SF_SIMULINK_OBJECT_TYPE
+	primitive		SF_DOUBLE_TYPE
+	busObject		"Environment"
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Bus: Environment"
+  }
+  data {
+    id			    14
+    ssIdNumber		    13
+    name		    "mass"
+    linkNode		    [2 13 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    15
+    name		    "Trim/QuadRotor\nInvert attitude dynamics\nThe code runs the model"
+    machine		    1
+    chart		    2
+  }
+  chart {
+    id			    16
+    name		    "Trim/Quad-Rotor\nInvert motor dynamics"
+    windowPosition	    [318.609 340.853 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1280 800 1.25]
+    treeNode		    [0 17 0 0]
+    firstTransition	    19
+    firstJunction	    18
+    viewObj		    16
+    machine		    1
+    subviewS {
+    }
+    ssIdHighWaterMark	    16
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    20
+    chartFileNumber	    8
+    disableImplicitCasting  1
+    eml {
+      name		      "qrinv_mot"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    17
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    16
+    treeNode		    [16 0 0 0]
+    superState		    SUBCHART
+    subviewer		    16
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function Vmot = qrinv_mot(Omegadot, Omega, omegabdot, tau_rot, ParamsProp, ParamsMot)\n\nif Param"
+      "sProp.iflap\n    iflap = ParamsProp.iflap;\nelse\n    iflap = ParamsProp.mbar * ParamsProp.radius^3 / 3;\nend\n\n"
+      "\nVmot = double(ParamsProp.nb)*iflap * (Omegadot + omegabdot(3)*ParamsProp.azsign*[1; -1; 1; -1]) + tau_rot;\nVm"
+      "ot = Vmot * ParamsMot.R/ParamsMot.Kt;\nVmot = Vmot + 1/ParamsMot.Kv*Omega;"
+      editorLayout	      "100 M4x1[387 235 738 519]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    18
+    position		    [23.5747 49.5747 7]
+    chart		    16
+    linkNode		    [16 0 0]
+    subviewer		    16
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    19
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      18
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    16
+    linkNode		    [16 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    16
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    20
+    ssIdNumber		    6
+    name		    "Omegadot"
+    linkNode		    [16 0 21]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    21
+    ssIdNumber		    9
+    name		    "Omega"
+    linkNode		    [16 20 22]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    22
+    ssIdNumber		    15
+    name		    "omegabdot"
+    linkNode		    [16 21 23]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    23
+    ssIdNumber		    8
+    name		    "tau_rot"
+    linkNode		    [16 22 24]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	busObject		"<bus object name>"
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    24
+    ssIdNumber		    5
+    name		    "Vmot"
+    linkNode		    [16 23 25]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    25
+    ssIdNumber		    10
+    name		    "ParamsProp"
+    linkNode		    [16 24 26]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"1"
+      }
+      type {
+	method			SF_SIMULINK_OBJECT_TYPE
+	primitive		SF_DOUBLE_TYPE
+	busObject		"PropellerParameters"
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Bus: PropellerParameters"
+  }
+  data {
+    id			    26
+    ssIdNumber		    12
+    name		    "ParamsMot"
+    linkNode		    [16 25 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"1"
+      }
+      type {
+	method			SF_SIMULINK_OBJECT_TYPE
+	primitive		SF_DOUBLE_TYPE
+	busObject		"ElectricMotorParameters"
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Bus: ElectricMotorParameters"
+  }
+  instance {
+    id			    27
+    name		    "Trim/Quad-Rotor\nInvert motor dynamics"
+    machine		    1
+    chart		    16
+  }
+  target {
+    id			    28
+    name		    "sfun"
+    description		    "Default Simulink S-Function Target."
+    machine		    1
+    linkNode		    [1 0 0]
+  }
+}
