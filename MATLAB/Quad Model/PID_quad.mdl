@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.37"
+    ComputedModelVersion    "1.40"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -77,9 +77,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "diogo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jan 22 15:27:36 2014"
-  RTWModifiedTimeStamp	  312305252
-  ModelVersionFormat	  "1.%<AutoIncrement:37>"
+  LastModifiedDate	  "Wed Jan 22 15:50:00 2014"
+  RTWModifiedTimeStamp	  312306598
+  ModelVersionFormat	  "1.%<AutoIncrement:40>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -2345,8 +2345,8 @@ Model {
       BlockType		      SubSystem
       Name		      "Quad"
       SID		      "177"
-      Ports		      [4, 6]
-      Position		      [250, 140, 305, 270]
+      Ports		      [4, 9]
+      Position		      [260, 139, 315, 271]
       ZOrder		      -5
       AncestorBlock	      "quad_lib/Quad"
       LibraryVersion	      "*1.4"
@@ -2371,8 +2371,8 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"198"
-	SIDHighWatermark	"206"
+	ZoomFactor		"175"
+	SIDHighWatermark	"212"
 	SIDPrevWatermark	"202"
 	Block {
 	  BlockType		  Inport
@@ -3657,8 +3657,8 @@ Model {
 	  BlockType		  SubSystem
 	  Name			  "Transactional part"
 	  SID			  "177:67"
-	  Ports			  [2, 3]
-	  Position		  [430, 85, 505, 165]
+	  Ports			  [2, 6]
+	  Position		  [430, 87, 505, 168]
 	  ZOrder		  -14
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
@@ -3961,11 +3961,46 @@ Model {
 	      Port		      "3"
 	      IconDisplay	      "Port number"
 	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "ax"
+	      SID		      "177:207"
+	      Position		      [285, 3, 315, 17]
+	      ZOrder		      1
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "ay"
+	      SID		      "177:208"
+	      Position		      [285, 93, 315, 107]
+	      ZOrder		      2
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "az"
+	      SID		      "177:209"
+	      Position		      [365, 218, 395, 232]
+	      ZOrder		      3
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
 	    Line {
 	      SrcBlock		      "Sum"
 	      SrcPort		      1
-	      DstBlock		      "vz_dot"
-	      DstPort		      1
+	      Points		      [6, 0]
+	      Branch {
+		Points			[0, 60]
+		DstBlock		"az"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"vz_dot"
+		DstPort			1
+	      }
 	    }
 	    Line {
 	      SrcBlock		      "vx_dot"
@@ -3995,14 +4030,30 @@ Model {
 	    Line {
 	      SrcBlock		      "Thrust to accel"
 	      SrcPort		      2
-	      DstBlock		      "vy_dot"
-	      DstPort		      1
+	      Points		      [110, 0]
+	      Branch {
+		Points			[0, 20]
+		DstBlock		"ay"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"vy_dot"
+		DstPort			1
+	      }
 	    }
 	    Line {
 	      SrcBlock		      "Thrust to accel"
 	      SrcPort		      1
-	      DstBlock		      "vx_dot"
-	      DstPort		      1
+	      Points		      [110, 0]
+	      Branch {
+		Points			[0, -35]
+		DstBlock		"ax"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"vx_dot"
+		DstPort			1
+	      }
 	    }
 	    Line {
 	      Labels		      [0, 0]
@@ -4095,7 +4146,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "x"
 	  SID			  "177:95"
-	  Position		  [615, 93, 645, 107]
+	  Position		  [660, 83, 690, 97]
 	  ZOrder		  -19
 	  NamePlacement		  "alternate"
 	  IconDisplay		  "Port number"
@@ -4104,7 +4155,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "y"
 	  SID			  "177:96"
-	  Position		  [615, 118, 645, 132]
+	  Position		  [610, 98, 640, 112]
 	  ZOrder		  -20
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -4113,7 +4164,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "z"
 	  SID			  "177:97"
-	  Position		  [570, 143, 600, 157]
+	  Position		  [570, 113, 600, 127]
 	  ZOrder		  -21
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -4143,6 +4194,34 @@ Model {
 	  Position		  [740, 308, 770, 322]
 	  ZOrder		  -24
 	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ax"
+	  SID			  "177:210"
+	  Position		  [660, 128, 690, 142]
+	  ZOrder		  1
+	  NamePlacement		  "alternate"
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ay"
+	  SID			  "177:211"
+	  Position		  [610, 143, 640, 157]
+	  ZOrder		  2
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "az"
+	  SID			  "177:212"
+	  Position		  [570, 158, 600, 172]
+	  ZOrder		  3
+	  Port			  "9"
 	  IconDisplay		  "Port number"
 	}
 	Line {
@@ -4209,7 +4288,7 @@ Model {
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, -75; -160, 0; 0, -60]
+	    Points		    [0, -75; -160, 0; 0, -55]
 	    DstBlock		    "Transactional part"
 	    DstPort		    2
 	  }
@@ -4256,6 +4335,7 @@ Model {
 	  SrcPort		  1
 	  Points		  [105, 0]
 	  Branch {
+	    Points		    [25, 0]
 	    DstBlock		    "Transactional part"
 	    DstPort		    1
 	  }
@@ -4356,6 +4436,24 @@ Model {
 	    DstPort		    1
 	  }
 	}
+	Line {
+	  SrcBlock		  "Transactional part"
+	  SrcPort		  4
+	  DstBlock		  "ax"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Transactional part"
+	  SrcPort		  5
+	  DstBlock		  "ay"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Transactional part"
+	  SrcPort		  6
+	  DstBlock		  "az"
+	  DstPort		  1
+	}
 	Annotation {
 	  SID			  "177:205"
 	  Name			  "Torque"
@@ -4375,11 +4473,11 @@ Model {
       Name		      "Scope"
       SID		      "180"
       Ports		      [3]
-      Position		      [390, 143, 425, 207]
+      Position		      [585, 123, 620, 187]
       ZOrder		      -6
       Floating		      off
-      Location		      [340, 81, 1107, 898]
-      Open		      off
+      Location		      [66, 53, 1601, 899]
+      Open		      on
       NumInputPorts	      "3"
       List {
 	ListType		AxesTitles
@@ -4409,7 +4507,7 @@ Model {
       Name		      "Scope1"
       SID		      "185"
       Ports		      [3]
-      Position		      [390, 243, 425, 307]
+      Position		      [495, 253, 530, 317]
       ZOrder		      -7
       Floating		      off
       Location		      [828, 81, 1595, 898]
@@ -4448,7 +4546,7 @@ Model {
       Position		      [270, 15, 305, 80]
       ZOrder		      -8
       Floating		      off
-      Location		      [67, 81, 834, 898]
+      Location		      [67, 77, 834, 894]
       Open		      off
       NumInputPorts	      "4"
       ZoomMode		      "yonly"
@@ -4545,12 +4643,14 @@ Model {
     Line {
       SrcBlock		      "Quad"
       SrcPort		      1
+      Points		      [63, 0; 0, -10]
       DstBlock		      "Scope"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Quad"
       SrcPort		      2
+      Points		      [130, 0; 0, -5]
       DstBlock		      "Scope"
       DstPort		      2
     }
@@ -4563,9 +4663,9 @@ Model {
     Line {
       SrcBlock		      "Quad"
       SrcPort		      6
-      Points		      [10, 0; 0, 40]
+      Points		      [67, 0; 0, 85]
       Branch {
-	Points			[0, 20]
+	Points			[0, 10]
 	DstBlock		"Gain"
 	DstPort			1
       }
@@ -4577,9 +4677,9 @@ Model {
     Line {
       SrcBlock		      "Quad"
       SrcPort		      5
-      Points		      [20, 0; 0, 40]
+      Points		      [80, 0; 0, 80]
       Branch {
-	Points			[0, 85]
+	Points			[0, 75]
 	DstBlock		"Gain1"
 	DstPort			1
       }
@@ -4591,9 +4691,9 @@ Model {
     Line {
       SrcBlock		      "Quad"
       SrcPort		      4
-      Points		      [30, 0; 0, 40]
+      Points		      [92, 0; 0, 75]
       Branch {
-	Points			[0, 155]
+	Points			[0, 145]
 	DstBlock		"Gain2"
 	DstPort			1
       }
