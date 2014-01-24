@@ -19,7 +19,7 @@ Library {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [54.0, -4.0, 1557.0, 915.0]
+      Location		      [55.0, 24.0, 1557.0, 915.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -41,11 +41,11 @@ Library {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkSubsys"
-	LoadSaveID		"9"
+	ViewObjType		"SimulinkTopLevel"
+	LoadSaveID		"0"
 	Extents			[1499.0, 735.0]
-	ZoomFactor		[1.4480634295818033]
-	Offset			[-170.580011823727, -11.906366027227723]
+	ZoomFactor		[1.5]
+	Offset			[-289.66896050654185, 395.19066588578494]
       }
     }
   }
@@ -55,9 +55,9 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "diogo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jan 23 11:09:45 2014"
-  RTWModifiedTimeStamp	  312376184
-  ModelVersionFormat	  "1.%<AutoIncrement:17>"
+  LastModifiedDate	  "Fri Jan 24 15:42:03 2014"
+  RTWModifiedTimeStamp	  312478918
+  ModelVersionFormat	  "1.%<AutoIncrement:18>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -883,8 +883,8 @@ Library {
   }
   System {
     Name		    "quad_lib"
-    Location		    [54, -4, 1611, 911]
-    Open		    off
+    Location		    [55, 24, 1612, 939]
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -895,9 +895,9 @@ Library {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "497"
+    ZoomFactor		    "150"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "231"
+    SIDHighWatermark	    "232"
     Block {
       BlockType		      SubSystem
       Name		      "PID_quad"
@@ -914,7 +914,7 @@ Library {
       MaskHideContents	      off
       System {
 	Name			"PID_quad"
-	Location		[31, 45, 1614, 1127]
+	Location		[55, 24, 1612, 939]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -926,7 +926,7 @@ Library {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"333"
+	ZoomFactor		"200"
 	Block {
 	  BlockType		  Inport
 	  Name			  "roll"
@@ -2382,8 +2382,8 @@ Library {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Rotational part"
-	    Location		    [54, -4, 1611, 911]
-	    Open		    on
+	    Location		    [55, 24, 1612, 939]
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -4336,6 +4336,17 @@ Library {
 	  ZOrder		  -2
 	}
       }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Torque to input"
+      SID		      "232"
+      Ports		      [4, 4]
+      Position		      [315, 506, 380, 624]
+      ZOrder		      1
+      LibraryVersion	      "1.17"
+      SourceBlock	      "quad_lib/PID_quad/Torque to input"
+      SourceType	      "SubSystem"
     }
   }
 }

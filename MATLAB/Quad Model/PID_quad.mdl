@@ -41,7 +41,7 @@ Model {
       $ObjectID		      3
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [54.0, -4.0, 1557.0, 915.0]
+      Location		      [55.0, 24.0, 1557.0, 915.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		4
@@ -67,7 +67,7 @@ Model {
 	LoadSaveID		"0"
 	Extents			[1499.0, 729.0]
 	ZoomFactor		[1.7097560975609756]
-	Offset			[-164.39200974054927, 6.81169757489301]
+	Offset			[-164.39200974054927, 6.8116975748930031]
       }
     }
   }
@@ -77,7 +77,7 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "diogo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jan 23 10:28:09 2014"
+  LastModifiedDate	  "Fri Jan 24 15:44:08 2014"
   RTWModifiedTimeStamp	  312373645
   ModelVersionFormat	  "1.%<AutoIncrement:42>"
   ConfigurationManager	  "None"
@@ -939,7 +939,7 @@ Model {
   }
   System {
     Name		    "PID_quad"
-    Location		    [54, -4, 1611, 911]
+    Location		    [55, 24, 1612, 939]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -2365,7 +2365,7 @@ Model {
       Ports		      [4, 4]
       Position		      [270, 140, 370, 270]
       ZOrder		      1
-      LibraryVersion	      "1.15"
+      LibraryVersion	      "1.18"
       SourceBlock	      "quad_lib/Quad"
       SourceType	      "SubSystem"
     }
@@ -2411,8 +2411,8 @@ Model {
       Position		      [500, 205, 530, 235]
       ZOrder		      -7
       Floating		      off
-      Location		      [66, 53, 1601, 899]
-      Open		      on
+      Location		      [67, 81, 1602, 927]
+      Open		      off
       NumInputPorts	      "3"
       ZoomMode		      "xonly"
       List {
