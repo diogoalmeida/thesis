@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.41"
+    ComputedModelVersion    "1.42"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -41,7 +41,7 @@ Model {
       $ObjectID		      3
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [55.0, 24.0, 1557.0, 915.0]
+      Location		      [54.0, -4.0, 1557.0, 915.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		4
@@ -63,11 +63,11 @@ Model {
 	$ObjectID		6
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkSubsys"
-	LoadSaveID		"196"
+	ViewObjType		"SimulinkTopLevel"
+	LoadSaveID		"0"
 	Extents			[1499.0, 729.0]
-	ZoomFactor		[1.4438876257155675]
-	Offset			[0.0, 0.0]
+	ZoomFactor		[1.7097560975609756]
+	Offset			[-164.39200974054927, 6.81169757489301]
       }
     }
   }
@@ -77,9 +77,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "diogo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jan 22 17:26:31 2014"
-  RTWModifiedTimeStamp	  312312380
-  ModelVersionFormat	  "1.%<AutoIncrement:41>"
+  LastModifiedDate	  "Thu Jan 23 10:28:09 2014"
+  RTWModifiedTimeStamp	  312373645
+  ModelVersionFormat	  "1.%<AutoIncrement:42>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -939,8 +939,8 @@ Model {
   }
   System {
     Name		    "PID_quad"
-    Location		    [55, 24, 1612, 939]
-    Open		    off
+    Location		    [54, -4, 1611, 911]
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -2411,9 +2411,10 @@ Model {
       Position		      [500, 205, 530, 235]
       ZOrder		      -7
       Floating		      off
-      Location		      [828, 81, 1595, 898]
-      Open		      off
+      Location		      [66, 53, 1601, 899]
+      Open		      on
       NumInputPorts	      "3"
+      ZoomMode		      "xonly"
       List {
 	ListType		AxesTitles
 	axes1			"Roll"
@@ -2447,7 +2448,7 @@ Model {
       Position		      [270, 15, 305, 80]
       ZOrder		      -8
       Floating		      off
-      Location		      [67, 77, 834, 894]
+      Location		      [67, 81, 838, 898]
       Open		      off
       NumInputPorts	      "4"
       ZoomMode		      "yonly"

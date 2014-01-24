@@ -19,7 +19,7 @@ Library {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [65.0, 24.0, 1557.0, 915.0]
+      Location		      [54.0, -4.0, 1557.0, 915.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -42,10 +42,10 @@ Library {
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
 	ViewObjType		"SimulinkSubsys"
-	LoadSaveID		"1"
+	LoadSaveID		"9"
 	Extents			[1499.0, 735.0]
-	ZoomFactor		[1.4438876257155675]
-	Offset			[15.303954580217539, -29.521192269289582]
+	ZoomFactor		[1.4480634295818033]
+	Offset			[-170.580011823727, -11.906366027227723]
       }
     }
   }
@@ -55,9 +55,9 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "diogo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jan 22 17:16:19 2014"
-  RTWModifiedTimeStamp	  312311778
-  ModelVersionFormat	  "1.%<AutoIncrement:15>"
+  LastModifiedDate	  "Thu Jan 23 11:09:45 2014"
+  RTWModifiedTimeStamp	  312376184
+  ModelVersionFormat	  "1.%<AutoIncrement:17>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -883,7 +883,7 @@ Library {
   }
   System {
     Name		    "quad_lib"
-    Location		    [65, 24, 1622, 939]
+    Location		    [54, -4, 1611, 911]
     Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -895,7 +895,7 @@ Library {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "357"
+    ZoomFactor		    "497"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "231"
     Block {
@@ -2249,7 +2249,7 @@ Library {
       Name		      "Quad"
       SID		      "1"
       Ports		      [4, 4]
-      Position		      [25, 17, 130, 1128]
+      Position		      [35, 502, 140, 628]
       ZOrder		      -2
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -2260,8 +2260,8 @@ Library {
       MaskHideContents	      off
       System {
 	Name			"Quad"
-	Location		[65, 24, 1622, 939]
-	Open			on
+	Location		[54, -4, 1611, 911]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2382,8 +2382,8 @@ Library {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Rotational part"
-	    Location		    [65, 24, 1622, 939]
-	    Open		    off
+	    Location		    [54, -4, 1611, 911]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -2394,7 +2394,7 @@ Library {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "206"
+	    ZoomFactor		    "145"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "q"
@@ -2472,33 +2472,6 @@ Library {
 	      ZOrder		      -8
 	      ShowName		      off
 	      InitialCondition	      "qv3_i"
-	    }
-	    Block {
-	      BlockType		      Integrator
-	      Name		      "Integrator4"
-	      SID		      "223"
-	      Ports		      [1, 1]
-	      Position		      [320, 388, 340, 412]
-	      ZOrder		      3
-	      ShowName		      off
-	    }
-	    Block {
-	      BlockType		      Integrator
-	      Name		      "Integrator5"
-	      SID		      "224"
-	      Ports		      [1, 1]
-	      Position		      [320, 423, 340, 447]
-	      ZOrder		      4
-	      ShowName		      off
-	    }
-	    Block {
-	      BlockType		      Integrator
-	      Name		      "Integrator6"
-	      SID		      "225"
-	      Ports		      [1, 1]
-	      Position		      [320, 458, 340, 482]
-	      ZOrder		      5
-	      ShowName		      off
 	    }
 	    Block {
 	      BlockType		      Mux
@@ -3379,67 +3352,6 @@ Library {
 	      DstPort		      3
 	    }
 	    Line {
-	      SrcBlock		      "Torque to angular accel"
-	      SrcPort		      1
-	      Points		      [20, 0]
-	      Branch {
-		Points			[0, -70]
-		DstBlock		"Quat to new_dot"
-		DstPort			5
-	      }
-	      Branch {
-		Points			[0, 120; 1, 0]
-		Branch {
-		  Points		  [0, 60]
-		  DstBlock		  "Integrator4"
-		  DstPort		  1
-		}
-		Branch {
-		  DstBlock		  "Scope6"
-		  DstPort		  1
-		}
-	      }
-	    }
-	    Line {
-	      SrcBlock		      "Torque to angular accel"
-	      SrcPort		      2
-	      Points		      [29, 0]
-	      Branch {
-		Points			[0, 185]
-		DstBlock		"Integrator5"
-		DstPort			1
-	      }
-	      Branch {
-		Points			[1, 0; 0, -15]
-		Branch {
-		  Points		  [0, -70]
-		  DstBlock		  "Quat to new_dot"
-		  DstPort		  6
-		}
-		Branch {
-		  DstBlock		  "Scope5"
-		  DstPort		  1
-		}
-	      }
-	    }
-	    Line {
-	      SrcBlock		      "Torque to angular accel"
-	      SrcPort		      3
-	      Points		      [40, 0]
-	      Branch {
-		DstBlock		"Integrator6"
-		DstPort			1
-	      }
-	      Branch {
-		DstBlock		"Quat to new_dot"
-		DstPort			7
-	      }
-	      Branch {
-		DstBlock		"Scope4"
-		DstPort			1
-	      }
-	    }
-	    Line {
 	      SrcBlock		      "Quat to new_dot"
 	      SrcPort		      1
 	      DstBlock		      "Integrator"
@@ -3526,22 +3438,66 @@ Library {
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "Integrator4"
+	      SrcBlock		      "Torque to angular accel"
 	      SrcPort		      1
-	      DstBlock		      "Mux1"
-	      DstPort		      1
+	      Points		      [20, 0]
+	      Branch {
+		Points			[0, -70]
+		DstBlock		"Quat to new_dot"
+		DstPort			5
+	      }
+	      Branch {
+		Points			[0, 120; 1, 0]
+		Branch {
+		  Points		  [0, 60]
+		  DstBlock		  "Mux1"
+		  DstPort		  1
+		}
+		Branch {
+		  DstBlock		  "Scope6"
+		  DstPort		  1
+		}
+	      }
 	    }
 	    Line {
-	      SrcBlock		      "Integrator5"
-	      SrcPort		      1
-	      DstBlock		      "Mux1"
-	      DstPort		      2
+	      SrcBlock		      "Torque to angular accel"
+	      SrcPort		      2
+	      Points		      [29, 0]
+	      Branch {
+		Points			[0, 185]
+		DstBlock		"Mux1"
+		DstPort			2
+	      }
+	      Branch {
+		Points			[1, 0; 0, -15]
+		Branch {
+		  Points		  [0, -70]
+		  DstBlock		  "Quat to new_dot"
+		  DstPort		  6
+		}
+		Branch {
+		  DstBlock		  "Scope5"
+		  DstPort		  1
+		}
+	      }
 	    }
 	    Line {
-	      SrcBlock		      "Integrator6"
-	      SrcPort		      1
-	      DstBlock		      "Mux1"
-	      DstPort		      3
+	      SrcBlock		      "Torque to angular accel"
+	      SrcPort		      3
+	      Points		      [40, 0]
+	      Branch {
+		Points			[0, 190]
+		DstBlock		"Mux1"
+		DstPort			3
+	      }
+	      Branch {
+		DstBlock		"Quat to new_dot"
+		DstPort			7
+	      }
+	      Branch {
+		DstBlock		"Scope4"
+		DstPort			1
+	      }
 	    }
 	    Line {
 	      SrcBlock		      "Mux1"
