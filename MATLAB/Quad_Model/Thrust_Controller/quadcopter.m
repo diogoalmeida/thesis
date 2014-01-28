@@ -5,9 +5,12 @@ function [ ] = quadcopter( u )
     
     
     
-    if t > t_s
+    if t > 2*t_s
         
         i=round(t/t_s);
+        
+        
+        
         q_loc = q(i-1,:)';
         
         % from quaternion to rotation matrix that maps the inertial frame
@@ -53,7 +56,15 @@ function [ ] = quadcopter( u )
         % The angular speed is given by Euler's equation
         
         w(i,:) = w_loc' + (J\(-w_cross*J*w_loc + tau_loc))'*t_s;
-
+        
+%         if i==2
+%             disp('initial conditions check:');
+%             disp('initial angular speed around x:');
+%             disp(w(i-1,1));
+%             disp('resulting angular speed with current torque:');
+%             disp(w(i,1));
+%             pause();
+%         end
         
         
         % the evolution of the attitude is given by the attitude kinematics

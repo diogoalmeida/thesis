@@ -6,7 +6,7 @@ function [ ] = thrust_controller( q_d )
     
     i = round(t/t_s);
     
-    if i > 1
+    if i > 2
     
         
         % extract the attitude error for the xy plane
@@ -27,10 +27,7 @@ function [ ] = thrust_controller( q_d )
         % current one
         
         phi(i) = 2*acos(qp);
-        
-        if i == 2
-            phi(1)=phi(2);
-        end
+       
         
         torque_phi = 0;
         
@@ -49,7 +46,7 @@ function [ ] = thrust_controller( q_d )
                 
             else if phi(i) > phi_up && phi(i) <= pi
                     
-                    torque_phi = c_phi*(pi-phi(i))/(pi-phi_up); % vanish to zero to avoid singularity
+                    torque_phi = c_phi*phi_low*(pi-phi(i))/(pi-phi_up); % vanish to zero to avoid singularity
                     
                 end
                 
@@ -58,7 +55,7 @@ function [ ] = thrust_controller( q_d )
         end
         
         if qp ~=1
-            torque_field = torque_phi * (1/(sqrt(1-qp^2)))*[q_x, q_y 0];
+            torque_field = torque_phi * (1/(sqrt(1-qp^2)))*[q_x, q_y, 0];
         else
             torque_field = [0 0 0]; %% qp==1 -> zero error
         end
@@ -92,18 +89,17 @@ function [ ] = thrust_controller( q_d )
         % deaccelerate the axis movement
         
         
-        if v_2^2-2*(brake_torque*(phi_low-phi(i)))/J_x > 0
-            switch_curve = -sqrt(v_2^2-2*(brake_torque*(phi_low-phi(i)))/J_x);
-        else
-            switch_curve = 0;
-        end
-        s_surf(i) = switch_curve;
-         phi_dotv(i) = phi_dot;
+%         if v_2^2-2*(brake_torque*(phi_low-phi(i)))/J_x > 0
+%             switch_curve = -sqrt(v_2^2-2*(brake_torque*(phi_low-phi(i)))/J_x);
+%         else
+%             switch_curve = 0;
+%         end
         
-        if i == 2
-            phi_dotv(1) = phi_dot;
-            s_surf(1) = s_surf(2);
-        end
+        switch_curve = -real(sqrt(v_2^2-2*(brake_torque*(phi_low-phi(i)))/J_x));
+        
+        s_surf(i) = switch_curve;
+        phi_dotv(i) = phi_dot;
+        
         
        
         
@@ -115,7 +111,7 @@ function [ ] = thrust_controller( q_d )
                 
                 d_acc = -c_phi * phi_low /v_1 + brake_torque/v_1;
                 
-            else
+            else 
                 
                 d_acc = 0;
                 
@@ -135,12 +131,9 @@ function [ ] = thrust_controller( q_d )
                 
                 d_xy_up = d_mix;
                 
-            else if phi_dot >= switch_curve
+            else if phi_dot <= switch_curve
                     
                     d_xy_up = d_dec;
-                    
-                else
-                    d_xy_up = 0;
                     
                 end
                 
@@ -148,10 +141,6 @@ function [ ] = thrust_controller( q_d )
             
         end
         
-        % :(
-        if i == 2
-            d_xy_up = 0;
-        end
         
         d_xy_low = d;
         
@@ -161,14 +150,13 @@ function [ ] = thrust_controller( q_d )
             
             d_xy = d_xy_low;
             
-        else if phi(i) >= phi_low && phi(i) <= phi_low + delta_phi
+        else if phi(i) >= phi_low && phi(i) < phi_low + delta_phi
                 
                 d_xy = d_xy_mix;
                 
             else if phi(i) >= phi_low + delta_phi
                     
                     d_xy = d_xy_up;
-                    
                 end
                 
             end
@@ -204,7 +192,7 @@ function [ ] = thrust_controller( q_d )
                 
             else
                 
-                k_1 = (2*(T_xy(1)*a+T_xy(2)*b)-sqrt(4*sq))/(2*(a^2+b^2));
+                k_1 = (2*(T_xy(1)*a+T_xy(2)*b)-sqrt(4*sq))/(2*(a^2+b^2))
                 
             end
             
@@ -234,7 +222,7 @@ function [ ] = thrust_controller( q_d )
         D=[k_1*D_xy, zeros(2,1); zeros(1,2) d_z*k_2];
            
         
-        torques(i,:) = torque_field-(D*w(i-1,:)')';
+        torques(i,:) = (torque_field-(D*w(i-1,:)')');
         
     end
     

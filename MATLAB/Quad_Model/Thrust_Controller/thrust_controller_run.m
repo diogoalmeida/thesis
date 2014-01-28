@@ -36,7 +36,7 @@ global v;
 global s_surf;
 global phi_dotv;
 
-t_s = 10^-4;
+t_s = 10^-3;
 t = 0;
 phi_low = 10*pi/180;
 phi_up = 175*pi/180;
@@ -86,18 +86,26 @@ to_u = [km km km km;
         -km -km km km];
     
 % Initial conditions
+phi_o = 170*pi/180;
 q_o = angle_to_quat([0 0 0]);
+w_o = [-2.5 0 0];
 
-q_o = [sin(170*pi/(2*180)) 0 0 cos(170*pi/(2*180))]; 
+q_o = [sin(phi_o/2) 0 0 cos(phi_o/2)];
+
+phi(:,1)=phi_o;
 
 q(:,1)=q_o(1);
 q(:,2)=q_o(2);
 q(:,3)=q_o(3);
 q(:,4)=q_o(4);
 
+w(:,1)=w_o(1);
+w(:,2)=w_o(2);
+w(:,3)=w_o(3);
 
 
-for t=t_s:t_s:T
+
+for t=3*t_s:t_s:T
     
     i=round(t/t_s);
     
@@ -116,25 +124,67 @@ end
 
 %%
 
-for i=1:3
-    
-    figure(i)
-    title('position');
-    plot(t_s:t_s:T,p(:,i));
-    
-end
+fontsize = 15;
 
-figure(4)
+% figure(1);
+% 
+% for i=1:3
+%     
+%     subplot(3,1,i);
+%     hold on
+%     title(i);
+%     plot(t_s:t_s:T,p(:,i));
+%     
+% end
+
+figure(2)
+
+subplot(3,1,1);
+hold on
 title('roll');
 plot(t_s:t_s:T,roll);
     
-figure(5)
+subplot(3,1,2);
+hold on
 title('pitch');
 plot(t_s:t_s:T,pitch);
 
-figure(6)
+subplot(3,1,3);
+hold on
 title('yaw');
 plot(t_s:t_s:T,yaw);
+
+figure(3)
+hold on
+title('Control torques');
+plot(t_s:t_s:T,torques(:,1),'r');
+plot(t_s:t_s:T,torques(:,2),'g');
+plot(t_s:t_s:T,torques(:,3));
+legend({'$\tau_x$','$\tau_y$','$\tau_z$'},'interpreter', 'latex','fontsize',fontsize);
+
+figure(4)
+hold on
+title('Switch curve and angle velocity');
+plot(t_s:t_s:T,phi_dotv(:));
+plot(t_s:t_s:T,s_surf(:),'k.');
+legend({'$\dot \varphi$','$s(\varphi)$'},'interpreter', 'latex','fontsize',fontsize);
+
+figure(5)
+hold on
+title('Angular velocities');
+plot(t_s:t_s:T,w(:,1),'r');
+plot(t_s:t_s:T,w(:,2),'g');
+plot(t_s:t_s:T,w(:,3));
+legend({'$\omega_x$','$\omega_y$','$\omega_z$'},'interpreter', 'latex','fontsize',fontsize);
+
+figure(6)
+hold on
+title('Orientation');
+plot(t_s:t_s:T,q(:,1),'r');
+plot(t_s:t_s:T,q(:,2),'g');
+plot(t_s:t_s:T,q(:,3),'b');
+plot(t_s:t_s:T,q(:,4),'k');
+legend({'$q_1$','$q_2$','$q_3$, $q_4$'},'interpreter', 'latex','fontsize',fontsize);
 
 
     
