@@ -1,6 +1,6 @@
 %% Quad init: initializes the necessary variables for the quadricopter
 %% simulink model to work.
-
+clear all
 
 % Test values
 
@@ -15,10 +15,10 @@ d=0.16;
 
 %% Step values for rotor inputs
 
-u1=m*g/400;
-u2=m*g/400;
-u3=m*g/401;
-u4=m*g/401;
+u1 = 0.0001;
+u2 = 0.00008;
+u3 = 0.00009;
+u4 = 0.00009;
 
 %% Initial conditions
 
