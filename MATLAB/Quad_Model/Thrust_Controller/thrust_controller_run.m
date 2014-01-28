@@ -33,6 +33,8 @@ global torques;
 global w;
 global p;
 global v;
+global s_surf;
+global phi_dotv;
 
 t_s = 10^-4;
 t = 0;
@@ -48,7 +50,7 @@ v_2 = 1.425;
 r = 0.75;
 J_x = 8.5*10^-3;
 J_y = 8.5*10^-3;
-J_z = 8.5*10^-3;
+J_z = 14*10^-3;
 torque_xy = 0.15;
 torque_z = 0.03;
 m=0.835;
@@ -59,11 +61,12 @@ d_l=0.16;
 
 %%
 
-T = 1; % Simulation time [s]
+T = 1.6; % Simulation time [s]
 
 phi = zeros(floor(T/t_s),1);
+phi_dotv = zeros(floor(T/t_s),1);
 q = zeros(floor(T/t_s),4);
-q_d = angle2quat(pi/2,0,0,'XYZ');
+q_d = angle2quat(0,0,0,'XYZ');
 q_d = [q_d(2:4) q_d(1)];
 p = zeros(floor(T/t_s),3);
 v = zeros(floor(T/t_s),3);
@@ -72,6 +75,7 @@ torques = zeros(floor(T/t_s),3);
 roll = zeros(round(T/t_s),1);
 pitch = zeros(round(T/t_s),1);
 yaw = zeros(round(T/t_s),1);
+s_surf = zeros(round(T/t_s),1);
 
 thrust=m*g;
 u = zeros(floor(T/t_s),4);
@@ -84,11 +88,14 @@ to_u = [km km km km;
 % Initial conditions
 q_o = angle_to_quat([0 0 0]);
 
+q_o = [sin(170*pi/(2*180)) 0 0 cos(170*pi/(2*180))]; 
+
 q(:,1)=q_o(1);
 q(:,2)=q_o(2);
 q(:,3)=q_o(3);
 q(:,4)=q_o(4);
-    
+
+
 
 for t=t_s:t_s:T
     
