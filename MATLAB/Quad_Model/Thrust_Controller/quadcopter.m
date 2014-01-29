@@ -1,7 +1,7 @@
 function [ ] = quadcopter( u )
 %QUADCOPTER Simulates the quadcopter behavior for inputs u=[u1; u2; u3; u4]
     
-    global t_s t p v q w km g m d bm J_x J_y J_z;
+    global t_s t p v q w km g m d bm J_x J_y J_z torques;
     
     
     
@@ -55,7 +55,8 @@ function [ ] = quadcopter( u )
         
         % The angular speed is given by Euler's equation
         
-        w(i,:) = w_loc' + (J\(-w_cross*J*w_loc + tau_loc))'*t_s;
+        w(i,:) = w_loc' + (J\(J*w_cross*w_loc) + J\tau_loc)'*t_s;
+        
         
 %         if i==2
 %             disp('initial conditions check:');
@@ -78,6 +79,15 @@ function [ ] = quadcopter( u )
         
         q(i,:) = (q_loc + (0.5*E*w(i,:)')*t_s)';
         
+%         % From the paper
+%         
+%          W_r=[q_loc(4) q_loc(3) -q_loc(2);
+%                -q_loc(3) q_loc(4) q_loc(1);
+%                q_loc(2) -q_loc(1) q_loc(4);
+%                -q_loc(1) -q_loc(2) -q_loc(3)];
+%         
+%         q(i,:) = (q_loc - (0.5*W_r*w(i,:)')*t_s)';
+       
         q(i,:) = q(i,:)./(norm(q(i,:)));
     end
         

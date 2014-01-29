@@ -1,7 +1,7 @@
 function [ ] = thrust_controller( q_d )
 %THRUST_CONTROLLER Implements the thrust direction controller
     
-    global t t_s q torque_xy torque_z c_phi phi_low phi_up torques phi brake_torque v_1 v_2 d d_z r delta_phi w s_surf phi_dotv J_x;
+    global t t_s q torque_xy torque_z c_phi phi_low phi_up torques phi brake_torque v_1 v_2 d d_z r delta_phi w s_surf phi_dotv J_x q_error;
     
     
     i = round(t/t_s);
@@ -11,9 +11,9 @@ function [ ] = thrust_controller( q_d )
         
         % extract the attitude error for the xy plane
         
-        q_error = quat_mult(quat_conjugate(q(i-1,:)),q_d);
+        q_error(i,:) = quat_mult(quat_conjugate(q(i-1,:)),q_d);
 
-        q_hat = q_error.*sign_l(q_error(4));
+        q_hat = q_error(i,:).*sign_l(q_error(4));
         
         q_z = get_z_from_quat(q_hat);
         q_xy = quat_mult_inv(q_z,q_hat);
@@ -180,19 +180,20 @@ function [ ] = thrust_controller( q_d )
         a=D_xy(1,1)*w_xy(1)+D_xy(1,2)*w_xy(2);
         b=D_xy(2,1)*w_xy(1)+D_xy(2,2)*w_xy(2);
         
-        sq = (T_xy(1)^2+T_xy(2)^2-torque_xy^2)*(a^2+b^2);
+        sq = (T_xy(1)*a+T_xy(2)*b)^2-(T_xy(1)^2+T_xy(2)^2-torque_xy^2)*(a^2+b^2);
         
         if  sq < 0 || (a^2+b^2) == 0
             
+            disp('aqui');
             k_1 = 1;
             
-        else if sqrt(sq) > 2*(T_xy(1)*a+T_xy(2)*b)
+        else if sqrt(4*sq) > 2*(T_xy(1)*a+T_xy(2)*b)
                 
                 k_1 = (2*(T_xy(1)*a+T_xy(2)*b)+sqrt(4*sq))/(2*(a^2+b^2));
                 
             else
                 
-                k_1 = (2*(T_xy(1)*a+T_xy(2)*b)-sqrt(4*sq))/(2*(a^2+b^2))
+                k_1 = (2*(T_xy(1)*a+T_xy(2)*b)-sqrt(4*sq))/(2*(a^2+b^2));
                 
             end
             
@@ -204,19 +205,23 @@ function [ ] = thrust_controller( q_d )
             
         else if k_1 < 0
                 
-                k_1 = 0;
+                k_1 = 1;
                 
             end
             
         end
         
+        
         k_2 = torque_z/abs(d_z*w(i-1,3));
         
-        if k_2 > 1
+      
+       if k_2 > 1
             
-            k_2 = 1;
+          k_2 = 1;
             
-        end
+       end
+       
+       
         
 
         D=[k_1*D_xy, zeros(2,1); zeros(1,2) d_z*k_2];
