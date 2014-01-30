@@ -1,7 +1,7 @@
 function [ ] = attitude_controller( q_d )
 %THRUST_CONTROLLER Implements the full saturating attitude controller
     
-    global t t_s q torque_xy torque_z c_phi phi_low phi_up torques phi brake_torque v_1 v_2 d r delta_phi w s_surf_phi phi_dotv J_x q_error c_theta theta;
+    global t t_s q s_surf  torque_xy torque_z dz c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_z q_error c_theta theta d_ortho delta_theta;
     
     
     i = round(t/t_s);
@@ -61,7 +61,7 @@ function [ ] = attitude_controller( q_d )
         
         if qw~=1
             T_thetaortho = q_z/sqrt(1-qw^2)*cos(phi(i)/2)^3*sin(phi(i)/2)*c_theta*delta_function(theta_up,theta_low,theta(i))*e_ortho;
-            t_thetaz = q_z/sqrt(1-qw^2)*cos(phi(i)/2)^4*c_theta*delta_function(theta_up,theta_low,theta(i))*e_z;
+            T_thetaz = q_z/sqrt(1-qw^2)*cos(phi(i)/2)^4*c_theta*delta_function(theta_up,theta_low,theta(i))*e_z;
         else
             T_thetaortho = zeros(1,3);
             T_thetaz = zeros(1,3);
@@ -95,51 +95,26 @@ function [ ] = attitude_controller( q_d )
         % deaccelerate the axis movement
         
         
-%         if v_2^2-2*(brake_torque*(phi_low-phi(i)))/J_x > 0
-%             switch_curve = -sqrt(v_2^2-2*(brake_torque*(phi_low-phi(i)))/J_x);
-%         else
-%             switch_curve = 0;
-%         end
-        
-        switch_curve_phi = -real(sqrt(v_2^2-2*(brake_torque*(phi_low-phi(i)))/J_x));
-        
+        switch_curve_phi = -real(sqrt(v_2_phi^2-2*(torque_xy*(phi_low-phi(i)))/J_x));
+        switch_curve_theta = -real(sqrt(v_2_theta^2-2*(torque_z*(theta_low-theta(i)))/J_z));        
         s_surf_phi(i) = switch_curve_phi;
         phi_dotv(i) = phi_dot;
+        s_surf_theta(i) = switch_curve_theta;
         
         
-       T_phi = norm(T_phiphi)-norm(T_thetaphi);
+        T_phi = norm(T_phiphi)-norm(T_thetaphi);
         
-        if phi_dot > v_1
+        if phi_dot > v_1_phi
             
-            d_phiacc = -T_phi/phi_dot + brake_torque/phi_dot;
+            d_phi_acc = -T_phi/phi_dot + torque_xy/phi_dot;
             
-        else if phi_dot > 0 && phi_dot <= v_1
+        else if phi_dot > 0 && phi_dot <= v_1_phi
                 
-                d_phiacc = -T_phi/v_1 + brake_torque/v_1;
-                
-            else 
-                
-                d_phiacc = 0;
-                
-            end
-            
-        end
-        
-        d_phidec = -T_phi/phi_dot-brake_torque/phi_dot;
-        
-        d_mix = d_phiacc + (phi_dot-r*switch_curve_phi)/((1-r)*switch_curve_phi)*(d_phidec-d_phiacc);
-        
-        if phi_dot > r*switch_curve_phi
-            
-            d_phi_up = d_phiacc;
-            
-        else if phi_dot > switch_curve_phi && phi_dot <= r*switch_curve_phi
-                
-                d_phi_up = d_mix;
-                
-            else if phi_dot <= switch_curve_phi
+                d_phi_acc = -T_phi/v_1_pgi + torque_xy/v_1_phi;
+       
+            else if phi_dot <= 0
                     
-                    d_phi_up = d_phidec;
+                    d_phi_acc = 0;
                     
                 end
                 
@@ -147,36 +122,74 @@ function [ ] = attitude_controller( q_d )
             
         end
         
+        d_phi_dec = -T_phi/phi_dot - torque_xy/phi_dot;
         
-        d_phi_low = d;
+        d_phi_up = xi_function(r_phi*switch_curve_phi,switch_curve_phi,phi_dot,d_phi_dec,d_phi_acc);
         
-        d_phi_mix = d_phi_low + (phi(i)-phi_low)/delta_phi*(d_phi_up-d_phi_low);
+        d_phi_down = small_delta_phi;
         
-        if phi(i) < phi_low
+        d_phi = xi_function(phi_low+delta_phi,phi_low,phi(i),d_phi_down,xi_function(phi_up,phi_up-delta_phi,d_phi_up,d_phi_down));
+        
+        
+        T_z = c_theta * theta(i);
+        
+        d_z_acc = 0;
+        
+        if theta_dot > v_1_theta
             
-            d_phi = d_phi_low;
+            d_z_acc = -T_z/theta_dot + torque_z/theta_dot;
             
-        else if phi(i) >= phi_low && phi(i) < phi_low + delta_phi
+        else if theta_dot > 0 && theta_dot <=v_1_theta
                 
-                d_phi = d_phi_mix;
+                d_z_acc = -T_z/v_1_theta + torque_z/v_1_theta;
                 
-            else if phi(i) >= phi_low + delta_phi
+            else if theta_dot <= 0
                     
-                    d_phi = d_phi_up;
+                    d_z_acc = 0;
+                    
                 end
                 
             end
             
         end
+        
+        d_z_dec = 0;
+        
+        if theta_dot < - v_1_theta
+            
+            d_z_dec = - T_z/theta_dot - torque_z/theta_dot;
+            
+        else if theta_dot < 0 && theta_dot >= - v_1_theta
+                
+                d_z_dec = -T_z/v_1_theta - torque_z/v_1_theta;
+                
+            else if theta_dot <= 0
+                    
+                    d_z_dec = 0;
+                    
+                end 
+                
+            end
+            
+        end
+        
+        
+        % the real theta_dot
+        theta_dot = (theta(i) - theta(i-1))/t_s;
+        theta_dotv(i) = theta_dot;
+        
+        d_z_up = xi_function(r_theta*switch_curve_theta,switch_curve_theta,theta_dot,d_z_dec,d_z_acc);
+        d_z_down = small_delta_theta;
+        
+        d_z = xi_function(phi_up,phi_up - delta_phi,phi(i),xi_function(theta_low+delta_theta,theta_low,theta(i),d_z_down,xi_function(theta_up,theta_up-delta_theta,theta(i),d_z_up,d_z_down)),d_z_down);
+            
+        
 
         if qp ~=1
-            D_xy = 1/(1-qp^2)*(d_phi*[q_x^2, q_x*q_y; q_x*q_y q_y^2] + d*[q_y^2 -q_x*q_y; -q_x*q_y q_x^2]);
+            D_xy = 1/(1-qp^2)*(d_phi*[q_x^2, q_x*q_y; q_x*q_y q_y^2] + d_ortho*[q_y^2 -q_x*q_y; -q_x*q_y q_x^2]);
         else
             D_xy = [0 0; 0 0];
-        
         end
-        
-        switch_curve_theta = - real(sqrt(v_2_theta^2
         
         
         % Compute the damping gains. Assuming c_phi was properly chosen, they will ensure that the control torques will be saturated 
@@ -185,6 +198,8 @@ function [ ] = attitude_controller( q_d )
         w_xy = zeros(2,1);
         T_xy = torque_field(1:2)';
         w_xy = w(i-1,1:2)';
+        T_z = torque_field(3);
+        w_z = w(i-1,3);
         
         a=D_xy(1,1)*w_xy(1)+D_xy(1,2)*w_xy(2);
         b=D_xy(2,1)*w_xy(1)+D_xy(2,2)*w_xy(2);
@@ -221,22 +236,47 @@ function [ ] = attitude_controller( q_d )
         end
         
         
-        k_2 = torque_z/abs(d_z*w(i-1,3));
-        
-      
+       a = (dz*w_z)^2;
+       sq = 4*((T_z*dz*w_z)^2-a*(T_z^2-torque_z^2));
+       
+       if sq < 0 || a == 0
+           
+           k_2 = 1;
+           
+       else if sqrt(sq) > 4*T_z^2*dz^2*w_z^2
+               
+               k_2 = (4*T_z^2*dz^2*w_z^2 + sqrt(sq))/2*a;
+               
+           else if sqrt(sq) >= 4*T_z^2*dz^2*w_z^2
+                   
+                   k_2 = (4*T_z^2*dz^2*w_z^2 - sqrt(sq))/2*a;
+                   
+               end
+               
+           end
+           
+       end
+       
        if k_2 > 1
-            
-          k_2 = 1;
-            
+           
+           k_2 = 1;
+           
+       else if k_2 < 0
+               
+               k_2 = 0;
+               
+           end
+           
        end
        
        
         
 
-        D=[k_1*D_xy, zeros(2,1); zeros(1,2) d_z*k_2];
+       D=[k_1*D_xy, zeros(2,1); zeros(1,2) dz*k_2];
            
+   
         
-        torques(i,:) = (torque_field-(D*w(i-1,:)')');
+       torques(i,:) = (torque_field'-(D*w(i-1,:)')');
         
     end
     
