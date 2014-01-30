@@ -1,7 +1,7 @@
 function [ ] = attitude_controller( q_d )
 %THRUST_CONTROLLER Implements the full saturating attitude controller
     
-    global t t_s q s_surf  torque_xy torque_z dz c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_z q_error c_theta theta d_ortho delta_theta;
+    global t t_s q s_surf_theta  torque_xy torque_z dz c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_z q_error c_theta theta d_ortho delta_theta;
     
     
     i = round(t/t_s);
@@ -49,8 +49,8 @@ function [ ] = attitude_controller( q_d )
             
         else
             
-            e_phi = zeros(1,3);
-            e_ortho = zeros(1,3);
+            e_phi = zeros(3,1);
+            e_ortho = zeros(3,1);
             
         end
         
@@ -63,9 +63,10 @@ function [ ] = attitude_controller( q_d )
             T_thetaortho = q_z/sqrt(1-qw^2)*cos(phi(i)/2)^3*sin(phi(i)/2)*c_theta*delta_function(theta_up,theta_low,theta(i))*e_ortho;
             T_thetaz = q_z/sqrt(1-qw^2)*cos(phi(i)/2)^4*c_theta*delta_function(theta_up,theta_low,theta(i))*e_z;
         else
-            T_thetaortho = zeros(1,3);
-            T_thetaz = zeros(1,3);
+            T_thetaortho = zeros(3,1);
+            T_thetaz = zeros(3,1);
         end
+        
         
         torque_field = T_phiphi + T_thetaphi + T_thetaortho + T_thetaz;
             
@@ -110,7 +111,7 @@ function [ ] = attitude_controller( q_d )
             
         else if phi_dot > 0 && phi_dot <= v_1_phi
                 
-                d_phi_acc = -T_phi/v_1_pgi + torque_xy/v_1_phi;
+                d_phi_acc = -T_phi/v_1_phi + torque_xy/v_1_phi;
        
             else if phi_dot <= 0
                     
@@ -128,7 +129,7 @@ function [ ] = attitude_controller( q_d )
         
         d_phi_down = small_delta_phi;
         
-        d_phi = xi_function(phi_low+delta_phi,phi_low,phi(i),d_phi_down,xi_function(phi_up,phi_up-delta_phi,d_phi_up,d_phi_down));
+        d_phi = xi_function(phi_low+delta_phi,phi_low,phi(i),d_phi_down,xi_function(phi_up,phi_up-delta_phi,phi(i),d_phi_up,d_phi_down));
         
         
         T_z = c_theta * theta(i);

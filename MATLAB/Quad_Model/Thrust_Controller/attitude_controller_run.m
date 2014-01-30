@@ -4,7 +4,7 @@ clear all
 close all
 
 format shortG
- global t t_s p v s_surf q theta_dotv torque_xy torque_z dz d c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_y J_z m g km bm d_l q_error c_theta theta d_ortho delta_theta;
+ global t t_s p v s_surf_phi s_surf_theta q theta_dotv torque_xy torque_z dz d c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_y J_z m g km bm d_l q_error c_theta theta d_ortho delta_theta;
 
 t_s = 10^-3;
 t = 0;
@@ -39,7 +39,7 @@ d_ortho=0.16;
 
 %%
 
-T = 1.6; % Simulation time [s]
+T = 2.5; % Simulation time [s]
 
 phi = zeros(floor(T/t_s),1);
 phi_dotv = zeros(floor(T/t_s),1);
@@ -56,7 +56,8 @@ torques = zeros(floor(T/t_s),3);
 roll = zeros(round(T/t_s),1);
 pitch = zeros(round(T/t_s),1);
 yaw = zeros(round(T/t_s),1);
-s_surf = zeros(round(T/t_s),1);
+s_surf_phi = zeros(round(T/t_s),1);
+s_surf_theta = zeros(round(T/t_s),1);
 
 thrust=m*g;
 u = zeros(floor(T/t_s),4);
@@ -72,7 +73,7 @@ theta_o = 10*pi/180;
 q_o = angle_to_quat([0 0 0]);
 w_o = [0 0 1.7];
 
-q_o = [0.992 0.087 -0.008 0.087];
+q_o = [-0.992 -0.087 0.008 0.087];
 
 phi(:,1)=phi_o;
 
@@ -169,14 +170,17 @@ figure(6)
 hold on
 title('Switch curve and angle velocity');
 plot(t_s:t_s:T,phi_dotv(:));
-plot(t_s:t_s:T,s_surf(:),'k.');
+plot(t_s:t_s:T,s_surf_phi(:),'k.');
+plot(t_s:t_s:T,theta_dotv(:),'r');
+plot(t_s:t_s:T,s_surf_theta(:),'r.');
 legend({'$\dot \varphi$','$s(\varphi)$'},'interpreter', 'latex','fontsize',fontsize);
 
 
 figure(7)
 hold on
-title('$\varphi$','interpreter','latex');
+title('$\varphi$ and $\vartheta$','interpreter','latex');
 plot(t_s:t_s:T,phi);
+plot(t_s:t_s:T,theta,'r');
     
 
 
