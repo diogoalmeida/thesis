@@ -9,6 +9,8 @@ function [ q_o ] = quat_mult_inv( q_1, q_2 )
    q_o=W\q_2';
    q_o=q_o';
    
+   q_o = q_o./norm(q_o);
+   
  
 end
 

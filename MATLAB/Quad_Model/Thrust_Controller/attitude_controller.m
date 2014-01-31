@@ -1,7 +1,7 @@
 function [ ] = attitude_controller( q_d )
 %THRUST_CONTROLLER Implements the full saturating attitude controller
     
-    global t t_s q s_surf_theta  torque_xy torque_z dz c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_z q_error c_theta theta d_ortho delta_theta;
+    global t t_s q s_surf_theta  theta_dotv torque_xy torque_z c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_z q_error c_theta theta delta_theta;
     
     
     i = round(t/t_s);
@@ -11,9 +11,11 @@ function [ ] = attitude_controller( q_d )
         
         % extract the attitude error for the xy plane
         
+       
         q_error(i,:) = quat_mult(quat_conjugate(q(i-1,:)),q_d);
-
-        q_hat = q_error(i,:).*sign_l(q_error(4));
+        
+        q_hat = q_error(i,:);
+        q_hat = q_hat.*sign_l(q_hat(4));
         
         q_zv = get_z_from_quat(q_hat);
         q_xy = quat_mult_inv(q_zv,q_hat);
@@ -26,11 +28,19 @@ function [ ] = attitude_controller( q_d )
         q_z = q_zv(3);
         qw = q_zv(4);
         
+    
+        
         % get the error between the desired thrust direction and the
         % current one
         
-        phi(i) = 2*acos(qp);
+        phi(i) = 2*acos(qp);        
         theta(i) = 2*acos(qw);
+        
+        if i == 3
+            
+            theta(:) = theta(i);
+            
+        end
        
         
         torque_phi = 0;
@@ -85,22 +95,17 @@ function [ ] = attitude_controller( q_d )
         phi_dot = (phi(i)-phi(i-1))/t_s;
         
         
-        % only the part of theta_dot that is in connection to w_z
-        if qw ~=1
-            theta_dot = -q_z/sqrt(1-qw^2)*w(i,3);
-        else
-            theta_dot = 0;
-        end
+        
         
         % The switching curve defines wether we should accelerate or
         % deaccelerate the axis movement
         
         
         switch_curve_phi = -real(sqrt(v_2_phi^2-2*(torque_xy*(phi_low-phi(i)))/J_x));
-        switch_curve_theta = -real(sqrt(v_2_theta^2-2*(torque_z*(theta_low-theta(i)))/J_z));        
+             
         s_surf_phi(i) = switch_curve_phi;
         phi_dotv(i) = phi_dot;
-        s_surf_theta(i) = switch_curve_theta;
+        
         
         
         T_phi = norm(T_phiphi)-norm(T_thetaphi);
@@ -129,20 +134,29 @@ function [ ] = attitude_controller( q_d )
         
         d_phi_down = small_delta_phi;
         
-        d_phi = xi_function(phi_low+delta_phi,phi_low,phi(i),d_phi_down,xi_function(phi_up,phi_up-delta_phi,phi(i),d_phi_up,d_phi_down));
+        d_phi = double_xi_function(phi_up-delta_phi,phi_up,phi_low,phi_low+delta_phi,phi(i),d_phi_down,d_phi_up);
+        
+        % only the part of theta_dot that is in connection to w_z
+        if qw ~=1
+            theta_dot = -q_z/sqrt(1-qw^2)*w(i-1,3);
+        else
+            theta_dot = 0;
+        end
         
         
-        T_z = c_theta * theta(i);
+        switch_curve_theta = -real(sqrt(v_2_theta^2-2*(torque_z*(theta_low-theta(i)))/J_z));  
+        s_surf_theta(i) = switch_curve_theta;
+        T_z = torque_field(3);
         
         d_z_acc = 0;
         
         if theta_dot > v_1_theta
             
-            d_z_acc = -T_z/theta_dot + torque_z/theta_dot;
+            d_z_acc = -abs(T_z)/theta_dot + torque_z/theta_dot;
             
         else if theta_dot > 0 && theta_dot <=v_1_theta
                 
-                d_z_acc = -T_z/v_1_theta + torque_z/v_1_theta;
+                d_z_acc = -abs(T_z)/v_1_theta + torque_z/v_1_theta;
                 
             else if theta_dot <= 0
                     
@@ -158,13 +172,13 @@ function [ ] = attitude_controller( q_d )
         
         if theta_dot < - v_1_theta
             
-            d_z_dec = - T_z/theta_dot - torque_z/theta_dot;
+            d_z_dec = - abs(T_z)/theta_dot - torque_z/theta_dot;
             
         else if theta_dot < 0 && theta_dot >= - v_1_theta
                 
-                d_z_dec = -T_z/v_1_theta - torque_z/v_1_theta;
+                d_z_dec = -abs(T_z)/v_1_theta - torque_z/v_1_theta;
                 
-            else if theta_dot <= 0
+            else if theta_dot >= 0
                     
                     d_z_dec = 0;
                     
@@ -176,14 +190,16 @@ function [ ] = attitude_controller( q_d )
         
         
         % the real theta_dot
-        theta_dot = (theta(i) - theta(i-1))/t_s;
+        theta_dot = (theta(i)-theta(i-1))/t_s;
+        
         theta_dotv(i) = theta_dot;
         
         d_z_up = xi_function(r_theta*switch_curve_theta,switch_curve_theta,theta_dot,d_z_dec,d_z_acc);
         d_z_down = small_delta_theta;
         
-        d_z = xi_function(phi_up,phi_up - delta_phi,phi(i),xi_function(theta_low+delta_theta,theta_low,theta(i),d_z_down,xi_function(theta_up,theta_up-delta_theta,theta(i),d_z_up,d_z_down)),d_z_down);
-            
+        d_z = xi_function(phi_up,phi_up - delta_phi,phi(i),double_xi_function(theta_up-delta_theta,theta_up,theta_low,theta_low+delta_theta,theta(i),d_z_down,d_z_up),d_z_down);
+        
+        d_ortho = small_delta_phi;
         
 
         if qp ~=1
@@ -199,26 +215,26 @@ function [ ] = attitude_controller( q_d )
         w_xy = zeros(2,1);
         T_xy = torque_field(1:2)';
         w_xy = w(i-1,1:2)';
-        T_z = torque_field(3);
-        w_z = w(i-1,3);
         
-        a=D_xy(1,1)*w_xy(1)+D_xy(1,2)*w_xy(2);
-        b=D_xy(2,1)*w_xy(1)+D_xy(2,2)*w_xy(2);
         
-        sq = (T_xy(1)*a+T_xy(2)*b)^2-(T_xy(1)^2+T_xy(2)^2-torque_xy^2)*(a^2+b^2);
+        a = (D_xy(1,1)*w_xy(1)+D_xy(1,2)*w_xy(2))^2+(D_xy(2,1)*w_xy(1)+D_xy(2,2)*w_xy(2))^2;
+        b = -2*(T_xy(1)*(D_xy(1,1)*w_xy(1)+D_xy(1,2)*w_xy(2))+T_xy(2)*(D_xy(2,1)*w_xy(1)+D_xy(2,2)*w_xy(2)));
+        c = T_xy(1)^2+T_xy(2)^2-torque_xy^2;
         
-        if  sq < 0 || (a^2+b^2) == 0
+        sq = b^2-4*a*c;
+        
+        if  sq < 0 || a == 0
             
             disp('aqui');
             k_1 = 1;
             
-        else if sqrt(4*sq) > 2*(T_xy(1)*a+T_xy(2)*b)
+        else if sq > b^2
                 
-                k_1 = (2*(T_xy(1)*a+T_xy(2)*b)+sqrt(4*sq))/(2*(a^2+b^2));
+                k_1 = (-b+sqrt(sq))/(2*a);
                 
             else
                 
-                k_1 = (2*(T_xy(1)*a+T_xy(2)*b)-sqrt(4*sq))/(2*(a^2+b^2));
+                k_1 = (-b-sqrt(sq))/(2*a);
                 
             end
             
@@ -236,21 +252,25 @@ function [ ] = attitude_controller( q_d )
             
         end
         
+       w_z = w(i-1,3);
         
-       a = (dz*w_z)^2;
-       sq = 4*((T_z*dz*w_z)^2-a*(T_z^2-torque_z^2));
+       a = (d_z*w_z)^2;
+       b = (-2*T_z*d_z*w_z);
+       c = (T_z^2-torque_z^2);
+       sq = b^2-4*a*c;
        
        if sq < 0 || a == 0
            
+           disp('aqui2');
            k_2 = 1;
            
-       else if sqrt(sq) > 4*T_z^2*dz^2*w_z^2
+       else if sq > b^2
                
-               k_2 = (4*T_z^2*dz^2*w_z^2 + sqrt(sq))/2*a;
+               k_2 = (-b + sqrt(sq))/(2*a);
                
-           else if sqrt(sq) >= 4*T_z^2*dz^2*w_z^2
+           else if sq <= b^2
                    
-                   k_2 = (4*T_z^2*dz^2*w_z^2 - sqrt(sq))/2*a;
+                   k_2 = (-b - sqrt(sq))/(2*a);
                    
                end
                
@@ -271,13 +291,31 @@ function [ ] = attitude_controller( q_d )
        end
        
        
-        
+     
 
-       D=[k_1*D_xy, zeros(2,1); zeros(1,2) dz*k_2];
+       D=[k_1*D_xy, zeros(2,1); zeros(1,2) d_z*k_2];
            
-   
+       
+%        if t > 0.129 && t < 0.15
+%            disp('time:');
+%            disp(t);
+%            disp('torque_field z:');
+%            disp(torque_field(3));
+%            disp('kz');
+%            disp(k_2);
+%            disp('d_z');
+%            disp(d_z);
+%            disp('damping z:');
+%            disp(D(3,3));
+%            disp('total field:');
+%            disp(torque_field(3)-k_2*d_z*w(i-1,3));
+%            
+%            pause();
+%            
+%        end
         
        torques(i,:) = (torque_field'-(D*w(i-1,:)')');
+       
         
     end
     

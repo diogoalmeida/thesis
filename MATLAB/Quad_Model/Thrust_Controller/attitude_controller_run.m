@@ -4,10 +4,10 @@ clear all
 close all
 
 format shortG
- global t t_s p v s_surf_phi s_surf_theta q theta_dotv torque_xy torque_z dz d c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_y J_z m g km bm d_l q_error c_theta theta d_ortho delta_theta;
+ global t t_s p v s_surf_phi s_surf_theta q theta_dotv torque_xy torque_z d c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_y J_z m g km bm q_error c_theta theta delta_theta;
 
-t_s = 10^-3;
-t = 0;
+
+% Controller parameters
 phi_low = 10*pi/180;
 theta_low = 15*pi/180;
 phi_up = 175*pi/180;
@@ -18,24 +18,27 @@ small_delta_phi = 0.1999;
 small_delta_theta = 0.0961; 
 c_phi = 0.817;
 c_theta = 0.109;
-d = 0.1999;
-dz = 0.1666;
 v_1_phi = 0.1;
 v_2_phi = 1.425;
 v_1_theta = 0.1;
 v_2_theta = 0.624;
 r_phi = 0.75;
 r_theta = 0.75;
+
+
+% Simulation parameters (plant and sampling)
+t_s = 10^-2;
+t = 0;
+m=0.835;
+g=9.8;
+km=342.4;
+bm=5106.8;
+d = 0.16;
 J_x = 8.5*10^-3;
 J_y = 8.5*10^-3;
 J_z = 14*10^-3;
 torque_xy = 0.15;
 torque_z = 0.03;
-m=0.835;
-g=9.8;
-km=342.4;
-bm=5106.8;
-d_ortho=0.16;
 
 %%
 
@@ -65,7 +68,7 @@ u = zeros(floor(T/t_s),4);
 to_u = [km km km km;
         0 0 d*bm -d*bm ;
         d*bm -d*bm 0 0;
-        -km -km km km];
+        km km -km -km];
     
 % Initial conditions
 phi_o = 170*pi/180;
@@ -162,7 +165,7 @@ hold on
 title('Control torques');
 plot(t_s:t_s:T,torques(:,1),'r');
 plot(t_s:t_s:T,torques(:,2),'g');
-plot(t_s:t_s:T,torques(:,3));
+plot(t_s:t_s:T,torques(:,3),'--k');
 plot(t_s:t_s:T,sqrt(torques(:,1).^2+torques(:,2).^2),'--c');
 legend({'$\tau_x$','$\tau_y$','$\tau_z$','$||\tau_{xy}||$'},'interpreter', 'latex','fontsize',fontsize);
 
@@ -171,7 +174,7 @@ hold on
 title('Switch curve and angle velocity');
 plot(t_s:t_s:T,phi_dotv(:));
 plot(t_s:t_s:T,s_surf_phi(:),'k.');
-plot(t_s:t_s:T,theta_dotv(:),'r');
+plot(t_s:t_s:T,theta_dotv(:),'g');
 plot(t_s:t_s:T,s_surf_theta(:),'r.');
 legend({'$\dot \varphi$','$s(\varphi)$'},'interpreter', 'latex','fontsize',fontsize);
 

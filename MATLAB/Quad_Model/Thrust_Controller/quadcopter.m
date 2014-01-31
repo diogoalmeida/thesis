@@ -36,7 +36,7 @@ function [ ] = quadcopter( u )
         
         tau_loc(1) = d*bm*(u(3)-u(4)); % around x
         tau_loc(2) = d*bm*(u(1)-u(2)); % around y
-        tau_loc(3) = km*(u(3)+u(4)-u(1)-u(2)); % around z
+        tau_loc(3) = km*(-u(3)-u(4)+u(1)+u(2)); % around z
                 
         
         J=[J_x 0 0;

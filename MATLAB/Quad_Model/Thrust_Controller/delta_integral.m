@@ -14,7 +14,7 @@ function [ val ] = delta_integral(d_up, d_low, d)
             
         else if d > d_up && d <= pi
                 
-                val = d_low^2/2 + d_low*(d_up-d_low) + (d_low*d^2/2)/(d_up-pi) - (d_low*d_up^2/2)/(d_up-pi) - pi*(d-d_up)/(d_up-pi);
+                val = d_low^2/2 + d_low*(d_up-d_low) + d_low*((d^2-d_up^2)/(2*(d_up-pi))-pi*(d-d_up)/(d_up-pi));
                 
             end
             
