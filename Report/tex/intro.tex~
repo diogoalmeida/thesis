@@ -1,0 +1,6 @@
+\documentclass[../thesis.tex]{subfiles}
+\begin{document}
+	
+	This is an introduction.
+	
+\end{document}
