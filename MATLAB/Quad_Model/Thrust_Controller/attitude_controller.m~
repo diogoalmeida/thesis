@@ -294,7 +294,30 @@ function [ ] = attitude_controller( q_d )
      
 
        D=[k_1*D_xy, zeros(2,1); zeros(1,2) d_z*k_2];
+<<<<<<< HEAD
+        
 
+=======
+           
+       
+%        if t > 0.129 && t < 0.15
+%            disp('time:');
+%            disp(t);
+%            disp('torque_field z:');
+%            disp(torque_field(3));
+%            disp('kz');
+%            disp(k_2);
+%            disp('d_z');
+%            disp(d_z);
+%            disp('damping z:');
+%            disp(D(3,3));
+%            disp('total field:');
+%            disp(torque_field(3)-k_2*d_z*w(i-1,3));
+%            
+%            pause();
+%            
+%        end
+>>>>>>> 03b2dd8d2a9c7ad2903684c3df522eef60d1bfda
         
        torques(i,:) = (torque_field'-(D*w(i-1,:)')');
        
