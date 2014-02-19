@@ -1,0 +1,6 @@
+Notas sobre onde está o quê no código:
+
+- ArduCopter.pde: Isto é o 'main' do código todo. Muita tralha aqui que posso querer limpar;
+- Attitude.pde: Inclui o rate controller que é usado no Arducopter. De notar que não há integração ao longo do tempo (que eu saiba), o que facilita a vida dos senhores.
+- motors.pde: Onde estão as funções que enviam coisas para os motores.
+- AP_Motors.h: Definida a classe 'motors'

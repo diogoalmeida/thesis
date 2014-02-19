@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: problem_statement.aux
+The style file: ieeetr.bst
+Database file #1: thesis_bib.bib
+Warning--I didn't find a database entry for "lehman"
+Warning--empty journal in lohmann_attitude
+Warning--empty journal in tabuada_event_control
+Warning--empty journal in lehmann
+You've used 4 entries,
+            1876 wiz_defined-function locations,
+            498 strings with 4013 characters,
+and the built_in function-call counts, 829 in all, are:
+= -- 66
+> -- 35
+< -- 0
++ -- 13
+- -- 9
+* -- 55
+:= -- 132
+add.period$ -- 4
+call.type$ -- 4
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 7
+duplicate$ -- 47
+empty$ -- 92
+format.name$ -- 9
+if$ -- 195
+int.to.chr$ -- 0
+int.to.str$ -- 4
+missing$ -- 4
+newline$ -- 15
+num.names$ -- 6
+pop$ -- 23
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 19
+stack$ -- 0
+substring$ -- 28
+swap$ -- 9
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 3
+while$ -- 7
+width$ -- 5
+write$ -- 33
+(There were 4 warnings)

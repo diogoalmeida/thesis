@@ -1,0 +1,149 @@
+
+
+
+
+
+.build/uno/src/system.cpp : src/system.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/system.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/events.cpp : src/events.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/events.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/test.cpp : src/test.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/test.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/Log.cpp : src/Log.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/Log.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/commands_process.cpp : src/commands_process.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/commands_process.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/AP_State.cpp : src/AP_State.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/AP_State.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/navigation.cpp : src/navigation.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/navigation.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/motors.cpp : src/motors.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/motors.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/GCS_Mavlink.cpp : src/GCS_Mavlink.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/GCS_Mavlink.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/flip.cpp : src/flip.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/flip.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/radio.cpp : src/radio.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/radio.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/commands_logic.cpp : src/commands_logic.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/commands_logic.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/perf_info.cpp : src/perf_info.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/perf_info.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/setup.cpp : src/setup.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/setup.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/compat.cpp : src/compat.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/compat.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/ArduCopter.cpp : src/ArduCopter.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/ArduCopter.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/sensors.cpp : src/sensors.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/sensors.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/Parameters.cpp : src/Parameters.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/Parameters.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/commands.cpp : src/commands.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/commands.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/UserCode.cpp : src/UserCode.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/UserCode.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/toy.cpp : src/toy.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/toy.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/leds.cpp : src/leds.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/leds.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/Attitude.cpp : src/Attitude.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/Attitude.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/fence.cpp : src/fence.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/fence.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/control_modes.cpp : src/control_modes.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/control_modes.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/inertia.cpp : src/inertia.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/inertia.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/failsafe.cpp : src/failsafe.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/failsafe.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+.build/uno/src/position_vector.cpp : src/position_vector.pde
+	@mkdir -p .build/uno/src
+	@echo [93msrc/position_vector.pde[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+
+all : .build/uno/src/system.cpp .build/uno/src/events.cpp .build/uno/src/test.cpp .build/uno/src/Log.cpp .build/uno/src/commands_process.cpp .build/uno/src/AP_State.cpp .build/uno/src/navigation.cpp .build/uno/src/motors.cpp .build/uno/src/GCS_Mavlink.cpp .build/uno/src/flip.cpp .build/uno/src/radio.cpp .build/uno/src/commands_logic.cpp .build/uno/src/perf_info.cpp .build/uno/src/setup.cpp .build/uno/src/compat.cpp .build/uno/src/ArduCopter.cpp .build/uno/src/sensors.cpp .build/uno/src/Parameters.cpp .build/uno/src/commands.cpp .build/uno/src/UserCode.cpp .build/uno/src/toy.cpp .build/uno/src/leds.cpp .build/uno/src/Attitude.cpp .build/uno/src/fence.cpp .build/uno/src/control_modes.cpp .build/uno/src/inertia.cpp .build/uno/src/failsafe.cpp .build/uno/src/position_vector.cpp
+	@true
+

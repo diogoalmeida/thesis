@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{lohmann_attitude}
+O.~Fritsch, B.~Henze, and B.~Lohmann, ``Fast and saturating attitude control
+  for a quadrotor helicopter,'' 2013.
+
+\bibitem{tabuada_event_control}
+P.~Tabuada, ``Event-triggered real-time scheduling of stabilizing control
+  tasks,'' 2007.
+
+\bibitem{lehmann}
+D.~Lehmann and K.~H. Johansson, ``Event-triggered pi control subject to
+  actuator saturation,'' 2012.
+
+\bibitem{astrom}
+K.~J. Astr{\"o}m, ``Event based control,'' in {\em Analysis and Design of
+  Nonlinear Control Systems} (A.~Astolfi and L.~Marconi, eds.), pp.~127--147,
+  Springer Berlin Heidelberg, 2008.
+
+\end{thebibliography}

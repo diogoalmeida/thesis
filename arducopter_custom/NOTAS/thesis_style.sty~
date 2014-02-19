@@ -1,0 +1,9 @@
+\ProvidesPackage{thesis_style}
+
+\usepackage[portuges]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}   	
+\usepackage{subfig}
+\usepackage{comment}
+\usepackage{url}
+\usepackage{subfiles}

@@ -1,0 +1,45 @@
+\documentclass[twoside,11pt]{report}
+
+\usepackage{thesis_style}
+
+\bibliographystyle{ieeetr}
+\graphicspath{{./img/}}
+
+\begin{document}
+	\begin{comment}
+		\ititle{My Title}
+		\isubtitle{My Subtitle}
+		\iauthor{Me and Myself}
+		\idate{2004}
+		\irefnr{IR-EE-SB 2000:099}
+		\iaddress{Signal Processing\\
+		School of Electrical Engineering\\
+		Kungliga Tekniska Hgskolan}
+		\makeititle
+	\end{comment}
+	
+	\pagenumbering{roman}
+	\begin{comment}
+		\chapter*{Abstract}
+		\chapter*{Dedication}
+		\chapter*{Acknowledgements}
+	\end{comment}
+	\tableofcontents
+
+	%%%%%%%%%%%%%%%%%%%%
+	%Chapters
+	%%%%%%%%%%%%%%%%%%%%
+	\chapter{Introduction}
+	\pagenumbering{arabic}
+	\input{tex/intro}
+	\chapter{Background}
+	\input{tex/background}
+	% Contents
+	\chapter{Conclusions}
+
+	%%%%%%%%%%%%%%%%%%%%
+	%Bibliography
+	%%%%%%%%%%%%%%%%%%%%
+	\bibliography{thesisbib}
+
+\end{document}
