@@ -4,7 +4,7 @@ function [ ret ] = sign_l( u )
     if u>=0
         ret = 1;
     else
-        ret = 0;
+        ret = -1;
     end
 
 
