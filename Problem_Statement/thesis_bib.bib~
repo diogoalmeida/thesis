@@ -10,6 +10,7 @@
 @article{tabuada_event_control,
     author = {Paulo Tabuada},
     title = {Event-Triggered Real-Time Scheduling of Stabilizing Control Tasks},
+<<<<<<< HEAD
     year = {2007}
 }
 
@@ -28,7 +29,10 @@ doi={10.1007/978-3-540-74358-3_9},
 title={Event Based Control},
 url={http://dx.doi.org/10.1007/978-3-540-74358-3_9},
 publisher={Springer Berlin Heidelberg},
-author={Aström, Karl J.},
+author={Astr{\"o}m, Karl J.},
 pages={127-147},
 language={English}
+=======
+    year = {}
+>>>>>>> 03b2dd8d2a9c7ad2903684c3df522eef60d1bfda
 }

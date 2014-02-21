@@ -6,6 +6,7 @@
 \graphicspath{{./img/}}
 
 \begin{document}
+<<<<<<< HEAD
 	\title{Event-Triggered Saturating Attitude Controller\\ \large Problem Statement}
 	\author{Diogo Almeida}
 	\maketitle	
@@ -204,7 +205,7 @@
 				E_i = \frac{1}{T}\sum_{t_k=0}^T \tau_i^2\;\;\; , \; i=\left \{x,y,z \right \}.
 			\]
 			
-			The respective resultes are presented in table \ref{tab:energy}.
+			The respective results are presented in table \ref{tab:energy}.
 			\begin{table}[ht]
 				\centering
 				\begin{tabular}{|c|l|l|l|}
@@ -235,5 +236,37 @@
 			\item Depending on how to work goes on, iterate between experimental and theoretical work to try and cover a good array of event-triggering techniques.
 		\end{itemize}
 		
+=======
+
+	\title{Event-Triggered Saturating Attitude Controller\\ \large Problem Statement}
+	\maketitle	
+	
+	Texto...
+	
+	\section{The attitude controller}
+	
+		Proposed in \cite{lohmann_attitude}, the attitude controller implements a control law that stabilizes a quadcopter attitude in two steps. On a first part, the thrust axis of the quad is aligned with the reference direction and, on a second step, the yaw angle of the vehicle is corrected. This has advantages if the primary concern of the higher level control revolves around the translational movement of the robot. Another advantage of this controller is its hability to take advantage of the actuating power available by explicitly modelling the maximum torques available to the system and exploiting that knowledge by saturating the control torques whenever possible. This is achieved by adopting an energy shaping approach, where a desired energy for the system is designed and a damping strategy that penalizes movements that go against the reference equilibrium, while boosting the ones that go in the right way, is applied. The resulting control torques have the expression
+		
+		\begin{equation}
+			\boldsymbol \tau \mathbf{(x)} = \mathbf{T(q)}-\mathbf{D(x)} \boldsymbol \omega
+			\label{control}
+		\end{equation}
+		
+		Where $\mathbf{q}$ is the quaternion that represents the attitude error of the quadcopter, $\boldsymbol \omega = \left [\omega_x \;\; \omega_y \;\; \omega_z \right ]^\top$ are the angular velocities of the quad around its three body frame axis, $\mathbf{T(q)}$ is the torque field that the desired energy would generate and $\mathbf{D(x)}$ is a damping matrix that allows for the control saturation as well as the almost global assymptotic stability of the controlled system. Finally, the state of the system with respect to the attitude is given by $\mathbf{x} = \left [ \mathbf{q} \;\; \mathbf{\omega} \right]^\top$.
+		
+	\section{Event-triggered strategy}
+		
+		The main problem in event-triggered implementations is to find an execution rule that allows to generate the sampling instants $t_k$ in such a way that the stabilization of the system is ensured, while avoiding accumulation points. One systematic approach to the problem is given by \cite{tabuada_event_control}, where a sampling instant is generated everytime the time derivative of the Lyapunov Function (LF), $V(\mathbf{x})$, of the system violates an inequality condition. This strategy requires the LF to be bounded above and below by strictly increasing functions of the state and for its time derivative to be upper bounded by an 'error term':
+		
+		\begin{equation}
+			\begin{array}{lll}
+				\underline \alpha(|\mathbf{x}|) \leq & V(\mathbf{x}) & \leq \overline \alpha(|\mathbf{x}|) \\\\
+				\, & \dot V(\mathbf{x}) & \leq -\alpha(|\mathbf{x}|) + \gamma(|\mathbf{e}|) \\
+			\end{array}
+			\label{event}
+		\end{equation}
+		
+	
+>>>>>>> 03b2dd8d2a9c7ad2903684c3df522eef60d1bfda
 	\bibliography{thesis_bib}
 \end{document}

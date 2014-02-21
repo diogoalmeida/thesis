@@ -1,0 +1,10 @@
+\ProvidesPackage{thesis_style}
+
+\usepackage{amsmath}
+\usepackage{graphicx}   	
+\usepackage[swedish,english]{babel}
+\usepackage{subfig}
+\usepackage{comment}
+\usepackage[eng,exjobb]{KTHEEtitlepage}
+\usepackage{url}
+\usepackage{subfiles}

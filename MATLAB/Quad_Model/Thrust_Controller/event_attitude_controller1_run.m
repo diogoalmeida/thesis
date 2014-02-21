@@ -4,7 +4,7 @@ clear all
 close all
 
 format shortG
- global t t_s p v w_true s_surf_phi eps_alpha ticks old_x alpha sigma s_surf_theta q theta_dotv torque_xy torque_z d c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_y J_z m g km bm q_error c_theta theta delta_theta;
+ global t t_s p v w_true s_surf_phi eps_alpha ticks v_dot old_x alpha sigma s_surf_theta q theta_dotv torque_xy torque_z d c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_y J_z m g km bm q_error c_theta theta delta_theta;
 
 
 % Controller parameters
@@ -59,6 +59,7 @@ v = zeros(floor(T/t_s),3);
 w = zeros(floor(T/t_s),3);
 w_true = zeros(floor(T/t_s),3);
 torques = zeros(floor(T/t_s),3);
+v_dot = zeros(floor(T/t_s),1); 
 roll = zeros(round(T/t_s),1);
 pitch = zeros(round(T/t_s),1);
 yaw = zeros(round(T/t_s),1);
@@ -66,7 +67,7 @@ s_surf_phi = zeros(round(T/t_s),1);
 s_surf_theta = zeros(round(T/t_s),1);
 alpha = 0;
 sigma = 0.9;
-eps_alpha = 0.05;
+eps_alpha =  0.05;
 
 thrust=m*g;
 u = zeros(floor(T/t_s),4);
@@ -214,6 +215,17 @@ title('Sampling instants');
 stem(t_s:t_s:T,ticks,'Marker','none');
 axis([0 T 0 2]);
     
+figure(8)
+subplot(2,1,1);
+hold on
+title('$\dot V(x)$','interpreter','latex');
+plot(t_s:t_s:T,v_dot,'Linewidth',line);
+subplot(2,1,2);
+hold on
+title('Sampling instants');
+stem(t_s:t_s:T,ticks,'Marker','none');
+axis([0 T 0 2]);
+
 disp('Ticks:');
 disp(sprintf(strcat(sprintf('%d',sum(ticks)),' out of ',sprintf(' %d',size(ticks,1)))));
 

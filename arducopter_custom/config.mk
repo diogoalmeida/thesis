@@ -3,7 +3,7 @@
 BOARD = mega2560
 
 # HAL_BOARD determines default HAL target.
-HAL_BOARD ?= HAL_BOARD_APM2
+HAL_BOARD ?= HAL_BOARD_APM1
 
 # The communication port used to communicate with the APM.
 PORT = /dev/ttyUSB0
@@ -12,7 +12,7 @@ PORT = /dev/ttyUSB0
 # ARDUINO = /path/to/Arduino
 
 # PX4Firmware tree: fill in the path to PX4Firmware repository from github.com/diydrones:
-PX4_ROOT=../PX4Firmware
+#PX4_ROOT=../PX4Firmware
 
 # PX4NuttX tree: fill in the path to PX4NuttX repository from github.com/diydrones:
-NUTTX_SRC=../PX4NuttX/nuttx
+#NUTTX_SRC=../PX4NuttX/nuttx

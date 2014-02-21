@@ -4,7 +4,7 @@ clear all
 close all
 
 format shortG
- global t t_s p v w_true s_surf_phi eps_error ticks old_x alpha sigma s_surf_theta q theta_dotv torque_xy torque_z d c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_y J_z m g km bm q_error c_theta theta delta_theta;
+ global t t_s p v w_true s_surf_phi v_dot eps_error ticks old_x alpha sigma s_surf_theta q theta_dotv torque_xy torque_z d c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_y J_z m g km bm q_error c_theta theta delta_theta;
 
 
 % Controller parameters
@@ -51,7 +51,7 @@ theta_dotv = zeros(floor(T/t_s),1);
 q = zeros(floor(T/t_s),4);
 q_error = zeros(floor(T/t_s),4);
 ticks = zeros(floor(T/t_s),1);
-
+v_dot = zeros(floor(T/t_s),1); 
 q_d = angle2quat(0,0,0,'XYZ');
 q_d = [q_d(2:4) q_d(1)];
 p = zeros(floor(T/t_s),3);
@@ -113,7 +113,7 @@ for t=3*t_s:t_s:T
     
    % insert noise
    
-    w(i,:) = w(i,:) + 0.01*rand(1,3);
+    %w(i,:) = w(i,:) + 0.01*rand(1,3);
     
 end
 
@@ -204,6 +204,17 @@ title('Sampling instants');
 stem(t_s:t_s:T,ticks,'Marker','none');
 axis([0 T 0 2]);
     
+figure(8)
+subplot(2,1,1);
+hold on
+title('$\dot V(x)$','interpreter','latex');
+plot(t_s:t_s:T,v_dot,'Linewidth',line);
+subplot(2,1,2);
+hold on
+title('Sampling instants');
+stem(t_s:t_s:T,ticks,'Marker','none');
+axis([0 T 0 2]);
+
 disp('Ticks:');
 disp(sprintf(strcat(sprintf('%d',sum(ticks)),' out of ',sprintf(' %d',size(ticks,1)))));
 

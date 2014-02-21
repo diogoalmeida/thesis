@@ -1,0 +1,18 @@
+\documentclass{article}
+	
+\usepackage{thesis_style}
+
+\bibliographystyle{ieeetr}
+\graphicspath{{./img/}}
+
+\begin{document}
+	\title{Derivation of an event-triggering rule for the fast and saturation controller}
+	\author{Diogo Almeida}
+	\maketitle	
+	
+	\section{The problem}
+		We have a continuous controller proposed in \cite{lohmann_attitude}
+	
+	
+	\bibliography{thesis_bib}
+\end{document}

@@ -5,7 +5,7 @@ close all
 
 format shortG
 
- global t t_s p v w_true s_surf_phi s_surf_theta q theta_dotv torque_xy torque_z d c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_y J_z m g km bm q_error c_theta theta delta_theta;
+ global t t_s p v w_true s_surf_phi s_surf_theta q theta_dotv torque_xy torque_z d c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w phi_dotv J_x J_y J_z m g km bm q_error c_theta theta delta_theta;
 
 
 
@@ -44,11 +44,9 @@ torque_z = 0.03;
 
 %%
 
-<<<<<<< HEAD
+
 T = 5; % Simulation time [s]
-=======
-T = 2.5; % Simulation time [s]
->>>>>>> 03b2dd8d2a9c7ad2903684c3df522eef60d1bfda
+
 
 phi = zeros(floor(T/t_s),1);
 phi_dotv = zeros(floor(T/t_s),1);
@@ -61,10 +59,7 @@ q_d = [q_d(2:4) q_d(1)];
 p = zeros(floor(T/t_s),3);
 v = zeros(floor(T/t_s),3);
 w = zeros(floor(T/t_s),3);
-<<<<<<< HEAD
 w_true = zeros(floor(T/t_s),3);
-=======
->>>>>>> 03b2dd8d2a9c7ad2903684c3df522eef60d1bfda
 torques = zeros(floor(T/t_s),3);
 roll = zeros(round(T/t_s),1);
 pitch = zeros(round(T/t_s),1);
@@ -100,11 +95,9 @@ w(:,1)=w_o(1);
 w(:,2)=w_o(2);
 w(:,3)=w_o(3);
 
-<<<<<<< HEAD
-w_true = w;
-=======
 
->>>>>>> 03b2dd8d2a9c7ad2903684c3df522eef60d1bfda
+w_true = w;
+
 
 for t=3*t_s:t_s:T
     
@@ -117,13 +110,11 @@ for t=3*t_s:t_s:T
     
     quadcopter(u(i,:));
     
-<<<<<<< HEAD
+
     % insert noise
    
     %w(i,:) = w(i,:) + 0.1*rand(1,3);
-=======
-   
->>>>>>> 03b2dd8d2a9c7ad2903684c3df522eef60d1bfda
+
     
 end
 
@@ -132,10 +123,8 @@ end
 %%
 
 fontsize = 15;
-<<<<<<< HEAD
 line = 1;
-=======
->>>>>>> 03b2dd8d2a9c7ad2903684c3df522eef60d1bfda
+
 
 % figure(1);
 % 
@@ -166,7 +155,7 @@ line = 1;
 % plot(t_s:t_s:T,yaw);
 
 
-<<<<<<< HEAD
+
 % figure(3)
 % hold on
 % title('Orientation');
@@ -175,16 +164,7 @@ line = 1;
 % plot(t_s:t_s:T,q_error(:,3),'b');
 % plot(t_s:t_s:T,q_error(:,4),'k');
 % legend({'$q_1$','$q_2$','$q_3$', '$q_4$'},'interpreter', 'latex','fontsize',fontsize);
-=======
-figure(3)
-hold on
-title('Orientation');
-plot(t_s:t_s:T,q_error(:,1),'r');
-plot(t_s:t_s:T,q_error(:,2),'g');
-plot(t_s:t_s:T,q_error(:,3),'b');
-plot(t_s:t_s:T,q_error(:,4),'k');
-legend({'$q_1$','$q_2$','$q_3$', '$q_4$'},'interpreter', 'latex','fontsize',fontsize);
->>>>>>> 03b2dd8d2a9c7ad2903684c3df522eef60d1bfda
+
 
 figure(4)
 hold on
@@ -195,7 +175,7 @@ plot(t_s:t_s:T,w(:,3));
 legend({'$\omega_x$','$\omega_y$','$\omega_z$'},'interpreter', 'latex','fontsize',fontsize);
 
 
-<<<<<<< HEAD
+
 figure(1);
 subplot(2,1,1);
 hold on
@@ -231,32 +211,7 @@ disp(sum(torques(:,2).^2)/T);
 
 disp('tau z energy');
 disp(sum(torques(:,3).^2)/T);
-=======
-figure(5)
-hold on
-title('Control torques');
-plot(t_s:t_s:T,torques(:,1),'r');
-plot(t_s:t_s:T,torques(:,2),'g');
-plot(t_s:t_s:T,torques(:,3),'--k');
-plot(t_s:t_s:T,sqrt(torques(:,1).^2+torques(:,2).^2),'--c');
-legend({'$\tau_x$','$\tau_y$','$\tau_z$','$||\tau_{xy}||$'},'interpreter', 'latex','fontsize',fontsize);
 
-figure(6)
-hold on
-title('Switch curve and angle velocity');
-plot(t_s:t_s:T,phi_dotv(:));
-plot(t_s:t_s:T,s_surf_phi(:),'k.');
-plot(t_s:t_s:T,theta_dotv(:),'g');
-plot(t_s:t_s:T,s_surf_theta(:),'r.');
-legend({'$\dot \varphi$','$s(\varphi)$'},'interpreter', 'latex','fontsize',fontsize);
-
-
-figure(7)
-hold on
-title('$\varphi$ and $\vartheta$','interpreter','latex');
-plot(t_s:t_s:T,phi);
-plot(t_s:t_s:T,theta,'r');
->>>>>>> 03b2dd8d2a9c7ad2903684c3df522eef60d1bfda
     
 
 
