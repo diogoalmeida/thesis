@@ -80,7 +80,7 @@ to_u = [km km km km;
 phi_o = 170*pi/180;
 theta_o = 10*pi/180;
 q_o = angle_to_quat([0 0 0]);
-w_o = [0 0 1.7];
+w_o = [-1 2 0.3];
 
 q_o = [-0.992 -0.087 0.008 0.087];
 old_x = zeros(1,7); % to ensure that there is an initial control update

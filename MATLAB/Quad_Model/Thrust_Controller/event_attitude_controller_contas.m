@@ -338,6 +338,7 @@ function [ ] = attitude_controller( q_d )
         disp('nan');
     end
    
+    %alpha = v_dotk;
     
     if  alpha <= v_dotk
        
