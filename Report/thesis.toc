@@ -1,4 +1,10 @@
 \select@language {english}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {chapter}{\numberline {2}Background}{2}
-\contentsline {chapter}{\numberline {3}Conclusions}{3}
+\contentsline {chapter}{\numberline {2}Background}{3}
+\contentsline {section}{\numberline {2.1}The quadcopter attitude model}{3}
+\contentsline {subsection}{\numberline {2.1.1}Relationship between the control torques and rotors angular velocities}{4}
+\contentsline {section}{\numberline {2.2}Quaternion based model}{5}
+\contentsline {section}{\numberline {2.3}Attitude control}{5}
+\contentsline {section}{\numberline {2.4}Event triggered control}{5}
+\contentsline {chapter}{\numberline {3}Pratical Implementation}{6}
+\contentsline {chapter}{\numberline {4}Conclusions}{7}

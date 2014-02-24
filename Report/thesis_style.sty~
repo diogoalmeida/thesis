@@ -2,9 +2,11 @@
 
 \usepackage{amsmath}
 \usepackage{graphicx}   	
-\usepackage[english]{babel}
+\usepackage[swedish,english]{babel}
 \usepackage{subfig}
 \usepackage{comment}
 \usepackage[eng,exjobb]{KTHEEtitlepage}
 \usepackage{url}
 \usepackage{subfiles}
+\usepackage{color}
+

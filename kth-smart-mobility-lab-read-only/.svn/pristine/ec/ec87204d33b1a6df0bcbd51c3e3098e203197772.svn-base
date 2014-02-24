@@ -1,0 +1,350 @@
+<html>
+
+<head>
+  <title>SML Contacts</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="smlstyle.css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <br>
+  
+  <div class="container" style="border:solid 0pt; color:#0053aa; width:70%">
+    <h1 class="text-center" id="title1"><img style="width:100px; height:100px" src="images/kth_logo.jpg">&nbsp; KTH Smart Mobility Lab </h1>
+    <!-- <hr style="height:2px;width:60%;background-color:#0053aa;border:0;margin-left:20%"> -->
+    <center><h4>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<a href="http://www.kth.se/en/ees" style="color:#0053aa">Electrical Engineering School</a></h4></center>
+  </div>
+
+  <br><br>
+  
+  <center>
+    <div class="container">
+      <ul class="nav nav-tabs" style="width:80%">
+        <li style="width:28%">
+          <a class="btn" href="home.html"><i class="icon-home icon-large"></i>&nbsp;&nbsp;Home</a> 
+        </li>
+        <li style="width:18%;text-align:center">
+          <a class="btn" href="projects.html">Projects</a>
+        </li>
+        <li style="width:18%">
+          <a class="btn" href="resources.html">Resources</a>
+        </li>
+        <li style="width:18%">
+          <a class="btn" href="people.html">People</a>
+        </li>
+        <li style="width:18%">
+          <a class="btn-thisbtn">Contacts</a>
+        </li>
+      </ul>
+    </div>
+
+    <br>
+    
+    <div class="smlblock" style="width:40%">
+      <div class="smlnav"><br>
+        <ul>
+          <li>
+            <a href="mailto:smartmobilitylabkth@gmail.com"><img src="images/mail.png" style="height:30pt"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </li>
+          <li>
+            <a href="#">					          <img src="images/kth_logo.jpg" style="height:30pt"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <ul style="margin-left:127px">
+              <li>
+                <a href="http://www.kth.se/en/ees/omskolan/organisation/avdelningar/ac">KTH Automatic Control Lab</a>
+              </li><br>
+              <li>
+                <a href="http://www.kth.se/en/ees">KTH Electrical Engineering School &nbsp</a>
+              </li><br>
+              <li>
+                <a href="http://www.kth.se/en">KTH Home</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="http:/www.youtube.com/channel/UCMwP36IL8EE6nq73uatEE8A" target="_blank"><img src="images/ytlogo.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </li>
+          <li>
+            <a href="http://www.facebook.com/SML.KTH" target="_blank"><img src="images/fblogo.png" style="height:30pt"></a>
+          </li>
+        </ul>
+      </div>
+      <br>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span6">
+          <br>
+          <div class="smlblock">
+            <h3 style="color:#0053aa">Get here
+            </h3>
+            <iframe width="425" height="240" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Drottning+Kristinas+v%C3%A4g+48,+Stockholm,+Sweden&amp;aq=&amp;sll=62.032975,17.378555&amp;sspn=44.625728,135.263672&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Drottning+Kristinas+v%C3%A4g+48,+102+16+Stockholm,+Sweden&amp;layer=c&amp;cbll=59.350643,18.067856&amp;panoid=dnL20JqQeX-2e7prFuEJ-w&amp;cbp=13,7.05,,0,4.15&amp;ll=59.347633,18.067832&amp;spn=0.010502,0.036478&amp;z=14&amp;output=svembed">
+            </iframe>
+            <br>
+            <br>
+            <table style="width:90%">
+              <colgroup>
+              <col span="1" style="width: 50%;">
+              <col span="1" style="width: 30%;">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td align="center">
+                  <br>
+                  <h4 style="color:#0053aa">Smart Mobility Lab
+                  </h4>
+                  <br>
+                  c/o Transport Labs
+                  <br>
+                  Drottning Kristinas v&auml;g 48
+                  <br>
+                  11428 - Stockholm
+                  <br>
+                  Sweden
+                </td>
+                <td>
+                  <style>
+                    .SLBanner {
+                      width:145px;
+                      font-family:Verdana, Arial, Helvica, sans;
+                      font-size:12px;
+                      color:#000;
+                      position:relative;
+                    }
+                    .SLBanner .SLLogoArea img {
+                      border:none;
+                      vertical-align:middle;
+                    }
+                    .SLBanner .SLWrapper {
+                      background-color:#fff;
+                    }
+                    .SLBanner .SLLogoArea {
+                      text-align:center;
+                      padding:0 1px;
+                      color:#036;
+                    }
+                    .SLBanner .SLLogoArea a {
+                      display:block;
+                      padding:15px 10px;
+                      height:46px;
+                      border:none;
+                      text-decoration:none;
+                    }
+                    .SLBanner .SLLogoArea img {
+                      margin:0 auto;
+                    }
+                    .SLBanner .SLFormHead {
+                      background-color:#70CDF4;
+                      font-size:11px;
+                      font-weight:bold;
+                      line-height:1.6em;
+                      margin:0;
+                      padding:2px 7px;
+                      border:1px solid #0EACED;
+                      border-bottom:none;
+                    }
+                    .SLBanner .SLFormArea {
+                      border:1px solid #0EACED;
+                      margin:0;
+                      padding:7px;
+                      background-color:#E4EBEE;
+                      font-size:10px;
+                      background-image:url(http://sl.se/ui/wgb/images/form.bg.gif);
+                      background-repeat:repeat-x;
+                    }
+                    .SLBanner .SLFormArea label {
+                      text-align:left;
+                      display:block;
+                      font-size:11px;
+                      color:#000;
+                      line-height:11px;
+                    }
+                    .SLBanner .SLFormArea input {
+                      border:1px solid #999999;
+                      margin:3px 0;
+                      padding:2px;
+                      width:123px;
+                    }
+                    .SLBanner .SLFormArea .SLButtonRow a:focus, .SLBanner .SLFormArea input:focus {
+                      background: #d0f0ff;
+                      border:1px solid #02a4ec;
+                    }
+                    .SLBanner .SLFormArea .SLButtonRow {
+                      text-align: center;
+                      height: 22px;
+                      margin:5px 0 0;
+                    }
+                    .SLBanner .SLFormArea .SLButtonRow a {
+                      cursor:pointer;
+                      float:left;
+                      background-color:#D0D0D0;
+                      background-image:url("http://sl.se/ui/wgb/images/button.bg.gif");
+                      background-repeat:repeat-x;
+                      border:1px solid #999999;
+                      color:#000000;
+                      font-size:12px;
+                      line-height:18px;
+                      margin:0 5px 0 0;
+                      padding:1px 0;
+                      text-decoration:none;
+                      width:60px;
+                      display:block;
+                    }
+                    .SLBanner .SLFormArea .SLButtonRow a.nm {
+                      margin:0;
+                    }
+                    .SLBanner .SLFormArea .SLRow {
+                      position:relative;
+                      z-index:2;
+                    }
+                    .SLBanner .SLFormArea .SLRow.second {
+                      z-index:1;
+                    }
+                    .SLBanner .SLWrapper div#suggestion {
+                      display:block;
+                      font-size:11px;
+                      position:absolute;
+                      margin:0;
+                      top:35px !important;
+                      left:0 !important;
+                      width:484px !important;
+                      border:1px solid #999999;
+                    }
+                    .SLBanner .SLWrapper div#suggestion div {
+                      background-color:#fff;
+                      border-bottom:1px solid #EEEEEE;
+                      padding:5px;
+                    }
+                    .SLBanner .SLWrapper div#suggestion div span.rightIcons {
+                      float:right;
+                    }
+                    .SLBanner .SLWrapper div#suggestion div.selected, .SLBanner .SLWrapper div#suggestion div.adrselected, .SLBanner .SLWrapper div#suggestion div.poiselected, .SLBanner .SLWrapper div#suggestion div:hover {
+                      cursor:pointer;
+                      background-color:#DDDDDD;
+                    }
+                  </style>
+
+                  <div class="SLBanner vertical">
+                    <div class="SLWrapper">
+                      <input type="hidden" id="travelplannerBaseUrl" value="http://reseplanerare.sl.se/bin/query.exe/en?REQ0HafasSearchForw=1&REQ0HafasSearchForw=1">
+                      <div class="SLLogoArea">
+                        <a href="http://sl.se/en/Visitor/Plan-your-journey/" title="Navigate to AB Storstockholms Lokaltrafik's website"><img src="http://sl.se/ui/Images/logo.gif" alt style="border-width:0px;">
+                        </a>
+                      </div>
+                      <h2 class="SLFormHead" title="Vart vill du resa?">The easiest way to us with SL
+                      </h2>
+                      <div class="SLFormArea">
+                        <div class="SLRow" style="display: block;">
+                          <label>
+                            <span>From:</span>
+                            <span><input title="Type the name of the station or the address you want to travel from." id="iptFrom129733504410540763" value name="Z" type="text" class="HafasSuggest st adr poi" autocomplete="off">
+                            </span>
+                          </label>
+                        </div>
+                        <input type="hidden" name="REQ0JourneyStopsZID" id="FromQuery" value>
+                        <!-- From -->
+                        <input type="hidden" name="REQ0JourneyStopsSID" id="ToQuery" value="A=2@O=Drottning kristinas väg 46, Stockholm@X=18067589@Y=59351143@U=174@L=990003516@B=1@p=1376462001@l=Smart Mobility Lab">
+                        <!-- To -->
+                        <div class="SLButtonRow">
+                          <a onclick="sl_doSearch(this, true);">Go now</a><a class="nm" onclick="sl_doSearch(this, false);">Later</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <input type="hidden" id="hafas_t_suggestionsoff" value="false">
+                  <input type="hidden" id="hafas_gTStop" value="Hållplats">
+                  <input type="hidden" id="hafas_gTAddress" value="Gatuadress">
+                  <input type="hidden" id="hafas_gTPOI" value="Plats">
+                  <script type="text/javascript">
+                    window.hafasOverRideURL = "http://sl.se";
+
+                    function checkSid() {
+                      document.getElementById("REQ0JourneyStopsZID").value = document.getElementById("iptTo129733504410540763").value;
+                    }
+                    function checkZid() {
+                      document.getElementById("REQ0JourneyStopsSID").value = document.getElementById("iptFrom129733504410540763").value;
+                    }
+                    var Settings = {
+                      FromID: "FromQuery",
+                      ToID: "ToQuery",
+                      FromKey: "REQ0JourneyStopsSID",
+                      ToKey: "REQ0JourneyStopsZID",
+                      URL: "http://reseplanerare.sl.se/bin/query.exe/sn?REQ0HafasSearchForw=1&REQ0HafasSearchForw=1",
+                      Now: "start=yes&REQ0JourneyTime=%2B0:05"
+                    };
+                    Settings.URL = document.getElementById("travelplannerBaseUrl").value;
+
+                    function enc(i) {
+                      return escape(i);
+                    }
+                    function sl_doSearch(sender, now) {
+                      Query = {};
+                      Query.from = document.getElementById(Settings.FromID);
+                      Query.to = document.getElementById(Settings.ToID);
+                      Query.url = Settings.URL;
+                      try {
+                        if (~Query.to.value.toLowerCase().indexOf(document.getElementById("iptTo129733504410540763").value.toLowerCase()) == 0) {
+                          Settings.ToKey = "Z";
+                          Query.to.value = document.getElementById("iptTo129733504410540763").value;
+                        }
+                      } catch (e) {}
+                      try {
+                        if (~Query.from.value.toLowerCase().indexOf(document.getElementById("iptFrom129733504410540763").value.toLowerCase()) == 0) {
+                          Settings.FromKey = "S";
+                          Query.from.value = document.getElementById("iptFrom129733504410540763").value;
+                        }
+                      } catch (e) {}
+                      sender.target = '_sl';
+                      if (now) Query.url += "&" + Settings.Now;
+                      Query.url += "&" + Settings.FromKey + "=";
+                      Query.url += enc(Query.from.value);
+                      Query.url += "&" + Settings.ToKey + "=";
+                      Query.url += enc(Query.to.value);
+                      window.open(Query.url, "_sl");
+                      return false;
+                    }
+                  </script>
+                  <script type="text/javascript" src="http://sl.se/ui/scripts/opt/hafas-fsuggest.js">
+                  </script>
+                  <script type="text/javascript" src="http://sl.se/ui/scripts/opt/hafas.js">
+                  </script>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+        </div>
+      </div>
+
+      <div class="span6" align="center">
+        <br>
+        <div class="smlblock" style="height:558px">
+          <h3 style="color:#0053aa">Map</h3>
+          <iframe width="90%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.se/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Drottning+Kristinas+v%C3%A4g+48,+Stockholm&amp;aq=t&amp;sll=62.794935,17.402344&amp;sspn=39.397426,135.263672&amp;ie=UTF8&amp;hq=&amp;hnear=Drottning+Kristinas+v%C3%A4g+48,+102+16+Stockholm&amp;t=m&amp;ll=59.354065,18.065858&amp;spn=0.007656,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe><br />
+        </div>
+      </div>
+    </div>
+
+  </center>
+
+  <footer style="background-color:#0053aa;font-size:12pt;position:fixed;bottom:0px;width:100%">
+    <table align="center" style="width:100%;margin-left:0;color:white">
+      <tbody>
+        <tr>
+          <td align="center">&nbsp;KTH Smart Mobility Lab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="home.html" style="color:white;cursor:pointer">Home</a>&nbsp;|&nbsp;
+            <a href="projects.html" style="color:white;cursor:pointer">Projects</a>&nbsp;|&nbsp;
+            <a href="resources.html" style="color:white;cursor:pointer">Resources</a>&nbsp;|&nbsp;
+            <a href="people.html" style="color:white;cursor:pointer">People</a>&nbsp;|&nbsp; Contacts&nbsp;&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </footer>
+
+  </body>
+
+  </html>

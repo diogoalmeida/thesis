@@ -1,0 +1,135 @@
+  <html>
+    
+    <head>
+      <title>SML Home</title>
+      <meta name="viewport" content="width=device-width">
+      <link rel="stylesheet" href="smlstyle.css">
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+      <script type="text/javascript" src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    </head>
+    
+    <body>
+
+      <br>
+      <div class="container" style="border:solid 0pt; color:#0053aa; width:70%">
+        <h1 class="text-center" id="title1"><img style="width:100px; height:100px" src="images/kth_logo.jpg">&nbsp; KTH Smart Mobility Lab </h1>
+        <center><h4>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<a href="http://www.kth.se/en/ees" style="color:#0053aa">Electrical Engineering School</a></h4></center>
+      </div>
+
+      <br><br>
+      
+      <center>
+        <div class="container">
+          <ul class="nav nav-tabs" style="width:80%">
+            <li style="width:28%;text-align:center">
+              <a class="btn-thisbtn"><i class="icon-home icon-large"></i>&nbsp;&nbsp;Home</a> 
+            </li>
+            <li style="width:18%;text-align:center">
+              <a class="btn" href="projects.html">Projects</a>
+            </li>
+            <li style="width:18%">
+              <a class="btn" href="resources.html">Resources</a>
+            </li>
+<!--             <li style="width:15%">
+              <a class="btn" href="calendar.html">Calendar</a>
+            </li> -->
+            <li style="width:18%">
+              <a class="btn" href="people.html">People</a>
+            </li>
+            <li style="width:18%">
+              <a class="btn" href="contacts.html">Contacts</a>
+            </li>
+          </ul>
+        </div>
+      </center>
+      
+      <br>
+
+      <div class="container" align="center">
+        <div class="row">
+          <div style="margin-left:10%;margin-right:10%;width:80%">
+            <h2 style="color:#0053aa" align="center">The new generation of mobile systems for intelligent transportation and smart driving is being developed here.</h2>
+          </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="row">
+
+        <div class="span6" align="center">
+            <div class = "smlblock">
+            <br><br>
+            <p style="font-family:helvetica;font-size:12pt;width:90%" align="justify">The emerging information and communication infrastructures in the traffic systems give completely new ways of improving the efficiency and safety of transport. Cars and trucks are used as probes for measuring the current traffic situation, to be be used as real-time inputs to routing and speed advice optimizations;  vehicles communicate and cooperate to better utilize the road network, for example by forming autonomous platoons on the highway; and entire fleets of vehicles are managed and coordinated to deliver goods and passengers at their destinations while using as little energy as possible. <br><br>The <strong style="color:#0053aa;font-boldface:size">Smart Mobility Lab</strong> is a model-based platform for implementation and demonstration of intelligent solutions for safe and energy efficient road transport, giving researchers and students the opportunity to experiment and test new ideas long before they can be implemented in real vehicles and real traffic. The Smart Mobility Lab is based on radio-controlled autonomous model vehicles, an indoor wireless communication network, and a positioning system based on infra-red cameras; all integrated with simulation and visualization tools that give excellent possibilities for building up the envisioned ICT infrastructure and for staging complex traffic scenarios.
+            </p>
+            <br>
+            </div>
+        </div>
+
+          <div class="span6" align="center">
+              <div class = "smlblock">
+              <br>
+              <br>
+              <br>
+              <center>
+              <iframe width="90%" height="315" src="http://www.youtube.com/embed/oqrxTw--kDo?autoplay=0&controls=0&showinfo=0&rel=0&vq=hd720" frameborder="0" allowfullscreen></iframe>
+              <br>
+              <br>
+              <table style="font-family:helvetica;font-size:12pt">
+                <tbody>
+                  <tr>
+                    <td>Check out our </td>
+                    <td><a href="http://www.youtube.com/user/KTHSML/" target="_blank"><img src="images/ytlogo.png" style="height:30px"></a></td>
+                    <td> channel!</td> 
+                  </tr>
+                </tbody>
+              </table>
+              </center>
+              <br>
+              <br>
+              </div>
+          </div>
+
+        </div>
+        
+        <br><br>
+
+        <div class="smlblock" style="width:80%">
+        <table>
+                <tbody>
+                  <tr>
+                    <td align="center" width="30%">
+                        <img src="images/truck3.png">
+                    </td>
+                    <td align="center" width="30%">
+                        &nbsp&nbsp&nbsp<img src="images/quad3.png">
+                    </td>
+                    <td align="center" width="30%">
+                        <img src="images/robot3.png">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+
+      <br><br><br>
+      
+      <footer style="background-color:#0053aa;font-size:12pt;position:fixed;bottom:0px;width:100%">
+        <table align="center" style="width:100%;margin-left:0;color:white">
+          <tbody>
+            <tr>
+              <td align="center">
+                &nbspKTH Smart Mobility Lab&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                Home&nbsp|&nbsp
+                <a href="projects.html" style="color:white;cursor:pointer">Projects</a>&nbsp|&nbsp
+                <a href="resources.html" style="color:white;cursor:pointer">Resources</a>&nbsp|&nbsp
+                <a href="people.html" style="color:white;cursor:pointer">People</a>&nbsp|&nbsp
+                <a href="contacts.html" style="color:white;cursor:pointer">Contacts</a>&nbsp&nbsp
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </footer> 
+    </body>
+  </html>

@@ -1,1 +1,101 @@
-This is a background text.
+In this chapter, the background for this project will be given. Firstly, the quadcopter attitude mathematical model will be introduced, together with the quaternion attitude parametrization. Secondly, a quick survey of different approaches to the attitude control is presented, together with the saturating controller that was implemented. Finally, an introduction to Event-Triggered control can be found in section \textbf{[ref section]}.
+
+\section{The quadcopter attitude model}
+	
+	The attitude control problem of a quadcopter can be reduced to the attitude control problem of a rigid-body in $3$D space \textbf{[citation needed]}. We can then define a world frame, $E$, fixed in space, and a body frame, $B$, coincident with the center of mass of the system \textcolor{red}{see figure ??}. The system attitude is given by
+	\[
+		\mathbf{x} = \begin{bmatrix}
+				\phi\\
+				\theta\\
+				\psi\\
+				\omega_{x}\\
+				\omega_{y}\\
+				\omega_{z}
+			     \end{bmatrix},
+	\]
+	where $\left [\phi\;\;\theta\;\;\psi \right]$ are, respectively, the rotations around the $x$, $y$ and $z$ axis of the quadcopter in its body frame (the Euler angles roll, pitch and yaw) and $\boldsymbol \omega = \left [\omega_{x}\;\;\omega_{y}\;\;\omega{z} \right]$ are the angular speeds around the same axis. The mapping from $E$ to $B$ can be done by a rotation matrix \textbf{[citation needed]}, $R$, such that $B = R E$. By applying the Newton-Euler equations, an attitude model can be obtained:
+	\begin{equation}
+		\left \{ \begin{array}{l}
+				\dot R = R \boldsymbol \omega^\times\\
+				J \boldsymbol{ \dot \omega }= J \boldsymbol \omega \times \boldsymbol \omega + \boldsymbol \tau
+			\end{array} \right . ,
+		\label{attitude_dynamics_eq}
+	\end{equation}
+	where $J$ is a $3\times3$ moment of inertia matrix, $\boldsymbol \omega^\times$ denotes the skew symetric matrix \textbf{[citation needed]} and $\boldsymbol \tau = \left [\tau_x\;\;\tau_y\;\;\tau_z\right]^\top$ are the applied torques on the system, around the $x$, $y$ and $z$ axis, respectively. The system is fully actuated in the attitude, meaning that the system is controllable \cite{rigid_attitude_control}. An attitude control system only needs to adjust the control torques in order to stabilize a quadcopter attitude.
+	
+	\subsection{Relationship between the control torques and rotors angular velocities}
+		Each rotor produces a thrust, $T_i$, and the respective reaction force, from the drag, $D_i$ \cite{vijay_quad_modelling}. Those quantities can be expressed as proportional gain of the square of the angular velocities of the rotors, $\overline{\omega}_i$:
+		\begin{equation}
+			\left \{
+				\begin{array}{l}
+					T_i = c_T \displaystyle \overline{\omega}_i^2 \\
+					D_i = c_D \displaystyle \overline{\omega}_i^2
+				\end{array}
+				\right . .
+			\label{thrust_drag_eq}
+		\end{equation}
+		
+		Assuming that the rotors are numbered and rotating as in figure \textcolor{red}{insert\_figure}, and using the relationship \eqref{thrust_drag_eq}, the control torques are given by
+		\begin{equation}
+			\left \{
+				\begin{array}{l}
+					\tau_x = T_3 - T_4 = c_T \displaystyle \left ( \overline{\omega}_3^2 - \overline{\omega}_4^2 \right )\\
+					\tau_y = T_2 - T_1 = c_T \displaystyle \left ( \overline{\omega}_2^2 - \overline{\omega}_1^2 \right )\\
+					\tau_z = D_3 + D_4 - D_1 - D_2 = c_D \displaystyle \left ( \overline{\omega}_3^2 + \overline{\omega}_4^2 - \overline{\omega}_1^2 - \overline{\omega}_2^2 \right)
+				\end{array}
+			\right .
+			\label{control_torques}
+		\end{equation}
+		
+		The total thrust is given by the sum of each rotor thrust
+		\begin{equation}
+			T = \sum_{i=1}^4 T_i = c_T \sum_{i=1}^4 \overline{\omega}^2.
+			\label{thrust}
+		\end{equation}
+		
+		Together, equations \eqref{control_torques} and \eqref{thrust} form a set of linear equations,
+		\begin{equation}
+			\begin{bmatrix}
+				T \\
+				\boldsymbol \tau
+			\end{bmatrix} = \underbrace{\begin{bmatrix}
+						c_T & c_T & c_T & c_T\\
+						0   &  0  & c_T & -c_T\\
+						-c_T& c_T & 0   &  0 \\
+						-c_D& -c_D& c_D & c_D
+					\end{bmatrix}}_\Gamma
+					\begin{bmatrix}
+						\overline{\omega}_1\\
+						\overline{\omega}_2\\
+						\overline{\omega}_3\\
+						\overline{\omega}_4
+					\end{bmatrix},
+			\label{thrust_torques_matrix}
+		\end{equation}
+		and, by inverting $\Gamma$, one can obtain the desired rotor velocities.
+		
+\section{Quaternion based model}
+	Adapting the model \eqref{attitude_dynamics_eq} to an attitude representation given by quaternions has some advantages. This representation has no singularities, avoiding the gimbal lock problem, and it is unique \cite{rigid_attitude_control} \cite{survey_attitude}. It is, though, a nonunique representation, which my give arise to the unwinding effect \cite{rigid_attitude_control} \textcolor{red}{Further exploit this}.
+	
+	A quaternion $\mathbf{q}$ is composed by a vector and a scalar part, $\mathbf{q} = \left [\mathbf{q}_v\;\;q_s \right]^\top$. A unit norm quaternion may be used to map a rotation between two coordinate frames, the same way as a rotation matrix. In that case, the quaternion can be viewed as representing a rotation around an axis
+	\begin{equation}
+		\mathbf{q} = \begin{bmatrix}
+				\mathbf{e} \sin \left (\displaystyle\frac{\alpha}{2} \right)\\\\
+				\cos \left (\displaystyle\frac{\alpha}{2} \right)
+			     \end{bmatrix}
+	 	\label{quaternion_eq}
+	 \end{equation}
+	 where, following the notation in \cite{lohmann_attitude}, $\mathbf{e}$ is the axis and $\alpha$ the angle of rotation.
+	 
+	 Using quaternions, the attitude dynamics \eqref{attitude_dynamics_eq} becomes
+	 \begin{equation}
+	 	\left \{\begin{array}{l}
+		 	\mathbf{\dot q} = \displaystyle -\frac{1}{2} \mathbf{W(q)} \boldsymbol \omega\\
+		 	J \boldsymbol{ \dot \omega }= J \boldsymbol \omega \times \boldsymbol \omega + \boldsymbol \tau
+		 \end{array} \right . ,
+		 \label{quaternion_dynamics}
+	\end{equation}
+	where \textcolor{red}{W definition goes here!}.
+\section{Attitude control}
+\section{Event triggered control}
+

@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{lohmann_attitude}
+O.~Fritsch, B.~Henze, and B.~Lohmann, ``Fast and saturating attitude control
+  for a quadrotor helicopter,'' 2013.
+
+\bibitem{rigid_attitude_control}
+N.~Chaturvedi, A.~Sanyal, and N.~McClamroch, ``Rigid-body attitude control,''
+  {\em Control Systems, IEEE}, vol.~31, pp.~30--51, June 2011.
+
+\bibitem{vijay_quad_modelling}
+R.~E. Mahony, V.~Kumar, and P.~Corke, ``Multirotor aerial vehicles: Modeling,
+  estimation, and control of quadrotor.,'' {\em IEEE Robot. Automat. Mag.},
+  vol.~19, no.~3, pp.~20--32, 2012.
+
+\bibitem{survey_attitude}
+M.~D. {Shuster}, ``{Survey of attitude representations},'' {\em Journal of the
+  Astronautical Sciences}, vol.~41, pp.~439--517, Oct. 1993.
+
+\end{thebibliography}

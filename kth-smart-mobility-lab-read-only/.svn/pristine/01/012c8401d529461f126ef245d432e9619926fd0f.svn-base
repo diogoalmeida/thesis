@@ -1,0 +1,436 @@
+    <!doctype html>
+
+    <html>
+
+    <head>
+      <title>SML Projects</title>
+      <meta name="viewport" content="width=device-width">
+      <link rel="stylesheet" href="smlstyle.css">
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+      <script type="text/javascript" src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+      <br>
+      <div class="container" style="border:solid 0pt; color:#0053aa; width:70%">
+        <h1 class="text-center" id="title1"><img style="width:100px; height:100px" src="images/kth_logo.jpg">&nbsp; KTH Smart Mobility Lab </h1>
+        <!--<hr style="height:2px;width:60%;background-color:#0053aa;border:0;margin-left:20%">-->
+        <center><h4>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<a href="http://www.kth.se/en/ees" style="color:#0053aa">Electrical Engineering School</a></h4></center>
+      </div><br><br>
+      <center>
+        <div class="container">
+          <ul class="nav nav-tabs" style="width:80%">
+            <li style="width:28%">
+              <a class="btn" href="home.html" data-ds-editmark="true"><i class="icon-home icon-large"></i>&nbsp;&nbsp;Home</a> 
+            </li>
+            <li style="width:18%;text-align:center">
+              <a class="btn-thisbtn">Projects</a>
+            </li>
+            <li style="width:18%">
+              <a class="btn" href="resources.html">Resources</a>
+            </li>
+    <!--           <li style="width:18%">
+                <a class="btn" href="calendar.html">Calendar</a>
+              </li> -->
+              <li style="width:18%">
+                <a class="btn" href="people.html">People</a>
+              </li>
+              <li style="width:18%">
+                <a class="btn" href="contacts.html">Contacts</a>
+              </li>
+            </ul>
+
+          </div>
+          <br>
+          
+          <table style="width:90%">
+            <tbody>
+              <tr style="align:center">
+
+                <!-- first column, menu -->
+                <td style="width:15%">
+                  <div class="navbar" style="position:fixed;left:50px;top:300px;width:15%" id="leftnavbar">
+                    <div class="navbar-inner">
+                      <div class="container">
+                        <h4 style="color:#0053aa;">Go to:</h4>
+                        <ul class="nav" style="display:block;font-size:10pt">
+                          <li>
+                            <a href="#EL" style="color:#0053aa;font-weight:bold;">2013</a>
+                          </li><br>
+                          <li>
+                            <a href="#EL">Autonomous delivery (long entry)</a>
+                          </li><br>
+                          <li>
+                            <a href="#pedros">Tucks doing cool stuff</a>
+                          </li><br>
+                          <li>
+                            <a href="#quad" style="color:#0053aa;font-weight:bold;">2012</a>
+                          </li><br>
+                          <li>
+                            <a href="#quad">Quads thru window</a>
+                          </li><br><br><br><br>
+                          <li>
+                            <a href="#p4">Project nr 4</a>
+                          </li>
+                          <li>
+                            <a href="#p5">Project nr 5</a>
+                          </li>
+                          <li>
+                            <a href="#p6" style="color:#0053aa;font-weight:bold;">2011</a>
+                          </li><br>
+                          <li>
+                            <a href="#p6">Project nr 6</a>
+                          </li>
+                          <li>
+                            <a href="#p7">Project nr 7</a>
+                          </li>
+                          <li>
+                            <a href="#p8">Project nr 8</a>
+                          </li>
+                          <li>
+                            <a href="#p9">Project nr 9</a>
+                          </li>
+                          <li>
+                            <a href="#p10">Project nr 10</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+
+                <!-- second column -->
+                <td style="width:70%">
+                  <br>
+                  <div class="smlblock" style="text-align:justify" id="EL">
+                    <table style="margin:10pt 0">
+                      <tbody>
+                        <tr>
+                          <td style="width:5%"></td>
+                          <td style="width:50%;">
+                            <div class="description">
+                              <h3 style="color:#0053aa" align="center">Autonomous loading package delivery system</h3>
+                              <h4 style="color:#0053aa" align="center">Autumn term 2012</h4>
+                              <p align="center"><b>Project group EL2421</b></p><br>
+                              <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is.The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To</p>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                          <td style="width:35%;">
+                            <iframe width="100%" height="315" src="http://www.youtube-nocookie.com/embed/A_zwTN5cXKU?rel=0" frameborder="0" allowfullscreen></iframe><br><br>
+                            <div style="width:90%;margin-left:5%">
+                              <ul class="circlelink">
+                                <li>
+                                  <a href="#">Multimedia</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="#">Code</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="#">Manuals</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table style="width:90%">
+            <tbody>
+              <tr style="align:center">
+                <td style="width:15%"></td>
+                <td style="width:70%">
+                  <br>
+                  <div class="smlblock" style="text-align:justify" id="pedros">
+                    <table style="margin:10pt 0">
+                      <tbody>
+                        <tr>
+                          <td style="width:5%"></td>
+                          <td style="width:50%;">
+                            <div class="description">
+                              <h3 style="color:#0053aa" align="center">Trucks doing some cool stuff</h3>
+                              <h4 style="color:#0053aa" align="center">Autumn term 2012</h4>
+                              <p align="center"><b>Project group EL2421</b></p><br>
+                              <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is.The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To</p>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                          <td style="width:35%;">
+                            <iframe width="100%" height="315" src="http://www.youtube-nocookie.com/embed/A_zwTN5cXKU?rel=0" frameborder="0" allowfullscreen></iframe><br><br>
+                            <div style="width:90%;margin-left:5%">
+                              <ul class="circlelink">
+                                <li>
+                                  <a href="resources.html#Mtr">Multimedia</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="resources.html#Ctr">Code</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="resources.html#Matr">Manuals</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table style="width:90%">
+            <tbody>
+              <tr style="align:center">
+                <td style="width:15%"></td>
+                <td style="width:70%">
+                  <br>
+                  <div class="smlblock" style="text-align:justify" id = "quad">
+                    <table style="margin:10pt 0">
+                      <tbody>
+                        <tr>
+                          <td style="width:5%"></td>
+                          <td style="width:50%;">
+                            <div class="description">
+                              <h3 style="color:#0053aa" align="center">Quads through window</h3>
+                              <h4 style="color:#0053aa" align="center">Autumn term 2012</h4>
+                              <p align="center"><b>Project group EL2421</b></p><br>
+                              <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is.The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To</p>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                          <td style="width:35%;">
+                            <iframe width="100%" height="315" src="http://www.youtube-nocookie.com/embed/A_zwTN5cXKU?rel=0" frameborder="0" allowfullscreen></iframe><br><br>
+                            <div style="width:90%;margin-left:5%">
+                              <ul class="circlelink">
+                                <li>
+                                  <a href="#">Multimedia</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="#">Code</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="#">Manuals</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table style="width:90%">
+            <tbody>
+              <tr style="align:center">
+                <td style="width:15%"></td>
+                <td style="width:70%">
+                  <br>
+                  <div class="smlblock" style="text-align:justify" id="p4">
+                    <table style="margin:10pt 0">
+                      <tbody>
+                        <tr>
+                          <td style="width:5%"></td>
+                          <td style="width:50%;">
+                            <div class="description">
+                              <h3 style="color:#0053aa" align="center">Proj 4 - newer</h3>
+                              <h4 style="color:#0053aa" align="center">Autumn term 2012</h4>
+                              <p align="center"><b>Project group EL2421</b></p><br>
+                              <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is.The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To</p>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                          <td style="width:35%;">
+                            <iframe width="100%" height="315" src="http://www.youtube-nocookie.com/embed/A_zwTN5cXKU?rel=0" frameborder="0" allowfullscreen></iframe><br><br>
+                            <div style="width:90%;margin-left:5%">
+                              <ul class="circlelink">
+                                <li>
+                                  <a href="#">Multimedia</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="#">Code</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="#">Manuals</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table style="width:90%">
+            <tbody>
+              <tr style="align:center">
+                <td style="width:15%"></td>
+                <td style="width:70%">
+                  <br>
+                  <div class="smlblock" style="text-align:justify" " id="p5">
+                    <table style="margin:10pt 0">
+                      <tbody>
+                        <tr>
+                          <td style="width:5%"></td>
+                          <td style="width:50%;">
+                            <div class="description">
+                              <h3 style="color:#0053aa" align="center">Proj. 5</h3>
+                              <h4 style="color:#0053aa" align="center">Autumn term 2012</h4>
+                              <p align="center"><b>Project group EL2421</b></p><br>
+                              <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is.The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To</p>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                          <td style="width:35%;">
+                            <iframe width="100%" height="315" src="http://www.youtube-nocookie.com/embed/A_zwTN5cXKU?rel=0" frameborder="0" allowfullscreen></iframe><br><br>
+                            <div style="width:90%;margin-left:5%">
+                              <ul class="circlelink">
+                                <li>
+                                  <a href="#">Multimedia</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="#">Code</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="#">Manuals</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table style="width:90%">
+            <tbody>
+              <tr style="align:center">
+                <td style="width:15%"></td>
+                <td style="width:70%">
+                  <br>
+                  <div class="smlblock" style="text-align:justify" " id="p6">
+                    <table style="margin:10pt 0">
+                      <tbody>
+                        <tr>
+                          <td style="width:5%"></td>
+                          <td style="width:50%;">
+                            <div class="description">
+                              <h3 style="color:#0053aa" align="center">Proj. 6</h3>
+                              <h4 style="color:#0053aa" align="center">Autumn term 2012</h4>
+                              <p align="center"><b>Project group EL2421</b></p><br>
+                              <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is.The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To</p>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                          <td style="width:35%;">
+                            <iframe width="100%" height="315" src="http://www.youtube-nocookie.com/embed/A_zwTN5cXKU?rel=0" frameborder="0" allowfullscreen></iframe><br><br>
+                            <div style="width:90%;margin-left:5%">
+                              <ul class="circlelink">
+                                <li>
+                                  <a href="#">Multimedia</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="#">Code</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="#">Manuals</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table style="width:90%">
+            <tbody>
+              <tr style="align:center">
+                <td style="width:15%"></td>
+                <td style="width:70%">
+                  <br>
+                  <div class="smlblock" style="text-align:justify" id="p7">
+                    <table style="margin:10pt 0">
+                      <tbody>
+                        <tr>
+                          <td style="width:5%"></td>
+                          <td style="width:50%;">
+                            <div class="description">
+                              <h3 style="color:#0053aa" align="center">Proj. 7</h3>
+                              <h4 style="color:#0053aa" align="center">Autumn term 2012</h4>
+                              <p align="center"><b>Project group EL2421</b></p><br>
+                              <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is.The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To</p>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                          <td style="width:35%;">
+                            <iframe width="100%" height="315" src="http://www.youtube-nocookie.com/embed/A_zwTN5cXKU?rel=0" frameborder="0" allowfullscreen></iframe><br><br>
+                            <div style="width:90%;margin-left:5%">
+                              <ul class="circlelink">
+                                <li>
+                                  <a href="#">Multimedia</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="#">Code</a>
+                                </li>&nbsp;&nbsp;
+                                <li>
+                                  <a href="#">Manuals</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                          <td style="width:5%"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </center><br><br>
+        <footer style="background-color:#0053aa;font-size:12pt;position:fixed;bottom:0px;width:100%" id="foot">
+          <table align="center" style="width:100%;margin-left:0;color:white">
+            <tbody>
+              <tr>
+                <td align="center">&nbsp;KTH Smart Mobility Lab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="home.html" style="color:white;cursor:pointer">Home</a>&nbsp;|&nbsp; Projects&nbsp;|&nbsp;
+                  <a href="resources.html" style="color:white;cursor:pointer">Resources</a>&nbsp;|&nbsp;
+                  <a href="people.html" style="color:white;cursor:pointer">People</a>&nbsp;|&nbsp;
+                  <a href="contacts.html" style="color:white;cursor:pointer">Contacts</a>&nbsp;&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </footer>
+
+          <script type='text/javascript'>
+
+          </script>
+
+        </body>
+
+        </html>
