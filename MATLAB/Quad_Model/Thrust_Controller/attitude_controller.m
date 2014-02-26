@@ -78,9 +78,25 @@ function [ ] = attitude_controller( q_d )
         end
         
         
-        torque_field = T_phiphi + T_thetaphi + T_thetaortho + T_thetaz;
+        torque_field = T_phiphi + T_thetaphi + T_thetaortho + T_thetaz
             
-           
+        % Alternative computation
+        phi(i)
+        theta(i)
+        
+        if qp~=1
+            A = c_phi*delta_function(phi_up,phi_low,phi(i))/sqrt(1-qp^2)-qp^3*c_theta*delta_integral(theta_up,theta_low,theta(i));
+        else
+            A = 0;
+        end
+        
+        if qw ~= 1
+            B = q_z*qp^3*c_theta*delta_function(theta_up,theta_low,theta(i))/sqrt(1-qw^2);
+        else
+            B = 0;
+        end
+        
+        torque_field_alt = [q_x*A+B*q_y;q_y*A-B*q_x;B*qp]
         
         
         
@@ -296,7 +312,7 @@ function [ ] = attitude_controller( q_d )
        D=[k_1*D_xy, zeros(2,1); zeros(1,2) d_z*k_2];
 
         
-       torques(i,:) = (torque_field'-(D*w(i-1,:)')');
+       torques(i,:) = (torque_field'-(D*w(i-1,:)')')
        
         
     end
