@@ -351,7 +351,6 @@ static GCS_MAVLINK gcs3;
 //
 ModeFilterInt16_Size3 sonar_mode_filter(1);
 #if CONFIG_SONAR == ENABLED
-static AP_HAL::AnalogSource *sonar_analog_source;
 static AP_RangeFinder_MaxsonarXL *sonar;
 #endif
 
@@ -906,6 +905,10 @@ static void perf_update(void)
     pmTest1 = 0;
 }
 
+static const AP_Scheduler::Task scheduler_tasks[] PROGMEM = {
+  // no tasks
+};
+
 #define MOTOR_F   2    // Front     
 #define MOTOR_B   3    // Back
 #define MOTOR_L   1   // Left
@@ -951,194 +954,140 @@ void setup() {
     update_auto_armed();
     AP_Notify::flags.armed = true;
 
+    scheduler.init(&scheduler_tasks[0], sizeof(scheduler_tasks)/sizeof(scheduler_tasks[0]));
+
 }
 
+#define FREQ_OP 70
+
+int i=0, faults = 0;
+uint16_t channels[8];  // array for raw channel values 
+uint16_t  motor_val[4]={1000,1000,1000,1000}; // array with motor inputs: [F,B,L,R]
+uint32_t timer = 0;
+Quaternion_D q_1,q_2,q_3,q_4,q_5;
+Vector3<float> tau;
 
 void loop()
 {
-  
-  uint16_t channels[8];  // array for raw channel values 
-  uint16_t  motor_val[4]={0,0,0,0}; // array with motor inputs: [F,B,L,R]
-  Quaternion_D q_1,q_2,q_3,q_4,q_5;
-  Vector3<float> tau;
-  
-  while (ins.num_samples_available() == 0);
 
   
-  // MY CODE HERE
-  motors.armed(true); // Class motors permite gestao de motores mais porreira
-  read_AHRS();
   
-  // RADIO CODE
-  //hal.rcin->read(channels, 8);
+  timer = micros();
+  if (ins.num_samples_available() >= 1) {
   
-  // Copy from channels array to something human readable - array entry 0 = input 1, etc.
-  //uint16_t rcthr, rcyaw, rcpit, rcroll;   // Variables to store rc input
-  //rcthr = channels[2];  
-  //rcyaw = channels[3];
-  //rcpit = channels[1];
-  //rcroll = channels[0];
+    // MY CODE HERE
 
-  q_1.from_euler(ahrs.roll,ahrs.pitch,ahrs.yaw); // current attitude
-  q_2.from_euler(0,0,0); // desired attitude
-  
-  tau = fast_and_saturating_controller(q_1,q_2,omega);
+    
+    read_AHRS();
+    
+    // RADIO CODE
+    hal.rcin->read(channels, 8);
+    
+    // Copy from channels array to something human readable - array entry 0 = input 1, etc.
+    uint16_t rcthr, rcyaw, rcpit, rcroll;   // Variables to store rc input
+    rcthr = channels[2];  
+    rcyaw = channels[3];
+    rcpit = channels[1];
+    rcroll = channels[0];
 
-  to_motors(8.19, tau, &motor_val[MOTOR_F],&motor_val[MOTOR_B],&motor_val[MOTOR_L],&motor_val[MOTOR_R]);
-  hal.rcout->write(MOTOR_F, motor_val[MOTOR_F]);
-  hal.rcout->write(MOTOR_B, motor_val[MOTOR_B]);
-  hal.rcout->write(MOTOR_R, motor_val[MOTOR_R]);
-  hal.rcout->write(MOTOR_L, motor_val[MOTOR_L]);
+    q_1.from_euler(ahrs.roll,ahrs.pitch,ahrs.yaw);//ahrs.roll,ahrs.pitch,ahrs.yaw); // current attitude
+    q_2.from_euler(0,0,0); // desired attitude
+    
 
-  //hal.console->printf_P(PSTR("c: [%.4f,%.4f,%.4f,%.4f]\r\n"),q_1.q1,q_1.q2,q_1.q3,q_1.q4);
-  //hal.console->printf_P(PSTR("d: [%.4f,%.4f,%.4f,%.4f]\r\n"),q_2.q1,q_2.q2,q_2.q3,q_2.q4);
- 
-  //hal.console->printf_P(PSTR("t: [%.7f,%.7f,%.7f]\r\n"),tau.x,tau.y,tau.z);
-  //hal.console->printf_P(PSTR("o: [%.7f,%.7f,%.7f]\r\n"),omega.x,omega.y,omega.z);
-  /*
-  
-  if(roll > 20){   
-      hal.console->printf_P(PSTR("R:%.4f\r\n"),ahrs.roll);   
-      hal.rcout->write(MOTOR_L, rcthr);
-      motor_val[MOTOR_L]=rcthr-1000; // to test if enabled
-      
-  }else{
-  
-      hal.rcout->write(MOTOR_L, 1000);
-  }
-  
-  if(roll < -20){   
-      hal.console->printf_P(PSTR("R:%.4f\r\n"),ahrs.roll);   
-      hal.rcout->write(MOTOR_R, rcthr);
-      motor_val[MOTOR_R]=rcthr-1000;
-      
-  }else{
-  
-      hal.rcout->write(MOTOR_R, 1000);
-  }
-  
-   if(pitch < -20){   
-      hal.console->printf_P(PSTR("P:%.4f\r\n"),ahrs.pitch);   
-      hal.rcout->write(MOTOR_B, rcthr);
-      motor_val[MOTOR_B]=rcthr-1000;
-      
-  }else{
-  
-      hal.rcout->write(MOTOR_B, 1000);
-  }
-  
-  if(pitch > 20){   
-      hal.console->printf_P(PSTR("P:%.4f\r\n"),ahrs.pitch);   
-      hal.rcout->write(MOTOR_F, rcthr);
-      motor_val[MOTOR_F]=rcthr-1000;
-      
-  }else{
-  
-      hal.rcout->write(MOTOR_F, 1000);
-  }
-  Log_Write_Motors(motor_val[MOTOR_F],motor_val[MOTOR_B],motor_val[MOTOR_R],motor_val[MOTOR_L]);*/
+    tau = fast_and_saturating_controller(q_1,q_2,omega);
 
-  /* Quaternion Test */
+    // needs conversion from radio input to thrust.
 
 
+    to_motors(400, tau, &motor_val[MOTOR_F],&motor_val[MOTOR_B],&motor_val[MOTOR_L],&motor_val[MOTOR_R]);
 
-  // END OF MY CODE
+    
+    
+    //hal.console->printf_P(PSTR("W: [%d,%d,%d,%d]\r\n"),motor_val[MOTOR_F],motor_val[MOTOR_B],motor_val[MOTOR_L],motor_val[MOTOR_R]);
 
- 
-  
-}
-
-
-// called at 100hz but data from sensor only arrives at 20 Hz
-#if OPTFLOW == ENABLED
-static void update_optical_flow(void)
-{
-    static uint32_t last_of_update = 0;
-    static uint8_t of_log_counter = 0;
-
-    // if new data has arrived, process it
-    if( optflow.last_update != last_of_update ) {
-        last_of_update = optflow.last_update;
-        optflow.update_position(ahrs.roll, ahrs.pitch, sin_yaw, cos_yaw, current_loc.alt);      // updates internal lon and lat with estimation based on optical flow
-
-        // write to log at 5hz
-        of_log_counter++;
-        if( of_log_counter >= 4 ) {
-            of_log_counter = 0;
-            if (g.log_bitmask & MASK_LOG_OPTFLOW) {
-                Log_Write_Optflow();
-            }
-        }
+    //hal.console->printf_P(PSTR("c: [%.4f,%.4f,%.4f,%.4f]\r\n"),q_1.q1,q_1.q2,q_1.q3,q_1.q4);
+    //hal.console->printf_P(PSTR("d: [%.4f,%.4f,%.4f,%.4f]\r\n"),q_2.q1,q_2.q2,q_2.q3,q_2.q4);
+   
+    //hal.console->printf_P(PSTR("t: [%.7f,%.7f,%.7f]\r\n"),tau.x,tau.y,tau.z);
+    //hal.console->printf_P(PSTR("o: [%.7f,%.7f,%.7f]\r\n"),omega.x,omega.y,omega.z);
+    /*
+    
+    if(roll > 20){   
+        hal.console->printf_P(PSTR("R:%.4f\r\n"),ahrs.roll);   
+        hal.rcout->write(MOTOR_L, rcthr);
+        motor_val[MOTOR_L]=rcthr-1000; // to test if enabled
+        
+    }else{
+    
+        hal.rcout->write(MOTOR_L, 1000);
     }
-}
-#endif  // OPTFLOW == ENABLED
-
-// called at 50hz
-static void update_GPS(void)
-{
-    // A counter that is used to grab at least 10 reads before commiting the Home location
-    static uint8_t ground_start_count  = 10;
-
-    g_gps->update();
-
-    if (g_gps->new_data && last_gps_time != g_gps->time && g_gps->status() >= GPS::GPS_OK_FIX_2D) {
-        // clear new data flag
-        g_gps->new_data = false;
-
-        // save GPS time so we don't get duplicate reads
-        last_gps_time = g_gps->time;
-
-        // log location if we have at least a 2D fix
-        if (g.log_bitmask & MASK_LOG_GPS && motors.armed()) {
-            DataFlash.Log_Write_GPS(g_gps, current_loc.alt);
-        }
-
-        // for performance monitoring
-        gps_fix_count++;
-
-        // run glitch protection and update AP_Notify
-        gps_glitch.check_position();
-        if (AP_Notify::flags.gps_glitching != gps_glitch.glitching()) {
-            if (gps_glitch.glitching()) {
-                Log_Write_Error(ERROR_SUBSYSTEM_GPS, ERROR_CODE_GPS_GLITCH);
-            }else{
-                Log_Write_Error(ERROR_SUBSYSTEM_GPS, ERROR_CODE_ERROR_RESOLVED);
-            }
-            AP_Notify::flags.gps_glitching = gps_glitch.glitching();
-        }
-
-        // check if we can initialise home yet
-        if (!ap.home_is_set) {
-            // if we have a 3d lock and valid location
-            if(g_gps->status() >= GPS::GPS_OK_FIX_3D && g_gps->latitude != 0) {
-                if( ground_start_count > 0 ) {
-                    ground_start_count--;
-                }else{
-                    // after 10 successful reads store home location
-                    // ap.home_is_set will be true so this will only happen once
-                    ground_start_count = 0;
-                    init_home();
-                    if (g.compass_enabled) {
-                        // Set compass declination automatically
-                        compass.set_initial_location(g_gps->latitude, g_gps->longitude);
-                    }
-                }
-            }else{
-                // start again if we lose 3d lock
-                ground_start_count = 10;
-            }
-        }
-
-#if CAMERA == ENABLED
-        if (camera.update_location(current_loc) == true) {
-            do_take_picture();
-        }
-#endif                
+    
+    if(roll < -20){   
+        hal.console->printf_P(PSTR("R:%.4f\r\n"),ahrs.roll);   
+        hal.rcout->write(MOTOR_R, rcthr);
+        motor_val[MOTOR_R]=rcthr-1000;
+        
+    }else{
+    
+        hal.rcout->write(MOTOR_R, 1000);
     }
+    
+     if(pitch < -20){   
+        hal.console->printf_P(PSTR("P:%.4f\r\n"),ahrs.pitch);   
+        hal.rcout->write(MOTOR_B, rcthr);
+        motor_val[MOTOR_B]=rcthr-1000;
+        
+    }else{
+    
+        hal.rcout->write(MOTOR_B, 1000);
+    }
+    
+    if(pitch > 20){   
+        hal.console->printf_P(PSTR("P:%.4f\r\n"),ahrs.pitch);   
+        hal.rcout->write(MOTOR_F, rcthr);
+        motor_val[MOTOR_F]=rcthr-1000;
+        
+    }else{
+    
+        hal.rcout->write(MOTOR_F, 1000);
+    }
+    Log_Write_Motors(motor_val[MOTOR_F],motor_val[MOTOR_B],motor_val[MOTOR_R],motor_val[MOTOR_L]);*/
 
-    // check for loss of gps
-    failsafe_gps_check();
+    /* Quaternion Test */
+
+
+
+    // END OF MY CODE
+
+
+    while(micros()-timer < 1000000/FREQ_OP)
+    {
+      i=1;
+      hal.rcout->write(MOTOR_F, motor_val[MOTOR_F]);
+      hal.rcout->write(MOTOR_B, motor_val[MOTOR_B]);
+      hal.rcout->write(MOTOR_R, motor_val[MOTOR_R]);
+      hal.rcout->write(MOTOR_L, motor_val[MOTOR_L]);
+    }
+    hal.rcout->write(MOTOR_F, motor_val[MOTOR_F]);
+    hal.rcout->write(MOTOR_B, motor_val[MOTOR_B]);
+    hal.rcout->write(MOTOR_R, motor_val[MOTOR_R]);
+    hal.rcout->write(MOTOR_L, motor_val[MOTOR_L]);
+    
+    if(i==0){
+      faults++;
+      hal.console->printf_P(PSTR("f: %d\r\n"),faults);
+
+    }else
+      faults = 0;
+      
+    i=0;
+
+  }
+
+ 
+  
 }
+
 
 // set_yaw_mode - update yaw mode and initialise any variables required
 bool set_yaw_mode(uint8_t new_yaw_mode)

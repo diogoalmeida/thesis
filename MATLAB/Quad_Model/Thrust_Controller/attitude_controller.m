@@ -312,7 +312,8 @@ function [ ] = attitude_controller( q_d )
        D=[k_1*D_xy, zeros(2,1); zeros(1,2) d_z*k_2];
 
         
-       torques(i,:) = (torque_field'-(D*w(i-1,:)')')
+       torques(i,:) = (torque_field'-(D*w(i-1,:)')'):
+       a=torques(i,:)
        
         
     end

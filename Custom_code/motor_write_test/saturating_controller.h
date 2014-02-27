@@ -41,15 +41,16 @@
 #define v_theta_max 0.624
 #define v_phi 0.1
 #define v_theta 0.1
-#define torque_xy_max 0.15
-#define torque_z_max 0.3
 #define J_x 8.5*10e-3
 #define J_z 14*10e-3
 
-#define arm 0.3
-#define c_T 5106.8
-#define c_D 342.4
-#define max_motor_thrust 20
+#define arm 0.28 // m
+#define max_motor_thrust 1.095 //kg
+#define c_T max_motor_thrust/1000 // max input -> max thrust
+#define c_D c_T/3 // ???
+
+#define torque_xy_max max_motor_thrust/(c_T*arm) // ???
+#define torque_z_max torque_xy_max/3 // ???
 
 
 
