@@ -973,11 +973,10 @@ void loop()
   
   
   timer = micros();
-  if (ins.num_samples_available() >= 1) {
+  //if (ins.num_samples_available() >= 1) {
   
     // MY CODE HERE
 
-    
     read_AHRS();
     
     // RADIO CODE
@@ -1001,59 +1000,9 @@ void loop()
 
     to_motors(400, tau, &motor_val[MOTOR_F],&motor_val[MOTOR_B],&motor_val[MOTOR_L],&motor_val[MOTOR_R]);
 
-    
-    
-    //hal.console->printf_P(PSTR("W: [%d,%d,%d,%d]\r\n"),motor_val[MOTOR_F],motor_val[MOTOR_B],motor_val[MOTOR_L],motor_val[MOTOR_R]);
+    //Log_Write_Motors(motor_val[MOTOR_F],motor_val[MOTOR_B],motor_val[MOTOR_R],motor_val[MOTOR_L]);
 
-    //hal.console->printf_P(PSTR("c: [%.4f,%.4f,%.4f,%.4f]\r\n"),q_1.q1,q_1.q2,q_1.q3,q_1.q4);
-    //hal.console->printf_P(PSTR("d: [%.4f,%.4f,%.4f,%.4f]\r\n"),q_2.q1,q_2.q2,q_2.q3,q_2.q4);
-   
-    //hal.console->printf_P(PSTR("t: [%.7f,%.7f,%.7f]\r\n"),tau.x,tau.y,tau.z);
-    //hal.console->printf_P(PSTR("o: [%.7f,%.7f,%.7f]\r\n"),omega.x,omega.y,omega.z);
-    /*
-    
-    if(roll > 20){   
-        hal.console->printf_P(PSTR("R:%.4f\r\n"),ahrs.roll);   
-        hal.rcout->write(MOTOR_L, rcthr);
-        motor_val[MOTOR_L]=rcthr-1000; // to test if enabled
-        
-    }else{
-    
-        hal.rcout->write(MOTOR_L, 1000);
-    }
-    
-    if(roll < -20){   
-        hal.console->printf_P(PSTR("R:%.4f\r\n"),ahrs.roll);   
-        hal.rcout->write(MOTOR_R, rcthr);
-        motor_val[MOTOR_R]=rcthr-1000;
-        
-    }else{
-    
-        hal.rcout->write(MOTOR_R, 1000);
-    }
-    
-     if(pitch < -20){   
-        hal.console->printf_P(PSTR("P:%.4f\r\n"),ahrs.pitch);   
-        hal.rcout->write(MOTOR_B, rcthr);
-        motor_val[MOTOR_B]=rcthr-1000;
-        
-    }else{
-    
-        hal.rcout->write(MOTOR_B, 1000);
-    }
-    
-    if(pitch > 20){   
-        hal.console->printf_P(PSTR("P:%.4f\r\n"),ahrs.pitch);   
-        hal.rcout->write(MOTOR_F, rcthr);
-        motor_val[MOTOR_F]=rcthr-1000;
-        
-    }else{
-    
-        hal.rcout->write(MOTOR_F, 1000);
-    }
-    Log_Write_Motors(motor_val[MOTOR_F],motor_val[MOTOR_B],motor_val[MOTOR_R],motor_val[MOTOR_L]);*/
 
-    /* Quaternion Test */
 
 
 
@@ -1082,7 +1031,6 @@ void loop()
       
     i=0;
 
-  }
 
  
   
