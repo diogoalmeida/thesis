@@ -1,20 +1,396 @@
-\begin{thebibliography}{1}
+% $ biblatex auxiliary file $
+% $ biblatex version 1.7 $
+% $ biber version 0.9.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber or bibtex as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
 
-\bibitem{lohmann_attitude}
-O.~Fritsch, B.~Henze, and B.~Lohmann, ``Fast and saturating attitude control
-  for a quadrotor helicopter,'' 2013.
 
-\bibitem{rigid_attitude_control}
-N.~Chaturvedi, A.~Sanyal, and N.~McClamroch, ``Rigid-body attitude control,''
-  {\em Control Systems, IEEE}, vol.~31, pp.~30--51, June 2011.
+\refsection{0}
+  \entry{heli-history}{book}{}
+    \name{labelname}{1}{}{%
+      {{hash=c47cfe48bfe266cec2cd8afbaee73151}{Johnson}{J\bibinitperiod}{W.}{W\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{1}{}{%
+      {{hash=c47cfe48bfe266cec2cd8afbaee73151}{Johnson}{J\bibinitperiod}{W.}{W\bibinitperiod}{}{}{}{}}%
+    }
+    \list{publisher}{1}{%
+      {Dover Publications}%
+    }
+    \strng{namehash}{c47cfe48bfe266cec2cd8afbaee73151}
+    \strng{fullhash}{c47cfe48bfe266cec2cd8afbaee73151}
+    \field{sortinit}{0}
+    \field{series}{Dover Books on Aeronautical Engineering Series}
+    \field{title}{Helicopter theory}
+    \field{year}{1994}
+  \endentry
 
-\bibitem{vijay_quad_modelling}
-R.~E. Mahony, V.~Kumar, and P.~Corke, ``Multirotor aerial vehicles: Modeling,
-  estimation, and control of quadrotor.,'' {\em IEEE Robot. Automat. Mag.},
-  vol.~19, no.~3, pp.~20--32, 2012.
+  \entry{heli-stability}{inbook}{}
+    \name{labelname}{1}{}{%
+      {{hash=3df35e9923f8ea6d325c6890250d4ea4}{Lee}{L\bibinitperiod}{David\bibnamedelima A.}{D\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{1}{}{%
+      {{hash=3df35e9923f8ea6d325c6890250d4ea4}{Lee}{L\bibinitperiod}{David\bibnamedelima A.}{D\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+    }
+    \list{publisher}{1}{%
+      {John Wiley \& Sons, Ltd}%
+    }
+    \strng{namehash}{3df35e9923f8ea6d325c6890250d4ea4}
+    \strng{fullhash}{3df35e9923f8ea6d325c6890250d4ea4}
+    \field{sortinit}{0}
+    \field{booktitle}{Encyclopedia of Aerospace Engineering}
+    \field{title}{Rotary-Wing Static Stability}
+    \field{year}{2010}
+  \endentry
 
-\bibitem{survey_attitude}
-M.~D. {Shuster}, ``{Survey of attitude representations},'' {\em Journal of the
-  Astronautical Sciences}, vol.~41, pp.~439--517, Oct. 1993.
+  \entry{heli-stability2}{book}{}
+    \name{labelname}{1}{}{%
+      {{hash=b404664155429fdbcb60d9e6cd6f13ce}{Padfield}{P\bibinitperiod}{G.D.}{G\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{1}{}{%
+      {{hash=b404664155429fdbcb60d9e6cd6f13ce}{Padfield}{P\bibinitperiod}{G.D.}{G\bibinitperiod}{}{}{}{}}%
+    }
+    \list{publisher}{2}{%
+      {American Institute of Aeronautics}%
+      {Astronautics}%
+    }
+    \strng{namehash}{b404664155429fdbcb60d9e6cd6f13ce}
+    \strng{fullhash}{b404664155429fdbcb60d9e6cd6f13ce}
+    \field{sortinit}{0}
+    \field{series}{AIAA education series}
+    \field{title}{Helicopter Flight Dynamics: The Theory and Application of Flying Qualities and Simulation Modelling}
+    \field{year}{1996}
+  \endentry
 
-\end{thebibliography}
+  \entry{first-quad}{misc}{}
+    \name{labelname}{1}{}{%
+      {{hash=8b3ddd37bad8997c12f0a27daadee376}{Cyril}{C\bibinitperiod}{G.P.}{G\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{1}{}{%
+      {{hash=8b3ddd37bad8997c12f0a27daadee376}{Cyril}{C\bibinitperiod}{G.P.}{G\bibinitperiod}{}{}{}{}}%
+    }
+    \strng{namehash}{8b3ddd37bad8997c12f0a27daadee376}
+    \strng{fullhash}{8b3ddd37bad8997c12f0a27daadee376}
+    \field{sortinit}{0}
+    \field{title}{The Bréguet-Richet Quad-Rotor Helicopter of 1907}
+  \endentry
+
+  \entry{oemichen-quad}{online}{}
+    \field{sortinit}{0}
+    \field{title}{Oemichen 1922}
+    \verb{url}
+    \verb http://www.aviastar.org/helicopters_eng/oemichen.php
+    \endverb
+  \endentry
+
+  \entry{quad_sieg}{inproceedings}{}
+    \name{labelname}{3}{}{%
+      {{hash=8194dcd7e32b23c65f083bac76ced3dd}{Bouabdallah}{B\bibinitperiod}{Samir}{S\bibinitperiod}{}{}{}{}}%
+      {{hash=877a78a0d1c2d6b4ea8e4932886d9ca6}{Murrieri}{M\bibinitperiod}{Pierpaolo}{P\bibinitperiod}{}{}{}{}}%
+      {{hash=6ee8958bbf32527489012d8ca7c95ee3}{Siegwart}{S\bibinitperiod}{Roland}{R\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{3}{}{%
+      {{hash=8194dcd7e32b23c65f083bac76ced3dd}{Bouabdallah}{B\bibinitperiod}{Samir}{S\bibinitperiod}{}{}{}{}}%
+      {{hash=877a78a0d1c2d6b4ea8e4932886d9ca6}{Murrieri}{M\bibinitperiod}{Pierpaolo}{P\bibinitperiod}{}{}{}{}}%
+      {{hash=6ee8958bbf32527489012d8ca7c95ee3}{Siegwart}{S\bibinitperiod}{Roland}{R\bibinitperiod}{}{}{}{}}%
+    }
+    \strng{namehash}{efe739d43002d9c07613a087c2a0ea98}
+    \strng{fullhash}{efe739d43002d9c07613a087c2a0ea98}
+    \field{sortinit}{0}
+    \field{booktitle}{In Proc. of Int. Conf. on Robotics and Automation}
+    \field{title}{2004-b, “Design and Control of an Indoor Micro Quadrotor}
+    \field{year}{2004}
+  \endentry
+
+  \entry{quad_hamel}{article}{}
+    \name{labelname}{4}{}{%
+      {{hash=085f156bf924126cbb997134fb0c7f54}{Hamel}{H\bibinitperiod}{Tarek}{T\bibinitperiod}{}{}{}{}}%
+      {{hash=523f1624940e07366b63a96872ddb4be}{Mahony}{M\bibinitperiod}{Robert}{R\bibinitperiod}{}{}{}{}}%
+      {{hash=40dbb7fc9b3a336c38a7d4cd7af5c3e4}{Lozano}{L\bibinitperiod}{Rogelio}{R\bibinitperiod}{}{}{}{}}%
+      {{hash=c1734c99295a5a613fd062983fc093f9}{Ostrowski}{O\bibinitperiod}{James}{J\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{4}{}{%
+      {{hash=085f156bf924126cbb997134fb0c7f54}{Hamel}{H\bibinitperiod}{Tarek}{T\bibinitperiod}{}{}{}{}}%
+      {{hash=523f1624940e07366b63a96872ddb4be}{Mahony}{M\bibinitperiod}{Robert}{R\bibinitperiod}{}{}{}{}}%
+      {{hash=40dbb7fc9b3a336c38a7d4cd7af5c3e4}{Lozano}{L\bibinitperiod}{Rogelio}{R\bibinitperiod}{}{}{}{}}%
+      {{hash=c1734c99295a5a613fd062983fc093f9}{Ostrowski}{O\bibinitperiod}{James}{J\bibinitperiod}{}{}{}{}}%
+    }
+    \strng{namehash}{5fc79ae1893779ca259de45182a26292}
+    \strng{fullhash}{c4dd830a0dcdaaf61ab18cc7e900c774}
+    \field{sortinit}{0}
+    \field{title}{Dynamic Modelling And Configuration Stabilization For An X4-Flyer.}
+    \field{year}{2002}
+  \endentry
+
+  \entry{quad_vijay}{inproceedings}{}
+    \name{labelname}{3}{}{%
+      {{hash=b5f2539e61ddc82ed6239d87d6b2fd45}{Kushleyev}{K\bibinitperiod}{Aleksandr}{A\bibinitperiod}{}{}{}{}}%
+      {{hash=3c2a6a0658f1ad90e7d4a83eef9c3841}{Kumar}{K\bibinitperiod}{Vijay}{V\bibinitperiod}{}{}{}{}}%
+      {{hash=ed899ea90c4e31886abd84019f123ee0}{Mellinger}{M\bibinitperiod}{Daniel}{D\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{3}{}{%
+      {{hash=b5f2539e61ddc82ed6239d87d6b2fd45}{Kushleyev}{K\bibinitperiod}{Aleksandr}{A\bibinitperiod}{}{}{}{}}%
+      {{hash=3c2a6a0658f1ad90e7d4a83eef9c3841}{Kumar}{K\bibinitperiod}{Vijay}{V\bibinitperiod}{}{}{}{}}%
+      {{hash=ed899ea90c4e31886abd84019f123ee0}{Mellinger}{M\bibinitperiod}{Daniel}{D\bibinitperiod}{}{}{}{}}%
+    }
+    \list{location}{1}{%
+      {Sydney, Australia}%
+    }
+    \strng{namehash}{34dd026740e86dd7b99827cefba14396}
+    \strng{fullhash}{34dd026740e86dd7b99827cefba14396}
+    \field{sortinit}{0}
+    \field{booktitle}{Proceedings of Robotics: Science and Systems}
+    \field{month}{07}
+    \field{title}{Towards A Swarm of Agile Micro Quadrotors}
+    \field{year}{2012}
+  \endentry
+
+  \entry{franklin_digital}{book}{}
+    \name{labelname}{2}{}{%
+      {{hash=2ea23f33bd69b896b3c523e150725da5}{Ragazzini}{R\bibinitperiod}{J.R.}{J\bibinitperiod}{}{}{}{}}%
+      {{hash=d9b5a8eca5cafd2b9ce5bd1f3c495d52}{Franklin}{F\bibinitperiod}{G.F.}{G\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{2}{}{%
+      {{hash=2ea23f33bd69b896b3c523e150725da5}{Ragazzini}{R\bibinitperiod}{J.R.}{J\bibinitperiod}{}{}{}{}}%
+      {{hash=d9b5a8eca5cafd2b9ce5bd1f3c495d52}{Franklin}{F\bibinitperiod}{G.F.}{G\bibinitperiod}{}{}{}{}}%
+    }
+    \list{publisher}{1}{%
+      {McGraw-Hill}%
+    }
+    \strng{namehash}{5c8c8abba9964cb163fe5f45ba2e7030}
+    \strng{fullhash}{5c8c8abba9964cb163fe5f45ba2e7030}
+    \field{sortinit}{0}
+    \field{series}{McGraw-Hill series in control systems engineering}
+    \field{title}{Sampled-data control systems}
+    \field{year}{1958}
+  \endentry
+
+  \entry{astrom_digital}{book}{}
+    \name{labelname}{2}{}{%
+      {{hash=0e4da975d8e9aecd6caad0c37b5360a1}{Åström}{Å\bibinitperiod}{K.J.}{K\bibinitperiod}{}{}{}{}}%
+      {{hash=87b99c3480e56fa093db31beae51a183}{Wittenmark}{W\bibinitperiod}{B.}{B\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{2}{}{%
+      {{hash=0e4da975d8e9aecd6caad0c37b5360a1}{Åström}{Å\bibinitperiod}{K.J.}{K\bibinitperiod}{}{}{}{}}%
+      {{hash=87b99c3480e56fa093db31beae51a183}{Wittenmark}{W\bibinitperiod}{B.}{B\bibinitperiod}{}{}{}{}}%
+    }
+    \list{publisher}{1}{%
+      {Prentice-Hall}%
+    }
+    \strng{namehash}{4e2d87e191bd888ddd424357606cf6e1}
+    \strng{fullhash}{4e2d87e191bd888ddd424357606cf6e1}
+    \field{sortinit}{0}
+    \field{series}{Prentice-Hall information and system sciences series}
+    \field{title}{Computer controlled systems: theory and design}
+    \field{year}{1984}
+  \endentry
+
+  \entry{astrom_event2}{inproceedings}{}
+    \name{labelname}{2}{}{%
+      {{hash=dbbf67e0bd9859a0476cce16635a6517}{Åström}{Å\bibinitperiod}{Karl\bibnamedelima Johan}{K\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      {{hash=021ca29f9c270b2f55085bd2a7c00450}{Bernhardsson}{B\bibinitperiod}{Bo}{B\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{2}{}{%
+      {{hash=dbbf67e0bd9859a0476cce16635a6517}{Åström}{Å\bibinitperiod}{Karl\bibnamedelima Johan}{K\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      {{hash=021ca29f9c270b2f55085bd2a7c00450}{Bernhardsson}{B\bibinitperiod}{Bo}{B\bibinitperiod}{}{}{}{}}%
+    }
+    \strng{namehash}{1e230d7db759594fd3d95de2c59f71c5}
+    \strng{fullhash}{1e230d7db759594fd3d95de2c59f71c5}
+    \field{sortinit}{0}
+    \field{booktitle}{Proceedings of the 14th IFAC World Congress}
+    \field{title}{Comparison of periodic and event based sampling for firstorder stochastic systems}
+    \field{year}{1999}
+  \endentry
+
+  \entry{astrom_event}{incollection}{}
+    \name{labelname}{1}{}{%
+      {{hash=4f8eaa8390a2ac21a2342e0fba302b26}{Aström}{A\bibinitperiod}{Karl\bibnamedelima J.}{K\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{1}{}{%
+      {{hash=4f8eaa8390a2ac21a2342e0fba302b26}{Aström}{A\bibinitperiod}{Karl\bibnamedelima J.}{K\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+    }
+    \name{editor}{2}{}{%
+      {{hash=51bce56f09890651683ba1a15e4499e0}{Astolfi}{A\bibinitperiod}{Alessandro}{A\bibinitperiod}{}{}{}{}}%
+      {{hash=15bec5c2adf995a16a0702db008c5b3e}{Marconi}{M\bibinitperiod}{Lorenzo}{L\bibinitperiod}{}{}{}{}}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{4f8eaa8390a2ac21a2342e0fba302b26}
+    \strng{fullhash}{4f8eaa8390a2ac21a2342e0fba302b26}
+    \field{sortinit}{0}
+    \field{booktitle}{Analysis and Design of Nonlinear Control Systems}
+    \field{title}{Event Based Control}
+    \field{year}{2008}
+    \field{pages}{127\bibrangedash 147}
+  \endentry
+
+  \entry{castellanos_event}{inproceedings}{}
+    \name{labelname}{3}{}{%
+      {{hash=32d64297302d15739dcca053387b2f5b}{Marchand}{M\bibinitperiod}{Nicolas}{N\bibinitperiod}{}{}{}{}}%
+      {{hash=e765629756b8165cc2952919840978b3}{Durand}{D\bibinitperiod}{Sylvain}{S\bibinitperiod}{}{}{}{}}%
+      {{hash=66138334fed4541a988cdd3bab86a5ae}{Guerrero-Castellanos}{G\bibinithyphendelim C\bibinitperiod}{Jose-Fermi}{J\bibinithyphendelim F\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{3}{}{%
+      {{hash=32d64297302d15739dcca053387b2f5b}{Marchand}{M\bibinitperiod}{Nicolas}{N\bibinitperiod}{}{}{}{}}%
+      {{hash=e765629756b8165cc2952919840978b3}{Durand}{D\bibinitperiod}{Sylvain}{S\bibinitperiod}{}{}{}{}}%
+      {{hash=66138334fed4541a988cdd3bab86a5ae}{Guerrero-Castellanos}{G\bibinithyphendelim C\bibinitperiod}{Jose-Fermi}{J\bibinithyphendelim F\bibinitperiod}{}{}{}{}}%
+    }
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{8a2cb6fae4e1d3da57d6f54e637ed42a}
+    \strng{fullhash}{8a2cb6fae4e1d3da57d6f54e637ed42a}
+    \field{sortinit}{0}
+    \field{title}{A general formula for the stabilization of event-based controlled systems.}
+    \field{year}{2011}
+  \endentry
+
+  \entry{castellanos_event2}{article}{}
+    \true{morelabelname}
+    \name{labelname}{5}{}{%
+      {{hash=f0bd9a144f15ed49220db5dc24f2ccb0}{Castellanos}{C\bibinitperiod}{Fermi\bibnamedelima Guerrero}{F\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+      {{hash=f822ce6b992b44152840a808fe5ff182}{Téllez-Guzmán}{T\bibinithyphendelim G\bibinitperiod}{JJ}{J\bibinitperiod}{}{}{}{}}%
+      {{hash=e765629756b8165cc2952919840978b3}{Durand}{D\bibinitperiod}{Sylvain}{S\bibinitperiod}{}{}{}{}}%
+      {{hash=32d64297302d15739dcca053387b2f5b}{Marchand}{M\bibinitperiod}{Nicolas}{N\bibinitperiod}{}{}{}{}}%
+      {{hash=c0cccbd71a7f83521f74b57aaeed82bf}{Álvarez-Muñoz}{Á\bibinithyphendelim M\bibinitperiod}{JU}{J\bibinitperiod}{}{}{}{}}%
+    }
+    \true{moreauthor}
+    \name{author}{5}{}{%
+      {{hash=f0bd9a144f15ed49220db5dc24f2ccb0}{Castellanos}{C\bibinitperiod}{Fermi\bibnamedelima Guerrero}{F\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+      {{hash=f822ce6b992b44152840a808fe5ff182}{Téllez-Guzmán}{T\bibinithyphendelim G\bibinitperiod}{JJ}{J\bibinitperiod}{}{}{}{}}%
+      {{hash=e765629756b8165cc2952919840978b3}{Durand}{D\bibinitperiod}{Sylvain}{S\bibinitperiod}{}{}{}{}}%
+      {{hash=32d64297302d15739dcca053387b2f5b}{Marchand}{M\bibinitperiod}{Nicolas}{N\bibinitperiod}{}{}{}{}}%
+      {{hash=c0cccbd71a7f83521f74b57aaeed82bf}{Álvarez-Muñoz}{Á\bibinithyphendelim M\bibinitperiod}{JU}{J\bibinitperiod}{}{}{}{}}%
+    }
+    \strng{namehash}{dd0e7d8a67bacebd06859d8d5a78b430}
+    \strng{fullhash}{9905e1e10f16d5c0c86f29522c16183a}
+    \field{sortinit}{0}
+    \field{journaltitle}{Journal of Intelligent and Robotic Systems}
+    \field{title}{Event-triggered nonlinear control for attitude stabilization of a quadrotor}
+    \field{year}{2013}
+  \endentry
+
+  \entry{lehmann_event}{inproceedings}{}
+    \name{labelname}{2}{}{%
+      {{hash=a95679da7af53ed3c69c4b4f946f9da7}{Lehmann}{L\bibinitperiod}{Daniel}{D\bibinitperiod}{}{}{}{}}%
+      {{hash=d498ff35c5c2dc93348de4549e684cb7}{Johansson}{J\bibinitperiod}{Karl\bibnamedelima Henrik}{K\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{2}{}{%
+      {{hash=a95679da7af53ed3c69c4b4f946f9da7}{Lehmann}{L\bibinitperiod}{Daniel}{D\bibinitperiod}{}{}{}{}}%
+      {{hash=d498ff35c5c2dc93348de4549e684cb7}{Johansson}{J\bibinitperiod}{Karl\bibnamedelima Henrik}{K\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+    }
+    \strng{namehash}{2675df65de7d7b18f5edffc1a9893659}
+    \strng{fullhash}{2675df65de7d7b18f5edffc1a9893659}
+    \field{sortinit}{0}
+    \field{title}{Event-triggered PI control subject to actuator saturation}
+    \field{year}{2012}
+  \endentry
+
+  \entry{tabuada_event_control}{article}{}
+    \name{labelname}{1}{}{%
+      {{hash=fa077b33d45928296923ab6a3c97f740}{Tabuada}{T\bibinitperiod}{Paulo}{P\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{1}{}{%
+      {{hash=fa077b33d45928296923ab6a3c97f740}{Tabuada}{T\bibinitperiod}{Paulo}{P\bibinitperiod}{}{}{}{}}%
+    }
+    \strng{namehash}{fa077b33d45928296923ab6a3c97f740}
+    \strng{fullhash}{fa077b33d45928296923ab6a3c97f740}
+    \field{sortinit}{0}
+    \field{title}{Event-Triggered Real-Time Scheduling of Stabilizing Control Tasks}
+  \endentry
+
+  \entry{lohmann_attitude}{article}{}
+    \name{labelname}{3}{}{%
+      {{hash=c365aaa6685452abd63214c44bffbce7}{Fritsch}{F\bibinitperiod}{Oliver}{O\bibinitperiod}{}{}{}{}}%
+      {{hash=04ed5d09de516d62b600c441e72309cf}{Henze}{H\bibinitperiod}{Bernd}{B\bibinitperiod}{}{}{}{}}%
+      {{hash=8d2c70d0189bef3d08fa33ea0240de28}{Lohmann}{L\bibinitperiod}{Boris}{B\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{3}{}{%
+      {{hash=c365aaa6685452abd63214c44bffbce7}{Fritsch}{F\bibinitperiod}{Oliver}{O\bibinitperiod}{}{}{}{}}%
+      {{hash=04ed5d09de516d62b600c441e72309cf}{Henze}{H\bibinitperiod}{Bernd}{B\bibinitperiod}{}{}{}{}}%
+      {{hash=8d2c70d0189bef3d08fa33ea0240de28}{Lohmann}{L\bibinitperiod}{Boris}{B\bibinitperiod}{}{}{}{}}%
+    }
+    \strng{namehash}{aa0573d3310d7896bac6bf951af25657}
+    \strng{fullhash}{aa0573d3310d7896bac6bf951af25657}
+    \field{sortinit}{0}
+    \field{title}{Fast and Saturating Attitude Control for a Quadrotor Helicopter}
+    \field{year}{2013}
+  \endentry
+
+  \entry{rigid_attitude_control}{article}{}
+    \name{labelname}{3}{}{%
+      {{hash=9879d592188d97339e7ec70943d6a87d}{Chaturvedi}{C\bibinitperiod}{N.A.}{N\bibinitperiod}{}{}{}{}}%
+      {{hash=c535adf17c6c834d1ccd50844b1e7214}{Sanyal}{S\bibinitperiod}{A.K.}{A\bibinitperiod}{}{}{}{}}%
+      {{hash=ce85f54afc9344c975b01572d4662a15}{McClamroch}{M\bibinitperiod}{N.H.}{N\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{3}{}{%
+      {{hash=9879d592188d97339e7ec70943d6a87d}{Chaturvedi}{C\bibinitperiod}{N.A.}{N\bibinitperiod}{}{}{}{}}%
+      {{hash=c535adf17c6c834d1ccd50844b1e7214}{Sanyal}{S\bibinitperiod}{A.K.}{A\bibinitperiod}{}{}{}{}}%
+      {{hash=ce85f54afc9344c975b01572d4662a15}{McClamroch}{M\bibinitperiod}{N.H.}{N\bibinitperiod}{}{}{}{}}%
+    }
+    \strng{namehash}{cc6151421bff101fe408c0da7ee0089a}
+    \strng{fullhash}{cc6151421bff101fe408c0da7ee0089a}
+    \field{sortinit}{0}
+    \field{journaltitle}{Control Systems, IEEE}
+    \field{month}{06}
+    \field{number}{3}
+    \field{title}{Rigid-Body Attitude Control}
+    \field{volume}{31}
+    \field{year}{2011}
+    \field{pages}{30\bibrangedash 51}
+  \endentry
+
+  \entry{vijay_quad_modelling}{article}{}
+    \name{labelname}{3}{}{%
+      {{hash=652aea0784c7c2c407262c97ee1a7342}{Mahony}{M\bibinitperiod}{Robert\bibnamedelima E.}{R\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+      {{hash=3c2a6a0658f1ad90e7d4a83eef9c3841}{Kumar}{K\bibinitperiod}{Vijay}{V\bibinitperiod}{}{}{}{}}%
+      {{hash=c0e503339314930d140b67b5e7c55c3e}{Corke}{C\bibinitperiod}{Peter}{P\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{3}{}{%
+      {{hash=652aea0784c7c2c407262c97ee1a7342}{Mahony}{M\bibinitperiod}{Robert\bibnamedelima E.}{R\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+      {{hash=3c2a6a0658f1ad90e7d4a83eef9c3841}{Kumar}{K\bibinitperiod}{Vijay}{V\bibinitperiod}{}{}{}{}}%
+      {{hash=c0e503339314930d140b67b5e7c55c3e}{Corke}{C\bibinitperiod}{Peter}{P\bibinitperiod}{}{}{}{}}%
+    }
+    \strng{namehash}{7a24791cb4296e4c83a0585c0a0490aa}
+    \strng{fullhash}{7a24791cb4296e4c83a0585c0a0490aa}
+    \field{sortinit}{0}
+    \field{journaltitle}{IEEE Robot. Automat. Mag.}
+    \field{title}{Multirotor Aerial Vehicles: Modeling, Estimation, and Control of Quadrotor.}
+    \field{year}{2012}
+    \field{pages}{20\bibrangedash 32}
+  \endentry
+
+  \entry{survey_attitude}{article}{}
+    \name{labelname}{1}{}{%
+      {{hash=5b59405aa3ff97fff352d87eec15fcbd}{{Shuster}}{S\bibinitperiod}{M.\bibnamedelimi D.}{M\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{1}{}{%
+      {{hash=5b59405aa3ff97fff352d87eec15fcbd}{{Shuster}}{S\bibinitperiod}{M.\bibnamedelimi D.}{M\bibinitperiod}{}{}{}{}}%
+    }
+    \strng{namehash}{5b59405aa3ff97fff352d87eec15fcbd}
+    \strng{fullhash}{5b59405aa3ff97fff352d87eec15fcbd}
+    \field{sortinit}{0}
+    \field{journaltitle}{Journal of the Astronautical Sciences}
+    \field{month}{10}
+    \field{title}{{Survey of attitude representations}}
+    \field{volume}{41}
+    \field{year}{1993}
+    \field{pages}{439\bibrangedash 517}
+  \endentry
+
+\endrefsection
+\endinput
+

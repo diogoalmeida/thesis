@@ -41,15 +41,15 @@
 #define v_theta_max 0.624
 #define v_phi 0.1
 #define v_theta 0.1
-#define J_x 8.5*10e-3
-#define J_z 14*10e-3
+#define J_x 0.0085
+#define J_z 0.014
 
 #define arm 0.28 // m
 #define max_motor_thrust 1.095 //kg
 #define c_T max_motor_thrust/1000 // max input -> max thrust
 #define c_D c_T/3 // ???
 
-#define torque_xy_max max_motor_thrust/(c_T*arm) // ???
+#define torque_xy_max max_motor_thrust/(5*c_T*arm) // ???
 #define torque_z_max torque_xy_max/3 // ???
 
 
@@ -62,7 +62,7 @@ float xi_f(float up, float low, float f1, float f2, float val);
 float double_xi_f(float up1, float up2, float low1, float low2,float f1, float f2,float val);
 
 float compute_phi(float qp);
-float compute_theta(float qz);
+float compute_theta(float qw);
 
 Vector3<float> compute_art_torques(Quaternion_D qxy, Quaternion_D qz,float phi, float theta);
 
@@ -88,7 +88,7 @@ float compute_damping_z(Quaternion_D qxy,Quaternion_D qz, Vector3<float> omega_f
 float compute_kxy(Vector3<float> art_torques,Vector3<float> omega_f, Quaternion_D qxy,float d_phi);
 float compute_kz(Vector3<float> art_torques,Vector3<float> omega_f,float d_z);
 
-Matrix3<float> compute_D_matrix(Quaternion_D qxy, Quaternion_D qz, Vector3<float> omega_f);
+Matrix3<float> compute_D_matrix(Quaternion_D qxy, Quaternion_D qz, Vector3<float> omega_f, Vector3<float> art_torques);
 
 Vector3<float> fast_and_saturating_controller(Quaternion_D current_att, Quaternion_D desired_att, Vector3<float> omega_f);
 

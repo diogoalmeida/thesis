@@ -990,15 +990,25 @@ void loop()
     rcroll = channels[0];
 
     q_1.from_euler(ahrs.roll,ahrs.pitch,ahrs.yaw);//ahrs.roll,ahrs.pitch,ahrs.yaw); // current attitude
+    //DEBUG
+    /*q_1.q1=-0.2710171;
+    q_1.q2=-0.9086057;
+    q_1.q3=0.3172428;
+    q_1.q4=0.0185002;*/
     q_2.from_euler(0,0,0); // desired attitude
     
+    //DEBUG
+    /*omega.x = 1.749156;
+    omega.y = 0.9093719;
+    omega.z = 5.860670;*/
 
     tau = fast_and_saturating_controller(q_1,q_2,omega);
-
+    hal.console->printf_P(PSTR("q: [%.7f,%.7f,%.7f,%.7f]\r\n"),q_1.q1,q_1.q2,q_1.q3,q_1.q4);
+    hal.console->printf_P(PSTR("o: [%.7f,%.7f,%.7f]\r\n"),omega.x,omega.y,omega.z);
+    hal.console->printf_P(PSTR("t: [%.7f,%.7f,%.7f]\r\n"),tau.x,tau.y,tau.z);
     // needs conversion from radio input to thrust.
 
-
-    to_motors(400, tau, &motor_val[MOTOR_F],&motor_val[MOTOR_B],&motor_val[MOTOR_L],&motor_val[MOTOR_R]);
+    to_motors(1000, tau, &motor_val[MOTOR_F],&motor_val[MOTOR_B],&motor_val[MOTOR_L],&motor_val[MOTOR_R]);
 
     //Log_Write_Motors(motor_val[MOTOR_F],motor_val[MOTOR_B],motor_val[MOTOR_R],motor_val[MOTOR_L]);
 

@@ -1,8 +1,8 @@
-In this chapter, the background for this project will be given. Firstly, the quadcopter attitude mathematical model will be introduced, together with the quaternion attitude parametrization. Secondly, a quick survey of different approaches to the attitude control is presented, together with the saturating controller that was implemented. Finally, an introduction to Event-Triggered control can be found in section \textbf{[ref section]}.
+In this chapter, the project's background will be given. Firstly, the quadcopter mathematical model will be introduced, together with the quaternion attitude parametrization. Secondly, the proposed saturating controller is discussed. Finally, an introduction to event-triggered control is given.
 
 \section{The quadcopter attitude model}
 	
-	The attitude control problem of a quadcopter can be reduced to the attitude control problem of a rigid-body in $3$D space \textbf{[citation needed]}. We can then define a world frame, $E$, fixed in space, and a body frame, $B$, coincident with the center of mass of the system \textcolor{red}{see figure ??}. The system attitude is given by
+	The attitude control problem of a quadcopter can be reduced to the attitude control problem of a rigid-body in $3$D space \textbf{[citation needed]}. We can then define a world frame, $E$, fixed in space, and a body frame, $B$, coincident with the center of mass of the system \textcolor{red}{see figure...}. The system attitude is given by
 	\[
 		\mathbf{x} = \begin{bmatrix}
 				\phi\\
@@ -75,7 +75,7 @@ In this chapter, the background for this project will be given. Firstly, the qua
 		and, by inverting $\Gamma$, one can obtain the desired rotor velocities.
 		
 \section{Quaternion based model}
-	Adapting the model \eqref{attitude_dynamics_eq} to an attitude representation given by quaternions has some advantages. This representation has no singularities, avoiding the gimbal lock problem, and it is unique \cite{rigid_attitude_control} \cite{survey_attitude}. It is, though, a nonunique representation, which my give arise to the unwinding effect \cite{rigid_attitude_control} \textcolor{red}{Further exploit this}.
+	Adapting the model \eqref{attitude_dynamics_eq} to an attitude representation given by quaternions has some advantages. This representation has no singularities, avoiding the gimbal lock problem, and it is global \cite{rigid_attitude_control} \cite{survey_attitude}. It is, though, a nonunique representation, which my give arise to the unwinding effect \cite{rigid_attitude_control} \textcolor{red}{Further exploit this}.
 	
 	A quaternion $\mathbf{q}$ is composed by a vector and a scalar part, $\mathbf{q} = \left [\mathbf{q}_v\;\;q_s \right]^\top$. A unit norm quaternion may be used to map a rotation between two coordinate frames, the same way as a rotation matrix. In that case, the quaternion can be viewed as representing a rotation around an axis
 	\begin{equation}
@@ -98,3 +98,4 @@ In this chapter, the background for this project will be given. Firstly, the qua
 	where \textcolor{red}{W definition goes here!}.
 \section{Attitude control}
 \section{Event triggered control}
+

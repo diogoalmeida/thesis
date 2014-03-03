@@ -1,7 +1,7 @@
 function [ ] = attitude_controller( q_d )
 %THRUST_CONTROLLER Implements the full saturating attitude controller
     
-    global t t_s q ticks s_surf_theta eps_alpha lin_t_x v_dot torques_k  lin_t_y lin_t_z lin_t_p lin_t_w v_dotk D_k old_x alpha theta_dotv sigma lin_torques torque_xy torque_z c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_z q_error c_theta theta delta_theta;
+    global t t_s q ticks s_surf_theta eps_alpha lin_t_x v_dot torques_k k_freq  lin_t_y lin_t_z lin_t_p lin_t_w v_dotk D_k old_x alpha theta_dotv sigma lin_torques torque_xy torque_z c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_z q_error c_theta theta delta_theta;
     
     
     i = round(t/t_s);
@@ -319,7 +319,7 @@ function [ ] = attitude_controller( q_d )
     q_x_error = q_x - old_x(1);
     q_y_error = q_y - old_x(2);
     q_z_error = q_z - old_x(3);
-    q_p_error = q_z - old_x(4);
+    q_p_error = q_p - old_x(4);
     q_w_error = q_w - old_x(5);
     
     v_dot(i) = w(i-1,:)*torques_k - torque_field'*w(i-1,:)';
@@ -327,65 +327,96 @@ function [ ] = attitude_controller( q_d )
     lin_torques = lin_t_x.*q_x_error+lin_t_y.*q_y_error+lin_t_z.*q_z_error+lin_t_p.*q_p_error+lin_t_w.*q_w_error;
     
     if v_dotk ~= 0
-        alpha = w(i-1,:)*lin_torques + w_error*D_k*old_x(6:8)';
+        alpha(i) = w(i-1,:)*lin_torques + w_error*D_k*old_x(6:8)';
     else
-        alpha = 0;
+        alpha(i) = 0;
     end
     
-   
-    if isnan(alpha)
-        alpha = v_dotk;
+    if isnan(alpha(i))
         disp('nan');
     end
-   
-    %alpha = v_dotk;
     
-    if  alpha <= v_dotk
+
+    if  alpha(i) <= 0.1*v_dotk && k_freq == 10
        
+      
        D_k = D;
        v_dotk = -w(i-1,:)*D*w(i-1,:)';
        torques(i,:) = (torque_field'-(D*w(i-1,:)')');
+       
        torques_k = torques(i,:)'; % for debug
        ticks(i) = 1; 
        old_x = [q_x, q_y, q_z, q_p, q_w ,w(i-1,:)];
        
        
        % Compute new linearization
-       A = sqrt(1-q_w^2);
-       B = c_theta * delta_integral(theta_up,theta_low,theta(i));
-       C = c_phi / sqrt(1-q_p^2);
+       if q_p~=1
+           A = sqrt(1-q_p^2);
+       else
+           A=0;
+       end
        
-       D = c_theta / A;
-       E = acos(q_w);
-       F = acos(q_p);
+       if q_w~=1
+           B = sqrt(1-q_w^2);
+       else
+           B=0;
+       end
        
-       lin_t_x = [C * delta_function(phi_up,phi_low,phi(i)) - q_p^3*B;
-                  -q_z*q_p^3*D*delta_function(theta_up,theta_low,theta(i));
+       C = c_theta * delta_integral(theta_up,theta_low,theta(i));
+       
+       if A~=0
+           D = c_phi / A;
+       else
+           D = 0;
+       end
+       
+       if B~=0
+           E = c_theta / B;
+       else
+           E = 0;
+       end
+       
+       F = acos(q_w);
+       G = acos(q_p);
+       
+       lin_t_x = [D * delta_function(phi_up,phi_low,phi(i)) - q_p^3*C;
+                  -q_z*q_p^3*E*delta_function(theta_up,theta_low,theta(i));
                   0];
-       lin_t_y = [q_z*q_p^3*D*delta_function(theta_up,theta_low,theta(i));
-                  C * delta_function(phi_up,phi_low,phi(i)) - q_p^3*B;
+       lin_t_y = [q_z*q_p^3*E*delta_function(theta_up,theta_low,theta(i));
+                  D * delta_function(phi_up,phi_low,phi(i)) - q_p^3*C;
                   0];
-       lin_t_z = [q_y*q_p^3*D*delta_function(theta_up,theta_low,theta(i));
-                  q_x*q_p^3*D*delta_function(theta_up,theta_low,theta(i));
-                  q_p^4*D*delta_function(theta_up,theta_low,theta(i))];
+       lin_t_z = [q_y*q_p^3*E*delta_function(theta_up,theta_low,theta(i));
+                  -q_x*q_p^3*E*delta_function(theta_up,theta_low,theta(i));
+                  q_p^4*E*delta_function(theta_up,theta_low,theta(i))];
               
-       if phi(i) >= 0 && phi(i) < phi_low
+       if phi(i) >= 0 && phi(i) <= phi_low
            
-           lin_t_p = [(-4*C*F/A+q_p*C/A^2-3*q_p^2*B)*q_x + 3*q_z*q_y*q_p^2*D*delta_function(theta_up,theta_low,theta(i));
-                      (-4*C*F/A+q_p*C/A^2-2*C-3*q_p^2*B)*q_y - 3*q_z*q_x*q_p^2*D*delta_function(theta_up,theta_low,theta(i));
-                      4*q_z*q_p^3*D*delta_function(theta_up,theta_low,theta(i))];
-                  
-       else if phi(i) >= phi_low && phi(i) < phi_up
+           if A~=0
+           lin_t_p = [q_x*(-2*D/A+2*q_p*D*G/A^2-3*q_p^2*C)+3*q_z*q_y*q_p^2*E*delta_function(theta_up,theta_low,theta(i));
+                      q_y*(-2*D/A+2*q_p*D*G/A^2-3*q_p^2*C)-3*q_z*q_x*q_p^2*E*delta_function(theta_up,theta_low,theta(i));
+                      4*q_z*q_p^3*E*delta_function(theta_up,theta_low,theta(i))];
+           else
+                lin_t_p = zeros(3,1);
+           end
+       else if phi(i) > phi_low && phi(i) <= phi_up
                
-               lin_t_p = [(phi_low*C-3*q_p^2*B)*q_x + 3*q_z*q_y*q_p^2*D*delta_function(theta_up,theta_low,theta(i));
-                          (phi_low*C-3*q_p^2*B)*q_y - 3*q_z*q_x*q_p^2*D*delta_function(theta_up,theta_low,theta(i));
-                          4*q_z*q_p^3*D*delta_function(theta_up,theta_low,theta(i))];
+               if A~=0
+               lin_t_p = [(phi_low*D*q_p/A^2-3*q_p^2*C)*q_x + 3*q_z*q_y*q_p^2*E*delta_function(theta_up,theta_low,theta(i));
+                          (phi_low*D*q_p/A^2-3*q_p^2*C)*q_y - 3*q_z*q_x*q_p^2*E*delta_function(theta_up,theta_low,theta(i));
+                          4*q_z*q_p^3*E*delta_function(theta_up,theta_low,theta(i))];
+               else
+               lin_t_p = zeros(3,1);
+               end
                       
-           else if phi(i) >= phi_up  && phi(i) <= pi
+           else if phi(i) > phi_up  && phi(i) <= pi
                    
-                   lin_t_p = [(C*phi_low*q_p*(2*F-pi)/(A^2*(phi_up-pi))-2*C*phi_low/(A*(phi_up-pi))-3*q_p^2*B)*q_x + 3*q_z*q_y*q_p^2*D*delta_function(theta_up,theta_low,theta(i));
-                              (C*phi_low*q_p*(2*F-pi)/(A^2*(phi_up-pi))-2*C*phi_low/(A*(phi_up-pi))-3*q_p^2*B)*q_y - 3*q_z*q_x*q_p^2*D*delta_function(theta_up,theta_low,theta(i));
-                              4*q_z*q_p^3*D*delta_function(theta_up,theta_low,theta(i))];
+                   if A ~=0
+                   lin_t_p = [(-2*D*phi_low/(A*(phi_up-pi))+D*phi_low*q_p*(2*G-pi)/(A^2*(phi_up-pi))-3*q_p^2*C)*q_x + 3*q_z*q_y*q_p^2*E*delta_function(theta_up,theta_low,theta(i));
+                              (-2*D*phi_low/(A*(phi_up-pi))+D*phi_low*q_p*(2*G-pi)/(A^2*(phi_up-pi))-3*q_p^2*C)*q_y - 3*q_z*q_x*q_p^2*E*delta_function(theta_up,theta_low,theta(i));
+                              4*q_z*q_p^3*E*delta_function(theta_up,theta_low,theta(i))];
+                   else
+                   lin_t_p = zeros(3,1);
+                   end
                           
                end
                
@@ -393,22 +424,34 @@ function [ ] = attitude_controller( q_d )
            
        end
        
-       if theta(i) >= 0 && theta(i) < theta_low
+       if theta(i) >= 0 && theta(i) <= theta_low
            
-           lin_t_w = [4*q_p^3*q_x*D + 2*q_w*q_z*q_p^3*q_y*D*E/A^2 - 2*q_z*q_p^3*q_y*C/A;
-                      4*q_p^3*q_y*D - 2*q_w*q_z*q_p^3*q_x*D*E/A^2 + 2*q_z*q_p^3*q_x*C/A;
-                      2*q_z*q_p^4*q_w*D*E/A^2 - 2*q_z*q_p^4*D/A];
+           if B~=0
+               lin_t_w = [4*q_p^3*q_x*E*F + 2*q_w*q_z*q_p^3*q_y*E*F/B^2 - 2*q_z*q_p^3*q_y*E/B;
+                          4*q_p^3*q_y*E*F - 2*q_w*q_z*q_p^3*q_x*E*F/B^2 + 2*q_z*q_p^3*q_x*E/B;
+                          2*q_z*q_p^4*q_w*E*F/B^2 - 2*q_z*q_p^4*E/B];
+           else
+               lin_t_w = zeros(3,1);
+           end
                   
-       else if theta(i) >= theta_low && theta(i) < theta_up
+       else if theta(i) > theta_low && theta(i) <= theta_up
                
-               lin_t_w = [2*theta_low*q_p^3*q_x*D+theta_low*q_w*q_z*q_p^3*q_y*(2*E-theta_low)*D/A^2 - 2*theta_low*q_z*q_p^3*q_y*D/A;
-                          2*theta_low*q_p^3*q_y*D-theta_low*q_w*q_z*q_p^3*q_x*(2*E-theta_low)*D/A^2 + 2*theta_low*q_z*q_p^3*q_x*D/A;
-                          theta_low*q_z*q_p^4*q_w*(2*E-theta_low)*D/A^2-2*theta_low*q_z*q_p^4*D/A];
+               if B~=0
+                   lin_t_w = [2*theta_low*q_p^3*q_x*E+theta_low*q_w*q_z*q_p^3*q_y*E/B^2;
+                              2*theta_low*q_p^3*q_y*E-theta_low*q_w*q_z*q_p^3*q_x*E/B^2;
+                              theta_low*q_z*q_p^4*q_w*E/B^2];
+               else
+                   lin_t_w = zeros(3,1);
+               end
            else if theta(i) >= theta_up && theta(i) <= pi
                    
-                   lin_t_w = [-theta_low*q_p^3*q_x*(2*pi-4*E)*D/(phi_up-pi) + phi_low*q_w*q_z*q_p^3*q_y*(2*E-pi)*D/((phi_up-pi)*A^2) - 2*phi_low*q_z*q_p^3*q_y*D/((phi_up-pi)*A);
-                              -theta_low*q_p^3*q_y*(2*pi-4*E)*D/(phi_up-pi) - phi_low*q_w*q_z*q_p^3*q_x*(2*E-pi)*D/((phi_up-pi)*A^2) + 2*phi_low*q_z*q_p^3*q_x*D/((phi_up-pi)*A);
-                              phi_low*q_z*q_p^4*q_w*(2*E-pi)*D/((phi_up-pi)*A^2)-2*phi_low*q_z*q_p^4*D/((phi_up-pi)*A)];
+                   if B~=0
+                       lin_t_w = [-2*theta_low*q_p^3*q_x*E*(pi-2*F)/(theta_up-pi) - 2*theta_low*q_z*q_p^3*q_y*E/(B*(theta_up-pi)) + theta_low*q_z*q_p^3*q_w*q_y*(2*F-pi)*E/(B^2*(phi_up-pi));
+                                  -2*theta_low*q_p^3*q_y*E*(pi-2*F)/(theta_up-pi) + 2*theta_low*q_z*q_p^3*q_x*E/(B*(theta_up-pi)) - theta_low*q_z*q_p^3*q_w*q_x*(2*F-pi)*E/(B^2*(phi_up-pi));
+                                  -2*theta_low*q_z*q_p^4*E/(B*(theta_up-pi))-theta_low*q_z*q_p^4*q_w*E*(pi-2*F)/(B^2*(theta_up-pi))];
+                   else
+                       lin_t_w = zeros(3,1);
+                   end
                end
            end
        end
@@ -418,6 +461,10 @@ function [ ] = attitude_controller( q_d )
     else % No triggering
            
            torques(i,:) = torques(i-1,:);
+    end
+    
+    if k_freq >= 10
+        k_freq = 1;
     end
     
 

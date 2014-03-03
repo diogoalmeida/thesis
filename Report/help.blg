@@ -1,0 +1,5 @@
+[0] Config.pm:300> INFO - This is Biber 0.9.9
+[1] Config.pm:303> INFO - Logfile is 'help.blg'
+[1] biber:145> INFO - === Sun Mar  2, 2014, 12:29:47
+[126] Utils.pm:184> ERROR - Cannot find control file 'help.bcf'! - did you pass the "backend=biber" option to BibLaTeX?
+[127] Biber.pm:110> INFO - ERRORS: 1

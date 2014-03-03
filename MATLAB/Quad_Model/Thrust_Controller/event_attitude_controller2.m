@@ -1,7 +1,7 @@
 function [ ] = attitude_controller( q_d )
 %THRUST_CONTROLLER Implements the full saturating attitude controller
     
-    global t t_s q ticks v_dot s_surf_theta eps_error old_x alpha theta_dotv sigma torque_xy torque_z c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_z q_error c_theta theta delta_theta;
+    global t t_s q ticks v_dot s_surf_theta eps_error k_freq old_x alpha theta_dotv sigma torque_xy torque_z c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_z q_error c_theta theta delta_theta;
     
     
     i = round(t/t_s);
@@ -322,7 +322,7 @@ function [ ] = attitude_controller( q_d )
        
        e = old_x - x;
        
-       if norm(e) >= eps_error
+       if norm(e) >= eps_error && k_freq == 10
            
            torques(i,:) = (torque_field'-(D*w(i-1,:)')');
            ticks(i) = 1;
@@ -333,6 +333,10 @@ function [ ] = attitude_controller( q_d )
            
            torques(i,:) = torques(i-1,:);
            
+       end
+       
+       if k_freq >= 10
+           k_freq = 1;
        end
        
         

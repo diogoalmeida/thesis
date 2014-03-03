@@ -4,7 +4,7 @@ clear all
 close all
 
 format shortG
- global t t_s p v w_true s_surf_phi torques_k lin_t_x lin_t_y lin_t_z lin_t_p lin_t_w v_dot v_dotk lin_torques D_k eps_alpha ticks old_x alpha sigma s_surf_theta q theta_dotv torque_xy torque_z d c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_y J_z m g km bm q_error c_theta theta delta_theta;
+ global t t_s p v w_true s_surf_phi k_freq torques_k lin_t_x lin_t_y lin_t_z lin_t_p lin_t_w v_dot v_dotk lin_torques D_k eps_alpha ticks old_x alpha sigma s_surf_theta q theta_dotv torque_xy torque_z d c_phi phi_low phi_up theta_low theta_up torques phi v_1_phi v_1_theta v_2_theta v_2_phi small_delta_phi small_delta_theta r_phi r_theta delta_phi w s_surf_phi phi_dotv J_x J_y J_z m g km bm q_error c_theta theta delta_theta;
 
 
 % Controller parameters
@@ -65,7 +65,7 @@ pitch = zeros(round(T/t_s),1);
 yaw = zeros(round(T/t_s),1);
 s_surf_phi = zeros(round(T/t_s),1);
 s_surf_theta = zeros(round(T/t_s),1);
-alpha = 0;
+alpha = zeros(floor(T/t_s),1);
 sigma = 0.9;
 eps_alpha = 0.05;
 lin_torques = zeros(3,1);
@@ -77,6 +77,7 @@ lin_t_y = 0;
 lin_t_z = 0;
 lin_t_p = 0;
 lin_t_w = 0;
+k_freq = 10;
 
 thrust=m*g;
 u = zeros(floor(T/t_s),4);
@@ -90,7 +91,7 @@ to_u = [km km km km;
 phi_o = 170*pi/180;
 theta_o = 10*pi/180;
 q_o = angle_to_quat([0 0 0]);
-w_o = [-1 2 0.3];
+w_o = [0 0 1.7];
 
 q_o = [-0.992 -0.087 0.008 0.087];
 old_x = zeros(1,8);
@@ -116,8 +117,10 @@ for t=3*t_s:t_s:T
     
     i=round(t/t_s);
     
-    event_attitude_controller_contas(q_d);
+    j=j+1;
     
+    event_attitude_controller_contas(q_d);
+    k_freq = k_freq + 1;
     
     u(i,:) = to_u\[thrust; torques(i,:)'];
     
@@ -230,6 +233,9 @@ subplot(2,1,1);
 hold on
 title('$\dot V(x)$','interpreter','latex');
 plot(t_s:t_s:T,v_dot,'Linewidth',line);
+hold on
+%plot(t_s:t_s:T,alpha,'k.','Linewidth',0.5);
+plot(t_s:20*t_s:T,0,'Marker', '.', 'MarkerSize', 4,'MarkerFaceColor', 'k', 'MarkerEdgeColor', 'k');
 subplot(2,1,2);
 hold on
 title('Sampling instants');

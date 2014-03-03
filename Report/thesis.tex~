@@ -2,21 +2,22 @@
 
 \usepackage{thesis_style}
 
-\bibliographystyle{ieeetr}
 \graphicspath{{./img/}}
+\bibliography{thesis_bib.bib}
+\setcounter{tocdepth}{1}
 
 \begin{document}
-	\begin{comment}
-		\ititle{My Title}
-		\isubtitle{My Subtitle}
-		\iauthor{Me and Myself}
-		\idate{2004}
+	%\begin{comment}
+		\ititle{Event-Triggered Saturating Attitude Stabilization of a Quadcopter}
+		%\isubtitle{My Subtitle}
+		\iauthor{Diogo Almeida}
+		\idate{2014}
 		\irefnr{IR-EE-SB 2000:099}
-		\iaddress{Signal Processing\\
+		\iaddress{Automatic Control Department\\
 		School of Electrical Engineering\\
 		Kungliga Tekniska Hgskolan}
 		\makeititle
-	\end{comment}
+	%\end{comment}
 	
 	\pagenumbering{roman}
 	\begin{comment}
@@ -34,12 +35,13 @@
 	\input{tex/intro}
 	\chapter{Background}
 	\input{tex/background}
+	\chapter{Event-Triggered Rule}
 	% Contents
 	\chapter{Conclusions}
 
 	%%%%%%%%%%%%%%%%%%%%
 	%Bibliography
 	%%%%%%%%%%%%%%%%%%%%
-	\bibliography{thesis_bib}
+	\printbibliography
 
 \end{document}

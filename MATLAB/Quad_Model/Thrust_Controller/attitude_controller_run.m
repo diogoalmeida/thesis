@@ -54,7 +54,7 @@ theta = zeros(floor(T/t_s),1);
 theta_dotv = zeros(floor(T/t_s),1);
 q = zeros(floor(T/t_s),4);
 q_error = zeros(floor(T/t_s),4);
-q_d = angle_to_quat([99,-23,12])
+q_d = angle_to_quat([0,0,0])
 p = zeros(floor(T/t_s),3);
 v = zeros(floor(T/t_s),3);
 w = zeros(floor(T/t_s),3);
@@ -77,10 +77,10 @@ to_u = [km km km km;
 % Initial conditions
 phi_o = 170*pi/180;
 theta_o = 10*pi/180;
-q_o = angle_to_quat([45,65,32])
-w_o = [0.3753591 2.034711 -3.695098];
+q_o = angle_to_quat([45,65,32]);
+w_o = [0,0,0];
 
-%q_o = [-0.992 -0.087 0.008 0.087];
+q_o = [-0.1925985,0.3859918,0.0100897,0.9021166];
 
 phi(:,1)=phi_o;
 

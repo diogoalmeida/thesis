@@ -1,3 +1,5 @@
+%% Attitude control
+
 @article{lohmann_attitude,
   author    = {Oliver Fritsch and
                Bernd Henze and
@@ -5,36 +7,6 @@
   title     = {Fast and Saturating Attitude Control for a Quadrotor
                Helicopter},
   year      = {2013},
-}
-
-@article{tabuada_event_control,
-    author = {Paulo Tabuada},
-    title = {Event-Triggered Real-Time Scheduling of Stabilizing Control Tasks},
-    year = {}
-}
-
-@misc{multi_rotor_antigo,
-  title={Multiple rotor helicopter},
-  author={Cyril, G.P.},
-  url={http://www.google.com/patents/US2651480},
-  year={1953},
-  month=sep # "~8",
-  publisher={Google Patents},
-  note={US Patent 2,651,480}
-}
-
-@incollection{astrom,
-year={2008},
-isbn={978-3-540-74357-6},
-booktitle={Analysis and Design of Nonlinear Control Systems},
-editor={Astolfi, Alessandro and Marconi, Lorenzo},
-doi={10.1007/978-3-540-74358-3_9},
-title={Event Based Control},
-url={http://dx.doi.org/10.1007/978-3-540-74358-3_9},
-publisher={Springer Berlin Heidelberg},
-author={Astr{\"o}m, Karl J.},
-pages={127-147},
-language={English}
 }
 
 @ARTICLE{rigid_attitude_control, 
@@ -46,25 +18,154 @@ month={June},
 volume={31}, 
 number={3}, 
 pages={30-51}, 
-keywords={attitude control;feedback;matrix algebra;open loop systems;set theory;shear modulus;aerospace application;arbitrary attitude maneuvers;attitude stabilization;continuous feedback control;open loop attitude control maneuver;orthogonal matrices;rigid body attitude control;rigid-body rotational motion;Aerospace electronics;Angular velocity;Asymptotic stability;Attitude control;Orbits;Quaternions;Trajectory}, 
-doi={10.1109/MCS.2011.940459}, 
-ISSN={1066-033X},}
+}
+
+@ARTICLE{survey_attitude,
+   author = {{Shuster}, M.~D.},
+    title = "{Survey of attitude representations}",
+  journal = {Journal of the Astronautical Sciences},
+     year = 1993,
+    month = oct,
+   volume = 41,
+    pages = {439-517},
+}
 
 @article{vijay_quad_modelling,
-  added-at = {2012-09-19T00:00:00.000+0200},
   author = {Mahony, Robert E. and Kumar, Vijay and Corke, Peter},
   biburl = {http://www.bibsonomy.org/bibtex/272666d30eb4a4554e2e7108f0f19b201/dblp},
-  ee = {http://dx.doi.org/10.1109/MRA.2012.2206474},
-  interhash = {d0ad6ae0356d9fb0d1e68af56a8d3fbc},
-  intrahash = {72666d30eb4a4554e2e7108f0f19b201},
   journal = {IEEE Robot. Automat. Mag.},
-  keywords = {dblp},
-  number = 3,
   pages = {20-32},
-  timestamp = {2012-09-19T00:00:00.000+0200},
   title = {Multirotor Aerial Vehicles: Modeling, Estimation, and Control of Quadrotor.},
-  url = {http://dblp.uni-trier.de/db/journals/ram/ram19.html#MahonyKC12},
-  volume = 19,
   year = 2012
 }
+
+@INPROCEEDINGS{quad_sieg,
+    author = {Bouabdallah, Samir and Murrieri, Pierpaolo and Siegwart, Roland},
+    title = {2004-b, “Design and Control of an Indoor Micro Quadrotor},
+    booktitle = {In Proc. of Int. Conf. on Robotics and Automation},
+    year = {2004}
+}
+
+@article{quad_hamel,
+  title={Dynamic Modelling And Configuration Stabilization For An X4-Flyer.},
+  author={Hamel, Tarek and Mahony, Robert and Lozano, Rogelio and Ostrowski, James},
+  year={2002}
+}
+
+@INPROCEEDINGS{quad_vijay, 
+    AUTHOR    = {Aleksandr Kushleyev AND Vijay Kumar AND Daniel Mellinger}, 
+    TITLE     = {Towards A Swarm of Agile Micro Quadrotors}, 
+    BOOKTITLE = {Proceedings of Robotics: Science and Systems}, 
+    YEAR      = {2012}, 
+    ADDRESS   = {Sydney, Australia}, 
+    MONTH     = {July} 
+} 
+%% Event triggering
+@article{tabuada_event_control,
+    author = {Paulo Tabuada},
+    title = {Event-Triggered Real-Time Scheduling of Stabilizing Control Tasks},
+    year = {}
+}
+
+
+@incollection{astrom_event,
+year={2008},
+booktitle={Analysis and Design of Nonlinear Control Systems},
+editor={Astolfi, Alessandro and Marconi, Lorenzo},
+title={Event Based Control},
+publisher={Springer Berlin Heidelberg},
+author={Astr{\"o}m, Karl J.},
+pages={127-147},
+}
+
+@INPROCEEDINGS{astrom_event2,
+    author = {Karl Johan Åström and Bo Bernhardsson},
+    title = {Comparison of periodic and event based sampling for firstorder stochastic systems},
+    booktitle = {Proceedings of the 14th IFAC World Congress},
+    year = {1999}
+}
+
+@inproceedings{castellanos_event,
+  author = {Marchand, Nicolas and Durand, Sylvain and Guerrero-Castellanos, Jose-Fermi},
+  publisher = {IEEE},
+  title = {A general formula for the stabilization of event-based controlled systems.},
+  year = 2011
+}
+
+@article{castellanos_event2,
+  title={Event-triggered nonlinear control for attitude stabilization of a quadrotor},
+  author={Castellanos, Fermi Guerrero and T{\'e}llez-Guzm{\'a}n, JJ and Durand, Sylvain and Marchand, Nicolas and {\'A}lvarez-Mu{\~n}oz, JU and others},
+  journal={Journal of Intelligent and Robotic Systems},
+  year={2013}
+}
+
+@inproceedings{Lehmann495824,
+author = {Lehmann, Daniel and Johansson, Karl Henrik},
+title = {Event-triggered PI control subject to actuator saturation},
+year = {2012}
+}
+%% History
+
+@misc{multi_rotor_antigo,
+  title={Multiple rotor helicopter},
+  author={Cyril, G.P.},
+  year={1953},
+  publisher={Google Patents},
+}
+
+@book{heli-history,
+  title={Helicopter theory},
+  author={Johnson, W.},
+  series={Dover Books on Aeronautical Engineering Series},
+  year={1994},
+  publisher={Dover Publications}
+}
+
+﻿@inbook {heli-stability,
+title = {Rotary-Wing Static Stability},
+author = {Lee, David A.},
+publisher = {John Wiley \& Sons, Ltd},
+booktitle = {Encyclopedia of Aerospace Engineering},
+year = {2010},
+}
+
+@book{heli-stability2,
+  title={Helicopter Flight Dynamics: The Theory and Application of Flying Qualities and Simulation Modelling},
+  author={Padfield, G.D.},
+  series={AIAA education series},
+  year={1996},
+  publisher={American Institute of Aeronautics and Astronautics}
+}
+
+@misc{first-quad,
+  title={The Br\'{e}guet-Richet Quad-Rotor Helicopter of 1907},
+  author={Cyril, G.P.},
+}
+
+@ONLINE{oemichen-quad,
+  title={Oemichen 1922},
+  url = {http://www.aviastar.org/helicopters_eng/oemichen.php}
+}
+
+@book{franklin_digital,
+  title={Sampled-data control systems},
+  author={Ragazzini, J.R. and Franklin, G.F.},
+  series={McGraw-Hill series in control systems engineering},
+  year={1958},
+  publisher={McGraw-Hill}
+}
+
+@book{astrom_digital,
+  title={Computer controlled systems: theory and design},
+  author={{\AA}str{\"o}m, K.J. and Wittenmark, B.},
+  series={Prentice-Hall information and system sciences series},
+  year={1984},
+  publisher={Prentice-Hall}
+}
+
+
+
+
+
+
 

@@ -1,48 +1,18 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: thesis.aux
-The style file: ieeetr.bst
-Database file #1: thesis_bib.bib
-Warning--empty journal in lohmann_attitude
-You've used 4 entries,
-            1876 wiz_defined-function locations,
-            502 strings with 4037 characters,
-and the built_in function-call counts, 1065 in all, are:
-= -- 103
-> -- 37
-< -- 0
-+ -- 14
-- -- 10
-* -- 80
-:= -- 159
-add.period$ -- 4
-call.type$ -- 4
-change.case$ -- 4
-chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 54
-empty$ -- 98
-format.name$ -- 10
-if$ -- 260
-int.to.chr$ -- 0
-int.to.str$ -- 4
-missing$ -- 4
-newline$ -- 15
-num.names$ -- 4
-pop$ -- 9
-preamble$ -- 1
-purify$ -- 0
-quote$ -- 0
-skip$ -- 39
-stack$ -- 0
-substring$ -- 68
-swap$ -- 23
-text.length$ -- 0
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 0
-warning$ -- 1
-while$ -- 10
-width$ -- 5
-write$ -- 40
-(There was 1 warning)
+[2] Config.pm:300> INFO - This is Biber 0.9.9
+[2] Config.pm:303> INFO - Logfile is 'thesis.blg'
+[3] biber:145> INFO - === Sun Mar  2, 2014, 15:18:02
+[3] Biber.pm:271> INFO - Reading 'thesis.bcf'
+[24] Biber.pm:586> INFO - Found 20 citekeys in bib section 0
+[42] Biber.pm:2585> INFO - Processing bib section 0
+[63] Biber.pm:2677> INFO - Looking for bibtex format file 'thesis_bib.bib' for section 0
+[64] bibtex.pm:829> INFO - Decoding LaTeX character macros into UTF-8
+[83] bibtex.pm:833> INFO - Finished Decoding LaTeX character macros into UTF-8
+[83] bibtex.pm:704> INFO - Found BibTeX data source 'thesis_bib.bib'
+[112] Utils.pm:168> WARN - BibTeX subsystem: /tmp/ceZkXHV0oa/thesis_bib.bib_18674.utf8, line 124, warning: 3 characters of junk seen at toplevel
+[154] Biber.pm:2480> INFO - Sorting list 'MAIN' keys
+[154] Biber.pm:2484> INFO - No sort tailoring available for locale 'en_GB.UTF-8'
+[176] Biber.pm:2480> INFO - Sorting list 'SHORTHANDS' keys
+[176] Biber.pm:2484> INFO - No sort tailoring available for locale 'en_GB.UTF-8'
+[201] bbl.pm:427> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[204] bbl.pm:498> INFO - Output to thesis.bbl
+[205] Biber.pm:106> INFO - WARNINGS: 1

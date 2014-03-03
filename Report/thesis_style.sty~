@@ -1,5 +1,6 @@
 \ProvidesPackage{thesis_style}
 
+\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{graphicx}   	
 \usepackage[swedish,english]{babel}
@@ -9,4 +10,5 @@
 \usepackage{url}
 \usepackage{subfiles}
 \usepackage{color}
-
+\usepackage[sorting=none, backend=biber]{biblatex}
+\usepackage{hyperref}

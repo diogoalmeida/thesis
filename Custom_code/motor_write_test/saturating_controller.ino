@@ -40,7 +40,7 @@ float xi_f(float up, float low, float f1, float f2, float val)
 {
 	if(val <= low)
 		return f1;
-	else if(val > low && val < up)
+	else if(val > low && val <= up)
 		return (up-val)/(up-low)*f1 + (val-low)/(up-low)*f2;
 	else
 		return f2;
@@ -51,7 +51,7 @@ float xi_f(float up, float low, float f1, float f2, float val)
 */
 float double_xi_f(float up1, float up2, float low1, float low2,float f1, float f2,float val)
 {
-	return xi_f(low2,low1,f1,xi_f(up1,up2,f2,f1,val),val);
+	return xi_f(low2,low1,f1,xi_f(up2,up1,f2,f1,val),val);
 }
 
 /*
@@ -79,9 +79,9 @@ float compute_phi(float qp)
 /*
 * Compute Theta: Returns the displacement angle of the yaw angle
 */
-float compute_theta(float qz)
+float compute_theta(float qw)
 {
-	return 2*safe_acos(qz);
+	return 2*safe_acos(qw);
 }
 
 /*
@@ -90,7 +90,7 @@ float compute_theta(float qz)
 Vector3<float> compute_art_torques(Quaternion_D qxy, Quaternion_D qz,float phi, float theta)
 {
 	float qx=qxy.q1,qy=qxy.q2,qzz=qz.q3,qp=qxy.q4,qw=qz.q4;
-	float A=0,B=0,T_1,T_2,T_3;
+	float A=0,B=0,T_1=0,T_2=0,T_3=0;
 
 	if(qp!=1)
 		A=c_phi*lambda_f(phi_up,phi_low,phi)/safe_sqrt(1-qp*qp)-qp*qp*qp*c_theta*integral_lambda_f(theta_up,theta_low,theta);
@@ -126,7 +126,10 @@ float compute_phi_dot(Quaternion_D qxy,Vector3<float> omega_f)
 	wx = omega_f.x;
 	wy = omega_f.y;
 
-	return -(qx*wx+qy*wy)/safe_sqrt(1-qp*qp);
+	if(qp!=1)
+		return -(qx*wx+qy*wy)/safe_sqrt(1-qp*qp);
+	else
+		return 0;
 
 
 }
@@ -147,9 +150,15 @@ float compute_theta_dot(Quaternion_D qxy, Quaternion_D qz, Vector3<float> omega_
 	wy = omega_f.y;
 	wz = omega_f.z;
 
-	A = qzz/safe_sqrt(1-qw*qw);
+	if(qw!=1)
+		A = qzz/safe_sqrt(1-qw*qw);
+	else
+		A=0;
 
-	return -A*qy*wx/qp + A*qx*wy/qp - A*wz;
+	if(qp!=1)
+		return -A*qy*wx/qp + A*qx*wy/qp - A*wz;
+
+	return -A*wz;
 
 }
 
@@ -161,8 +170,10 @@ float compute_theta_dot_hole(Quaternion_D qz, Vector3<float> omega_f)
 	qw = qz.q4;
 	wz = omega_f.z;
 
+	if(qw!=1)
+		return -qzz*wz/safe_sqrt(1-qw*qw);
 
-	return -qzz*wz/safe_sqrt(1-qw*qw);
+	return 0;
 
 }
 
@@ -216,7 +227,7 @@ float compute_torque_z(Quaternion_D qxy, Quaternion_D qz,float theta,Vector3<flo
 	qw = qz.q4;
 
 	if (qw!=1)
-		return abs(qzz*qp*qp*qp*qp*c_theta*lambda_f(theta_up,theta_low,theta));
+		return safe_sqrt(sq(qzz*qp*qp*qp*qp*c_theta*lambda_f(theta_up,theta_low,theta)/safe_sqrt(1-qw*qw)));
 
 	return 0;
 
@@ -241,7 +252,7 @@ float compute_acc_damping_phi(float phi_dot, float T_phi)
 */
 float compute_dec_damping_phi(float phi_dot, float T_phi)
 {
-	return -(T_phi+torque_xy_max)/phi_dot;
+	return -(T_phi-torque_xy_max)/phi_dot;
 }
 
 /*
@@ -293,19 +304,19 @@ float compute_star_damping_z(float theta_dot,float theta_dot_hole,float dec_thet
 }
 float compute_damping_z(Quaternion_D qxy,Quaternion_D qz, Vector3<float> omega_f,float phi,float theta)
 {
-	float theta_dot=0,theta_dot_hole,switch_theta=0,T_z=0, d_star_z=0 ,d_dec_z=0, d_acc_z=0, d_xi=0;
+	float theta_dot=0,theta_dot_hole=0,switch_theta=0,T_z=0, d_star_z=0 ,d_dec_z=0, d_acc_z=0, d_xi=0;
 
 	theta_dot = compute_theta_dot(qxy,qz,omega_f);
 	theta_dot_hole = compute_theta_dot_hole(qz,omega_f);
-	switch_theta = compute_switch_curve_phi(phi);
-	T_z = compute_torque_phi(qxy,phi,theta,omega_f);
+	switch_theta = compute_switch_curve_theta(theta);
+	T_z = compute_torque_z(qxy, qz,theta, omega_f);
 
 	d_dec_z = compute_dec_damping_z(theta_dot_hole, T_z);
 	d_acc_z = compute_acc_damping_z(theta_dot_hole, T_z);
-	d_star_z = xi_f(r_theta*switch_theta,switch_theta,d_dec_z,d_acc_z,theta_dot);
+	d_star_z = compute_star_damping_z(theta_dot,theta_dot_hole,d_dec_z,d_acc_z,switch_theta);
 	d_xi = double_xi_f(theta_up-delta_theta,theta_up,theta_low,theta_low+delta_theta,small_delta_z,d_star_z,theta);
 
-	return xi_f(r_theta*switch_theta,switch_theta,d_xi,small_delta_z,phi);
+	return xi_f(phi_up,phi_up-delta_phi,d_xi,small_delta_z,phi);
 }
 
 /*
@@ -320,7 +331,7 @@ float compute_kxy(Vector3<float> art_torques,Vector3<float> omega_f, Quaternion_
 	qp = qxy.q4;
 
 	if(qp!=1)
-		A=1/safe_sqrt(1-qp*qp);
+		A=1/(1-qp*qp);
 	else
 		A=0;
 
@@ -339,9 +350,9 @@ float compute_kxy(Vector3<float> art_torques,Vector3<float> omega_f, Quaternion_
 		return 1.0f;
 
 	if(root > b*b)
-		k = min((-b+safe_sqrt(root))/(2*a),1);
+		k = (-b+safe_sqrt(root))/(2*a);
 	else
-		k = min((-b-safe_sqrt(root))/(2*a),1);
+		k = (-b-safe_sqrt(root))/(2*a);
 
 	if (k < 0 || k > 1)
 		return 1;
@@ -359,32 +370,34 @@ float compute_kz(Vector3<float> art_torques,Vector3<float> omega_f,float d_z)
 	T_z = art_torques.z;
 	wz = omega_f.z;
 
-	a = sq(d_z*wz);
-	b = -2*T_z-torque_z_max;
+	a = d_z*wz*d_z*wz;
+	b = -2*T_z*d_z*wz;
 	c = T_z*T_z-torque_z_max*torque_z_max;
+
+	root = b*b-4*a*c;
 
 	if(root < 0 || a ==0)
 		return 1;
 
 	if(root > b*b)
-		k = min((-b+safe_sqrt(root))/(2*a),1);
+		k = (-b+safe_sqrt(root))/(2*a);
 	else
-		k = min((-b-safe_sqrt(root))/(2*a),1);
+		k = (-b-safe_sqrt(root))/(2*a);
 
 	if (k < 0 || k > 1)
 		return 1;
 
+	hal.console->printf_P(PSTR("k_z: [%.7f]\r\n"),k);
 	return k;
 }	
 
 /*
 *	Computes the damping matrix
 */
-Matrix3<float> compute_D_matrix(Quaternion_D qxy, Quaternion_D qz, Vector3<float> omega_f)
+Matrix3<float> compute_D_matrix(Quaternion_D qxy, Quaternion_D qz, Vector3<float> omega_f, Vector3<float> art_torques)
 {
 	float qx=0, qy=0, qzz=0, qp=0, qw=0, wx=0, wy=0, wz=0, d_phi=0, d_z=0, k_xy=0, k_z=0,d1=0,d2=0,d3=0,d4=0,d5=0,d6=0,d7=0,d8=0,d9=0;
 	float A=0, B=0;
-	Vector3<float> art_torques;
 
 	qx = qxy.q1;
 	qy = qxy.q2;
@@ -399,14 +412,13 @@ Matrix3<float> compute_D_matrix(Quaternion_D qxy, Quaternion_D qz, Vector3<float
 	d_phi = compute_damping_phi(qxy,qz,omega_f,compute_phi(qp),compute_theta(qw));
 	d_z = compute_damping_z(qxy,qz,omega_f,compute_phi(qp),compute_theta(qw));
 
-	art_torques = compute_art_torques(qxy,qz,compute_phi(qp),compute_theta(qw));
-
 	k_xy = compute_kxy(art_torques,omega_f,qxy,d_phi);
 	k_z = compute_kz(art_torques,omega_f,d_z);
 
+
 	if(qp!=1){
-		A = k_xy*d_phi/safe_sqrt(1-qp*qp);
-		B = k_xy*d_ortho/safe_sqrt(1-qp*qp);
+		A = k_xy*d_phi/(1-qp*qp);
+		B = k_xy*d_ortho/(1-qp*qp);
 	}else{
 		A = 0;
 		B = 0;
@@ -438,8 +450,13 @@ Vector3<float> fast_and_saturating_controller(Quaternion_D current_att, Quaterni
 	qz = qe.get_z();
 	qxy = mult_quat_inv(qe,qz);
 
+	//hal.console->printf_P(PSTR("qe:[%.7f,%.7f,%.7f,%.7f]\r\n"),qe.q1,qe.q2,qe.q3,qe.q4);
+	//hal.console->printf_P(PSTR("qz:[%.2f,%.2f,%.7f,%.7f]\r\n"),qz.q1,qz.q2,qz.q3,qz.q4);
+	//hal.console->printf_P(PSTR("qxy:[%.7f,%.7f,%.2f,%.7f]\r\n"),qxy.q1,qxy.q2,qxy.q3,qxy.q4);
   	T = compute_art_torques(qxy,qz,compute_phi(qxy.q4),compute_theta(qz.q4));
-  	D = compute_D_matrix(qxy,qz,omega_f);
+  	D = compute_D_matrix(qxy,qz,omega_f,T);
+
+
 
   	return T-D*omega_f;
 }

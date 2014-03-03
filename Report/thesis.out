@@ -1,0 +1,13 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Quadcopter control}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Event Triggering Framework}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Problem Formulation}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Thesis Outline}{chapter.1}% 5
+\BOOKMARK [0][-]{chapter.2}{Background}{}% 6
+\BOOKMARK [1][-]{section.2.1}{The quadcopter attitude model}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.2}{Quaternion based model}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.3}{Attitude control}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.4}{Event triggered control}{chapter.2}% 10
+\BOOKMARK [0][-]{chapter.3}{Event-Triggered Rule}{}% 11
+\BOOKMARK [0][-]{chapter.4}{System Implementation}{}% 12
+\BOOKMARK [0][-]{chapter.5}{Conclusions}{}% 13
