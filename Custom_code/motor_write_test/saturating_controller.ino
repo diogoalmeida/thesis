@@ -387,7 +387,7 @@ float compute_kz(Vector3<float> art_torques,Vector3<float> omega_f,float d_z)
 	if (k < 0 || k > 1)
 		return 1;
 
-	hal.console->printf_P(PSTR("k_z: [%.7f]\r\n"),k);
+	//hal.console->printf_P(PSTR("k_z: [%.7f]\r\n"),k);
 	return k;
 }	
 
@@ -464,14 +464,33 @@ Vector3<float> fast_and_saturating_controller(Quaternion_D current_att, Quaterni
 /*
 *
 */
-uint16_t map(float x, float in_min, float in_max, float out_min, float out_max)
+float map_f(float x, float in_min, float in_max, float out_min, float out_max)
 {
 	if(x > in_max)
 		x = in_max;
 	if(x < in_min)
 		x = in_min;
 
-  return (uint16_t) round((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min);
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+float map(float x, float in_min, float in_max, float out_min, float out_max)
+{
+	float ret = 0;
+
+	if(x > in_max)
+		x = in_max;
+	if(x < in_min)
+		x = in_min;
+
+  	ret = round((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min);
+
+  	if (ret > out_max)
+  		ret = out_max;
+  	if (ret < out_min)
+  		ret = out_min;
+
+  	return ret;
 }
 
 /*
@@ -481,13 +500,35 @@ void to_motors(float Thrust, Vector3<float> torques, uint16_t * u1,uint16_t * u2
 {
 	float u1f = 0, u2f = 0, u3f = 0, u4f = 0;
 
-	u1f = 0.5*arm*c_T*torques.y + 0.25*c_D*torques.z + 0.25*c_T*Thrust;
-	u2f = -0.5*arm*c_T*torques.y + 0.25*c_D*torques.z + 0.25*c_T*Thrust;
-	u3f = 0.5*arm*c_T*torques.x - 0.25*c_D*torques.z + 0.25*c_T*Thrust;
-	u4f = -0.5*arm*c_T*torques.x - 0.25*c_D*torques.z + 0.25*c_T*Thrust;
+	u1f = 0.5/(arm*c_T)*torques.y + 0.25/(c_D)*torques.z + 0.25/(c_T)*Thrust;
+	u2f = -0.5/(arm*c_T)*torques.y + 0.25/(c_D)*torques.z + 0.25/(c_T)*Thrust;
+	u3f = 0.5/(arm*c_T)*torques.x - 0.25/(c_D)*torques.z + 0.25/(c_T)*Thrust;
+	u4f = -0.5/(arm*c_T)*torques.x - 0.25/(c_D)*torques.z + 0.25/(c_T)*Thrust;
 
-	*u1 = map(u1f,0,max_motor_thrust,0,1000)+1000; // to radio values
-	*u2 = map(u2f,0,max_motor_thrust,0,1000)+1000; // to radio values
-	*u3 = map(u3f,0,max_motor_thrust,0,1000)+1000; // to radio values
-	*u4 = map(u4f,0,max_motor_thrust,0,1000)+1000; // to radio values
+	if(u1f > 1000)
+		u1f = 1000;
+	else if (u1f < 0)
+		u1f = 0;
+
+	if(u2f > 1000)
+		u2f = 1000;
+	else if (u2f < 0)
+		u2f = 0;
+
+
+	if(u3f > 1000)
+		u3f = 1000;
+	else if (u3f < 0)
+		u3f = 0;
+
+	if(u4f > 1000)
+		u4f = 1000;
+	else if (u4f < 0)
+		u4f = 0;
+
+
+	*u1 = (uint16_t) u1f+1000; // to radio values
+	*u2 = (uint16_t) u2f+1000; // to radio values
+	*u3 = (uint16_t) u3f+1000; // to radio values
+	*u4 = (uint16_t) u4f+1000; // to radio values
 }

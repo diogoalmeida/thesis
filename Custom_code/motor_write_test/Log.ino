@@ -212,6 +212,18 @@ static void Log_Write_Motors(int16_t M1,int16_t M2,int16_t M3,int16_t M4)
     DataFlash.WriteBlock(&pkt, sizeof(pkt));
 }
 
+// Write a torques packet
+static void Log_Write_torques(float t_x,float t_y,float t_z)
+{
+    struct log_Motors pkt = {
+        LOG_PACKET_HEADER_INIT(LOG_TORQUES_MSG),
+        motor_out   :   {(int16_t) t_x,
+                         (int16_t) t_y,
+                         (int16_t) t_z}
+    };
+    DataFlash.WriteBlock(&pkt, sizeof(pkt));
+}
+
 struct PACKED log_Optflow {
     LOG_PACKET_HEADER;
     int16_t dx;

@@ -1,0 +1,1633 @@
+FMT, 128, 89, FMT, BBnNZ, Type,Length,Name,Format
+FMT, 129, 23, PARM, Nf, Name,Value
+FMT, 130, 35, GPS, BIBcLLeeEe, Status,Time,NSats,HDop,Lat,Lng,RelAlt,Alt,Spd,GCrs
+FMT, 131, 27, IMU, ffffff, GyrX,GyrY,GyrZ,AccX,AccY,AccZ
+FMT, 132, 67, MSG, Z, Message
+FMT, 9, 19, CURR, hIhhhf, Thr,ThrInt,Volt,Curr,Vcc,CurrTot
+FMT, 11, 11, MOT, hhhh, Mot1,Mot2,Mot3,Mot4
+FMT, 12, 28, OF, hhBccffee, Dx,Dy,SQual,X,Y,Lat,Lng,Roll,Pitch
+FMT, 5, 49, NTUN, Ecffffffffee, WPDst,WPBrg,PErX,PErY,DVelX,DVelY,VelX,VelY,DAcX,DAcY,DRol,DPit
+FMT, 4, 25, CTUN, hcefchhhh, ThrIn,SonAlt,BarAlt,WPAlt,DesSonAlt,AngBst,CRate,ThrOut,DCRate
+FMT, 15, 21, MAG, hhhhhhhhh, MagX,MagY,MagZ,OfsX,OfsY,OfsZ,MOfsX,MOfsY,MOfsZ
+FMT, 6, 17, PM, BBBHHIhB, RenCnt,RenBlw,FixCnt,NLon,NLoop,MaxT,PMT,I2CErr
+FMT, 8, 20, CMD, BBBBBeLL, CTot,CNum,CId,COpt,Prm1,Alt,Lat,Lng
+FMT, 1, 17, ATT, cccccCC, RollIn,Roll,PitchIn,Pitch,YawIn,Yaw,NavYaw
+FMT, 17, 37, INAV, cccfffiiff, BAlt,IAlt,IClb,ACorrX,ACorrY,ACorrZ,GLat,GLng,ILat,ILng
+FMT, 3, 6, MODE, Mh, Mode,ThrCrs
+FMT, 10, 3, STRT, , 
+FMT, 13, 4, EV, B, Id
+FMT, 20, 6, D16, Bh, Id,Value
+FMT, 21, 6, DU16, BH, Id,Value
+FMT, 22, 8, D32, Bi, Id,Value
+FMT, 23, 8, DU32, BI, Id,Value
+FMT, 24, 8, DFLT, Bf, Id,Value
+FMT, 14, 28, PID, Biiiiif, Id,Error,P,I,D,Out,Gain
+FMT, 16, 15, DMP, ccccCC, DCMRoll,DMPRoll,DCMPtch,DMPPtch,DCMYaw,DMPYaw
+FMT, 18, 25, CAM, ILLeccC, GPSTime,Lat,Lng,Alt,Roll,Pitch,Yaw
+FMT, 19, 5, ERR, BB, Subsys,ECode
+PARM, SYSID_SW_MREV, 120.0000
+PARM, SYSID_SW_TYPE, 10.00000
+PARM, SYSID_THISMAV, 1.000000
+PARM, SYSID_MYGCS, 255.0000
+PARM, SERIAL3_BAUD, 57.00000
+PARM, TELEM_DELAY, 0.000000
+PARM, RTL_ALT, 1500.000
+PARM, SONAR_ENABLE, 0.000000
+PARM, SONAR_TYPE, 0.000000
+PARM, SONAR_GAIN, 2.000000
+PARM, BATT_MONITOR, 0.000000
+PARM, FS_BATT_ENABLE, 0.000000
+PARM, FS_GPS_ENABLE, 1.000000
+PARM, FS_GCS_ENABLE, 0.000000
+PARM, GPS_HDOP_GOOD, 200.0000
+PARM, VOLT_DIVIDER, 3.560000
+PARM, AMP_PER_VOLT, 27.32000
+PARM, BATT_CAPACITY, 3500.000
+PARM, MAG_ENABLE, 1.000000
+PARM, FLOW_ENABLE, 0.000000
+PARM, LOW_VOLT, 10.50000
+PARM, SUPER_SIMPLE, 0.000000
+PARM, RTL_ALT_FINAL, 0.000000
+PARM, BATT_VOLT_PIN, 0.000000
+PARM, BATT_CURR_PIN, 1.000000
+PARM, RSSI_PIN, -1.000000
+PARM, WP_YAW_BEHAVIOR, 2.000000
+PARM, WP_TOTAL, 0.000000
+PARM, WP_INDEX, 0.000000
+PARM, CIRCLE_RADIUS, 10.00000
+PARM, CIRCLE_RATE, 20.00000
+PARM, RTL_LOIT_TIME, 5000.000
+PARM, LAND_SPEED, 50.00000
+PARM, PILOT_VELZ_MAX, 250.0000
+PARM, THR_MIN, 130.0000
+PARM, THR_MAX, 1000.000
+PARM, FS_THR_ENABLE, 0.000000
+PARM, FS_THR_VALUE, 975.0000
+PARM, TRIM_THROTTLE, 450.0000
+PARM, THR_MID, 500.0000
+PARM, FLTMODE1, 0.000000
+PARM, FLTMODE2, 0.000000
+PARM, FLTMODE3, 0.000000
+PARM, FLTMODE4, 0.000000
+PARM, FLTMODE5, 0.000000
+PARM, FLTMODE6, 0.000000
+PARM, SIMPLE, 0.000000
+PARM, LOG_BITMASK, 0.000000
+PARM, TOY_RATE, 1.000000
+PARM, ESC, 0.000000
+PARM, TUNE, 0.000000
+PARM, TUNE_LOW, 0.000000
+PARM, TUNE_HIGH, 1000.000
+PARM, FRAME, 0.000000
+PARM, CH7_OPT, 7.000000
+PARM, CH8_OPT, 0.000000
+PARM, ARMING_CHECK, 1.000000
+PARM, ANGLE_MAX, 4500.000
+PARM, RC1_MIN, 1100.000
+PARM, RC1_TRIM, 1500.000
+PARM, RC1_MAX, 1900.000
+PARM, RC1_REV, 1.000000
+PARM, RC1_DZ, 30.00000
+PARM, RC2_MIN, 1100.000
+PARM, RC2_TRIM, 1500.000
+PARM, RC2_MAX, 1900.000
+PARM, RC2_REV, 1.000000
+PARM, RC2_DZ, 30.00000
+PARM, RC3_MIN, 1100.000
+PARM, RC3_TRIM, 1500.000
+PARM, RC3_MAX, 1900.000
+PARM, RC3_REV, 1.000000
+PARM, RC3_DZ, 30.00000
+PARM, RC4_MIN, 1100.000
+PARM, RC4_TRIM, 1500.000
+PARM, RC4_MAX, 1900.000
+PARM, RC4_REV, 1.000000
+PARM, RC4_DZ, 40.00000
+PARM, RC5_MIN, 1100.000
+PARM, RC5_TRIM, 1500.000
+PARM, RC5_MAX, 1900.000
+PARM, RC5_REV, 1.000000
+PARM, RC5_DZ, 0.000000
+PARM, RC5_FUNCTION, 0.000000
+PARM, RC6_MIN, 1100.000
+PARM, RC6_TRIM, 1500.000
+PARM, RC6_MAX, 1900.000
+PARM, RC6_REV, 1.000000
+PARM, RC6_DZ, 0.000000
+PARM, RC6_FUNCTION, 0.000000
+PARM, RC7_MIN, 1100.000
+PARM, RC7_TRIM, 1500.000
+PARM, RC7_MAX, 1900.000
+PARM, RC7_REV, 1.000000
+PARM, RC7_DZ, 0.000000
+PARM, RC7_FUNCTION, 0.000000
+PARM, RC8_MIN, 1100.000
+PARM, RC8_TRIM, 1500.000
+PARM, RC8_MAX, 1900.000
+PARM, RC8_REV, 1.000000
+PARM, RC8_DZ, 0.000000
+PARM, RC8_FUNCTION, 0.000000
+PARM, RC_SPEED, 490.0000
+PARM, ACRO_RP_P, 4.500000
+PARM, ACRO_YAW_P, 4.500000
+PARM, ACRO_BAL_ROLL, 1.000000
+PARM, ACRO_BAL_PITCH, 1.000000
+PARM, ACRO_TRAINER, 2.000000
+PARM, LED_MODE, 9.000000
+PARM, RATE_RLL_P, 0.150000
+PARM, RATE_RLL_I, 0.100000
+PARM, RATE_RLL_D, 0.004000
+PARM, RATE_RLL_IMAX, 500.0000
+PARM, RATE_PIT_P, 0.150000
+PARM, RATE_PIT_I, 0.100000
+PARM, RATE_PIT_D, 0.004000
+PARM, RATE_PIT_IMAX, 500.0000
+PARM, RATE_YAW_P, 0.200000
+PARM, RATE_YAW_I, 0.020000
+PARM, RATE_YAW_D, 0.000000
+PARM, RATE_YAW_IMAX, 800.0000
+PARM, LOITER_LAT_P, 1.000000
+PARM, LOITER_LAT_I, 0.500000
+PARM, LOITER_LAT_D, 0.000000
+PARM, LOITER_LAT_IMAX, 400.0000
+PARM, LOITER_LON_P, 1.000000
+PARM, LOITER_LON_I, 0.500000
+PARM, LOITER_LON_D, 0.000000
+PARM, LOITER_LON_IMAX, 400.0000
+PARM, THR_RATE_P, 6.000000
+PARM, THR_RATE_I, 0.000000
+PARM, THR_RATE_D, 0.000000
+PARM, THR_RATE_IMAX, 300.0000
+PARM, THR_ACCEL_P, 0.750000
+PARM, THR_ACCEL_I, 1.500000
+PARM, THR_ACCEL_D, 0.000000
+PARM, THR_ACCEL_IMAX, 500.0000
+PARM, OF_RLL_P, 2.500000
+PARM, OF_RLL_I, 0.500000
+PARM, OF_RLL_D, 0.120000
+PARM, OF_RLL_IMAX, 100.0000
+PARM, OF_PIT_P, 2.500000
+PARM, OF_PIT_I, 0.500000
+PARM, OF_PIT_D, 0.120000
+PARM, OF_PIT_IMAX, 100.0000
+PARM, STB_RLL_P, 4.500000
+PARM, STB_RLL_I, 0.000000
+PARM, STB_RLL_IMAX, 0.000000
+PARM, STB_PIT_P, 4.500000
+PARM, STB_PIT_I, 0.000000
+PARM, STB_PIT_IMAX, 0.000000
+PARM, STB_YAW_P, 4.500000
+PARM, STB_YAW_I, 0.000000
+PARM, STB_YAW_IMAX, 0.000000
+PARM, THR_ALT_P, 1.000000
+PARM, THR_ALT_I, 0.000000
+PARM, THR_ALT_IMAX, 300.0000
+PARM, HLD_LAT_P, 1.000000
+PARM, HLD_LAT_I, 0.000000
+PARM, HLD_LAT_IMAX, 0.000000
+PARM, HLD_LON_P, 1.000000
+PARM, HLD_LON_I, 0.000000
+PARM, HLD_LON_IMAX, 0.000000
+PARM, CAM_TRIGG_TYPE, 0.000000
+PARM, CAM_DURATION, 10.00000
+PARM, CAM_SERVO_ON, 1300.000
+PARM, CAM_SERVO_OFF, 1100.000
+PARM, CAM_TRIGG_DIST, 0.000000
+PARM, RELAY_PIN, 47.00000
+PARM, COMPASS_OFS_X, 0.000000
+PARM, COMPASS_OFS_Y, 0.000000
+PARM, COMPASS_OFS_Z, 0.000000
+PARM, COMPASS_DEC, 0.000000
+PARM, COMPASS_LEARN, 0.000000
+PARM, COMPASS_USE, 1.000000
+PARM, COMPASS_AUTODEC, 1.000000
+PARM, COMPASS_MOTCT, 0.000000
+PARM, COMPASS_MOT_X, 0.000000
+PARM, COMPASS_MOT_Y, 0.000000
+PARM, COMPASS_MOT_Z, 0.000000
+PARM, COMPASS_ORIENT, 0.000000
+PARM, COMPASS_EXTERNAL, 0.000000
+PARM, INS_PRODUCT_ID, 2.000000
+PARM, INS_ACCSCAL_X, 1.021155
+PARM, INS_ACCSCAL_Y, 1.017537
+PARM, INS_ACCSCAL_Z, 1.021429
+PARM, INS_ACCOFFS_X, 0.263959
+PARM, INS_ACCOFFS_Y, 0.557687
+PARM, INS_ACCOFFS_Z, -0.868159
+PARM, INS_GYROFFS_X, -0.396843
+PARM, INS_GYROFFS_Y, 0.910903
+PARM, INS_GYROFFS_Z, -0.226816
+PARM, INS_MPU6K_FILTER, 0.000000
+PARM, INAV_TC_XY, 2.500000
+PARM, INAV_TC_Z, 5.000000
+PARM, WPNAV_SPEED, 500.0000
+PARM, WPNAV_RADIUS, 200.0000
+PARM, WPNAV_SPEED_UP, 250.0000
+PARM, WPNAV_SPEED_DN, 150.0000
+PARM, WPNAV_LOIT_SPEED, 500.0000
+PARM, WPNAV_ACCEL, 100.0000
+PARM, SR0_RAW_SENS, 0.000000
+PARM, SR0_EXT_STAT, 0.000000
+PARM, SR0_RC_CHAN, 0.000000
+PARM, SR0_RAW_CTRL, 0.000000
+PARM, SR0_POSITION, 0.000000
+PARM, SR0_EXTRA1, 0.000000
+PARM, SR0_EXTRA2, 0.000000
+PARM, SR0_EXTRA3, 0.000000
+PARM, SR0_PARAMS, 0.000000
+PARM, SR3_RAW_SENS, 0.000000
+PARM, SR3_EXT_STAT, 0.000000
+PARM, SR3_RC_CHAN, 0.000000
+PARM, SR3_RAW_CTRL, 0.000000
+PARM, SR3_POSITION, 0.000000
+PARM, SR3_EXTRA1, 0.000000
+PARM, SR3_EXTRA2, 0.000000
+PARM, SR3_EXTRA3, 0.000000
+PARM, SR3_PARAMS, 0.000000
+PARM, AHRS_GPS_GAIN, 1.000000
+PARM, AHRS_GPS_USE, 1.000000
+PARM, AHRS_YAW_P, 0.100000
+PARM, AHRS_RP_P, 0.100000
+PARM, AHRS_WIND_MAX, 0.000000
+PARM, AHRS_TRIM_X, -0.008721
+PARM, AHRS_TRIM_Y, 0.003670
+PARM, AHRS_TRIM_Z, 0.000000
+PARM, AHRS_ORIENTATION, 0.000000
+PARM, AHRS_COMP_BETA, 0.100000
+PARM, AHRS_GPS_MINSATS, 6.000000
+PARM, GND_ABS_PRESS, 116526.4
+PARM, GND_TEMP, 223.1000
+PARM, GND_ALT_OFFSET, 0.000000
+PARM, SCHED_DEBUG, 0.000000
+PARM, FENCE_ENABLE, 0.000000
+PARM, FENCE_TYPE, 3.000000
+PARM, FENCE_ACTION, 1.000000
+PARM, FENCE_ALT_MAX, 100.0000
+PARM, FENCE_RADIUS, 150.0000
+PARM, FENCE_MARGIN, 2.000000
+PARM, GPSGLITCH_ENABLE, 1.000000
+PARM, MOT_TCRV_ENABLE, 1.000000
+PARM, MOT_TCRV_MIDPCT, 52.00000
+PARM, MOT_TCRV_MAXPCT, 93.00000
+PARM, MOT_SPIN_ARMED, 100.0000
+PARM, RCMAP_ROLL, 1.000000
+PARM, RCMAP_PITCH, 2.000000
+PARM, RCMAP_THROTTLE, 3.000000
+PARM, RCMAP_YAW, 4.000000
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 2, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1
+MOT, 1, 1, 1, 1

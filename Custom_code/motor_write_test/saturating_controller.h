@@ -24,10 +24,10 @@
 #include <math.h>
 #include <AP_Math.h>
 
-#define phi_low 10*PI/180
+#define phi_low 30*PI/180
 #define theta_low 15*PI/180
-#define c_phi 0.817
-#define c_theta 0.109
+#define c_phi 0.817/(2*3)//0.817
+#define c_theta 0.109//0.109
 #define delta_phi 5*PI/180
 #define delta_theta 5*PI/180
 #define small_delta_phi 0.1999
@@ -46,11 +46,11 @@
 
 #define arm 0.28 // m
 #define max_motor_thrust 1.095 //kg
-#define c_T max_motor_thrust/1000 // max input -> max thrust
-#define c_D c_T/3 // ???
+#define c_T max_motor_thrust/1000 // max input -> max thrust [N/s]
+#define c_D c_T/3 // ??? [N.m/s]
 
-#define torque_xy_max max_motor_thrust/(5*c_T*arm) // ???
-#define torque_z_max torque_xy_max/3 // ???
+#define torque_xy_max 0.15/2//0.15// ??? [N.m]
+#define torque_z_max 0.03//0.03 // ??? [N.m]
 
 
 
@@ -91,5 +91,7 @@ float compute_kz(Vector3<float> art_torques,Vector3<float> omega_f,float d_z);
 Matrix3<float> compute_D_matrix(Quaternion_D qxy, Quaternion_D qz, Vector3<float> omega_f, Vector3<float> art_torques);
 
 Vector3<float> fast_and_saturating_controller(Quaternion_D current_att, Quaternion_D desired_att, Vector3<float> omega_f);
+
+float map(float x, float in_min, float in_max, float out_min, float out_max);
 
 void to_motors(float Thrust, Vector3<float> torques, uint16_t * u1,uint16_t * u2,uint16_t * u3,uint16_t * u4);

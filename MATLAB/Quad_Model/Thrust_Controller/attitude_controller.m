@@ -33,11 +33,8 @@ function [ ] = attitude_controller( q_d )
         % get the error between the desired thrust direction and the
         % current one
         
-        disp('phi')
-        2*acos(qp)
+   
         phi(i) = 2*acos(qp);
-        disp('theta')
-        2*acos(qw)
         theta(i) = 2*acos(qw);
         
         if i == 3
@@ -111,7 +108,7 @@ function [ ] = attitude_controller( q_d )
         % movement, to allow for a smooth settling
         
         if qp ~=1
-            phi_dot = -(q_x*w(i-1,1)+q_y*w(i-1,2))/sqrt(1-qp*qp);
+            phi_dot =-e_phi'*w(i-1,:)';
         else
             phi_dot = 0;
         end
@@ -160,14 +157,14 @@ function [ ] = attitude_controller( q_d )
         
         % only the part of theta_dot that is in connection to w_z
         if qw ~=1
-            disp('hole');
-            theta_dot = -q_z/sqrt(1-qw^2)*w(i-1,3)
+           % disp('hole');
+            theta_dot = -q_z/sqrt(1-qw^2)*w(i-1,3);
         else
             theta_dot = 0;
         end
         
         
-        switch_curve_theta = -real(sqrt(v_2_theta^2-2*(torque_z*(theta_low-theta(i)))/J_z))  
+        switch_curve_theta = -real(sqrt(v_2_theta^2-2*(torque_z*(theta_low-theta(i)))/J_z));  
         s_surf_theta(i) = switch_curve_theta;
         T_z = torque_field(3);
         
@@ -214,7 +211,7 @@ function [ ] = attitude_controller( q_d )
         
         % the real theta_dot
         if qw~=1 && qp~=1
-            theta_dot = -q_z*(q_y*w(i-1,1)-q_x*w(i-1,2))/(sqrt(1-qw^2)*qp) - q_z*w(i-1,3)/sqrt(1-qw^2)
+            theta_dot = -q_z*(q_y*w(i-1,1)-q_x*w(i-1,2))/(sqrt(1-qw^2)*qp) - q_z*w(i-1,3)/sqrt(1-qw^2);
         else
             theta_dot = 0;
         end
@@ -224,7 +221,8 @@ function [ ] = attitude_controller( q_d )
         d_z_up = xi_function(r_theta*switch_curve_theta,switch_curve_theta,theta_dot,d_z_dec,d_z_acc);
         d_z_down = small_delta_theta;
         
-        d_z = xi_function(phi_up,phi_up - delta_phi,phi(i),double_xi_function(theta_up-delta_theta,theta_up,theta_low,theta_low+delta_theta,theta(i),d_z_down,d_z_up),d_z_down)
+        d_z = xi_function(phi_up,phi_up - delta_phi,phi(i),double_xi_function(theta_up-delta_theta,theta_up,theta_low,theta_low+delta_theta,theta(i),d_z_down,d_z_up),d_z_down);
+        
         
         d_ortho = small_delta_phi;
         
@@ -281,14 +279,14 @@ function [ ] = attitude_controller( q_d )
         
        w_z = w(i-1,3);
         
-       a = (d_z*w_z)^2
-       b = (-2*T_z*d_z*w_z)
-       c = (T_z^2-torque_z^2)
-       sq = b^2-4*a*c
+       a = (d_z*w_z)^2;
+       b = (-2*T_z*d_z*w_z);
+       c = (T_z^2-torque_z^2);
+       sq = b^2-4*a*c;
        
        if sq < 0 || a == 0
            
-           disp('aqui2');
+           %disp('aqui2');
            k_2 = 1;
            
        else if sq > b^2
@@ -317,16 +315,16 @@ function [ ] = attitude_controller( q_d )
            
        end
        
-       disp('k_xy');
-       disp(k_1);
-       disp('k_z');
-       disp(k_2);
+%        disp('k_xy');
+%        disp(k_1);
+%        disp('k_z');
+%        disp(k_2);
 
        D=[k_1*D_xy, zeros(2,1); zeros(1,2) d_z*k_2];
 
         
        torques(i,:) = (torque_field'-(D*w(i-1,:)')');
-       a=torques(i,:)
+       a=torques(i,:);
        
         
     end

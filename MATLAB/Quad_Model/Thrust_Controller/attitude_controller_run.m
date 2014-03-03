@@ -10,7 +10,7 @@ format shortG
 
 
 % Controller parameters
-phi_low = 10*pi/180;
+phi_low = 20*pi/180;
 theta_low = 15*pi/180;
 phi_up = 175*pi/180;
 theta_up = 175*pi/180;
@@ -18,8 +18,8 @@ delta_phi = 5*pi/180;
 delta_theta = 5*pi/180;
 small_delta_phi = 0.1999;
 small_delta_theta = 0.0961; 
-c_phi = 0.817;
-c_theta = 0.109;
+c_phi = 0.817/(2*2);%0.817;
+c_theta = 0.109;%0.109
 v_1_phi = 0.1;
 v_2_phi = 1.425;
 v_1_theta = 0.1;
@@ -39,7 +39,7 @@ d = 0.16;
 J_x = 8.5*10^-3;
 J_y = 8.5*10^-3;
 J_z = 14*10^-3;
-torque_xy = 0.15;
+torque_xy = 0.15/2;
 torque_z = 0.03;
 
 %%
@@ -54,7 +54,7 @@ theta = zeros(floor(T/t_s),1);
 theta_dotv = zeros(floor(T/t_s),1);
 q = zeros(floor(T/t_s),4);
 q_error = zeros(floor(T/t_s),4);
-q_d = angle_to_quat([0,0,0])
+q_d = angle_to_quat([170*pi/180,0,10*pi/180]);
 p = zeros(floor(T/t_s),3);
 v = zeros(floor(T/t_s),3);
 w = zeros(floor(T/t_s),3);
@@ -77,12 +77,12 @@ to_u = [km km km km;
 % Initial conditions
 phi_o = 170*pi/180;
 theta_o = 10*pi/180;
-q_o = angle_to_quat([45,65,32]);
+q_o = angle_to_quat([0,0,0]);
 w_o = [0,0,0];
 
-q_o = [-0.1925985,0.3859918,0.0100897,0.9021166];
+%q_o = [-0.1925985,0.3859918,0.0100897,0.9021166];
 
-phi(:,1)=phi_o;
+%phi(:,1)=phi_o;
 
 
 q(:,1)=q_o(1);
@@ -104,11 +104,11 @@ for t=3*t_s:t_s:T
     
     attitude_controller(q_d);
     
-    pause();
+    %pause();
     
     u(i,:) = to_u\[thrust; torques(i,:)'];
     
-    %quadcopter(u(i,:));
+    quadcopter(u(i,:));
     
 
     % insert noise
@@ -182,8 +182,8 @@ hold on
 title('Control torques');
 plot(t_s:t_s:T,torques(:,1),'r','Linewidth',line);
 plot(t_s:t_s:T,torques(:,2),'g','Linewidth',line);
-plot(t_s:t_s:T,torques(:,3),'--k','Linewidth',line);
-plot(t_s:t_s:T,sqrt(torques(:,1).^2+torques(:,2).^2),'--c','Linewidth',line);
+plot(t_s:t_s:T,torques(:,3),'k','Linewidth',line);
+plot(t_s:t_s:T,sqrt(torques(:,1).^2+torques(:,2).^2),'c','Linewidth',line);
 legend({'$\tau_x$','$\tau_y$','$\tau_z$','$||\tau_{xy}||$'},'interpreter', 'latex','fontsize',fontsize);
 
 % figure(6)
