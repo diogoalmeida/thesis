@@ -927,12 +927,13 @@ void setup() {
 
     // initialise notify system
     notify.init();
-
+    g.compass_enabled = true;
    
     
     // Initialise sensor
     ins.init(AP_InertialSensor::COLD_START, AP_InertialSensor::RATE_100HZ);
     ahrs.init();
+    ahrs.set_compass(&compass);
     
     // Initialise motor write
     hal.rcout->set_freq(0xF, 490);
@@ -966,6 +967,7 @@ uint16_t  motor_val[4]={1000,1000,1000,1000}; // array with motor inputs: [F,B,L
 uint32_t timer = 0;
 uint16_t rcthr, rcyaw, rcpit, rcroll;   // Variables to store rc input
 float roll_off = 0, pitch_off = 0, yaw_off = 0;
+float Thrust = 0, Roll = 0, Pitch = 0, Yaw = 0;
 Quaternion_D q_1,q_2,q_3,q_4,q_5;
 Vector3<float> tau;
 
@@ -980,12 +982,13 @@ void loop()
     // MY CODE HERE
 
     read_AHRS();
-    if(j==0){
+
+    /*if(j==0){
       roll_off = ahrs.roll;
       pitch_off = ahrs.pitch;
       yaw_off = ahrs.yaw;
       j=1;
-    }
+    }*/
     
     // RADIO CODE
     hal.rcin->read(channels, 8);
@@ -997,29 +1000,55 @@ void loop()
     rcpit = channels[1];
     rcroll = channels[0];
 
-    q_1.from_euler(ahrs.roll,ahrs.pitch,ahrs.yaw-yaw_off);//ahrs.roll,ahrs.pitch,ahrs.yaw); // current attitude
+    
     //DEBUG
     /*q_1.q1=-0.2710171;
     q_1.q2=-0.9086057;
     q_1.q3=0.3172428;
     q_1.q4=0.0185002;*/
-    q_2.from_euler(0,0,0); // desired attitude
+    
     
     //DEBUG
     /*omega.x = 1.749156;
     omega.y = 0.9093719;
     omega.z = 5.860670;*/
 
-    //hal.console->printf_P(PSTR("A: [%.2f,%.2f,%.2f]\r\n"),ToDeg(ahrs.roll),ToDeg(ahrs.pitch),ToDeg(ahrs.yaw-yaw_off));
+    //if(ahrs.use_compass())
+      //hal.console->printf_P(PSTR("ok"));
+    hal.console->printf_P(PSTR("A: [%.2f,%.2f,%.2f]\r\n"),ToDeg(ahrs.roll),ToDeg(ahrs.pitch),ToDeg(ahrs.yaw));
     //hal.console->printf_P(PSTR("q: [%.7f,%.7f,%.7f,%.7f]\r\n"),q_1.q1,q_1.q2,q_1.q3,q_1.q4);
     //hal.console->printf_P(PSTR("o: [%.7f,%.7f,%.7f]\r\n"),omega.x,omega.y,omega.z);
     //hal.console->printf_P(PSTR("t: [%.7f,%.7f,%.7f]\r\n"),tau.x,tau.y,tau.z);
     // needs conversion from radio input to thrust.
 
-    //hal.console->printf_P(PSTR("T: %.7f\r\n"),map_f(rcthr*1.0f,1032,1986,0.5,3.5));
-    if(rcthr > 1033){
+  
+
+    // Radio Processing    
+
+    Thrust = map_f(rcthr*1.0f,rT_min,rT_max,T_min,T_max);
+
+    if (rcthr  < rT_min +1) Thrust = 0; // Make sure the quad will be standing still when the minimum radio value is being sent
+    
+    Roll = map_f(rcroll*1.0f,rR_min,rR_max,R_min,R_max);
+
+    if(Roll>=-1 && Roll<=1) Roll = 0; // Ensure that 0 is received
+
+    Pitch = map_f(rcpit*1.0f,rP_min,rP_max,P_min,P_max);
+
+    if(Pitch>=-1 && Pitch<=1) Pitch = 0;
+
+    Yaw = map_f(rcyaw*1.0f,rY_min,rY_max,Y_min,Y_max);    
+
+    if(Yaw>=-2 && Yaw<=2) Yaw = 0;
+
+
+    q_1.from_euler(ahrs.roll,ahrs.pitch,ahrs.yaw);//ahrs.roll,ahrs.pitch,ahrs.yaw); // current attitude
+    q_2.from_euler(ToRad(Roll),ToRad(Pitch),ToRad(Yaw)); // desired attitude
+    //End of Radio Processing
+
+    if(Thrust > 0){
       tau = fast_and_saturating_controller(q_1,q_2,omega);
-      to_motors(map_f(rcthr*1.0f,1032,1986,0.5,3.0), tau, &motor_val[MOTOR_F],&motor_val[MOTOR_B],&motor_val[MOTOR_L],&motor_val[MOTOR_R]);
+      to_motors(Thrust, tau, &motor_val[MOTOR_F],&motor_val[MOTOR_B],&motor_val[MOTOR_L],&motor_val[MOTOR_R]);
     }else{
       tau.x = 0;
       tau.y = 0;
@@ -1030,8 +1059,8 @@ void loop()
     //hal.console->printf_P(PSTR("u: [ %d %d %d %d]\r\n"),motor_val[MOTOR_F],motor_val[MOTOR_B],motor_val[MOTOR_L],motor_val[MOTOR_R] );
 
     //Log_Write_Motors(motor_val[MOTOR_F],motor_val[MOTOR_B],motor_val[MOTOR_R],motor_val[MOTOR_L]);
-    Log_Write_torques(10000*tau.x,10000*tau.y,10000*tau.z);
-    Log_Write_Attitude();
+    //Log_Write_torques(10000*tau.x,10000*tau.y,10000*tau.z);
+    //Log_Write_Attitude();
     //hal.console->printf_P(PSTR("t: [%.7f,%.7f,%.7f]\r\n"),tau.x,tau.y,tau.z);
 
 

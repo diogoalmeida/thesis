@@ -52,6 +52,28 @@
 #define torque_xy_max 0.15/2//0.15// ??? [N.m]
 #define torque_z_max 0.03//0.03 // ??? [N.m]
 
+// RC params
+#define rT_min 1032
+#define rT_max 1986
+#define T_min 0.5
+#define T_max 3.0
+
+#define rR_min 1032
+#define rR_max 1986
+#define R_min  -45
+#define R_max  45
+
+#define rP_min 1032
+#define rP_max 1986
+#define P_min  -45
+#define P_max  45
+
+#define rY_min 1032
+#define rY_max 1986
+#define Y_min  -180
+#define Y_max  180
+
+
 
 
 
