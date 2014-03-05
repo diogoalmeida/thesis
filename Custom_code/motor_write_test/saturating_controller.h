@@ -24,8 +24,8 @@
 #include <math.h>
 #include <AP_Math.h>
 
-#define phi_multiplier 1
-#define torque_multiplier 4
+#define phi_multiplier 4
+#define torque_multiplier 1.5
 
 #define phi_low 10*phi_multiplier*PI/180
 #define theta_low 15*PI/180
@@ -33,19 +33,19 @@
 #define c_theta 0.109//0.109
 #define delta_phi 5*PI/180
 #define delta_theta 5*PI/180
-#define small_delta_phi 0.1999
+#define small_delta_phi 0.1999/5
 #define small_delta_z 0.0961
 #define d_ortho small_delta_phi
 #define phi_up 175*PI/180
 #define theta_up 175*PI/180
-#define r_phi 0.75/2
+#define r_phi 0.75
 #define r_theta 0.75
 #define v_phi_max 1.425
 #define v_theta_max 0.624
 #define v_phi 0.1
 #define v_theta 0.1
-#define J_x 0.0085
-#define J_z 0.014
+#define J_x 0.0196//0.0085
+#define J_z 0.0376//0.014
 
 #define arm 0.28 // m
 #define max_motor_thrust 1.095 //kg

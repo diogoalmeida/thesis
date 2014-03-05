@@ -961,14 +961,14 @@ void setup() {
 
 }
 
-#define FREQ_OP 70
+#define FREQ_OP 115
 
 int i=0,j=0, faults = 0;
 uint16_t channels[8];  // array for raw channel values 
 uint16_t  motor_val[4]={1000,1000,1000,1000}; // array with motor inputs: [F,B,L,R]
 uint32_t timer = 0;
 uint16_t rcthr, rcyaw, rcpit, rcroll;   // Variables to store rc input
-float roll_off = 0, pitch_off = 0, yaw_off = 0;
+float mroll = 0, mpitch = 0, myaw = 0;
 float Thrust = 0, Roll = 0, Pitch = 0, Yaw = 0;
 Quaternion_D q_1,q_2,q_3,q_4,q_5;
 Vector3<float> tau;
@@ -1063,8 +1063,11 @@ void loop()
     //hal.console->printf_P(PSTR("u: [ %d %d %d %d]\r\n"),motor_val[MOTOR_F],motor_val[MOTOR_B],motor_val[MOTOR_L],motor_val[MOTOR_R] );
 
     //Log_Write_Motors(motor_val[MOTOR_F],motor_val[MOTOR_B],motor_val[MOTOR_R],motor_val[MOTOR_L]);
-    //Log_Write_torques(10000*tau.x,10000*tau.y,10000*tau.z);
-    //Log_Write_Attitude();
+    
+    if(Roll>0){
+      Log_Write_torques(10000*tau.x,10000*tau.y,10000*tau.z);
+      Log_Write_Attitude();
+    }
     //hal.console->printf_P(PSTR("t: [%.7f,%.7f,%.7f]\r\n"),tau.x,tau.y,tau.z);
 
 
@@ -1088,7 +1091,7 @@ void loop()
     
     if(i==0){
       faults++;
-      //hal.console->printf_P(PSTR("f: %d\r\n"),faults);
+      hal.console->printf_P(PSTR("f: %d\r\n"),faults);
 
     }else
       faults = 0;
