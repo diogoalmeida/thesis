@@ -291,7 +291,7 @@ bool AP_AHRS_DCM::have_gps(void) const
 // return true if we should use the compass for yaw correction
 bool AP_AHRS_DCM::use_compass(void) const
 {
-    if (!_compass || !_compass->use_for_yaw()) {
+    /*if (!_compass || !_compass->use_for_yaw()) {
         // no compass available
         return false;
     }
@@ -312,7 +312,7 @@ bool AP_AHRS_DCM::use_compass(void) const
     if (error > 4500 && _wind.length() < _gps->ground_speed_cm*0.008f) {
         // start using the GPS for heading
         return false;
-    }
+    }*/
 
     // use the compass
     return true;    
@@ -346,6 +346,7 @@ AP_AHRS_DCM::drift_correction_yaw(void)
             }
             new_value = true;
             yaw_error = yaw_error_compass();
+            
         }
     } else if (_flags.fly_forward && have_gps()) {
         /*
@@ -393,7 +394,7 @@ AP_AHRS_DCM::drift_correction_yaw(void)
         // slowly decay _omega_yaw_P to cope with loss
         // of our yaw source
         _omega_yaw_P *= 0.97f;
-        return;
+        //return;
     }
 
     // convert the error vector to body frame
@@ -460,7 +461,7 @@ AP_AHRS_DCM::drift_correction(float deltat)
     // we have integrated over
     _ra_deltat += deltat;
 
-    if (!have_gps() || 
+    /*if (!have_gps() || 
         _gps->status() < GPS::GPS_OK_FIX_3D || 
         _gps->num_sats < _gps_minsats) {
         // no GPS, or not a good lock. From experience we need at
@@ -507,9 +508,9 @@ AP_AHRS_DCM::drift_correction(float deltat)
         Vector3f airspeed = velocity - _wind;
         airspeed.z = 0;
         _last_airspeed = airspeed.length();
-    }
+    }*/
 
-    if (have_gps()) {
+    /*if (have_gps()) {
         // use GPS for positioning with any fix, even a 2D fix
         _last_lat = _gps->latitude;
         _last_lng = _gps->longitude;
@@ -523,15 +524,15 @@ AP_AHRS_DCM::drift_correction(float deltat)
         // update dead-reckoning position estimate
         _position_offset_north += velocity.x * _ra_deltat;
         _position_offset_east  += velocity.y * _ra_deltat;        
-    }
+    }*/
 
     // see if this is our first time through - in which case we
     // just setup the start times and return
-    if (_ra_sum_start == 0) {
+    /*if (_ra_sum_start == 0) {
         _ra_sum_start = last_correction_time;
         _last_velocity = velocity;
         return;
-    }
+    }*/
 
     // equation 9: get the corrected acceleration vector in earth frame. Units
     // are m/s/s

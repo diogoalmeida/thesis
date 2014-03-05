@@ -1,3 +1,4 @@
+    //hal.console->printf_P(PSTR("q: [%.7f,%.7f,%.7f,%.7f]\r\n"),q_1.q1,q_1.q2,q_1.q3,q_1.q4);
 /// -*- tab-width: 4; Mode: C++; c-basic-offset: 4; indent-tabs-mode: nil -*-
 
 #define THISFIRMWARE "ArduCopter V3.1-rc2"
@@ -950,6 +951,7 @@ void setup() {
     board_vcc_analog_source = hal.analogin->channel(ANALOG_INPUT_BOARD_VCC);*/
 
     init_ardupilot();
+    init_compass();
     motors.armed(true);
     start_logging();
     update_auto_armed();
@@ -980,9 +982,9 @@ void loop()
   //if (ins.num_samples_available() >= 1) {
   
     // MY CODE HERE
-
+    compass.accumulate();
     read_AHRS();
-
+    
     /*if(j==0){
       roll_off = ahrs.roll;
       pitch_off = ahrs.pitch;
@@ -1015,8 +1017,8 @@ void loop()
 
     //if(ahrs.use_compass())
       //hal.console->printf_P(PSTR("ok"));
-    hal.console->printf_P(PSTR("A: [%.2f,%.2f,%.2f]\r\n"),ToDeg(ahrs.roll),ToDeg(ahrs.pitch),ToDeg(ahrs.yaw));
-    //hal.console->printf_P(PSTR("q: [%.7f,%.7f,%.7f,%.7f]\r\n"),q_1.q1,q_1.q2,q_1.q3,q_1.q4);
+    //hal.console->printf_P(PSTR("A: [%.2f,%.2f,%.2f]\r\n"),ToDeg(ahrs.roll),ToDeg(ahrs.pitch),ToDeg(ahrs.yaw));
+    //hal.console->printf_P(PSTR("Yaq: [%.2f, %d]\r\n"),ToDeg(ahrs.yaw),ahrs.yaw_sensor);
     //hal.console->printf_P(PSTR("o: [%.7f,%.7f,%.7f]\r\n"),omega.x,omega.y,omega.z);
     //hal.console->printf_P(PSTR("t: [%.7f,%.7f,%.7f]\r\n"),tau.x,tau.y,tau.z);
     // needs conversion from radio input to thrust.
@@ -1042,8 +1044,10 @@ void loop()
     if(Yaw>=-2 && Yaw<=2) Yaw = 0;
 
 
-    q_1.from_euler(ahrs.roll,ahrs.pitch,ahrs.yaw);//ahrs.roll,ahrs.pitch,ahrs.yaw); // current attitude
-    q_2.from_euler(ToRad(Roll),ToRad(Pitch),ToRad(Yaw)); // desired attitude
+    q_1.from_euler(ahrs.roll,0,0);//ahrs.roll,ahrs.pitch,ahrs.yaw); // current attitude
+    //q_2.from_euler(ToRad(Roll),ToRad(Pitch),ToRad(Yaw)); // desired attitude
+
+    q_2.from_euler(ToRad(Roll),0,0);
     //End of Radio Processing
 
     if(Thrust > 0){
