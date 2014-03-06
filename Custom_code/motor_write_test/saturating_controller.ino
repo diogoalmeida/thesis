@@ -252,7 +252,7 @@ float compute_acc_damping_phi(float phi_dot, float T_phi)
 */
 float compute_dec_damping_phi(float phi_dot, float T_phi)
 {
-	return -(T_phi-torque_xy_max)/phi_dot;
+	return -(T_phi+torque_xy_max)/phi_dot;
 }
 
 /*
@@ -268,13 +268,18 @@ float compute_star_damping_phi(float phi_dot,float dec_phi, float acc_phi, float
 */
 float compute_damping_phi(Quaternion_D qxy,Quaternion_D qz, Vector3<float> omega_f,float phi,float theta)
 {
-	float phi_dot=0,switch_phi=0,T_phi=0;
+	float phi_dot=0,switch_phi=0,T_phi=0, phi_star = 0,phi_dec = 0,phi_acc = 0;
 
 	phi_dot = compute_phi_dot(qxy,omega_f);
 	switch_phi = compute_switch_curve_phi(phi);
 	T_phi = compute_torque_phi(qxy,phi,theta,omega_f);
+	phi_dec = compute_dec_damping_phi(phi_dot,T_phi);
+	phi_acc = compute_acc_damping_phi(phi_dot,T_phi);
+	phi_star = compute_star_damping_phi(phi_dot,phi_dec,phi_acc,switch_phi);
 
-	return double_xi_f(phi_up-delta_phi,phi_up,phi_low,phi_low+delta_phi,small_delta_phi,compute_star_damping_phi(phi_dot,compute_dec_damping_phi(phi_dot,T_phi),compute_acc_damping_phi(phi_dot,T_phi),switch_phi),phi);
+	//hal.console->printf_P(PSTR("phi:[%.7f,%.7f,%.7f,%.7f,%.7f]\r\n"),phi_dec,phi_star,phi_acc,phi_dot,T_phi);
+
+	return double_xi_f(phi_up-delta_phi,phi_up,phi_low,phi_low+delta_phi,small_delta_phi,phi_star,phi);
 }
 
 float compute_acc_damping_z(float theta_dot_hole, float T_z)
@@ -315,6 +320,8 @@ float compute_damping_z(Quaternion_D qxy,Quaternion_D qz, Vector3<float> omega_f
 	d_acc_z = compute_acc_damping_z(theta_dot_hole, T_z);
 	d_star_z = compute_star_damping_z(theta_dot,theta_dot_hole,d_dec_z,d_acc_z,switch_theta);
 	d_xi = double_xi_f(theta_up-delta_theta,theta_up,theta_low,theta_low+delta_theta,small_delta_z,d_star_z,theta);
+
+
 
 	return xi_f(phi_up,phi_up-delta_phi,d_xi,small_delta_z,phi);
 }
@@ -430,6 +437,8 @@ Matrix3<float> compute_D_matrix(Quaternion_D qxy, Quaternion_D qz, Vector3<float
 	d5 = A*qy*qy+B*qx*qx;
 	d9 = k_z*d_z;
 
+	
+
 	Matrix3<float> ret(d1,d2,d3,d4,d5,d6,d7,d8,d9);
 
 	return ret;
@@ -499,11 +508,12 @@ float map(float x, float in_min, float in_max, float out_min, float out_max)
 void to_motors(float Thrust, Vector3<float> torques, uint16_t * u1,uint16_t * u2,uint16_t * u3,uint16_t * u4)
 {
 	float u1f = 0, u2f = 0, u3f = 0, u4f = 0;
+	float fail_factor = 1;
 
-	u1f = 0.5/(arm*c_T)*torques.y + 0.25/(c_D)*torques.z + 0.25/(c_T)*Thrust;
-	u2f = -0.5/(arm*c_T)*torques.y + 0.25/(c_D)*torques.z + 0.25/(c_T)*Thrust;
-	u3f = 0.5/(arm*c_T)*torques.x - 0.25/(c_D)*torques.z + 0.25/(c_T)*Thrust;
-	u4f = -0.5/(arm*c_T)*torques.x - 0.25/(c_D)*torques.z + 0.25/(c_T)*Thrust;
+	u1f = 0.5/(arm*c_T)*torques.y*fail_factor + 0.25/(c_D)*torques.z*fail_factor + 0.25/(c_T)*Thrust;
+	u2f = -0.5/(arm*c_T)*torques.y*fail_factor + 0.25/(c_D)*torques.z*fail_factor + 0.25/(c_T)*Thrust;
+	u3f = 0.5/(arm*c_T)*torques.x*fail_factor - 0.25/(c_D)*torques.z*fail_factor + 0.25/(c_T)*Thrust;
+	u4f = -0.5/(arm*c_T)*torques.x*fail_factor - 0.25/(c_D)*torques.z*fail_factor + 0.25/(c_T)*Thrust;
 
 	if(u1f > 1000)
 		u1f = 1000;

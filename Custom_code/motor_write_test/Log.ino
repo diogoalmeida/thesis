@@ -434,11 +434,11 @@ static void Log_Write_Attitude()
 {
     struct log_Attitude pkt = {
         LOG_PACKET_HEADER_INIT(LOG_ATTITUDE_MSG),
-        roll_in     : (int16_t)control_roll,
+        roll_in     : (int16_t)omega.x,//control_roll,
         roll        : (int16_t)ahrs.roll_sensor,
-        pitch_in    : (int16_t)control_pitch,
+        pitch_in    : (int16_t)omega.y,//control_pitch,
         pitch       : (int16_t)ahrs.pitch_sensor,
-        yaw_in      : (int16_t)g.rc_4.control_in,
+        yaw_in      : (int16_t)omega.z,//g.rc_4.control_in,
         yaw         : (uint16_t)ahrs.yaw_sensor,
         nav_yaw     : (uint16_t)nav_yaw
     };

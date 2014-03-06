@@ -982,7 +982,7 @@ void loop()
   //if (ins.num_samples_available() >= 1) {
   
     // MY CODE HERE
-    compass.accumulate();
+    //compass.accumulate();
     read_AHRS();
     
     /*if(j==0){
@@ -1004,23 +1004,23 @@ void loop()
 
     
     //DEBUG
-    /*q_1.q1=-0.2710171;
-    q_1.q2=-0.9086057;
-    q_1.q3=0.3172428;
-    q_1.q4=0.0185002;*/
+    /*q_1.q1=0.92978;
+    q_1.q2=0;
+    q_1.q3=00;
+    q_1.q4=-0.36812;*/
     
     
     //DEBUG
-    /*omega.x = 1.749156;
-    omega.y = 0.9093719;
-    omega.z = 5.860670;*/
+    /*omega.x = 9*0.000001;
+    omega.y = 0;
+    omega.z = 0;*/
 
     //if(ahrs.use_compass())
       //hal.console->printf_P(PSTR("ok"));
-    //hal.console->printf_P(PSTR("A: [%.2f,%.2f,%.2f]\r\n"),ToDeg(ahrs.roll),ToDeg(ahrs.pitch),ToDeg(ahrs.yaw));
+  
     //hal.console->printf_P(PSTR("Yaq: [%.2f, %d]\r\n"),ToDeg(ahrs.yaw),ahrs.yaw_sensor);
-    //hal.console->printf_P(PSTR("o: [%.7f,%.7f,%.7f]\r\n"),omega.x,omega.y,omega.z);
-    //hal.console->printf_P(PSTR("t: [%.7f,%.7f,%.7f]\r\n"),tau.x,tau.y,tau.z);
+    
+   
     // needs conversion from radio input to thrust.
 
   
@@ -1044,14 +1044,26 @@ void loop()
     if(Yaw>=-2 && Yaw<=2) Yaw = 0;
 
 
-    q_1.from_euler(ahrs.roll,0,0);//ahrs.roll,ahrs.pitch,ahrs.yaw); // current attitude
+    q_1.from_euler(ahrs.roll,0,0);//ahrs.pitch,ahrs.yaw);//ahrs.roll,ahrs.pitch,ahrs.yaw); // current attitude
+    //q_1.from_euler(ToRad(6.99),ToRad(0),ToRad(0));
     //q_2.from_euler(ToRad(Roll),ToRad(Pitch),ToRad(Yaw)); // desired attitude
 
     q_2.from_euler(ToRad(Roll),0,0);
     //End of Radio Processing
 
+    //omega.x=0;
+    omega.y=0;
+    omega.z=0;
+
+    //hal.console->printf_P(PSTR("[%.7f,%.7f,%.7f]\r\n"),omega.x,omega.y,omega.z);
+
     if(Thrust > 0){
       tau = fast_and_saturating_controller(q_1,q_2,omega);
+
+
+       //hal.console->printf_P(PSTR("A: [%.2f,%.2f,%.2f]\r\n"),ToDeg(ahrs.roll),ToDeg(ahrs.pitch),ToDeg(ahrs.yaw));      
+       //hal.console->printf_P(PSTR("[%.7f,%.7f,%.7f]\r\n"),omega.x,omega.y,omega.z);
+       //hal.console->printf_P(PSTR("t: [%.7f,%.7f,%.7f]\r\n"),tau.x,tau.y,tau.z);
       to_motors(Thrust, tau, &motor_val[MOTOR_F],&motor_val[MOTOR_B],&motor_val[MOTOR_L],&motor_val[MOTOR_R]);
     }else{
       tau.x = 0;
@@ -1067,6 +1079,7 @@ void loop()
     if(Roll>0){
       Log_Write_torques(10000*tau.x,10000*tau.y,10000*tau.z);
       Log_Write_Attitude();
+      Log_Write_Data(1, omega.x);
     }
     //hal.console->printf_P(PSTR("t: [%.7f,%.7f,%.7f]\r\n"),tau.x,tau.y,tau.z);
 

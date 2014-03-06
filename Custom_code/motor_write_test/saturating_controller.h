@@ -19,25 +19,27 @@
 
 // Required variables
 
+#ifndef SATURATING_CONTROLLER
+#define SATURATING_CONTROLLER
 
 #include <quaternion_diogo.h>
 #include <math.h>
 #include <AP_Math.h>
 
-#define phi_multiplier 4
-#define torque_multiplier 1.5
+#define phi_multiplier 1
+#define torque_multiplier (2)
 
-#define phi_low 10*phi_multiplier*PI/180
-#define theta_low 15*PI/180
-#define c_phi 0.817/(torque_multiplier*phi_multiplier)//0.817
-#define c_theta 0.109//0.109
-#define delta_phi 5*PI/180
-#define delta_theta 5*PI/180
-#define small_delta_phi 0.1999/5
-#define small_delta_z 0.0961
+#define phi_low ((10*phi_multiplier*PI)/180)
+#define theta_low ((15*PI)/180)
+#define c_phi (0.817/(torque_multiplier*phi_multiplier))//0.817
+#define c_theta 0//0.109
+#define delta_phi ((5*PI)/180)
+#define delta_theta ((5*PI)/180)
+#define small_delta_phi (0.1999)
+#define small_delta_z (0.0961)
 #define d_ortho small_delta_phi
-#define phi_up 175*PI/180
-#define theta_up 175*PI/180
+#define phi_up (175*PI/180)
+#define theta_up (175*PI/180)
 #define r_phi 0.75
 #define r_theta 0.75
 #define v_phi_max 1.425
@@ -48,12 +50,12 @@
 #define J_z 0.0376//0.014
 
 #define arm 0.28 // m
-#define max_motor_thrust 1.095 //kg
-#define c_T max_motor_thrust/1000 // max input -> max thrust [N/s]
-#define c_D c_T/3 // ??? [N.m/s]
+#define max_motor_thrust 1.095*4 //kg
+#define c_T (max_motor_thrust/1000) // max input -> max thrust [N/s]
+#define c_D (c_T/3) // ??? [N.m/s]
 
-#define torque_xy_max 0.15/torque_multiplier//0.15// ??? [N.m]
-#define torque_z_max 0.03//0.03 // ??? [N.m]
+#define torque_xy_max (0.15/torque_multiplier)//0.15// ??? [N.m]
+#define torque_z_max 0//0.03 // ??? [N.m]
 
 // RC params
 #define rT_min 1032
@@ -120,3 +122,5 @@ Vector3<float> fast_and_saturating_controller(Quaternion_D current_att, Quaterni
 float map(float x, float in_min, float in_max, float out_min, float out_max);
 
 void to_motors(float Thrust, Vector3<float> torques, uint16_t * u1,uint16_t * u2,uint16_t * u3,uint16_t * u4);
+
+#endif
