@@ -508,7 +508,7 @@ float map(float x, float in_min, float in_max, float out_min, float out_max)
 void to_motors(float Thrust, Vector3<float> torques, uint16_t * u1,uint16_t * u2,uint16_t * u3,uint16_t * u4)
 {
 	float u1f = 0, u2f = 0, u3f = 0, u4f = 0;
-	float fail_factor = 1;
+	float fail_factor = 0.25;
 
 	u1f = 0.5/(arm*c_T)*torques.y*fail_factor + 0.25/(c_D)*torques.z*fail_factor + 0.25/(c_T)*Thrust;
 	u2f = -0.5/(arm*c_T)*torques.y*fail_factor + 0.25/(c_D)*torques.z*fail_factor + 0.25/(c_T)*Thrust;
